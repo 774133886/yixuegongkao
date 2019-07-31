@@ -1,0 +1,13 @@
+<!--pages/login/login.wxml-->
+<view>
+  <image class="logoImg" src="../../files/img_logo.png"></image>
+  <view class="curForm">
+    <view class="flex_dom">
+      <input class="placeholder-999 font30 flex_1" placeholder="请输入手机号码"></input>
+    </view>
+    <view class="flex_dom">
+      <input class="placeholder-999 font30" placeholder="请输入验证码"></input>
+      <view class="tellCode font30">获取验证码</view>
+    </view>
+  </view>
+</view>
