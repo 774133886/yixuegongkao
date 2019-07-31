@@ -1,0 +1,150 @@
+<!--pages/index/index.wxml-->
+
+<import src="../../wxParse/wxParse.wxml"/>
+
+<view class='indexFixed' bindtap='goPersonal'>我的..</view>
+
+<view class='hgt_100 flex_column'>
+<view class='font28 p-v-30 text-center color-999' wx:if="{{noData}}">暂无数据~</view>
+<swiper wx:if="{{!noData}}" class='flex_1 indexSwiper {{isIphone ? "indexSwiper2" : ""}}' indicator-dots="{{false}}" circular="{{true}}" current="{{swiperIdx}}" bindchange="swiperChange">
+  <swiper-item class='hgt_100 flex_column indexCen' wx:for="{{list}}" wx:key="item" wx:for-index="index">
+    <view class='indexHead'>
+      <view class='ih_box curBg flex_dom relative'>
+        <view style="margin-top: 20rpx">
+          <view class='color-fff font36 hide111'>{{item.name}}</view>
+          <text class='color-fff font28 m-t-10 line3'>{{item.description}}</text>
+        </view>
+        <view class='indexShareIcon' bindtap='closeShareMask'>
+          <image src='../../files/share.png'></image>
+        </view>
+      </view>
+    </view>
+    <view class='flex_1 indexCtt'>
+      <scroll-view scroll-y="{{true}}" scroll-top="{{scrollTop}}" id='indexCtt'>
+      <view wx:for="{{item.articles}}" wx:key="article" wx:for-index="idx" wx:for-item="article" class='icItem flex_dom flex_item_mid'  bindtap='goReadMain' data-item="{{article}}" data-book="{{item}}" id="{{id}}">
+        <view wx:if="{{item.articles[idx-1] && item.articles[idx-1].today && item.articles[idx-1].time}}" class="ic_text font26 color-f9ab71">{{article.name}}</view>
+        <view wx:else class='ic_text font26 {{article.today ? (article.time ? "color-ff5a71" : "color-f9ab71") : (article.read ? "color-ff5a71" : "color-333")}}'>{{article.name}}</view>
+        <view class='ic_btn curBg2' data-item="{{item}}" bindtap='openMask' data-content="{{item.content}}" wx:if="{{!item.buy && idx == 0}}">{{isIos?'开启阅读':'一元完成任务'}}</view>
+        <view class='text-right wid180' wx:if="{{(article.read && !article.today) || (article.today && article.time)}}">
+          <image class='completeBtn' src='../../files/flag.png'></image>
+          <text class='completeText'>{{article.time}}</text>
+        </view>
+        <view wx:if="{{article.today && !article.time}}" class='ic_btn curBg2'><text>{{idx+1}}/</text>{{item.maxday}}天</view>
+        <view wx:if="{{item.articles[idx-1] && item.articles[idx-1].today && item.articles[idx-1].time}}" class='ic_btn curBg2'><text>{{idx+1}}/</text>{{item.maxday}}天</view>
+      </view>
+    </scroll-view>
+    </view>
+    
+    <view class='indexFoot'>
+      <view class='if_text font24 m-b-20'>每天来读，连续{{item.maxday}}天完成任务</view>
+    </view>
+  </swiper-item>
+</swiper>
+<view class='indexCen {{isIphone ? "btm68" : ""}}'>
+  <view class='if_dot flex_dom p-v-10'>
+    <view wx:for="{{list}}" wx:key="item" wx:for-index="idx" class='flex_1 {{activeIdx == idx ? "active" : ""}}'></view>
+  </view>
+</view>
+</view>
+<!-- 首次阅读弹窗 -->
+<view class='indexMask {{mask ? "" : "hide"}}'>
+  <view class='flex_column maskCenter'>
+    <view class='flex_1 flex_column maskCtt'>
+      <view class='im_head font36 color-fff curBg3'>坚持每日阅读</view>
+      <scroll-view scroll-y="{{true}}" class='im_ctt flex_1 font28'>
+        <view class='color-333' style='padding: 25rpx'>
+        <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+        </view>
+      </scroll-view>
+      <view class='im_text'>
+        <view class='im_text_tit'>
+          <image src='../../files/horn.png'></image>
+          <view class='font28 color-333 font-w6'>必读：挑战规则</view>
+        </view>
+        <view class='font22'>
+          <view class='color-666'>
+            <!-- 1.开启阅读后,坚持每日打卡,免费开启次日阅读任务; -->
+            1.一元开启后，坚持每日打卡，免费开放次日任务;
+          </view>
+          <view class='color-666'>
+            <!-- 2.分享小程序给好友开启一本书,您将获得一张复活卡; -->
+            2.分享小程序给好友，好友成功开启任务，你将获得一张复活卡;
+          </view>
+          <view class='color-666'>
+            <!-- 3.若阅读断开，您需要重启计划; -->
+            <!-- 3.若挑战中断，可用复活卡或加一元重启任务。 -->
+            3.若忘记按时学习打卡导致挑战中断，可用复活卡或加一元重启任务。
+          </view>
+          <!-- <view class='color-666'>
+            4.可同时开启多本读物阅读任务。
+          </view> -->
+        </view>
+      </view>
+      <view class='im_btn'>
+        <button class='curBg2' bindtap='goPay'>1元开启</button>
+      </view>
+    </view>
+    <view class='im_foot'>
+      <image bindtap='closeMask' src='../../files/close.png' class='im_close'></image>
+    </view>
+  </view>
+</view>
+
+<!-- 中断阅读弹窗 -->
+<view class='indexMask mask2 {{mask2 ? "" : "hide"}}'>
+  <view class='flex_column maskCenter'>
+    <view class='flex_1 flex_column maskCtt'>
+      <text class='font40 color-333 font-w6'>开启阅读</text>
+      <view class='around-center choiceType'>
+        <view wx:if="{{!isIos}}" class=' wid45 m-r-25 {{cType == "wechat" ? "curBg4" : ""}}' bindtap='choiceType' data-type="wechat">
+          <image class='icon-wechat m-b-10' src='../../files/wechat.png'></image>
+          <view>微信支付</view>
+          <view>1元开启</view>
+        </view>
+        <view class=' wid45 {{cType == "car" ? "curBg4" : ""}}' bindtap='choiceType' data-type="car">
+          <image class='icon-car m-b-10' src='../../files/car.png'></image>
+          <view>复活卡</view>
+          <view>开启</view>
+        </view>
+      </view>
+      <view>
+        <button class='im_btn2 curBg5' bindtap='goPay2'>确认</button>
+      </view>
+    </view>
+    <view class='im_foot'>
+      <image bindtap='closeMask2' src='../../files/close.png' class='im_close'></image>
+    </view>
+  </view>
+</view>
+
+<!-- 分享朋友圈 -->
+<view class='indexMask {{shareMask ? "" : "hide"}}'>
+  <view class='shareMask text-right'>
+    <image src='../../files/sharePic.png'></image>
+    <button class='share_btn curBg5' bindtap='closeShareMask'>知道了</button>
+  </view>
+</view>
+
+<!-- 滑动提示 -->
+<view class='indexMask {{firstIn && !isLogin ? "" : "hide"}}'>
+  <image class='swiperHand' src='../../files/swiperHand.png'></image>
+  <image class='swiperMark' src='../../files/swiperMark.png'></image>
+  <button class='curBg4 swiperMarkBtn' bindtap='firstCome'>我知道了</button>
+</view>
+
+<!-- 授权 -->
+<view class='indexMask {{isLogin ? "" : "hide"}}'>
+  <view class='maskBox text-center'>
+    <view class='font30 color-333'>您当前未登录</view>
+    <view class='font30 color-333'>是否授权微信登陆?</view>
+    <button class='curBg4' open-type="getUserInfo" bindgetuserinfo="userInfoHandler">微信授权快速登陆</button>
+  </view>
+</view>
+<!-- 授权手机号 -->
+<view class='indexMask {{isPhone ? "" : "hide"}}'>
+  <view class='maskBox text-center'>
+    <view class='font30 color-333'>您当前未绑定手机号</view>
+    <view class='font30 color-333'>是否授权手机号绑定?</view>
+    <button class='curBg4' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">微信授权获取手机号</button>
+  </view>
+</view>
