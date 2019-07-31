@@ -1,13 +1,7 @@
-/* pages/login/login.wxss */
-.logoImg{
-  display: block;
-  width: 220rpx;
-  height: 220rpx;
-  margin: 37rpx auto 92rpx;
-}
+/* pages/forget/forget.wxss */
 .curForm{
   width: 565rpx;
-  margin: auto;
+  margin: 53rpx auto 0;
 }
 .curFormItem{
   position: relative;
@@ -30,7 +24,7 @@
   z-index: 11;
 }
 .curFormButton{
-  margin-top: 57rpx;
+  margin-top: 72rpx;
 }
 .curFormButton button{
   height:80rpx;

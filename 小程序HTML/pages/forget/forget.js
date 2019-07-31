@@ -1,4 +1,4 @@
-// pages/login/login.js
+// pages/forget/forget.js
 Page({
 
   /**
@@ -15,9 +15,9 @@ Page({
 
   },
 
-  getCode: function(){
+  getCode: function () {
     //这里是要调api接口的，我这里就假装已经调成功了，返回200了
-    if (this.data.btntext != "获取验证码"){
+    if (this.data.btntext != "获取验证码") {
       return false;
     }
     var _this = this
@@ -34,8 +34,8 @@ Page({
       }
     }, 1000)  //  1000是1秒
   },
-  goForget: function(){
-    wx.navigateTo({url: "../forget/forget"})
+  goLogin:function(){
+    wx.navigateBack({url: '../login/login'})
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

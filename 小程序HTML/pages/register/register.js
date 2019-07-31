@@ -1,11 +1,12 @@
-// pages/login/login.js
+// pages/register/register.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    btntext: "获取验证码"
+    btntext: "获取验证码",
+    isCheck: false
   },
 
   /**
@@ -14,10 +15,14 @@ Page({
   onLoad: function (options) {
 
   },
-
-  getCode: function(){
+  checkText:function(){
+    this.setData({
+      isCheck: !this.data.isCheck
+    })
+  },
+  getCode: function () {
     //这里是要调api接口的，我这里就假装已经调成功了，返回200了
-    if (this.data.btntext != "获取验证码"){
+    if (this.data.btntext != "获取验证码") {
       return false;
     }
     var _this = this
@@ -33,9 +38,6 @@ Page({
         })
       }
     }, 1000)  //  1000是1秒
-  },
-  goForget: function(){
-    wx.navigateTo({url: "../forget/forget"})
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

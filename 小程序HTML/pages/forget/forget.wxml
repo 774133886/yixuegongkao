@@ -1,6 +1,5 @@
-<!--pages/login/login.wxml-->
+<!--pages/forget/forget.wxml-->
 <view>
-  <image class="logoImg" src="../../files/img_logo.png"></image>
   <view class="curForm">
     <view class="curFormItem">
       <input class="placeholder-999 font30" type="phone" placeholder="请输入手机号码"></input>
@@ -9,11 +8,17 @@
       <input class="placeholder-999 font30" type="number" maxlength="6" placeholder="请输入验证码"></input>
       <view class="tellCode font30" bindtap="getCode">{{btntext}}</view>
     </view>
+    <view class="curFormItem">
+      <input class="placeholder-999 font30" type="password" placeholder="请输入密码"></input>
+    </view>
+    <view class="curFormItem">
+      <input class="placeholder-999 font30" type="password" placeholder="确认请输入密码"></input>
+    </view>
     <view class="curFormButton">
-      <button class="font36" hover-class="btn-hover">登录</button>
+      <button class="font36" hover-class="btn-hover">修改密码</button>
     </view>
     <view class="text-center m-t-20">
-      <text class="font30 color-999" bindtap="goForget">忘记密码？</text>
+      <text class="font30 color-999" bindtap="goLogin">已有账号，去登录</text>
     </view>
   </view>
 </view>
