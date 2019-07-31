@@ -11,28 +11,7 @@ Page({
    */
   data: {
     mask: false,
-    mask2: false,
-    shareMask: false,
-    isPhone: false,
-    cType: 'car',
-    scrollTop: 0,
-    isLogin: false,
-    user: '',
-    list: [],
-    activeIdx: 0,
-    isIphone: false,
-    firstIn: false,
-    pid: '',
-    content: '',
-    tid: '',
-    swiperIdx: 0,
-    payBook: {},
-    lookTime: 0,
-    noData: false,
-    p_show:false,
-    iphoneId: '',
-    systemInfo:{},
-    isIos:false,
+    bannerlist: [{ image: '../../files/indexBanner.jpg' }, { image: '../../files/indexBanner.jpg' }]
   },
   //swiper
   swiperChange: function(e){
