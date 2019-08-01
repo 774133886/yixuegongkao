@@ -8,6 +8,7 @@
 
     "pages/mine/mine",
     "pages/search/search",
+    "pages/searchList/searchList",
     "pages/index/index"
 
   ],

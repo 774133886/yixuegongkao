@@ -12,6 +12,7 @@ Page({
   data: {
     mask: false,
     floorstatus:false,
+    nomore:true,
     bannerlist: [{ image: '../../files/indexBanner.png' }, { image: '../../files/indexBanner.png' }]
   },
   //swiper
