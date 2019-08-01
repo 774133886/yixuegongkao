@@ -12,5 +12,37 @@
     "navigationBarTitleText": "逸学公考",
     "navigationBarTextStyle": "black"
   },
+  "tabBar": {
+    "color": "#56462d",
+    "selectedColor": "#fff",
+    "borderStyle": "#eee",
+    "backgroundColor": "#b3996f",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "pages/files/footer1.png",
+        "selectedIconPath":"/pages/files/footer1a.png"
+      },
+      {
+        "pagePath": "pages/course/course",
+        "text": "课程",
+        "iconPath": "pages/files/footer2.png",
+        "selectedIconPath": "pages/files/footer2a.png"
+      },
+      {
+        "pagePath": "pages/checkpoint/checkpoint",
+        "text": "闯关",
+        "iconPath": "pages/files/footer3.png",
+        "selectedIconPath": "pages/files/footer3a.png"
+      },
+      {
+        "pagePath": "pages/exchange/exchange",
+        "text": "兑换",
+        "iconPath": "pages/files/footer4.png",
+        "selectedIconPath": "pages/files/footer4a.png"
+      }
+    ]
+  },
   "sitemapLocation": "sitemap.json"
 }

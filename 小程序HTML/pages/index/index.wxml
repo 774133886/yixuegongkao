@@ -14,6 +14,23 @@
       <swiper-item class="" wx:for="{{bannerlist}}" wx:key="item"><image src='{{item.image}}' class='indexBanner block radius8' mode='aspectFill' data-tar='{{item}}'  data-tartype='{{item}}' bindtap='gobanner'></image></swiper-item>
     </swiper>
   </view>
+  <view class="between-wrap indexNav m-v-50">
+    <navigator class="column-center-c nav-item"  url="" hover-class="none" open-type="navigate">
+      <image class="nav-icon" src="../../files/index_icon1.png" mode="aspectFill" lazy-load="false" ></image>
+      <text class="font30 color-333" >系统课</text>
+    </navigator>
+  </view>  
+  <view class="indexAArea" hover-class="none" hover-stop-propagation="false">
+    <view class="between-center hgt80rpx" hover-class="none" hover-stop-propagation="false">
+      <view class="center" hover-class="none" hover-stop-propagation="false">
+        <image class="nav-icon" src="../../files/index_icon1.png" mode="aspectFill" lazy-load="false" ></image>
+        <text class="font30 color-333" >系统课</text>
+      </view>
+      <view class="center" hover-class="none" hover-stop-propagation="false">
+        
+      </view>
+    </view>
+  </view>
 </view>
 
 <!-- 授权 -->
