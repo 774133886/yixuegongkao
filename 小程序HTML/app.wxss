@@ -750,6 +750,9 @@ view,textarea,text,input{box-sizing: border-box;}
 .wid340rpx{
   width: 340rpx;
 }
+.wid320rpx{
+  width: 320rpx;
+}
 .font50{
   font-size: 50rpx;
 }

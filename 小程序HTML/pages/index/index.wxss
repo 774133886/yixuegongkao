@@ -103,6 +103,13 @@ page{
   width: 60rpx;
   height: 36rpx;
 }
+.index_tag2{
+  position: absolute;
+  left: 0;
+  top: 6rpx;
+  width: 74rpx;
+  height: 30rpx;
+}
 .acBox .wx-swiper-dots.wx-swiper-dots-horizontal{
   margin-bottom: -10rpx;
 }
@@ -114,4 +121,7 @@ page{
 }
 .acBox .wx-swiper-dot-active{
  background:rgba(214,213,213,1)!important;
+}
+.index_courseList{
+  margin-bottom: 40rpx;
 }
