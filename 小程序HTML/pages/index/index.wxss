@@ -140,3 +140,10 @@ page{
   right: 19rpx;
   bottom: 200rpx;
 }
+.layerBG{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 520rpx;
+  height: 200rpx;
+}

@@ -60,7 +60,7 @@
         <view class="font30 color-333" >打卡</view>
       </navigator>
     </view>
-    <view class='inline_div nav-item'>
+    <view bindtap='closeMark' class='inline_div nav-item'>
       <navigator class="column-center-c"  url="" hover-class="none" open-type="navigate">
         <image class="nav-icon" src="../../files/icon_8_more.png" mode="aspectFill" lazy-load="false" ></image>
         <view class="font30 color-333" >更多</view>
@@ -258,10 +258,10 @@
 <image src='../../files/icon_huidaodingbu.png' class='goTop' hidden='{{!floorstatus}}' bindtap="goTop"></image>
 <!-- 敬请期待 -->
 <view bindtap='closeMark' class='markBox font30 {{nomore ? "" : "hide"}}'>
-  <view catchtap='notThis' style='width:520rpx;' class='mark text-center'>
-    <view class='hgt200rpx color-333 wid100 around-center'>
-      <image src='../../files/icon_huidaodingbu.png' class='goTop' hidden='{{!floorstatus}}' bindtap="goTop"></image>
-      <text>更多内容敬请期待</text> 
+  <view catchtap='notThis' style='width:520rpx;' class='mark p-b-30 text-center'>
+    <view class='hgt200rpx color-333 wid100 relative around-center'>
+      <image src='../../files/index_layerBG.png' class='layerBG'></image>
+      <text class='relative'>更多内容敬请期待</text> 
     </view>
     <button hover-class='none' class='font30 color-1E9EF3' catchtap='closeMark'>我知道了</button>
   </view>

@@ -12,7 +12,7 @@ Page({
   data: {
     mask: false,
     floorstatus:false,
-    nomore:true,
+    nomore: false,
     bannerlist: [{ image: '../../files/indexBanner.png' }, { image: '../../files/indexBanner.png' }]
   },
   //swiper
@@ -54,122 +54,12 @@ Page({
     }
   },
 
-  
-  //开启遮罩
-  openMask: function(e){
-    // 判断是否绑定手机号
-    var phone = wx.getStorageSync('phone');
-    if (phone == '' && this.data.p_show){
-      this.setData({
-        isPhone: true,
-        payBook: e.currentTarget.dataset.item,
-        content: e.currentTarget.dataset.content,
-        lookTime: app.getNow()
-      });
-      return false;
-    }
-    var that = this;
-    // 判断IOS
-    if (this.data.isIos){
-      wx.showModal({
-        title: '温馨提示',
-        content: '小程序暂不支持开启阅读',
-        confirmText:'好的',
-        showCancel: false
-      })
-      return false;
-    }
 
-    this.setData({
-      mask: true,
-      payBook: e.currentTarget.dataset.item,
-      content: e.currentTarget.dataset.content,
-      lookTime: app.getNow()
-    });
-
-    WxParse.wxParse('article', 'html', e.currentTarget.dataset.content, that, 5);
-    this.clickBtn('一元挑战按钮');
-  },
-  //关闭遮罩
-  closeMask: function () {
-    this.setData({mask: false});
-    var time = this.data.lookTime;
-    var lookTime = app.getTime(time);
-    this.setData({
-      lookTime: 0
-    });
-    //浏览时间
-    app.mtj.trackEvent('lookmask', {
-      time: lookTime, 
-    });
-  },
   //开启中断遮罩
-  openMask2: function (e) {
-    this.setData({mask2: true})
+  closeMark: function (e) {
+    this.setData({ nomore: !this.data.nomore})
   },
-  //关闭中断遮罩
-  closeMask2: function () { this.setData({ mask2: false }) },
-  //开启分享遮罩
-  openShareMask: function () { this.setData({ shareMask: true, mask2: false }) },
-  //关闭分享遮罩
-  closeShareMask: function () { 
-    wx.navigateTo({
-      url: '../poster/poster?id=' + this.data.list[this.data.activeIdx].id,
-    })
-    this.setData({ shareMask: false });
-  },
-  //开启中断阅读选择
-  choiceType: function(e){
-    this.setData({
-      cType: e.currentTarget.dataset.type
-    })
-  },
-  //提示
-  noTap: function(){
-    wx.showToast({
-      title: '这不是今天的任务哦~',
-      icon: 'none'
-    })
-  },
-  //开启中断阅读确认
-  submitType: function(){
-    var cType = this.data.cType;
-    if(cType == 'wechat'){
-      wx.navigateTo({
-        url: '../taskList/taskList'
-      })
-    }else if(cType == 'car'){
-      this.openShareMask()
-    }
-  },
-  //阅读跳转
-  goReadMain: function(e){
-    var item = e.currentTarget.dataset.item;
-    var book = e.currentTarget.dataset.book;
-    if(!book.buy){
-      return false;
-    }
-    if(item.buy){
-      this.setData({
-        mask2: true,
-        articleId: item.id,
-        payBook: book,
-      });
-      return false;
-    }
-    if (item.read) {
-      wx.navigateTo({
-        url: '../taskList/taskList?id=' + item.id
-      })
-      if(item.today){
-        this.clickBtn('今日任务按钮');
-      }else{
-        this.clickBtn('查看已阅读按钮');
-      }
-    }else{
-      this.noTap();
-    }
-  },
+ 
   //我的跳转
   goPersonal: function(){
     
@@ -177,111 +67,7 @@ Page({
       url: '../personal/personal'
     })
   },
-  //用户点击登录按钮
-  userInfoHandler: function(e) {
-    
-    var that = this;
-    wx.getSetting({
-      success: function(res) {
-        console.log(res.authSetting['scope.userInfo'])
-        if (!res.authSetting['scope.userInfo']) {
-          wx.showModal({
-            title: '警告',
-            content: '小程序需要您的授权进行登录，如果您拒绝，您将无法正常使用；后期如有需要可将小程序删除后重新搜索，重新授权方可使用。',
-            cancelText: "不授权",
-            confirmText: '授权',
-            success(res) {
-              if (res.confirm) {
-                wx.openSetting({
-                  success: function(res) {
-                    if (!res.authSetting["scope.userInfo"]) {
-                      //这里是授权成功之后 填写你重新获取数据的js
-                      //参考:
-                      that.userLogin();
-                    }else{
-                      that.userLogin();
-                    }
-                  }
-                })
-              }
-            }
-          })
-        } else {
-          that.userLogin();
-        }
-      },
-      fail:function(res){
-        console.log('授权失败');
-      }
-    });
-  },
-  //用户登录
-  userLogin: function(){
-    var that = this;
-    var pid = this.data.pid;
-    wx.login({
-      success: function (res1) {
-        if (res1.code) {
-          wx.request({
-            url: 'https://shuyu.educhinstyle.cn/api/Login/code2Session?code=' + res1.code,
-            success: function (res2) {
-              if (res2.data.openid) {
-                wx.setStorageSync('sskey', res2.data.session_key);
-                wx.getUserInfo({
-                  success: function (res3) {
-                    wx.request({
-                      url: 'https://shuyu.educhinstyle.cn/api/login/third_login',
-                      data: {
-                        nickname: res3.userInfo.nickName,
-                        openid: res2.data.openid,
-                        img: res3.userInfo.avatarUrl,
-                        pid: pid  //邀请人id
-                      }, success: function (res4) {
-                        wx.setStorageSync('token', res4.data.data.token);
-                        wx.setStorageSync('user', res4.data.data.info);
-                        // 存入一个空手机号
-                        wx.setStorageSync('phone', res4.data.data.info.mobile ? res4.data.data.info.mobile : '');
-                        wx.setStorageSync("first", '');
-                        that.setData({
-                          isLogin: false,
-                          firstIn: true
-                          // isPhone: true
-                        })
-                        that.getlist();
-                      }
-                    })
-                  }
-                })
-              }
-            }
-          })
-        }
-      }
-    })
-  },
-  //用户是否授权
-  loadUser: function () {
-    var that = this;
-    var token = wx.getStorageSync('token');
-    wx.getSetting({
-      success: function (res) {
-        // console.log(res);
-        if (!res.authSetting['scope.userInfo']) {
-          that.setData({
-            isLogin: true
-          })
-        } else {
-          
-          if(!token){
-            that.userLogin();
-          }
-          that.setData({
-            isLogin: false
-          })
-        }
-      }
-    })
-  },
+ 
   //getlist
   getlist: function(){
     var token = wx.getStorageSync('token');
@@ -620,7 +406,7 @@ Page({
    */
   onShow: function (options) {
     var that = this;
-    this.loadUser();
+    // this.loadUser();
     // this.getlist();
     http.postReq('/api/User/info', {}, function (res) {
       setTimeout(function () {
