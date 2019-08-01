@@ -248,11 +248,14 @@
       </view>
     </navigator>
   </view>
-  <view class='bg-f7f7f7 indexBot'>
+  <view class='indexBot'>
     <image class="wid100 hgt150rpx" src="../../files/img_qiandao.png" mode="aspectFill" lazy-load="false" ></image>
+    <view class='around-center m-t-40 hgt120rpx'>
+      <image class="wid100 indexBPic" src="../../files/img_yindaoyu.png" mode="aspectFill" lazy-load="false" ></image>
+    </view>
   </view>
 </view>
-
+<image src='../../files/icon_huidaodingbu.png' class='goTop' hidden='{{!floorstatus}}' bindtap="goTop"></image>
 <!-- 授权 -->
 <!-- <view class='indexMask {{isLogin ? "" : "hide"}}'>
   <view class='maskBox text-center'>

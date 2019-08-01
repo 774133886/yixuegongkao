@@ -125,3 +125,18 @@ page{
 .index_courseList{
   margin-bottom: 40rpx;
 }
+.indexBot{
+  padding: 55rpx 0;
+  background-color: rgba(248,248,248,1)
+}
+.indexBPic{
+  height: 16rpx;
+  width: 150rpx;
+}
+.goTop{
+  position: fixed;
+  width: 50rpx;
+  height: 50rpx;
+  right: 19rpx;
+  bottom: 200rpx;
+}
