@@ -11,7 +11,7 @@ Page({
    */
   data: {
     mask: false,
-    bannerlist: [{ image: '../../files/indexBanner.jpg' }, { image: '../../files/indexBanner.jpg' }]
+    bannerlist: [{ image: '../../files/indexBanner.png' }, { image: '../../files/indexBanner.png' }]
   },
   //swiper
   swiperChange: function(e){

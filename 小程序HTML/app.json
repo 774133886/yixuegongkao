@@ -3,6 +3,10 @@
     "pages/register/register",
     "pages/login/login",
     "pages/forget/forget",
+    "pages/course/course",
+    "pages/order/order",
+
+    "pages/mine/mine",
     "pages/index/index"
 
   ],
@@ -13,34 +17,34 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "color": "#56462d",
-    "selectedColor": "#fff",
-    "borderStyle": "#eee",
-    "backgroundColor": "#b3996f",
+    "color": "#999",
+    "selectedColor": "#1E9EF3",
+ 
+    "backgroundColor": "#fff",
     "list": [
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath": "pages/files/footer1.png",
-        "selectedIconPath":"/pages/files/footer1a.png"
+        "iconPath": "files/footer1a.png",
+        "selectedIconPath":"files/footer1a.png"
       },
       {
         "pagePath": "pages/course/course",
         "text": "课程",
-        "iconPath": "pages/files/footer2.png",
-        "selectedIconPath": "pages/files/footer2a.png"
+        "iconPath": "files/footer2.png",
+        "selectedIconPath": "files/footer1a.png"
       },
       {
-        "pagePath": "pages/checkpoint/checkpoint",
-        "text": "闯关",
-        "iconPath": "pages/files/footer3.png",
-        "selectedIconPath": "pages/files/footer3a.png"
+        "pagePath": "pages/order/order",
+        "text": "订单",
+        "iconPath": "files/footer3.png",
+        "selectedIconPath": "files/footer1a.png"
       },
       {
-        "pagePath": "pages/exchange/exchange",
-        "text": "兑换",
-        "iconPath": "pages/files/footer4.png",
-        "selectedIconPath": "pages/files/footer4a.png"
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "files/footer4.png",
+        "selectedIconPath": "files/footer1a.png"
       }
     ]
   },

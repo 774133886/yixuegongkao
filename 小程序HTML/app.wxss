@@ -786,8 +786,8 @@ border: none;
 .lh1{
   line-height: 1
 }
-.color-38b74a{
-  color: #38b74a;
+.color-FF1919{
+  color: #FF1919;
 }
 .color-000030{
   color: #000030;
@@ -864,4 +864,10 @@ border: none;
 @import 'wxParse/wxParse.wxss';
 view{
   overflow: visible;
+}
+
+
+.icon_right{
+  width: 12rpx;
+  height: 24rpx;
 }

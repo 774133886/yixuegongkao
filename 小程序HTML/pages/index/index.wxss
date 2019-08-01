@@ -3,7 +3,7 @@ page{
   background-color: #fff;
   box-sizing: border-box;
   height: 100%;
-
+  font-family: PingFang-SC-Medium;
 }
 .searchBox{
   width:100%;
@@ -28,7 +28,7 @@ page{
   border-radius:10rpx;
   height: 312rpx;
 }
-page .wx-swiper-dots.wx-swiper-dots-horizontal{
+.indexPic .wx-swiper-dots.wx-swiper-dots-horizontal{
   margin-bottom: -10rpx;
 }
 .indexPic .wx-swiper-dot{
@@ -41,10 +41,17 @@ page .wx-swiper-dots.wx-swiper-dots-horizontal{
 .indexPic .wx-swiper-dot-active{
   background-color: rgba(255, 255, 255, 1)!important;
 }
-
+.m-v-50{
+  margin: 50rpx 0;
+}
 .nav-item{
   width: 120rpx;
-  margin-bottom: 45rpx;
+  height: 150rpx;
+  padding: 10rpx 0;
+  margin-bottom: 25rpx;
+}
+.nav-item>navigator{
+  height: 100%;
 }
 .nav-item:not(:nth-child(4n+1)){
   margin-left: calc((100% - 480rpx) / 3)
@@ -52,4 +59,59 @@ page .wx-swiper-dots.wx-swiper-dots-horizontal{
 .nav-icon{
   width: 60rpx;
   height: 60rpx;
+}
+.titleBg{
+  width: 90rpx;
+  height: 20rpx;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -45rpx;
+}
+.headPicArea{
+  height: 34rpx;
+}
+.listHead{
+  width: 34rpx;
+  height: 34rpx;
+  position: absolute;
+  top:0;
+}
+.headPicArea image:first-child{
+  right: 0;
+}
+.headPicArea image:nth-child(2){
+  right: 30rpx;
+}
+.headPicArea image:nth-child(3){
+  right: 60rpx;
+}
+.acList{
+  width: calc((100% - 68rpx)/3);
+  height: 230rpx;
+  background-color: #fff;
+  margin-right: 34rpx;
+}
+.acList:nth-child(3n){
+  margin-right: 0 !important;
+}
+
+.index_tag{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 60rpx;
+  height: 36rpx;
+}
+.acBox .wx-swiper-dots.wx-swiper-dots-horizontal{
+  margin-bottom: -10rpx;
+}
+.acBox .wx-swiper-dot{
+  width:15rpx;
+  height:2px;
+  background:rgba(241,241,241,1);
+  border-radius:1px;
+}
+.acBox .wx-swiper-dot-active{
+ background:rgba(214,213,213,1)!important;
 }
