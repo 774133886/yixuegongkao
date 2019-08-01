@@ -24,7 +24,7 @@ Page({
     var coden = 60    // 定义60秒的倒计时
     var codeV = setInterval(function () {
       _this.setData({    // _this这里的作用域不同了
-        btntext: '重新获取' + (--coden) + 's'
+        btntext: (--coden) + 's'
       })
       if (coden == -1) {  // 清除setInterval倒计时，这里可以做很多操作，按钮变回原样等
         clearInterval(codeV)

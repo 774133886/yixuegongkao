@@ -1,0 +1,38 @@
+/* pages/personal/personal.wxss */
+page{
+  background-color: rgba(248,248,248,1)
+}
+.perHeader{
+  height: 265rpx;
+  border-bottom: 1px solid #eee;
+  padding: 0 38rpx;
+}
+.perHeader .icon-right{
+  width: 36rpx;
+  height: 60rpx;
+}
+.userImg{
+  width: 150rpx;
+  height: 150rpx;
+  margin-right: 66rpx;
+}
+.perIcon{
+  padding: 35rpx 40rpx;
+}
+.perIcon image{
+  width: 70rpx;
+  height: 70rpx;
+  margin-bottom: 5rpx;
+}
+.perItem{
+  height: 120rpx;
+  padding: 0 40rpx;
+  border-bottom: 1px solid #eee;
+}
+.perItem:last-child{
+  border: none;
+}
+.perItem image{
+  width: 36rpx;
+  height: 36rpx;
+}

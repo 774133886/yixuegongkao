@@ -1,0 +1,46 @@
+<!--pages/userInfo/userInfo.wxml-->
+<view class="userInfo font30">
+  <view class="perHeader bg-fff flex_dom flex_item_mid">
+    <view class="flex_1 flex_dom flex_item_mid">
+      <image class="userImg" src="../../files/img_user2.png"></image>
+      <view>
+        <view class="userInfo">
+          <view class="font36 color-333">将作匠</view>
+          <view class="font24 color-999 m-t-15">NO.2019.0206</view>
+        </view>
+      </view>
+    </view>
+    <view>
+      <image class="icon-right" src="../../files/icon_jiantou.png"></image>
+    </view>
+  </view>
+  <view class="bg-fff">
+    <view class="flex_dom flex_item_mid infoItem">
+      <text class="color-333">真实姓名：</text>
+      <input value="李宏伟" placeholder="请输入" class="flex_1"></input>
+      <view class="color-C5C4C4">修改</view>
+    </view>
+    <view class="flex_dom flex_item_mid infoItem">
+      <text class="color-333">性别：</text>
+      <input value="男" placeholder="请输入" class="flex_1"></input>
+      <view class="color-C5C4C4">修改</view>
+    </view>
+    <view class="flex_dom flex_item_mid infoItem">
+      <text class="color-333">邮箱：</text>
+      <input value="1654656165@qq.com" placeholder="请输入" class="flex_1"></input>
+      <view class="color-C5C4C4">修改</view>
+    </view>
+    <view class="flex_dom flex_item_mid infoItem">
+      <text class="color-333">出生年月：</text>
+      <input value="1998年6月15日" placeholder="请输入" class="flex_1"></input>
+      <view class="color-C5C4C4">修改</view>
+    </view>
+    <view class="flex_dom flex_item_mid infoItem" bindtap="goLogin">
+      <view class="flex_1">
+        <text class="color-333">修改密码</text>
+      </view>
+      <image class="icon-right" src="../../files/icon_jiantou.png"></image>
+    </view>
+  </view>
+  <view class="outBtn bg-fff text-center" bindtap="goLogin">退出登录</view>
+</view>

@@ -1,0 +1,53 @@
+<!--pages/personal/personal.wxml-->
+<view class="personal font30">
+  <view class="perHeader bg-fff flex_dom flex_item_mid">
+    <view class="flex_1 flex_dom flex_item_mid">
+      <image wx:if="{{!isLogin}}" bindtap="goLogin" class="userImg" src="../../files/img_user1.png"></image>
+      <image wx:if="{{isLogin}}" class="userImg" src="../../files/img_user2.png"></image>
+      <view>
+        <view wx:if="{{!isLogin}}" class="font36 color-333">未登录</view>
+        <view class="userInfo" wx:if="{{isLogin}}">
+          <view class="font36 color-333">将作匠</view>
+          <view class="font24 color-999 m-t-5">123****2345</view>
+        </view>
+      </view>
+    </view>
+    <view bindtap="goInfo">
+      <image class="icon-right" src="../../files/icon_jiantou.png"></image>
+    </view>
+  </view>
+  <view class="flex_dom flex_item_between perIcon text-center bg-fff m-b-20">
+    <view>
+      <image src="../../files/icon_dingdan.png"></image>
+      <view>我的订单</view>
+    </view>
+    <view>
+      <image src="../../files/icon_zixun.png"></image>
+      <view>在线咨询</view>
+    </view>
+    <view>
+      <image src="../../files/icon_pingjia.png"></image>
+      <view>我的评价</view>
+    </view>
+  </view>
+  <view class="perList color-333 bg-fff">
+    <view class="perItem flex_dom flex_item_mid">
+      <view class="flex_1">
+      客服热线<text class="color-999">（002-6432-569）</text>
+      </view>
+      <image src="../../files/icon_xiangyou1.png"></image>
+    </view>
+    <view class="perItem flex_dom flex_item_mid">
+      <view class="flex_1">
+      关注公众号
+      </view>
+      <image src="../../files/icon_xiangyou1.png"></image>
+    </view>
+    <view class="perItem flex_dom flex_item_mid">
+      <view class="flex_1">
+      关于我们
+      </view>
+      <image src="../../files/icon_xiangyou1.png"></image>
+    </view>
+  </view>
+</view>

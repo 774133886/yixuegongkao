@@ -1,0 +1,46 @@
+/* pages/userInfo/userInfo.wxss */
+page{
+  background-color: rgba(248,248,248,1)
+}
+.perHeader{
+  height: 221rpx;
+  padding: 0 38rpx;
+  margin-bottom: 5rpx;
+}
+.perHeader .icon-right{
+  width: 36rpx;
+  height: 60rpx;
+}
+.userImg{
+  width: 150rpx;
+  height: 150rpx;
+  margin-right: 66rpx;
+}
+.color-C5C4C4{
+  color: #C5C4C4;
+}
+.infoItem{
+  height: 100rpx;
+  padding: 0 40rpx 0 37rpx;
+  border-bottom: 1px solid #eee;
+}
+.infoItem:last-child{
+  border: none;
+}
+.infoItem input{
+  display: block;
+  width: 98rpx;
+  height: 98rpx;
+  line-height: 98rpx;
+  color: #666;
+  margin: 0 20rpx 0 30rpx;
+}
+.icon-right{
+  width: 15rpx;
+  height: 30rpx;
+}
+.outBtn{
+  height: 100rpx;
+  line-height: 100rpx;
+  margin-top: 26rpx;
+}

@@ -1,11 +1,11 @@
-// pages/forget/forget.js
+// pages/personal/personal.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    btntext: "获取验证码"
+    isLogin: false
   },
 
   /**
@@ -15,35 +15,25 @@ Page({
 
   },
 
-  getCode: function () {
-    //这里是要调api接口的，我这里就假装已经调成功了，返回200了
-    if (this.data.btntext != "获取验证码") {
-      return false;
-    }
-    var _this = this
-    var coden = 60    // 定义60秒的倒计时
-    var codeV = setInterval(function () {
-      _this.setData({    // _this这里的作用域不同了
-        btntext: (--coden) + 's'
-      })
-      if (coden == -1) {  // 清除setInterval倒计时，这里可以做很多操作，按钮变回原样等
-        clearInterval(codeV)
-        _this.setData({
-          btntext: '获取验证码'
-        })
-      }
-    }, 1000)  //  1000是1秒
-  },
-  goLogin:function(){
-    wx.navigateBack({url: '../login/login'})
-  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
 
   },
-
+  goLogin: function(){
+    this.setData({
+      isLogin: true
+    })
+    wx.navigateTo({
+      url: '../login/login',
+    })
+  },
+  goInfo(){
+    wx.navigateTo({
+      url: '../userInfo/userInfo',
+    })
+  },
   /**
    * 生命周期函数--监听页面显示
    */
