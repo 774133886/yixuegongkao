@@ -1,0 +1,34 @@
+/* pages/searchList/searchList.wxss */
+.bg-search{
+  background-color:rgba(249,249,249,1);
+  border-radius:10rpx;
+}
+.icon_del{
+  width: 24rpx;
+  height: 24rpx;
+}
+.searcTag{
+  min-width:115rpx;
+  padding: 0 20rpx;
+  text-align: center;
+  line-height: 50rpx;
+  color: #333;
+  font-size: 24rpx;
+  display: inline-block;
+  height:50rpx;
+  background:rgba(248,248,248,1);
+  border-radius:10rpx;
+  margin-right: 24rpx;
+}
+@import '../index/index.wxss';
+
+.index_courseList{
+  margin-bottom: 34rpx;
+}
+.index_tag3{
+  position: absolute;
+  left: 0;
+  top: 6rpx;
+  width: 60rpx;
+  height: 36rpx;
+}

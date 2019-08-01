@@ -248,17 +248,22 @@
       </view>
     </navigator>
   </view>
-  <view class='bg-f7f7f7 indexBot'>
+  <view class='indexBot'>
     <image class="wid100 hgt150rpx" src="../../files/img_qiandao.png" mode="aspectFill" lazy-load="false" ></image>
+    <view class='around-center m-t-40 hgt120rpx'>
+      <image class="wid100 indexBPic" src="../../files/img_yindaoyu.png" mode="aspectFill" lazy-load="false" ></image>
+    </view>
   </view>
 </view>
-
-<!-- 授权 -->
-<!-- <view class='indexMask {{isLogin ? "" : "hide"}}'>
-  <view class='maskBox text-center'>
-    <view class='font30 color-333'>您当前未登录</view>
-    <view class='font30 color-333'>是否授权微信登陆?</view>
-    <button class='curBg4' open-type="getUserInfo" bindgetuserinfo="userInfoHandler">微信授权快速登陆</button>
+<image src='../../files/icon_huidaodingbu.png' class='goTop' hidden='{{!floorstatus}}' bindtap="goTop"></image>
+<!-- 敬请期待 -->
+<view bindtap='closeMark' class='markBox font30 {{nomore ? "" : "hide"}}'>
+  <view catchtap='notThis' style='width:520rpx;' class='mark text-center'>
+    <view class='hgt200rpx color-333 wid100 around-center'>
+      <image src='../../files/icon_huidaodingbu.png' class='goTop' hidden='{{!floorstatus}}' bindtap="goTop"></image>
+      <text>更多内容敬请期待</text> 
+    </view>
+    <button hover-class='none' class='font30 color-1E9EF3' catchtap='closeMark'>我知道了</button>
   </view>
-</view> -->
+</view>
 
