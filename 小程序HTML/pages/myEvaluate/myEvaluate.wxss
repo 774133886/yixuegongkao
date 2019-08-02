@@ -1,0 +1,32 @@
+/* pages/myEvaluate/myEvaluate.wxss */
+.evaluateItem{
+  padding: 0 40rpx;
+  border-bottom: 1px solid #eee;
+}
+.evaluateItem:last-child{
+  border: none;
+}
+.user_img{
+  width: 95rpx;
+  height: 95rpx;
+  margin-right: 25rpx;
+}
+.stars image{
+  width: 26rpx;
+  height: 26rpx;
+  margin-left: 10rpx;
+}
+.evaluateTop{
+  padding: 40rpx 0 0;
+}
+.evaluateText{
+  padding: 30rpx 0;
+}
+.evaluateBtm{
+  padding: 30rpx 0 35rpx;
+}
+.evaluateBtm image{
+  width: 232rpx;
+  height: 152rpx;
+  margin-right: 45rpx;
+}
