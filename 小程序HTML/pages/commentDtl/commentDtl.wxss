@@ -29,11 +29,18 @@ page{
   padding: 20rpx;
   background:rgba(255,255,255,1);
   border-radius:10rpx;
-  box-shadow:0px 0px 5rpx 0px rgba(248,248,248,1);
+  box-shadow:0px 0px 8rpx 0px rgba(240,240,240,1);
 }
 .applyArea{
   height:60rpx;
   background:rgba(248,248,248,1);
   border-radius:30rpx;
   padding: 0 30rpx;
+}
+.arrowPic{
+  position: absolute;
+  width: 87rpx;
+  height: 29rpx;
+  top: -20rpx;
+  left: 30rpx;
 }

@@ -37,8 +37,8 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "pages/assembling/assembling",
-					"pathName": "pages/assembling/assembling",
+					"name": "pages/courseDetail/courseDetail",
+					"pathName": "pages/courseDetail/courseDetail",
 					"query": "id=8",
 					"scene": null
 				}

@@ -15,10 +15,10 @@
           <view class=''>
             <text class='font36 color-FF1919'>¥2999.9</text>
             <text class='color-999 font20 m-l-15 lineThrough'>¥2999.9</text>
-          </view>
+          </view>  
           <!-- <text class='color-999 font20 '>已购</text> -->
         </view>
-        
+         
       </view>
     </view>
     <view class="l-pad40">
@@ -40,6 +40,11 @@
         <view>2.正常参团的拼团课程，在倒计时快结束时，自动补齐。</view>
         <view>3.团发起人为团长，参团的人为团员。</view>              
       </view> 
+      <view class="text-center p-t-20 p-b-30">
+        <view class="color-049BFE m-b-30">开团成功</view>
+        <image class="wid110rpx hgt110rpx radius_50" src="../../files/img_user2.png" mode="aspectFill" lazy-load="false" ></image>
+        <view class="font30 color-333">团长</view>
+      </view>
       <view class="m-b-30">
         <view class="m-t-100">
           <view class="font24 color-999 text-center">还差2人即可成团</view>

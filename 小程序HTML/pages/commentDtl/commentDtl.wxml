@@ -34,8 +34,8 @@
         </view>
         
         <view class='color-777 font24 m-t-10'>老师讲的很细很细，举例生动形象，课堂活跃度较高，很喜欢听老师的课程。</view>
-        <view class='center-end color-5273FF font24'>回复</view>
-        <view class="applyBox font24">
+        <view bindtap="layershow" class='center-end color-5273FF font24'>回复</view>
+        <view class="applyBox relative font24">
           <view>
             <text class="color-333">@讲座将：</text>
             <text class="color-666"> 我也喜欢老师的讲课风格，本来学习就挺累的要愉快的听课，哈哈。</text>       
@@ -46,10 +46,11 @@
             <text class="color-333">@讲座将：</text>
             <text class="color-666"> 你说的对！</text>       
           </view>
-          <view class='center-end color-5273FF font24'>
+          <navigator url="/pages/allApply/allApply" hover-class="none" class='center-end color-5273FF font24'>
             <text>查看全部3条评论</text>
             <image style='margin-left:0;' class='starPic' src='../../files/icon_xiangyou_b.png'></image>
-          </view>
+          </navigator>
+          <image class='arrowPic' src='../../files/c_arrow.png'></image>
         </view>
         
       </view>

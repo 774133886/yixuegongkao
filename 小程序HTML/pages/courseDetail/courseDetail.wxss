@@ -68,3 +68,29 @@ page{
   z-index: 2;
   border-radius:24rpx 24rpx 0px 0px;
 }
+
+.ptArea{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(245,197,180,1);
+  right: 0;
+}
+.ptBuy{
+  width:424rpx;
+  height:70rpx;
+  background:rgba(255,255,255,1);
+  border:1px solid rgba(255,30,30,1);
+  border-radius:34rpx;
+  overflow: hidden;
+}
+.bg-FF3636{
+  background-color: #FF3636
+}
+.ptTag{
+  position: absolute;
+  left: 0;
+  top: 10rpx;
+  width: 118rpx;
+  height: 48rpx;
+}

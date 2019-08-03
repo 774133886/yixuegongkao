@@ -17,25 +17,13 @@ Page({
     token: wx.getStorageSync('token'),
     path4:''
   },
-  //获取输入框的值
-  bindKeyInput: function (e) {
-    this.setData({
-      inputValue: e.detail.value
-    })
-  },
-  //点击提交按钮
-  btnclick: function () {
-    var text = this.data.inputValue
-    wx.showToast({
-      title: text,
-      icon: 'none',
-      duration: 2000
-    })
-  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    setTimeout(() => {
+      that.createNewImg();
+    }, 3000)
     var that = this;
     http.postReq('/api/Book/shareBook', { bid: options.id }, function (res) {
       if (res.code == 101) {
@@ -80,9 +68,9 @@ Page({
                   path4: res2.tempFilePath,
                 })
                 console.log(that.data.path4);
-                setTimeout(() => {
-                  that.createNewImg();
-                }, 3000)
+                // setTimeout(() => {
+                //   that.createNewImg();
+                // }, 3000)
               }
             })
           } else {
@@ -110,19 +98,17 @@ Page({
     var context = wx.createCanvasContext('mycanvas');
     context.setFillStyle("rgba(0,0,0,0)")
     context.fillRect(0, 0, 375, 590)
-    var path = that.data.path;
-    // var path = "../../files/postor_center_bg.png";
+    // var path = that.data.path;
+    var path = "../../files/poster.png";
+    console.log(path);
     //将模板图片绘制到canvas,在开发工具中drawImage()函数有问题，不显示图片
     //不知道是什么原因，手机环境能正常显示
     var path1 = that.data.touxiang;
-    // console.log(path1, "path1")
     //将模板图片绘制到canvas,在开发工具中drawImage()函数有问题，不显示图片
     var path2 = that.data.avatar;
-    // var path3 = "../../files/postor_center_bg.png";
     var path4 = that.data.path4;
     console.log(path4)
     //不知道是什么原因，手机环境能正常显示
-    // context.save(); // 保存当前context的状态
 
     var name = that.data.name || '';
     console.log(name);
@@ -135,29 +121,27 @@ Page({
     context.drawImage(path, 0, 0, 375, 602);
     context.stroke();
     //绘制名字
-    context.setFontSize(18);
-    context.setFillStyle('#ffffff');
-    context.setTextAlign('center');
-    context.fillText(name, 160, 52);
-    //绘制白色背景
+    // context.setFontSize(18);
+    // context.setFillStyle('#ffffff');
+    // context.setTextAlign('center');
+    // context.fillText(name, 160, 52);
+    // //绘制白色背景
 
-    context.arc(186, 528, 35, 0, Math.PI * 2, true);
-    context.closePath();
-    context.fillStyle = "white";
-    context.strokeStyle = "rgba(0,0,0,0)";
-    context.fill();
-    context.stroke();
-    //绘制验证码背景
-    // context.drawImage(path3, 38, 220, 300, 145);
-    //绘制扫码二维码 
-    context.drawImage(path4, 161, 503, 50, 50);
-    context.stroke();
-    // 绘制头像
-    context.arc(63, 60, 30, 0, 2 * Math.PI) //画出圆
-    context.strokeStyle = "rgba(0,0,0,0)";
-    context.clip(); //裁剪上面的圆形
-    context.drawImage(path2, 31, 31, 62, 62); // 在刚刚裁剪的园上画图
-    context.stroke();
+    // context.arc(186, 528, 35, 0, Math.PI * 2, true);
+    // context.closePath();
+    // context.fillStyle = "white";
+    // context.strokeStyle = "rgba(0,0,0,0)";
+    // context.fill();
+    // context.stroke();
+    // //绘制扫码二维码 
+    // context.drawImage(path4, 161, 503, 50, 50);
+    // context.stroke();
+    // // 绘制头像
+    // context.arc(63, 60, 30, 0, 2 * Math.PI) //画出圆
+    // context.strokeStyle = "rgba(0,0,0,0)";
+    // context.clip(); //裁剪上面的圆形
+    // context.drawImage(path2, 31, 31, 62, 62); // 在刚刚裁剪的园上画图
+    // context.stroke();
     
   
 

@@ -28,6 +28,12 @@ Page({
   contactTab: function (e) {
     this.setData({ contactShow: !this.data.contactShow })
   },
+  // 回到首页
+  backIndex: function (e) {
+    wx.switchTab({
+      url: '/pages/index/index'
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
