@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/myOrder/myOrder",
+    "pages/myEvaluate/myEvaluate",
     "pages/userInfo/userInfo",
     "pages/personal/personal",
     "pages/register/register",

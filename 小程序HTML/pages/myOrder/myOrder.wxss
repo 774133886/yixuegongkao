@@ -1,0 +1,85 @@
+/* pages/myOrder/myOrder.wxss */
+page,.myOrde{
+  height: 100%
+}
+.orderCtt{
+  overflow-y: auto;
+}
+.orderTab{
+  border-bottom: 2px solid #F8F8F8;
+}
+.orderTab view{
+  height: 84rpx;
+  line-height: 84rpx;
+  font-size: 30rpx;
+  color: #999;
+  padding: 0 40rpx;
+}
+.orderTab view.active{
+  color: #1E9EF3;
+  font-size: 36rpx;
+}
+.orderItem{
+  padding: 0 40rpx;
+  border-bottom: 2px solid #F8F8F8;
+}
+.orderItem:last-child{
+  border: none;
+}
+.orderItem{
+  border-bottom: 1px solid #F8F8F8;
+}
+.orderItem image{
+  margin-right: 35rpx;
+  width: 218rpx;
+  height: 140rpx;
+}
+.orderTop{
+  padding: 23rpx 0;
+  border-bottom: 1px solid #F8F8F8;
+}
+.orderName{
+  line-height: 40rpx;
+  height: 80rpx;
+}
+.orderPrice view{
+  display: inline-block;
+}
+.orderState{
+  padding-top: 5rpx;
+}
+.orderIcon1{
+  color: #049BFE;
+}
+.redPrice{
+  color: #FF3636;
+}
+.grayPrice{
+  margin-left: 20rpx;
+  text-decoration: line-through;
+}
+.orderBtm{
+  padding: 18rpx 0 30rpx;
+}
+.defaultBtn,.blueBtn,.otherBtn{
+  display: inline-block;
+  width:160rpx;
+  height:56rpx;
+  border:1px solid rgba(153,153,153,1);
+  border-radius:28rpx;
+  line-height: 56rpx;
+  font-size: 24rpx;
+  color: #999;
+  box-sizing: content-box;
+  margin-left: 23rpx;
+}
+.blueBtn{
+  border: 1px solid #1E9EF3;
+  background: #1E9EF3;
+  color: #fff;
+}
+.otherBtn{
+  border: 1px solid #DFF2FF;
+  background: #DFF2FF;
+  color: #1E9EF3;
+}
