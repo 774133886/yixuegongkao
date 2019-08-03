@@ -1,0 +1,12 @@
+<!--pages/follow/follow.wxml-->
+<view class="follow text-center">
+  <image class="codeImg" src="../../files/code.png" data-src="../../files/code.png" bindtap="previewImage"></image>
+  <view class="font30 color-blue">逸学公考</view>
+  <view class="font20 color-999 m-b-60">（长按可复制，即刻搜索关注）</view>
+  <view class="font24 color-333">
+    <view>关注并绑定我们的公众号可以及时</view>
+    <view class="m-t-5">收到上课通知呦~</view>
+  </view>
+  <button class="followBtn" hover-class="followBtn-hover">长按保存二维码</button>
+  <view class="font24 color-999">进入扫一扫即可添加关注</view>
+</view>

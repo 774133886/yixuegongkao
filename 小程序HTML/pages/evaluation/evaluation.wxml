@@ -1,0 +1,13 @@
+<!--pages/evaluation/evaluation.wxml-->
+<view class="evaluation flex_column"> 
+  <view class="flex_1 text-center">
+    <view class="evaluationTitle font30 color-333 m-b-30">{{!checkStar?'给个评分吧~':'哇，感谢你的支持~'}}</view>
+    <view class="evaluationStar">
+      <image wx:for="{{list}}" wx:for-item="item" data-star="{{item}}" src="{{checkStar>=item?'../../files/icon_collevt_2.png':'../../files/icon_collect_pre.png'}}" bindtap="tapStar"></image>
+    </view>
+    <view class="font36 color-666 m-b-50">{{checkStar}}分</view>
+    <textarea bindinput="textInput" class="evaluationText" placeholder="等你很久了，给个课程评价吧~" placeholder-class="color-999"></textarea>
+  </view>
+  <button wx:if="{{checkStar && text!=''}}" bindtap="submit" class="evaluationBtn" hover-class="btn-hover1">提交评价</button>
+  <button wx:else class="evaluationBtn disabled" hover-class="btn-hover2">提交评价</button>
+</view>

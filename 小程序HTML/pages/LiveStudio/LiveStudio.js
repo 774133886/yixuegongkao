@@ -1,17 +1,13 @@
-// pages/course/course.js
+// pages/LiveStudio/LiveStudio.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    active: 1
+
   },
-  choiceTab(e) {
-    this.setData({
-      active: e.currentTarget.dataset.id
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */

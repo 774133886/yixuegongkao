@@ -61,7 +61,7 @@ page,.myOrde{
 .orderBtm{
   padding: 18rpx 0 30rpx;
 }
-.defaultBtn,.blueBtn,.otherBtn{
+.defaultBtn,.defaultBtn-hover,.blueBtn,.blueBtn-hover,.otherBtn,.otherBtn-hover{
   display: inline-block;
   width:160rpx;
   height:56rpx;
@@ -73,12 +73,12 @@ page,.myOrde{
   box-sizing: content-box;
   margin-left: 23rpx;
 }
-.blueBtn{
+.blueBtn,.blueBtn-hover{
   border: 1px solid #1E9EF3;
   background: #1E9EF3;
   color: #fff;
 }
-.otherBtn{
+.otherBtn,.otherBtn-hover{
   border: 1px solid #DFF2FF;
   background: #DFF2FF;
   color: #1E9EF3;

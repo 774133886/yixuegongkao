@@ -14,7 +14,23 @@ Page({
   onLoad: function (options) {
 
   },
-
+  goFollow(){
+    wx.navigateTo({url: '../follow/follow',})
+  },
+  goAbout(){
+    wx.navigateTo({ url: '../aboutUs/aboutUs', })
+  },
+  goOrder() {
+    wx.navigateTo({ url: '../myOrder/myOrder', })
+  },
+  goEvaluate(){
+    wx.navigateTo({ url: '../myEvaluate/myEvaluate', })
+  },
+  callTell(){
+    wx.makePhoneCall({
+      phoneNumber: '002-6432-569',
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

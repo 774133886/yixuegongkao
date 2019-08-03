@@ -1,0 +1,97 @@
+/* pages/orderDetail/orderDetail.wxss */
+page{
+  padding-bottom: 120rpx;
+}
+.orderDetail{
+  padding: 0 40rpx;
+}
+.orderNum{
+  margin: 0 25rpx;
+}
+.orderGroup{
+  padding: 30rpx 0;
+  border-bottom: 1px solid #F8F8F8;
+}
+.allGroup{
+  margin: 0 -40rpx;
+  padding: 30rpx 40rpx;
+}
+.orderInfo image{
+  margin-right: 35rpx;
+  width: 218rpx;
+  height: 140rpx;
+}
+.orderName{
+  line-height: 40rpx;
+  height: 80rpx;
+}
+.orderPrice view{
+  display: inline-block;
+}
+.redPrice{
+  color: #FF3636;
+}
+.grayPrice{
+  margin-left: 20rpx;
+  text-decoration: line-through;
+}
+.groupLabel{
+  width: 150rpx;
+  margin-right: 15rpx;
+}
+.groupLabel,.groupDetail{
+  line-height: 36rpx;
+}
+.icon-wechat{
+  width: 74rpx;
+  height: 60rpx;
+}
+.color-red{
+  color: #FF3636;
+}
+.orderGroup2{
+  padding: 20rpx 0;
+}
+.user_img{
+  width: 80rpx;
+  height: 80rpx;
+}
+.text1{
+  margin: 35rpx;
+}
+.text2{
+  margin-left: 47rpx;
+}
+.blueButton{
+  position: fixed;
+  bottom: 20rpx;
+  left: 40rpx;
+  right: 40rpx;
+}
+.blueButton,.otherBtn-hover{
+  display: block;
+  height:88rpx;
+  line-height: 88rpx;
+  background:rgba(30,158,243,1);
+  border-radius:10rpx;
+  color: #fff;
+  font-size: 30rpx;
+  margin: 90rpx auto 0;
+}
+.orderTs{
+  height:92rpx;
+  line-height: 92rpx;
+  background:rgba(248,248,248,1);
+  margin: 0 -40rpx;
+  padding: 0 40rpx;
+}
+.orderTs2{
+  height:92rpx;
+  line-height: 30rpx;
+  background:rgba(248,248,248,1);
+  margin: 0 -40rpx;
+  padding: 0 40rpx;
+}
+.color-blue{
+  color: #1E9EF3;
+}

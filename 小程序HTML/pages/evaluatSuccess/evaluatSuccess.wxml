@@ -1,0 +1,6 @@
+<!--pages/evaluatSuccess/evaluatSuccess.wxml-->
+<view class="evaluatSuccess text-center">
+  <image src="../../files/icon_xuanzhong.png" class="m-b-20"></image>
+  <view class="font36 color-333">感谢您的评价！</view>
+  <button class="button" bindtap="goIndex" hover-class="btn-hover">返回首页</button>
+</view>

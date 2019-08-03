@@ -1,0 +1,98 @@
+/* pages/activities/activities.wxss */
+.activitiesTab view{
+  display: inline-block;
+  font-size: 26rpx;
+  color: #333;
+  padding: 0 38rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+}
+.activitiesTab view.active{
+  color: #049BFE;
+  position: relative;
+  font-size: 30rpx;
+}
+.activitiesTab view.active:before{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -20rpx;
+  width:40rpx;
+  height:2rpx;
+  background:rgba(4,155,254,1);
+  border-radius:1rpx;
+}
+.activitItem{
+  padding: 35rpx 40rpx;
+  border-bottom: 1px solid #F8F8F8;
+}
+.activitImage{
+  width: 284rpx;
+  height: 186rpx;
+  margin-right: 40rpx;
+  position: relative;
+}
+.activitImage .actPic{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.actText{
+  color: #FF3636;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 32rpx;
+  line-height: 32rpx;
+  z-index: 2;
+  padding: 0 10rpx;
+  background-color: #F5C5B4;
+}
+.actIcon{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60rpx;
+  height: 36rpx;
+  z-index: 2;
+}
+.actIcon2{
+  position: absolute;
+  top: 6rpx;
+  left: 0;
+  z-index: 2;
+  width: 60rpx;
+  height: 30rpx;
+}
+.textLine{
+  margin-top: 6rpx;
+}
+.textLine>view{
+  display: inline-block;
+}
+.wid110{
+  width: 110rpx;
+}
+.redPrice{
+  color: #FF3636;
+}
+.grayPrice{
+  margin-left: 15rpx;
+  text-decoration: line-through;
+}
+.noMore{
+  text-align: center;
+  color: #BEBEBE;
+  font-size: 30rpx;
+  margin-top: 60rpx;
+}
+.noData image{
+  width: 360rpx;
+  height: 300rpx;
+  margin: 150rpx auto 10rpx;
+}

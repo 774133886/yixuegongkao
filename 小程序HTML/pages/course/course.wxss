@@ -1,1 +1,69 @@
 /* pages/course/course.wxss */
+.bg-search{
+  background-color:rgba(249,249,249,1);
+  border-radius:10rpx;
+}
+.icon_del{
+  width: 24rpx;
+  height: 24rpx;
+}
+.searcTag{
+  min-width:115rpx;
+  padding: 0 20rpx;
+  text-align: center;
+  line-height: 50rpx;
+  color: #333;
+  font-size: 24rpx;
+  display: inline-block;
+  height:50rpx;
+  background:rgba(248,248,248,1);
+  border-radius:10rpx;
+  margin-right: 24rpx;
+}
+@import '../index/index.wxss';
+
+.index_courseList{
+  margin-bottom: 34rpx;
+}
+.index_tag3{
+  position: absolute;
+  left: 0;
+  top: 6rpx;
+  width: 60rpx;
+  height: 36rpx;
+}
+.courseTab{
+  margin: 0 -40rpx;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+.courseTab view{
+  display: inline-block;
+  font-size: 26rpx;
+  color: #333;
+  padding: 0 30rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+}
+.courseTab view:first-child{
+  margin-left: 10rpx;
+}
+.courseTab view:last-child{
+  margin-right: 10rpx;
+}
+.courseTab view.active{
+  font-size: 30rpx;
+  color: #049BFE;
+  position: relative;
+}
+.courseTab view.active:after{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -20rpx;
+  width:40rpx;
+  height:2rpx;
+  background:rgba(4,155,254,1);
+  border-radius:1rpx;
+}

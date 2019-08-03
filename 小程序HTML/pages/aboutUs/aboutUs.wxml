@@ -1,0 +1,13 @@
+<!--pages/aboutUs/aboutUs.wxml-->
+<import src="../../wxParse/wxParse.wxml"/>
+
+<view class="aboutUs">
+  <!-- <template is="wxParse" data="{{wxParseData:article.nodes}}" />   -->
+  <view style="padding: 40rpx">
+    <image style="width: 100%" mode="widthFix" src="../../files/indexBanner.png"></image>
+    <view class="font-w6 font36 color-333 m-t-10">陆离</view>
+    <view class="font30 color-333 m-t-20">言语理解、判断推理、面试讲师</view>
+    <view class="font30 color-666 m-t-20">汉语言文学专业出身，专业能力过硬，原某大型公考培训机构浙江地区行测文科核心师资，一线授课经验丰富，无论是1对1教学，还是300人大班次线下授课，都受到学员一致好评。善于将专业知识灵活融入授课，用丰富多样的教学方法，个性化解决学员问题，帮助学员迅速提升应试能力。</view>
+  </view>
+  
+</view>
