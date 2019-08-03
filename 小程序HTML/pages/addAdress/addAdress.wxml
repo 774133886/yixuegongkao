@@ -1,0 +1,29 @@
+<!--pages/addAdress/addAdress.wxml-->
+<view class='Con font30'>
+  <view class="l-pad40 font24 color-333 bg-248 p-t-15 p-b-15">
+    联系方式及收货地址将用于上课资料的寄发，请认真填写，确保无误。
+  </view>
+  <view class="bg-fff">
+    <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+      <view class="picker l-pad40 border-b-eee hgt100rpx between-center">
+        <text class="font30 color-333"> {{region[0]}}{{region[1]}}{{region[2]}}</text>
+        <image style='margin-left:0;' class='wid30rpx hgt30rpx' src='../../files/icon_xiangyou1.png'></image>
+      </view>
+    </picker>
+    <view class="l-pad40 center hgt100rpx">
+      <input type="text" class="font30 flex_1 color-333" placeholder="请输入具体的小区及门牌号" placeholder-class="color-999"></input>
+    </view>
+  </view>
+  <view class="grayLine" style="height:6rpx;"></view>
+  <view class="bg-fff">
+    <view class="l-pad40 border-b-eee center hgt100rpx">
+      <input type="text" class="font30 flex_1 color-333" maxlength="10" placeholder="请输入收件人姓名" placeholder-class="color-999"></input>
+    </view>
+    <view class="l-pad40 border-b-eee center hgt100rpx">
+      <input type="number" class="font30 flex_1 color-333" maxlength="11" placeholder="请输入联系电话" placeholder-class="color-999"></input>
+    </view>
+  </view>
+  <view class="hgt300rpx m-t-300 around-center">
+    <button class="payBtn color-fff font40" hover-class="none">支付</button>
+  </view>
+</view>

@@ -1,0 +1,128 @@
+<!--pages/assembling/assembling.wxml-->
+<import src="../../wxParse/wxParse.wxml"/>
+<view class='Con font30'>
+  <view class="l-pad40 text-center font30 color-FF3636 bg-248 p-t-25 p-b-25">
+    拼团活动剩余  12天20:15:16
+  </view>
+  <view class="bg-fff ">
+    <view hover-class='none' url='' class='l-pad40 hgt230rpx between-center border-b-eee'>
+      <view class='hgt170rpx wid260rpx relative'>
+        <image class="wid100 hgt190rpx" src="../../files/img_kecheng.png" mode="aspectFill" lazy-load="false" ></image>
+      </view>
+      <view class='flex_1 m-l-30 p-v-10 column-between hgt170rpx'>
+        <view class='color-333 font36'>4小时吃透病句解析</view>
+        <view class='between-center'>
+          <view class=''>
+            <text class='font36 color-FF1919'>¥2999.9</text>
+            <text class='color-999 font20 m-l-15 lineThrough'>¥2999.9</text>
+          </view>
+          <!-- <text class='color-999 font20 '>已购</text> -->
+        </view>
+        
+      </view>
+    </view>
+    <view class="l-pad40">
+      <view class="border-b-eee color-333 center p-v-20">
+        <view class="hgt130rpx column-center-b">
+          <image class="wid80rpx hgt80rpx radius_50" src="../../files/img_user2.png" mode="aspectFill" lazy-load="false" ></image>
+          <text class="font24">团长</text>
+        </view>
+        <text class="font24 color-333 m-b-40 m-l-30">与</text>
+        <view class="hgt130rpx m-l-30 column-center-b">
+          <image class="wid80rpx hgt80rpx radius_50" src="../../files/img_user2.png" mode="aspectFill" lazy-load="false" ></image>
+          <text class="font24">团员</text>
+        </view>
+        <view class="color-049BFE m-b-40 m-l-50">即将拼团</view>
+      </view>
+      <view class="p-v-20 l-h-40rpx color-666 font24">
+        <view>拼团说明：</view>
+        <view>1.支付开团并邀请X人参团，人数不足自动退款；</view>
+        <view>2.正常参团的拼团课程，在倒计时快结束时，自动补齐。</view>
+        <view>3.团发起人为团长，参团的人为团员。</view>              
+      </view> 
+      <view class="m-b-30">
+        <view class="m-t-100">
+          <view class="font24 color-999 text-center">还差2人即可成团</view>
+          <view class="hgt110rpx around-center">
+            <button hover-class="none" bindtap="shareTab" class="color-fff inviteBtn font36">邀请好友入团</button>
+          </view>
+        </view>
+      </view>
+      <view class='cusDtl border-t-eee p-t-20 p-b-50'>
+        <view class='hgt60rpx color-333 center'>课程详情</view>
+        <view class='fwcon p-v-20 overflow_hide'>
+          <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <view class='cdBot border-t-eee hgt100rpx between-center'>
+    <view class='l-pad40'>
+      <text class='font36 color-FF1919'>¥2999.9</text>
+      <text class='color-999 font20 m-l-20 lineThrough'>¥2999.9</text>
+    </view>
+    <button bindtap="payTab" hover-class="none" class='bmBtn font36'>立即拼团</button>
+    <!-- <button  bindtap="payTab" hover-class="none" class='bmBtn font36'>立即开团</button> -->
+  </view>
+</view>
+<!-- 联系客服 -->
+<view bindtap='payTab' class='markBox font30 {{payShow ? "" : "hide"}}'>
+  <view catchtap='notThis' class='payBox l-pad40'>
+    <view class='hgt100rpx center-end'>
+      <text catchtap='payTab' class='color-999 font330'>取消</text>
+    </view>
+    <view class='hgt90rpx border-b-eee between-center'>
+      <text class='color-333 font30'>支付方式</text> 
+      <view class='center'>
+        <image src='../../files/icon_wechat_pay.png' class='wid60rpx hgt50rpx'></image>
+        <text class='color-999 font24 m-l-10'>微信支付</text> 
+      </view>
+    </view>
+    <view class='hgt90rpx border-b-eee between-center'>
+      <text class='color-333 font30'>合计金额</text> 
+      <view class='font30 color-FF3636'> ¥2999.9</view>
+    </view>
+    <view class='hgt90rpx between-center'>
+      <text class='color-333 font30'>订单编号</text> 
+      <view class='font30 color-999'>1241335425346</view>
+    </view>
+    <view class="m-t-50">
+      <view class="hgt130rpx around-center">
+        <button bindtap='closeMark' hover-class="none" class="color-fff payBtn font36">立即支付</button>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 分享 -->
+<view bindtap='shareTab' class='markBox font30 {{shareShow ? "" : "hide"}}'>
+  <view catchtap='notThis' class='shareBox l-pad40'>
+    <view class='hgt100rpx between-center'>
+      <text style=' opacity: 0;'>占位</text>
+      <text class='color-333 font36'>邀请好友</text>
+      <text catchtap='shareTab' class='color-999 font330'>取消</text>
+    </view>
+    <view class='hgt300rpx around-center'>
+      <view class='hgt150rpx column-center-b'>
+        <image src='../../files/icon_weixin.png' class='wid90rpx hgt90rpx'></image>
+        <text class='color-333 font30'>微信好友</text> 
+      </view>
+      <view class='hgt150rpx column-center-b'>
+        <image src='../../files/icon_haibao.png' class='wid90rpx hgt90rpx'></image>
+        <text class='color-333 font30'>生成海报</text> 
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 敬请期待 -->
+<view bindtap='closeMark' class='markBox font30 {{nomore ? "" : "hide"}}'>
+  <view catchtap='notThis' style='width:580rpx;border-radius:30rpx;top:33%;' class='mark text-center'>
+    <view class="font40 color-333 p-v-30">对不起</view>
+    <view class="font30 color-333 m-b-10">您来晚了，对方与他人已成团</view>
+    <view class='hgt150rpx color-333 wid100 relative around-center'>
+      <button hover-class='none' class='font30 color-999 Btn_blank' catchtap='closeMark'>我知道了</button>
+      <button hover-class='none' class='font30 color-fff Btn_blue' catchtap='closeMark'>我要开团</button>
+    </view>
+    
+  </view>
+</view>

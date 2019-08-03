@@ -1,33 +1,40 @@
-// pages/courseDetail/courseDetail.js
-const util = require('../../utils/util.js')
-const http = require('../../http.js')
-const app = getApp();
-var WxParse = require('../../wxParse/wxParse.js')
+// pages/writeInfo/writeInfo.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    shareShow:false,
-    contactShow:false,
+    btntext: "获取验证码",
   },
 
+
+  getCode: function () {
+    //这里是要调api接口的，我这里就假装已经调成功了，返回200了
+    if (this.data.btntext != "获取验证码") {
+      return false;
+    }
+    var _this = this
+    var coden = 60    // 定义60秒的倒计时
+    var codeV = setInterval(function () {
+      _this.setData({    // _this这里的作用域不同了
+        btntext: (--coden) + 's'
+      })
+      if (coden == -1) {  // 清除setInterval倒计时，这里可以做很多操作，按钮变回原样等
+        clearInterval(codeV)
+        _this.setData({
+          btntext: '获取验证码'
+        })
+      }
+    }, 1000)  //  1000是1秒
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
-    var content = "<img style='margin-left: 0;border-radius:10px; width:100%;' src='../../files/indexBanner.png'/><div>此处为富文本<div/>" ;
-    WxParse.wxParse('article', 'html', content, that, 5);
+
   },
-  //分享遮罩
-  shareTab: function (e) {
-    this.setData({ shareShow: !this.data.shareShow })
-  },
-  contactTab: function (e) {
-    this.setData({ contactShow: !this.data.contactShow })
-  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

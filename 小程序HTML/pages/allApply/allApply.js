@@ -1,33 +1,29 @@
-// pages/courseDetail/courseDetail.js
-const util = require('../../utils/util.js')
-const http = require('../../http.js')
-const app = getApp();
-var WxParse = require('../../wxParse/wxParse.js')
+// pages/allApply/allApply.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    shareShow:false,
-    contactShow:false,
+    layer:false
   },
-
+  layershow(){
+    this.setData({
+      layer:true
+    })
+  },
+  layerhide() {
+    this.setData({
+      layer: false
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
-    var content = "<img style='margin-left: 0;border-radius:10px; width:100%;' src='../../files/indexBanner.png'/><div>此处为富文本<div/>" ;
-    WxParse.wxParse('article', 'html', content, that, 5);
+
   },
-  //分享遮罩
-  shareTab: function (e) {
-    this.setData({ shareShow: !this.data.shareShow })
-  },
-  contactTab: function (e) {
-    this.setData({ contactShow: !this.data.contactShow })
-  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

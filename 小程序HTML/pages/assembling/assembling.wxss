@@ -1,20 +1,12 @@
-/* pages/courseDetail/courseDetail.wxss */
+/* pages/assembling/assembling.wxss */
 page{
   padding-bottom: 100rpx;
 }
-.courseBnr{
-  width: 100%;
-  height: 488rpx;
+.m-b-40{
+  margin-bottom: 40rpx;
 }
-.grayLine{
-  width:100%;
-  height:4rpx;
-  background:rgba(248,248,248,1);
-  border-radius:1rpx;
-}
-.icon666{
-  width: 36rpx;
-  height: 36rpx;
+.m-l-50{
+  margin-left: 50rpx;
 }
 .cdBot{
   position: fixed;
@@ -46,6 +38,7 @@ page{
 .btn_gray{
   background:rgba(153,153,153,1) !important;
 }
+
 .shareBox{
   height: 400rpx;
   width: 100%;
@@ -57,8 +50,8 @@ page{
   z-index: 2;
  
 }
-.contactBox{
-  height: 400rpx;
+.payBox{
+  height: auto;
   width: 100%;
   position: absolute;
   bottom: 0;
@@ -66,5 +59,33 @@ page{
   left: 0;
   background-color: #fff;
   z-index: 2;
-  border-radius:24rpx 24rpx 0px 0px;
+}
+.payBtn{
+  width:556rpx;
+  height:85rpx;
+  background:rgba(253,54,54,1);
+  border-radius:43rpx;
+  line-height: 85rpx;
+}
+.inviteBtn{
+  width:556rpx;
+  height:85rpx;
+  background:rgba(4,155,254,1);
+  border-radius:43rpx;
+  line-height: 85rpx;
+}
+
+.Btn_blank{
+  width:215rpx;
+  height:61rpx;
+  border:1px solid rgba(196,196,196,1);
+  border-radius:30rpx;
+  line-height: 61rpx;
+}
+.Btn_blue{
+  width:215rpx;
+  height:61rpx;
+  background:rgba(4,155,254,1);
+  border-radius:30rpx;
+  line-height: 61rpx;
 }

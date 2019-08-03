@@ -1,0 +1,11 @@
+/* pages/writeInfo/writeInfo.wxss */
+.payBtn{
+  width:370rpx;
+  height:90rpx;
+  line-height: 90rpx;
+  background:rgba(30,158,243,1);
+  border-radius:45rpx;
+}
+.m-t-300{
+  margin-top: 300rpx !important;
+}

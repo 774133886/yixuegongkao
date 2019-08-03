@@ -1,0 +1,48 @@
+<!--pages/writeInfo/writeInfo.wxml-->
+<view class='Con font30'>
+  <view class="l-pad40 text-center font24 color-333 bg-248 p-t-30 p-b-30">
+    请如实填写信息，否则不能报名成功。
+  </view>
+  <view class="bg-fff">
+    <view class="l-pad40 border-b-eee center hgt100rpx">
+      <input type="text" class="font30 flex_1 color-333" maxlength="10" placeholder="请输入你的真实姓名" placeholder-class="color-999"></input>
+    </view>
+    <view class="l-pad40 border-b-eee center hgt100rpx">
+      <input type="number" class="font30 flex_1 color-333" maxlength="11" placeholder="请输入你的手机号码" placeholder-class="color-999"></input>
+    </view>
+    <view class="l-pad40 border-b-eee between-center hgt100rpx">
+      <input type="number" class="font30 flex_1 color-333" maxlength="6" placeholder="请输入验证码" placeholder-class="color-999"></input>
+      <view class="color-1E9EF3 font30" bindtap="getCode">{{btntext}}</view>
+    </view>
+  </view>
+  <view class="grayLine" style="height:6rpx;"></view>
+  <view class="bg-fff">
+    <view class="l-pad40 border-b-eee center hgt100rpx">
+      <view class="color-333">笔试总分：</view>
+      <input type="text" class="font30 flex_1 color-333" maxlength="10" placeholder="" placeholder-class="color-999"></input>
+    </view>
+    <view class="l-pad40 border-b-eee center hgt100rpx">
+      <view class="color-333">笔试排名：</view>
+      <input type="text" class="font30 flex_1 color-333" maxlength="10" placeholder="" placeholder-class="color-999"></input>
+    </view>
+    <view class="l-pad40 border-b-eee center hgt100rpx">
+      <view class="color-333">招考人数：</view>
+      <input type="text" class="font30 flex_1 color-333" maxlength="10" placeholder="" placeholder-class="color-999"></input>
+    </view>
+    <view class="l-pad40 border-b-eee center hgt100rpx">
+      <view class="color-333">行测分数：</view>
+      <input type="text" class="font30 flex_1 color-333" maxlength="10" placeholder="" placeholder-class="color-999"></input>
+    </view>
+    <view class="l-pad40 border-b-eee center hgt100rpx">
+      <view class="color-333">其他科目：</view>
+      <input type="text" class="font30 flex_1 color-333" maxlength="20" placeholder="" placeholder-class="color-999"></input>
+    </view>
+    <view class="l-pad40 border-b-eee center hgt100rpx">
+      <view class="color-333">备注：</view>
+      <input type="text" class="font30 flex_1 color-333" maxlength="200" placeholder="" placeholder-class="color-999"></input>
+    </view>
+  </view>
+  <view class="hgt300rpx around-center">
+    <button class="payBtn color-fff font40" hover-class="none">提交</button>
+  </view>
+</view>

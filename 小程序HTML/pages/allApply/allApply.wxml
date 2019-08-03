@@ -1,0 +1,76 @@
+<!--pages/allApply/allApply.wxml-->
+<view class='Con font30'>
+  <view class='pjArea p-t-20'>
+    <view class='pjLists l-pad40 m-t-10'>
+      <view class='pjList  p-v-20'>
+        <view class='between-center'>
+          <image class='pjhPic' mode="aspectFill" src='../../files/img_user2.png'></image>
+          <view class="flex_1 m-l-25 hgt09rem column-around">
+            <view class="between-center">
+              <text class='flex_1 only_line color-333 font26 m-r-20'>人海孤鸿1234567</text>
+              <view class='center'>
+                <image class='icon666' src='../../files/icon_dianzan.png'></image>
+                <text class='font24 color-999 m-l-15'>24</text>
+              </view>
+            </view>
+            <view class='font20 color-999'>2019.1.4   9:30</view>
+          </view>
+        </view>
+        
+        <view class='color-777 font24 m-t-10'>老师讲的很细很细，举例生动形象，课堂活跃度较高，很喜欢听老师的课程。</view>
+        <view class='center-end color-5273FF font24'>回复</view>
+        
+        
+      </view>
+    </view>
+    <view class='grayLine'></view>
+    <view class='pjLists l-pad40 m-t-10'>
+      <view class='pjList border-b-eee p-v-20'>
+        <view class='between-center'>
+          <image class='pjhPic' mode="aspectFill" src='../../files/img_user2.png'></image>
+          <view class="flex_1 m-l-25 hgt09rem column-around">
+            <view class="between-center">
+              <text class='flex_1 only_line color-333 font26 m-r-20'>人海孤鸿</text>
+              <view class='center'>
+                <image class='icon666' src='../../files/icon_dianzan_ore.png'></image>
+                <text class='font24 color-999 m-l-15'>24</text>
+              </view>
+            </view>
+            <view class='font20 color-999'>2019.1.4   9:30</view>
+          </view>
+        </view>
+        <view class='color-777 font24 m-t-10'>老师讲的很细很细，举例生动形象，课堂活跃度较高，很喜欢听老师的课程。</view>
+        <!-- <view class='center-end color-5273FF font24'>回复</view> -->
+      </view>
+      <view class='pjList p-v-20'>
+        <view class='between-center'>
+          <image class='pjhPic' mode="aspectFill" src='../../files/img_user2.png'></image>
+          <view class="flex_1 m-l-25 hgt09rem column-around">
+            <view class="between-center">
+              <text class='flex_1 only_line color-333 font26 m-r-20'>人海孤鸿</text>
+              <view class='center'>
+                <image class='icon666' src='../../files/icon_dianzan_ore.png'></image>
+                <text class='font24 color-999 m-l-15'>24</text>
+              </view>
+            </view>
+            <view class='font20 color-999'>2019.1.4   9:30</view>
+          </view>
+        </view>
+        <view class='color-777 font24 m-t-10'>
+          <text class="color-666">回复</text>
+          <text class="color-333">@讲座将：</text>
+          <text class="color-666"> 你说的对！</text>   
+        </view>
+        <!-- <view class='center-end color-5273FF font24'>回复</view> -->
+        
+        
+      </view>
+    </view>
+  </view>
+
+  <view class='cdBot l-pad40 hgt100rpx between-center'>
+    <input type="text" bindfocus="layershow" bindblur="layerhide" class="applyArea flex_1 font24" placeholder-class="color-999" placeholder="我也说一句"></input>  
+    <view class="font30 m-l-30 color-5273FF">评论</view>
+  </view>
+</view>
+<view class='markBox {{layer ? "" : "hide"}}'></view>

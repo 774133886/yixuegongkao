@@ -1,4 +1,4 @@
-// pages/courseDetail/courseDetail.js
+// pages/assembling/assembling.js
 const util = require('../../utils/util.js')
 const http = require('../../http.js')
 const app = getApp();
@@ -9,25 +9,32 @@ Page({
    * 页面的初始数据
    */
   data: {
-    shareShow:false,
-    contactShow:false,
+    shareShow: false,
+    payShow:false,
+    nomore: false
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    var that = this;
-    var content = "<img style='margin-left: 0;border-radius:10px; width:100%;' src='../../files/indexBanner.png'/><div>此处为富文本<div/>" ;
-    WxParse.wxParse('article', 'html', content, that, 5);
+  // 支付
+  payTab: function (e) {
+    this.setData({ payShow: !this.data.payShow })
   },
   //分享遮罩
   shareTab: function (e) {
     this.setData({ shareShow: !this.data.shareShow })
   },
-  contactTab: function (e) {
-    this.setData({ contactShow: !this.data.contactShow })
+  //拼团失败遮罩
+  closeMark: function (e) {
+    this.setData({ nomore: !this.data.nomore })
   },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    var that = this;
+    var content = "<img style='margin-left: 0;border-radius:10px; width:100%;' src='../../files/indexBanner.png'/><div>此处为富文本<div/>";
+    WxParse.wxParse('article', 'html', content, that, 5);
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
