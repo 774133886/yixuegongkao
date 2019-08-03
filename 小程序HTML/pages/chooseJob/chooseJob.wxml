@@ -1,0 +1,26 @@
+<!--pages/chooseJob/chooseJob.wxml-->
+<view class="Con bg-fff font30">
+  <view class="l-pad40">
+    <view class='hgt80rpx between-center'>
+      <input type='text' class='font24 l-pad20 bg-search flex_1 hgt60rpx' placeholder='搜索课程名称/老师' placeholder-class='color-999'></input>
+      <text class='ccolor-333 m-l-20'>搜索</text>
+    </view>
+    <view class="cList">
+      <view wx:for="{{jobList}}" bindtap="selectThis" wx:key='{{item}}' data-idx="{{index}}" class="border-b-eee between-center hgt110rpx">
+        <view class="hgt07rpx font24 column-between flex_1">
+          <text class="color-333">{{item.phone}}</text>
+          <text class="color-333">{{item.add}}{{item.type}}</text>
+        </view>
+        <view wx:if="{{!item.selected}}" class="cjCircle wid37"></view>
+        <image wx:if="{{item.selected}}" src='../../files/icon_pitch.png' class='wid37'></image>
+      </view>
+    </view>
+  </view>
+  <view class='cdBot border-t-eee hgt100rpx between-center'>
+    <view class='l-pad40'>
+      <text class='font36 color-FF1919'>¥2999.9</text>
+      <text class='color-999 font20 m-l-20 lineThrough'>¥2999.9</text>
+    </view>
+    <button class='bmBtn btn_blue font36'>去支付</button>
+  </view>
+</view>

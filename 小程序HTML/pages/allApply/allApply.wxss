@@ -1,0 +1,45 @@
+/* pages/allApply/allApply.wxss */
+page{
+  border-top: 1px solid #eee;
+  padding-bottom: 100rpx;
+}
+.grayLine{
+  width:100%;
+  height:4rpx;
+  background:rgba(248,248,248,1);
+  border-radius:1rpx;
+}
+.icon666{
+  width: 36rpx;
+  height: 36rpx;
+}
+.cdBot{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: #fff;
+  z-index: 9;
+}
+.cdIcon{
+  width: 46rpx;
+  height: 46rpx;
+}
+.pjhPic{
+  width: 94rpx;
+  height: 94rpx;
+}
+.applyBox{
+  width:100%;
+  height:auto;
+  padding: 20rpx;
+  background:rgba(255,255,255,1);
+  border-radius:10rpx;
+  box-shadow:0px 0px 5rpx 0px rgba(248,248,248,1);
+}
+.applyArea{
+  height:60rpx;
+  background:rgba(248,248,248,1);
+  border-radius:30rpx;
+  padding: 0 30rpx;
+}

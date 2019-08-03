@@ -37,8 +37,8 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "new",
-					"pathName": "pages/courseDetail/courseDetail",
+					"name": "pages/assembling/assembling",
+					"pathName": "pages/assembling/assembling",
 					"query": "id=8",
 					"scene": null
 				}

@@ -22,6 +22,14 @@
     "pages/search/search",
     "pages/searchList/searchList",
     "pages/courseDetail/courseDetail",
+    "pages/poster/poster",
+    "pages/commentDtl/commentDtl",
+    "pages/allApply/allApply",
+    "pages/addAdress/addAdress",
+    "pages/chooseJob/chooseJob",
+    "pages/writeInfo/writeInfo", 
+    "pages/assembleList/assembleList",
+    "pages/assembling/assembling",
     "pages/index/index"
 
   ],

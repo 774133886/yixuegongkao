@@ -1,0 +1,70 @@
+<!--pages/assembleList/assembleList.wxml-->
+<view class='Con font30'>
+  <view class="l-pad40 text-center font30 color-FF3636 bg-248 p-t-25 p-b-25">
+    拼团活动剩余  12天20:15:16
+  </view>
+  <view class="bg-fff l-pad40">
+    <view class="between-center border-b-eee p-v-25">
+      <view class="font36 color-333">正在拼团</view>
+      <view class="font30 color-999">在拼：4</view>
+    </view>
+    <view class="ptLists">
+      <view class="ptList border-b-eee p-v-30 between-center">
+        <image class='wid110rpx hgt110rpx radius_50' src='../../files/img_user2.png'></image>
+        <view class="hgt130rpx m-l-20 flex_1 column-between">
+          <view class="center">
+            <text class="color-333">人海孤鸿</text>
+            <text class="color-999 font24 m-l-20">发起了拼团</text>
+          </view>
+          <view class="color-999 font24">
+            还差<text class="color-FF3636">1</text>人成团
+          </view>
+          <view class="color-999 font24">
+            <text class="color-FF3636">仅剩20:15:16 </text> 结束         
+          </view>
+        </view>
+        <button class="ptBtn">参团</button>
+      </view>
+      <view class="ptList border-b-eee p-v-30 between-center">
+        <image class='wid110rpx hgt110rpx radius_50' src='../../files/img_user2.png'></image>
+        <view class="hgt130rpx m-l-20 flex_1 column-between">
+          <view class="center">
+            <text class="color-333">人海孤鸿</text>
+            <text class="color-999 font24 m-l-20">发起了拼团</text>
+          </view>
+          <view class="color-999 font24">
+            还差<text class="color-FF3636">1</text>人成团
+          </view>
+          <view class="color-999 font24">
+            <text class="color-FF3636">仅剩20:15:16 </text> 结束         
+          </view>
+        </view>
+        <button class="ptBtn">参团</button>
+      </view>
+      <view class="ptList border-b-eee p-v-30 between-center">
+        <image class='wid110rpx hgt110rpx radius_50' src='../../files/img_user2.png'></image>
+        <view class="hgt130rpx m-l-20 flex_1 column-between">
+          <view class="center">
+            <text class="color-333">人海孤鸿</text>
+            <text class="color-999 font24 m-l-20">发起了拼团</text>
+          </view>
+          <view class="color-999 font24">
+            还差<text class="color-FF3636">1</text>人成团
+          </view>
+          <view class="color-999 font24">
+            <text class="color-FF3636">仅剩20:15:16 </text> 结束         
+          </view>
+        </view>
+        <button class="ptBtn">参团</button>
+      </view>
+      <view style="margin-top:30rpx;" class='nomore hgt50rpx around-center'>
+        <text class='color-be font24'>没有更多了</text>
+      </view>
+    </view>
+  </view>
+  
+  <view class="hgt300rpx around-center">
+    <button class="payBtn color-fff font40" hover-class="none">提交</button>
+  </view>
+</view>
+

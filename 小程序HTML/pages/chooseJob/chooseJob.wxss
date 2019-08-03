@@ -1,0 +1,48 @@
+/* pages/chooseJob/chooseJob.wxss */
+page{
+  padding-bottom: 100rpx;
+}
+.bg-search{
+  background-color:rgba(249,249,249,1);
+  border-radius:10rpx;
+}
+.wid37{
+  width:37rpx;
+  height:37rpx;
+}
+.cjCircle{
+  border:1px solid rgba(153,153,153,1);
+  border-radius:50%;
+}
+
+
+.cdBot{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: #fff;
+  z-index: 1;
+}
+.cdIcon{
+  width: 46rpx;
+  height: 46rpx;
+}
+.bmBtn{
+  width:270rpx;
+  height:70rpx;
+  color: #fff;
+  background:rgba(250,47,47,1);
+  border-radius:34px;
+  margin-right: 40rpx;
+  line-height: 70rpx;
+}
+.btn_green{
+  background:rgb(160, 224, 104) !important;
+}
+.btn_blue{
+  background:rgba(30,158,243,1) !important;
+}
+.btn_gray{
+  background:rgba(153,153,153,1) !important;
+}

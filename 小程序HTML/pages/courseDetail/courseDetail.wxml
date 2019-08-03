@@ -106,7 +106,7 @@
 </view>
 <view class='cdBot border-t-eee hgt100rpx between-center'>
   <view class='center l-pad20 hgt80rpx'>
-    <view class='hgt80rpx wid180rpx column-center-b'>
+    <view bindtap="contactTab" class='hgt80rpx wid180rpx column-center-b'>
       <image style='margin-left:0;' class='cdIcon' src='../../files/icon_kefu.png'></image>
       <text class='font20 color-999'>客服咨询</text>
     </view>
@@ -120,7 +120,7 @@
   <!-- <button class='bmBtn font36 btn_blue'>开始学习</button> -->
   <!-- <button class='bmBtn font36 btn_gray'>报名结束</button> -->
 </view>
-<!-- 敬请期待 -->
+<!-- 分享 -->
 <view bindtap='shareTab' class='markBox font30 {{shareShow ? "" : "hide"}}'>
   <view catchtap='notThis' class='shareBox l-pad40'>
     <view class='hgt100rpx between-center'>
@@ -136,6 +136,26 @@
       <view class='hgt150rpx column-center-b'>
         <image src='../../files/icon_haibao.png' class='wid90rpx hgt90rpx'></image>
         <text class='color-333 font30'>生成海报</text> 
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 联系客服 -->
+<view bindtap='contactTab' class='markBox font30 {{contactShow ? "" : "hide"}}'>
+  <view catchtap='notThis' class='contactBox l-pad40'>
+    <view class='hgt100rpx between-center'>
+      <text style=' opacity: 0;'>占位</text>
+      <text class='color-333 font36'>客服咨询</text>
+      <text catchtap='contactTab' class='color-999 font330'>取消</text>
+    </view>
+    <view class='hgt300rpx around-center'>
+      <view class='hgt130rpx column-center-b'>
+        <image src='../../files/icon_dianhua.png' class='wid60rpx hgt60rpx'></image>
+        <text class='color-333 font30'>电话咨询</text> 
+      </view>
+      <view class='hgt130rpx column-center-b'>
+        <image src='../../files/icon_liaotian.png' class='wid60rpx hgt60rpx'></image>
+        <text class='color-333 font30'>聊天咨询</text> 
       </view>
     </view>
   </view>
