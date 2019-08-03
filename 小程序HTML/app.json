@@ -11,6 +11,7 @@
     "pages/mine/mine",
     "pages/search/search",
     "pages/searchList/searchList",
+    "pages/courseDetail/courseDetail",
     "pages/index/index"
 
   ],

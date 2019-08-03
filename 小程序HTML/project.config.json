@@ -38,7 +38,7 @@
 				{
 					"id": 0,
 					"name": "new",
-					"pathName": "pages/index/index",
+					"pathName": "pages/courseDetail/courseDetail",
 					"query": "id=8",
 					"scene": null
 				}

@@ -78,7 +78,7 @@ navigator{
 .color-red{color: #e44d2b!important}
 .color-orange{color: #f8b03f!important}
 .color-yellow{color: #e44d2b !important;}
-.color-green{color: #008000 !important;}
+.color-green{color: #22CC6E !important;}
 .color-lightgreen{color: #90EE90 !important;}
 .color-blue{color: #008aff !important;}
 .color-gray{color: #999999 !important;}
@@ -204,6 +204,7 @@ navigator{
 .hgt240rpx{ height: 240rpx!important;overflow-y: hidden;}
 .hgt250rpx{ height: 250rpx!important;overflow-y: hidden;}
 .hgt260rpx{ height: 260rpx!important;overflow-y: hidden;}
+.hgt300rpx{ height: 300rpx!important;overflow-y: hidden;}
 
 
 .min_hgt20{min-height: 20rpx;}
@@ -723,6 +724,9 @@ view,textarea,text,input{box-sizing: border-box;}
 .color-1E9EF3{
   color: #1E9EF3
 }
+.color-5273FF{
+  color: #5273FF
+}
 .color-aaa{
   color: #aaa;
 }
@@ -879,4 +883,16 @@ view{
 }
 .color-be{
   color: #bebebe;
+}
+.color-777{
+  color: #777777;
+}
+.litleIcon{
+  width: 24rpx;
+  height: 24rpx;
+}
+.starPic{
+  width: 26rpx;
+  height: 26rpx;
+  margin-left: 10rpx;
 }
