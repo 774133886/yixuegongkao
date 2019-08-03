@@ -1,0 +1,188 @@
+<!--pages/activities/activities.wxml-->
+<view class="activities">
+  <view class="activitiesTab text-center">
+    <view class="{{active==1?'active':''}}" bindtap="choiceTab" data-id="1">拼团</view>
+    <view class="{{active==2?'active':''}}" bindtap="choiceTab" data-id="2">秒杀</view>
+  </view>
+  <!-- 拼团 -->
+  <view class="activitList" wx:if="{{active==1}}">
+    <view class="activitItem flex_dom">
+      <view class="activitImage">
+        <image class="actIcon" src="../../files/img_pintuan.png"></image>
+        <image class="actPic" src="../../files/img_kecheng_big.png"></image>
+        <view class="actText flex_dom font16">
+          <view class="flex_1">4人团</view>
+          <view>剩余 02天 12:23:25</view>
+        </view>
+      </view>
+      <view class="flex_1">
+        <view class="textLine font20">
+          <view class="wid110 color-999">开课时间</view>
+          <view class="color-333">2019.05.23</view>
+        </view>
+        <view class="textLine font20">
+          <view class="wid110 color-999">总课时</view>
+          <view class="color-333">24课时</view>
+        </view>
+        <view class="textLine font20">
+          <view class="wid110 color-999">拼团价</view>
+          <view class="redPrice font36">¥2999.9</view>
+          <view class="grayPrice color-999">¥3999</view>
+        </view>
+        <view class="textLine font20">
+          <view class="color-999">39人已报名</view>
+        </view>
+      </view>
+    </view>
+    <view class="activitItem flex_dom">
+      <view class="activitImage">
+        <image class="actIcon2" src="../../files/img_manyuan.png"></image>
+        <image class="actPic" src="../../files/img_tuijian1.png"></image>
+        <!-- <view class="actText flex_dom font16">
+          <view class="flex_1">4人团</view>
+          <view>剩余 02天 12:23:25</view>
+        </view> -->
+      </view>
+      <view class="flex_1">
+        <view class="textLine font20">
+          <view class="wid110 color-999">开课时间</view>
+          <view class="color-333">2019.05.23</view>
+        </view>
+        <view class="textLine font20">
+          <view class="wid110 color-999">总课时</view>
+          <view class="color-333">24课时</view>
+        </view>
+        <view class="textLine font20">
+          <view class="wid110 color-999">拼团价</view>
+          <view class="redPrice font36">¥2999.9</view>
+          <view class="grayPrice color-999">¥3999</view>
+        </view>
+        <view class="textLine font20">
+          <view class="color-999">39人已报名</view>
+        </view>
+      </view>
+    </view>
+    <view class="activitItem flex_dom">
+      <view class="activitImage">
+        <image class="actIcon" src="../../files/img_pintuan.png"></image>
+        <image class="actPic" src="../../files/img_kecheng_big.png"></image>
+        <view class="actText flex_dom font16">
+          <view class="flex_1">4人团</view>
+          <view>剩余 02天 12:23:25</view>
+        </view>
+      </view>
+      <view class="flex_1">
+        <view class="textLine font20">
+          <view class="wid110 color-999">开课时间</view>
+          <view class="color-333">2019.05.23</view>
+        </view>
+        <view class="textLine font20">
+          <view class="wid110 color-999">总课时</view>
+          <view class="color-333">24课时</view>
+        </view>
+        <view class="textLine font20">
+          <view class="wid110 color-999">拼团价</view>
+          <view class="redPrice font36">¥2999.9</view>
+          <view class="grayPrice color-999">¥3999</view>
+        </view>
+        <view class="textLine font20">
+          <view class="color-999">39人已报名</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="noMore">没有更多了</view>
+  </view>
+  <!-- 秒杀 -->
+  <view class="activitList" wx:if="{{active==2}}">
+    <view class="activitItem flex_dom">
+      <view class="activitImage">
+        <image class="actIcon" src="../../files/img_miaosha.png"></image>
+        <image class="actPic" src="../../files/img_kecheng_big.png"></image>
+        <view class="actText font16">
+          <view class="text-center">剩余 02天 12:23:25</view>
+        </view>
+      </view>
+      <view class="flex_1">
+        <view class="textLine font20">
+          <view class="wid110 color-999">开课时间</view>
+          <view class="color-333">2019.05.23</view>
+        </view>
+        <view class="textLine font20">
+          <view class="wid110 color-999">总课时</view>
+          <view class="color-333">24课时</view>
+        </view>
+        <view class="textLine font20">
+          <view class="wid110 color-999">秒杀价</view>
+          <view class="redPrice font36">¥2999.9</view>
+          <view class="grayPrice color-999">¥3999</view>
+        </view>
+        <view class="textLine font20">
+          <view class="color-999">39人已报名</view>
+        </view>
+      </view>
+    </view>
+    <view class="activitItem flex_dom">
+      <view class="activitImage">
+        <image class="actIcon2" src="../../files/img_manyuan.png"></image>
+        <image class="actPic" src="../../files/img_tuijian1.png"></image>
+        <!-- <view class="actText flex_dom font16">
+          <view class="flex_1">4人团</view>
+          <view>剩余 02天 12:23:25</view>
+        </view> -->
+      </view>
+      <view class="flex_1">
+        <view class="textLine font20">
+          <view class="wid110 color-999">开课时间</view>
+          <view class="color-333">2019.05.23</view>
+        </view>
+        <view class="textLine font20">
+          <view class="wid110 color-999">总课时</view>
+          <view class="color-333">24课时</view>
+        </view>
+        <view class="textLine font20">
+          <view class="wid110 color-999">秒杀价</view>
+          <view class="redPrice font36">¥2999.9</view>
+          <view class="grayPrice color-999">¥3999</view>
+        </view>
+        <view class="textLine font20">
+          <view class="color-999">39人已报名</view>
+        </view>
+      </view>
+    </view>
+    <view class="activitItem flex_dom">
+      <view class="activitImage">
+        <image class="actIcon" src="../../files/img_miaosha.png"></image>
+        <image class="actPic" src="../../files/img_kecheng_big.png"></image>
+        <view class="actText font16">
+          <view class="text-center">剩余 02天 12:23:25</view>
+        </view>
+      </view>
+      <view class="flex_1">
+        <view class="textLine font20">
+          <view class="wid110 color-999">开课时间</view>
+          <view class="color-333">2019.05.23</view>
+        </view>
+        <view class="textLine font20">
+          <view class="wid110 color-999">总课时</view>
+          <view class="color-333">24课时</view>
+        </view>
+        <view class="textLine font20">
+          <view class="wid110 color-999">秒杀价</view>
+          <view class="redPrice font36">¥2999.9</view>
+          <view class="grayPrice color-999">¥3999</view>
+        </view>
+        <view class="textLine font20">
+          <view class="color-999">39人已报名</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="noMore">没有更多了</view>
+    
+  </view>
+  <view  class="noData text-center" wx:if="{{active==3}}">
+    <image src="../../files/img_quesheng.png"></image>
+    <view class="font30 color-999">暂无活动哦~</view>
+  </view>
+</view>

@@ -1,0 +1,49 @@
+/* pages/LiveStudio/LiveStudio.wxss */
+.liveStudio{
+  padding: 0 40rpx;
+}
+.liveImg{
+  width: 284rpx;
+  height: 184rpx;
+  margin-right: 30rpx;
+}
+.liveOrder{
+  padding: 35rpx 40rpx;
+  border-bottom: 1px solid #F8F8F8;
+}
+.color-bd{
+  color: #8D8D8D;
+}
+.liveTitle{
+  height: 76rpx;
+  line-height: 76rpx;
+  border-bottom: 1px solid #F8F8F8;
+}
+.liveTitle image{
+  width: 24rpx;
+  height: 24rpx;
+  vertical-align: middle;
+  margin-right: 5rpx;
+}
+.orderItem{
+  padding: 32rpx 0;
+  border-bottom: 1px solid #F8F8F8;
+}
+.liveBtn1,.liveBtn1-hover,.liveBtn2,.liveBtn2-hover,.liveBtn3,.liveBtn3-hover{
+  width:190rpx;
+  height:48rpx;
+  line-height:48rpx;
+  border-radius:24rpx;
+  font-size: 24rpx;
+  color: #fff;
+}
+.liveBtn1,.liveBtn1-hover{
+  background:rgba(30,158,243,1);
+}
+.liveBtn2,.liveBtn2-hover{
+  background:rgba(230,230,230,1);
+}
+.liveBtn3,.liveBtn3-hover{
+  background:rgba(223,242,255,1);
+  color: #1E9EF3;
+}

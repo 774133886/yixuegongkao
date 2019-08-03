@@ -1,24 +1,36 @@
-// pages/course/course.js
+// pages/evaluation/evaluation.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    active: 1
+    list: [1,2,3,4,5],
+    checkStar: 0,
+    text: ""
   },
-  choiceTab(e) {
-    this.setData({
-      active: e.currentTarget.dataset.id
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
 
   },
-
+  tapStar(e){
+    this.setData({
+      checkStar: e.currentTarget.dataset.star
+    })
+  },
+  textInput(event){
+    this.setData({
+      text: event.detail.value
+    })
+  },
+  submit(){
+    wx.redirectTo({
+      url: "../evaluatSuccess/evaluatSuccess"
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

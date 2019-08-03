@@ -17,33 +17,34 @@
     </view>
   </view>
   <view class="flex_dom flex_item_between perIcon text-center bg-fff m-b-20">
-    <view>
+    <view bindtap="goOrder">
       <image src="../../files/icon_dingdan.png"></image>
       <view>我的订单</view>
     </view>
-    <view>
+    <view class="kefu">
       <image src="../../files/icon_zixun.png"></image>
       <view>在线咨询</view>
+      <button open-type="contact"></button>
     </view>
-    <view>
+    <view bindtap="goEvaluate">
       <image src="../../files/icon_pingjia.png"></image>
       <view>我的评价</view>
     </view>
   </view>
   <view class="perList color-333 bg-fff">
-    <view class="perItem flex_dom flex_item_mid">
+    <view class="perItem flex_dom flex_item_mid" bindtap="callTell">
       <view class="flex_1">
       客服热线<text class="color-999">（002-6432-569）</text>
       </view>
       <image src="../../files/icon_xiangyou1.png"></image>
     </view>
-    <view class="perItem flex_dom flex_item_mid">
+    <view class="perItem flex_dom flex_item_mid" bindtap="goFollow">
       <view class="flex_1">
       关注公众号
       </view>
       <image src="../../files/icon_xiangyou1.png"></image>
     </view>
-    <view class="perItem flex_dom flex_item_mid">
+    <view class="perItem flex_dom flex_item_mid" bindtap="goAbout">
       <view class="flex_1">
       关于我们
       </view>

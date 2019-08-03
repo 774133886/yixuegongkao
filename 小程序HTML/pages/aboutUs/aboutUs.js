@@ -1,22 +1,19 @@
-// pages/course/course.js
+// pages/aboutUs/aboutUs.js
+let WxParse = require('../../wxParse/wxParse.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    active: 1
+    wxParseData: ""
   },
-  choiceTab(e) {
-    this.setData({
-      active: e.currentTarget.dataset.id
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // WxParse.wxParse('article', 'html', article, that, 5);
   },
 
   /**

@@ -1,4 +1,4 @@
-// pages/course/course.js
+// pages/activities/activities.js
 Page({
 
   /**
@@ -7,18 +7,18 @@ Page({
   data: {
     active: 1
   },
-  choiceTab(e) {
-    this.setData({
-      active: e.currentTarget.dataset.id
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
 
   },
-
+  choiceTab(e){
+    this.setData({
+      active: e.currentTarget.dataset.id
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

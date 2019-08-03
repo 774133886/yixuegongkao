@@ -1,16 +1,16 @@
 <!--pages/myOrder/myOrder.wxml-->
 <view class="myOrde flex_column">
-  <view class="orderTab flex_dom flex_item_between">
+  <view class="orderTab flex_dom flex_item_between" style="display: none">
     <view bindtap="choiceTab" data-idx="0" class="{{active==0?'active':''}}">全部</view>
     <view bindtap="choiceTab" data-idx="1" class="{{active==1?'active':''}}">待支付</view>
     <view bindtap="choiceTab" data-idx="2" class="{{active==2?'active':''}}">已完成</view>
     <view bindtap="choiceTab" data-idx="3" class="{{active==3?'active':''}}">待评价</view>
   </view>
-  <scroll-view scroll-y="{{true}}" class="flex_1 orderCtt">
+  <scroll-view style="display: none" scroll-y="{{true}}" class="flex_1 orderCtt">
     <view class="orderList">
     <!-- 全部 -->
       <view class="orderItem" wx:if="{{active==0}}">
-        <view class="orderTop flex_dom">
+        <view class="orderTop flex_dom" bindtap="goDetail" data-type="3">
           <image src="../../files/img_kecheng.png"></image>
           <view class="orderInfo flex_1">
             <view class="orderName line2 font30 color-333">4小时吃透病句解析</view>
@@ -29,14 +29,14 @@
           <view class="flex_dom flex_item_mid m-t-20">
             <view class="font20 color-999 flex_1">10分钟以后自动取消订单</view>
             <view>
-              <button class="defaultBtn">取消订单</button>
-              <button class="blueBtn">立即支付</button>
+              <button class="defaultBtn" hover-class="defaultBtn-hover">取消订单</button>
+              <button class="blueBtn" hover-class="blueBtn-hover">立即支付</button>
             </view>
           </view>
         </view>
       </view>
       <view class="orderItem" wx:if="{{active==0}}">
-        <view class="orderTop flex_dom">
+        <view class="orderTop flex_dom" bindtap="goDetail" data-type="0">
           <image src="../../files/img_tuijian1.png"></image>
           <view class="orderInfo flex_1">
             <view class="orderName line2 font30 color-333">江苏判断推理特色专题</view>
@@ -55,13 +55,13 @@
           <view class="flex_dom flex_item_mid m-t-20">
             <view class="font20 color-999 flex_1"></view>
             <view>
-              <button class="blueBtn">开始学习</button>
+              <button class="blueBtn" hover-class="blueBtn-hover">开始学习</button>
             </view>
           </view>
         </view>
       </view>
       <view class="orderItem" wx:if="{{active==0}}">
-        <view class="orderTop flex_dom">
+        <view class="orderTop flex_dom" bindtap="goDetail" data-type="4">
           <image src="../../files/img_tuijian1.png"></image>
           <view class="orderInfo flex_1">
             <view class="orderName line2 font30 color-333">江苏判断推理特色专题</view>
@@ -80,7 +80,57 @@
           <view class="flex_dom flex_item_mid m-t-20">
             <view class="font20 color-999 flex_1"></view>
             <view>
-              <button class="defaultBtn">已取消</button>
+              <button class="defaultBtn" hover-class="defaultBtn-hover">已取消</button>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="orderItem" wx:if="{{active==0}}">
+        <view class="orderTop flex_dom" bindtap="goDetail" data-type="2">
+          <image src="../../files/img_tuijian1.png"></image>
+          <view class="orderInfo flex_1">
+            <view class="orderName line2 font30 color-333">4小时吃透病句解析</view>
+            <view class="orderPrice">
+              <view class="font36 redPrice">¥2999.9</view>
+              <!-- <view class="font24 color-999 grayPrice">¥2999.9</view> -->
+            </view>
+          </view>
+          <view class="color-999 font24 orderState">退款中</view>
+        </view>
+        <view class="orderBtm">
+          <view class="flex_dom flex_item_mid">
+            <view class="flex_1 font24 color-333">合计金额</view>
+            <view class="font36 redPrice">¥2999.9</view>
+          </view>
+          <view class="flex_dom flex_item_mid m-t-20">
+            <view class="font20 color-999 flex_1">拼团失败，自动退款</view>
+            <view>
+              <button class="defaultBtn" hover-class="defaultBtn-hover">退款中</button>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="orderItem" wx:if="{{active==0}}">
+        <view class="orderTop flex_dom" bindtap="goDetail" data-type="1">
+          <image src="../../files/img_tuijian1.png"></image>
+          <view class="orderInfo flex_1">
+            <view class="orderName line2 font30 color-333">4小时吃透病句解析</view>
+            <view class="orderPrice">
+              <view class="font36 redPrice">¥2999.9</view>
+              <!-- <view class="font24 color-999 grayPrice">¥2999.9</view> -->
+            </view>
+          </view>
+          <view class="color-999 font24 orderState">已退款</view>
+        </view>
+        <view class="orderBtm">
+          <view class="flex_dom flex_item_mid">
+            <view class="flex_1 font24 color-333">合计金额</view>
+            <view class="font36 redPrice">¥2999.9</view>
+          </view>
+          <view class="flex_dom flex_item_mid m-t-20">
+            <view class="font20 color-999 flex_1">拼团失败，自动退款</view>
+            <view>
+              <button class="defaultBtn" hover-class="defaultBtn-hover">已退款</button>
             </view>
           </view>
         </view>
@@ -106,8 +156,8 @@
           <view class="flex_dom flex_item_mid m-t-20">
             <view class="font20 color-999 flex_1">10分钟以后自动取消订单</view>
             <view>
-              <button class="defaultBtn">取消订单</button>
-              <button class="blueBtn">立即支付</button>
+              <button class="defaultBtn" hover-class="defaultBtn-hover">取消订单</button>
+              <button class="blueBtn" hover-class="blueBtn-hover">立即支付</button>
             </view>
           </view>
         </view>
@@ -132,8 +182,8 @@
           <view class="flex_dom flex_item_mid m-t-20">
             <view class="font20 color-999 flex_1">10分钟以后自动取消订单</view>
             <view>
-              <button class="defaultBtn">取消订单</button>
-              <button class="blueBtn">立即支付</button>
+              <button class="defaultBtn" hover-class="defaultBtn-hover">取消订单</button>
+              <button class="blueBtn" hover-class="blueBtn-hover">立即支付</button>
             </view>
           </view>
         </view>
@@ -159,7 +209,7 @@
           <view class="flex_dom flex_item_mid m-t-20">
             <view class="font20 color-999 flex_1"></view>
             <view>
-              <button class="blueBtn">开始学习</button>
+              <button class="blueBtn" hover-class="blueBtn-hover">开始学习</button>
             </view>
           </view>
         </view>
@@ -184,7 +234,7 @@
           <view class="flex_dom flex_item_mid m-t-20">
             <view class="font20 color-999 flex_1"></view>
             <view>
-              <button class="defaultBtn">已取消</button>
+              <button class="defaultBtn" hover-class="defaultBtn-hover">已取消</button>
             </view>
           </view>
         </view>
@@ -209,9 +259,9 @@
           <view class="flex_dom flex_item_mid m-t-20">
             <view class="font20 color-999 flex_1"></view>
             <view>
-              <button class="defaultBtn">已取消</button>
-              <button class="otherBtn">观看回放</button>
-              <button class="blueBtn">评价课程</button>
+              <button class="defaultBtn" hover-class="defaultBtn-hover">已取消</button>
+              <button class="otherBtn" hover-class="otherBtn-hover">观看回放</button>
+              <button class="blueBtn" hover-class="blueBtn-hover">评价课程</button>
             </view>
           </view>
         </view>
@@ -236,7 +286,7 @@
           <view class="flex_dom flex_item_mid m-t-20">
             <view class="font20 color-999 flex_1">拼团失败，自动退款</view>
             <view>
-              <button class="defaultBtn">已退款</button>
+              <button class="defaultBtn" hover-class="defaultBtn-hover">已退款</button>
             </view>
           </view>
         </view>
@@ -261,7 +311,7 @@
           <view class="flex_dom flex_item_mid m-t-20">
             <view class="font20 color-999 flex_1">拼团失败，自动退款</view>
             <view>
-              <button class="defaultBtn">查看订单</button>
+              <button class="defaultBtn" hover-class="defaultBtn-hover">查看订单</button>
             </view>
           </view>
         </view>
@@ -287,8 +337,8 @@
           <view class="flex_dom flex_item_mid m-t-20">
             <view class="font20 color-999 flex_1"></view>
             <view>
-              <button class="defaultBtn">取消订单</button>
-              <button class="blueBtn">去评价</button>
+              <button class="defaultBtn" hover-class="defaultBtn-hover">取消订单</button>
+              <button class="blueBtn" hover-class="blueBtn-hover">去评价</button>
             </view>
           </view>
         </view>
@@ -313,12 +363,16 @@
           <view class="flex_dom flex_item_mid m-t-20">
             <view class="font20 color-999 flex_1"></view>
             <view>
-              <button class="defaultBtn">取消订单</button>
-              <button class="blueBtn">去评价</button>
+              <button class="defaultBtn" hover-class="defaultBtn-hover">取消订单</button>
+              <button class="blueBtn" hover-class="blueBtn-hover">去评价</button>
             </view>
           </view>
         </view>
       </view>
     </view>
   </scroll-view>
+  
+  <view class="noData">
+    
+  </view>
 </view>

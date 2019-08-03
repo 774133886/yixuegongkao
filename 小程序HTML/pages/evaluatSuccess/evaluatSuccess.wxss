@@ -1,0 +1,18 @@
+/* pages/evaluatSuccess/evaluatSuccess.wxss */
+page{
+  padding: 80rpx 0 20rpx;
+}
+.evaluatSuccess image{
+  width: 100rpx;
+  height: 100rpx;
+}
+.button,.btn-hover{
+  width:367rpx;
+  height:88rpx;
+  line-height: 88rpx;
+  background:rgba(30,158,243,1);
+  border-radius:10rpx;
+  color: #fff;
+  font-size: 30rpx;
+  margin: 90rpx auto 0;
+}

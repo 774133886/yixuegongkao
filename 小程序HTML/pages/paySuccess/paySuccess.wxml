@@ -1,0 +1,58 @@
+<!--pages/paySuccess/paySuccess.wxml-->
+<view class="flex_dom flex_item_mid payTitle" bindtap="goOrderDetail">
+  <image src="../../files/icon_tixian.png"></image>
+  <view class="font30 color-333 flex_1">支付成功</view>
+  <view class="titleBtn">查看订单</view>
+</view>
+<view class="paySuccess font30 color-333">
+  <view>
+    <view class="orderGroup flex_dom color-999">
+      <view>订单编号</view>
+      <view class="flex_1 orderNum">1214343546474743</view>
+      <view>已完成</view>
+    </view>
+    <view class="orderGroup allGroup flex_dom">
+      <view class="orderInfo flex_dom">
+        <image src="../../files/img_kecheng.png"></image>
+        <view class="orderInfo flex_1">
+          <view class="orderName line2 font30 color-333">4小时吃透病句解析</view>
+          <view class="orderPrice">
+            <view class="font36 redPrice">¥2999.9</view>
+            <view class="font24 color-999 grayPrice">¥2999.9</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="orderGroup flex_dom">
+      <view class="groupLabel">地 址</view>
+      <view class="groupDetail color-666">浙江省杭州市西湖区文三西路古荡新 村西38幢2单元301室</view>
+    </view>
+    <view class="orderGroup flex_dom">
+      <view class="groupLabel">收货人</view>
+      <view class="groupDetail color-666 flex_dom flex_item_between"><view>汲汲</view><view>15812356985</view></view>
+    </view>
+    <view class="orderGroup flex_dom">
+      <view class="groupLabel">职 位</view>
+      <view class="groupDetail color-666">13314012000000017浙江省南湖监狱（湖州安吉）-监狱管理2</view>
+    </view>
+    <view class="orderGroup flex_dom flex_item_mid flex_item_between">
+      <view class="groupLabel">支付方式</view>
+      <view class="groupDetail color-666 flex_dom flex_item_mid">
+        <image class="icon-wechat" src="../../files/icon_weixin1.png"></image>
+        <text class="font24 m-l-20">微信支付</text>
+      </view>
+    </view>
+    <view class="orderGroup flex_dom flex_item_between">
+      <view class="groupLabel">合计金额</view>
+      <view class="groupDetail color-red">¥2999.0</view>
+    </view>
+    <view class="orderGroup flex_dom flex_item_between">
+      <view class="groupLabel">下单时间</view>
+      <view class="groupDetail color-666">2019-05-57  19:23</view>
+    </view>
+    <view class="orderGroup flex_dom flex_item_between">
+      <view class="groupLabel">支付时间</view>
+      <view class="groupDetail color-666">2019-05-57  19:23</view>
+    </view>
+  </view>
+</view>

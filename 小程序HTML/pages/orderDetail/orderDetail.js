@@ -1,22 +1,20 @@
-// pages/course/course.js
+// pages/orderDetail/orderDetail.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    active: 1
+    state: 0
   },
-  choiceTab(e) {
-    this.setData({
-      active: e.currentTarget.dataset.id
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      state: options.state
+    })
   },
 
   /**
