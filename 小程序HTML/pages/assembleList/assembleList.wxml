@@ -23,7 +23,7 @@
             <text class="color-FF3636">仅剩20:15:16 </text> 结束         
           </view>
         </view>
-        <button class="ptBtn">参团</button>
+        <navigator url="/pages/assembling/assembling" hover-class="none" class="ptBtn text-center">参团</navigator>
       </view>
       <view class="ptList border-b-eee p-v-30 between-center">
         <image class='wid110rpx hgt110rpx radius_50' src='../../files/img_user2.png'></image>
@@ -39,7 +39,7 @@
             <text class="color-FF3636">仅剩20:15:16 </text> 结束         
           </view>
         </view>
-        <button class="ptBtn">参团</button>
+        <navigator url="/pages/assembling/assembling" hover-class="none" class="ptBtn text-center">参团</navigator>
       </view>
       <view class="ptList border-b-eee p-v-30 between-center">
         <image class='wid110rpx hgt110rpx radius_50' src='../../files/img_user2.png'></image>
@@ -55,7 +55,7 @@
             <text class="color-FF3636">仅剩20:15:16 </text> 结束         
           </view>
         </view>
-        <button class="ptBtn">参团</button>
+        <navigator url="/pages/assembling/assembling" hover-class="none" class="ptBtn text-center">参团</navigator>
       </view>
       <view style="margin-top:30rpx;" class='nomore hgt50rpx around-center'>
         <text class='color-be font24'>没有更多了</text>

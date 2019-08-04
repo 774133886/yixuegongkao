@@ -37,8 +37,8 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "pages/courseDetail/courseDetail",
-					"pathName": "pages/courseDetail/courseDetail",
+					"name": "pages/index/index",
+					"pathName": "pages/index/index",
 					"query": "id=8",
 					"scene": null
 				}

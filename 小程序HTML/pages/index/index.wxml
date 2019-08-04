@@ -3,12 +3,12 @@
 <import src="../../wxParse/wxParse.wxml"/>
 <view class='Con font30'>
   <view class='l-pad40'>
-    <view class='searchBox around-center'>
+    <navigator url="/pages/search/search" hover-class="none" class='searchBox around-center'>
       <view class='center'>
         <image class='wid36rpx hgt36rpx' src='../../files/icon_search.png'></image>
         <text class='color-999 font24 m-l-10'>搜索课程名称/老师</text>
       </view>
-    </view>
+    </navigator>
   </view>
   
   <!-- swiper首页轮播图 -->
@@ -19,7 +19,7 @@
   </view>
   <view class="indexNav border-b-eee l-pad40 font0 m-t-50">
     <view class='inline_div nav-item'>
-      <navigator class="column-center-c "  url="" hover-class="none" open-type="navigate">
+      <navigator class="column-center-c "  url="/pages/course/course" hover-class="none" open-type="switchTab">
         <image class="nav-icon" src="../../files/icon_1_xitongke.png" mode="aspectFill" lazy-load="false" ></image>
         <view class="font30 color-333" >系统课</view>
       </navigator>
@@ -77,7 +77,7 @@
           <text class='relative'>活动专区</text>
         </view>
       </view>
-      <view class="center" hover-class="none" hover-stop-propagation="false">
+      <navigator url="/pages/activities/activities" hover-class="none" class="center" hover-class="none" hover-stop-propagation="false">
         <view class='wid90rpx headPicArea relative'>
           <image class="listHead" src="../../files/img_user.png"></image>
           <image class="listHead" src="../../files/img_user.png"></image>
@@ -85,13 +85,13 @@
         </view>
         <text class='font20 color-999 m-l-10'>66人等正在参与</text>
         <image class="icon_right m-l-10" src="../../files/icon_xiangyou.png"></image>
-      </view>
+      </navigator>
     </view>
     
     <view class='font0 p-t-20 acBox'>
       <swiper indicator-dots="true"  style='height:270rpx;'>
         <swiper-item class="acItem">
-          <view class='inline_div acList'>
+          <navigator url="/pages/courseDetail/courseDetail" hover-class="none" class='inline_div acList'>
             <view class='relative wid100 hgt130rpx'>
               <image class="wid100 hgt130rpx" src="../../files/img_kecheng.png" mode="aspectFill" lazy-load="false" ></image>
               <image class="index_tag" src="../../files/img_pintuan.png" mode="aspectFill" lazy-load="false" ></image>
@@ -105,7 +105,7 @@
               <text class='font26 color-FF1919'>¥2999.9</text>
               <text class='color-999 font16 lineThrough'>¥2999.9</text>
             </view>
-          </view>
+          </navigator>
           <view class='inline_div acList'>
             <view class='relative wid100 hgt130rpx'>
               <image class="wid100 hgt130rpx" src="../../files/img_kecheng2.png" mode="aspectFill" lazy-load="false" ></image>
@@ -169,7 +169,7 @@
         </view>
       </view>
     </view>
-    <navigator hover-class='none' url='' class='index_courseList hgt250rpx between border-b-eee'>
+    <navigator url="/pages/courseDetail/courseDetail" hover-class="none" class='index_courseList hgt250rpx between border-b-eee'>
       <view class='hgt210rpx wid320rpx relative'>
         <image class="wid100 hgt210rpx" src="../../files/img_tuijian1.png" mode="aspectFill" lazy-load="false" ></image>
         <image class="index_tag2" src="../../files/img_baoming.png" mode="aspectFill" lazy-load="false" ></image>

@@ -54,6 +54,12 @@ Page({
     }
   },
 
+  // 回到首页
+  gocourse: function (e) {
+    wx.switchTab({
+      url: '/pages/course/course'
+    })
+  },
 
   //开启中断遮罩
   closeMark: function (e) {

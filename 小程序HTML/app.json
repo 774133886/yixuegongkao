@@ -64,7 +64,7 @@
         "selectedIconPath": "files/icon_dingdan.png"
       },
       {
-        "pagePath": "pages/mine/mine",
+        "pagePath": "pages/personal/personal",
         "text": "我的",
         "iconPath": "files/icon_wode_pre.png",
         "selectedIconPath": "files/icon_wode.png"
