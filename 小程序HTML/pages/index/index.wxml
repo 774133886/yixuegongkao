@@ -91,7 +91,7 @@
     <view class='font0 p-t-20 acBox'>
       <swiper indicator-dots="true"  style='height:270rpx;'>
         <swiper-item class="acItem">
-          <navigator url="/pages/courseDetail/courseDetail" hover-class="none" class='inline_div acList'>
+          <navigator url="/pages/courseDetail/courseDetail?state=1" hover-class="none" class='inline_div acList'>
             <view class='relative wid100 hgt130rpx'>
               <image class="wid100 hgt130rpx" src="../../files/img_kecheng.png" mode="aspectFill" lazy-load="false" ></image>
               <image class="index_tag" src="../../files/img_pintuan.png" mode="aspectFill" lazy-load="false" ></image>
@@ -106,7 +106,7 @@
               <text class='color-999 font16 lineThrough'>¥2999.9</text>
             </view>
           </navigator>
-          <view class='inline_div acList'>
+          <navigator url="/pages/courseDetail/courseDetail?state=2" hover-class="none" class='inline_div acList'>
             <view class='relative wid100 hgt130rpx'>
               <image class="wid100 hgt130rpx" src="../../files/img_kecheng2.png" mode="aspectFill" lazy-load="false" ></image>
               <image class="index_tag" src="../../files/img_miaosha.png" mode="aspectFill" lazy-load="false" ></image>
@@ -120,7 +120,7 @@
               <text class='font26 color-FF1919'>¥2999.9</text>
               <text class='color-999 font16 lineThrough'>¥2999.9</text>
             </view>
-          </view>
+          </navigator>
           <view class='inline_div acList'>
             <view class='relative wid100 hgt130rpx'>
               <image class="wid100 hgt130rpx" src="../../files/img_kecheng.png" mode="aspectFill" lazy-load="false" ></image>

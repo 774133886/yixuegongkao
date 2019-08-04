@@ -5,7 +5,7 @@
     <text class='ccolor-333 m-l-20'>搜索</text>
   </view>
   <view class="indexAArea p-t-20 p-b-20" hover-class="none" hover-stop-propagation="false">
-    <navigator url="/pages/courseDetail/courseDetail" hover-class="none" class='index_courseList hgt230rpx between border-b-eee'>
+    <navigator url="/pages/courseDetail/courseDetail?state=1" hover-class="none" class='index_courseList hgt230rpx between border-b-eee'>
       <view class='hgt190rpx wid290rpx relative'>
         <image class="wid100 hgt190rpx" src="../../files/img_kecheng.png" mode="aspectFill" lazy-load="false" ></image>
         <image class="index_tag2" src="../../files/img_pintuan.png" mode="aspectFill" lazy-load="false" ></image>
@@ -32,7 +32,7 @@
         
       </view>
     </navigator>
-    <navigator hover-class='none' url='' class='index_courseList hgt230rpx between border-b-eee'>
+    <navigator hover-class='none' url='/pages/courseDetail/courseDetail?state=0' class='index_courseList hgt230rpx between border-b-eee'>
       <view class='hgt190rpx wid290rpx relative'>
         <image class="wid100 hgt190rpx" src="../../files/img_tuijian1.png" mode="aspectFill" lazy-load="false" ></image>
         <image class="index_tag2" src="../../files/img_baoming.png" mode="aspectFill" lazy-load="false" ></image>

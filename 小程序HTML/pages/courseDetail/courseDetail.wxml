@@ -4,14 +4,15 @@
   <view class='wid100 relative'>
       <image class='courseBnr' mode="aspectFill" lazy-load="false" src='../../files/img_kecheng_big.png'></image>
       <!-- 秒杀拼团 -->
-      <image class="ptTag" src="../../files/img_pintuan.png" mode="aspectFill" lazy-load="false" ></image>
+      <image wx:if="{{state==1}}" class="ptTag" src="../../files/img_pintuan.png" mode="aspectFill" lazy-load="false" ></image>
+      <image wx:if="{{state==2}}" class="ptTag" src="../../files/img_miaosha.png" mode="aspectFill" lazy-load="false" ></image>
       <!-- 拼团 -->
-      <view class="hgt80rpx l-pad40 ptArea font34 between-center">
+      <view wx:if="{{state==1}}" class="hgt80rpx l-pad40 ptArea font34 between-center">
         <view class="color-FF1919">4人团</view>
         <view class="color-FF1919">剩余 03天20:12:12</view>
       </view>
       <!-- 秒杀 -->
-      <view class="hgt80rpx ptArea font34 between-center">
+      <view wx:if="{{state==2}}" class="hgt80rpx ptArea font34 between-center">
         <view class="wid280rpx color-FF3636 column-center-b p-v-10 hgt80rpx">
           <view style="color:#FF6C6C;" class="font20 lh1">199  人已秒杀</view>
           <view class="font30 lh1">¥2999.9 <text class="lineThrough font20">¥2999.9</text></view>
@@ -29,9 +30,9 @@
         <!-- <text class='font36 color-green m-r-30'>免费</text> -->
         <text class='font36 color-FF1919'>¥2999.9</text>
         <text class='color-999 font24 m-l-15 lineThrough'>¥2999.9</text>
-        <!-- <text class='color-5273FF m-l-30 font20'>300</text>
-        <text class='color-999 font20'>/1200人报名</text> -->
-        <text class='color-FF1919 m-l-30 font24'>199 人已拼团</text>
+        <text wx:if="{{state!=1}}" class='color-5273FF m-l-30 font20'>300</text>
+        <text wx:if="{{state!=1}}" class='color-999 font20'>/1200人报名</text>
+        <text wx:if="{{state==1}}" class='color-FF1919 m-l-30 font24'>199 人已拼团</text>
      </view>
      <view class='center' catchtap='shareTab'>
       <image class='wid30rpx hgt30rpx' src='../../files/icon_share.png'></image>
@@ -54,8 +55,8 @@
       </view>
      </view>
   </view>
-  <view class='grayLine'></view>
-  <view class="ptBox p-t-20 l-pad40">
+  <view wx:if="{{state==1}}" class='grayLine'></view>
+  <view wx:if="{{state==1}}" class="ptBox p-t-20 l-pad40">
     <view class="between-center">
       <view class="center">
         <view class="color-333">正在拼团</view>
@@ -175,7 +176,7 @@
     </view>
   </view>
 </view>
-<view class='cdBot border-t-eee hgt100rpx between-center'>
+<view wx:if="{{state!=1}}" class='cdBot border-t-eee hgt100rpx between-center'>
   <view class='center l-pad20 hgt80rpx'>
     <view bindtap="contactTab" class='hgt80rpx wid180rpx column-center-b'>
       <image style='margin-left:0;' class='cdIcon' src='../../files/icon_kefu.png'></image>
@@ -186,12 +187,13 @@
       <text class='font20 color-999'>回到主页</text>
     </view>
   </view>
-  <button class='bmBtn font36'>立即报名</button>
-  <!-- <button class='bmBtn font36 btn_green'>即将开始</button> -->
-  <!-- <button class='bmBtn font36 btn_blue'>开始学习</button> -->
-  <!-- <button class='bmBtn font36 btn_gray'>报名结束</button> -->
+  <button bindtap="writeInfo" hover-class="none" class='bmBtn font36'>立即报名</button>
+  <button bindtap="writeInfo2" hover-class="none" class='bmBtn font36'>面试报名</button>
+  <!-- <button hover-class="none" class='bmBtn font36 btn_green'>即将开始</button> -->
+  <!-- <button hover-class="none" class='bmBtn font36 btn_blue'>开始学习</button> -->
+  <!-- <button hover-class="none" class='bmBtn font36 btn_gray'>报名结束</button> -->
 </view>
-<view class='l-pad20 cdBot border-t-eee hgt100rpx between-center'>
+<view wx:if="{{state==1}}" class='l-pad20 cdBot border-t-eee hgt100rpx between-center'>
   <view class='center hgt80rpx'>
     <view bindtap="contactTab" class='hgt80rpx wid130rpx column-center-b'>
       <image style='margin-left:0;' class='cdIcon' src='../../files/icon_kefu.png'></image>
@@ -203,14 +205,14 @@
     </view>
   </view>
   <view class="between-center ptBuy m-r-20">
-    <view class="wid50 color-FF3636 column-center-b p-v-10 hgt70rpx">
+    <view bindtap="writeInfo" class="wid50 color-FF3636 column-center-b p-v-10 hgt70rpx">
       <view class="font20 lh1">¥3999.0</view>
       <view class="font24 lh1">单独购买</view>
     </view>
-    <view class="wid50 bg-FF3636 color-fff column-center-b p-v-10 hgt70rpx">
+    <navigator url="/pages/assembling/assembling" hover-class="none" class="wid50 bg-FF3636 color-fff column-center-b p-v-10 hgt70rpx">
       <view class="font20 lh1">¥2999.0</view>
       <view class="font24 lh1">邀请好友参团</view>
-    </view>
+    </navigator>
   </view>
 </view>
 <!-- 分享 -->

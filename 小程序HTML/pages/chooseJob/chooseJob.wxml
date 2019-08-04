@@ -21,6 +21,6 @@
       <text class='font36 color-FF1919'>¥2999.9</text>
       <text class='color-999 font20 m-l-20 lineThrough'>¥2999.9</text>
     </view>
-    <button class='bmBtn btn_blue font36'>去支付</button>
+    <button hover-class="none" bindtap="nextStep" class='bmBtn btn_blue font36'>下一步</button>
   </view>
 </view>

@@ -71,7 +71,7 @@
     <!-- <button  bindtap="payTab" hover-class="none" class='bmBtn font36'>立即开团</button> -->
   </view>
 </view>
-<!-- 联系客服 -->
+<!-- 支付 -->
 <view bindtap='payTab' class='markBox font30 {{payShow ? "" : "hide"}}'>
   <view catchtap='notThis' class='payBox l-pad40'>
     <view class='hgt100rpx center-end'>

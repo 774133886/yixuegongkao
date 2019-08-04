@@ -11,7 +11,8 @@ Page({
   data: {
     shareShow:false,
     contactShow:false,
-    sServiceTel:'15928773528'
+    sServiceTel:'15928773528',
+    state:0
   },
 
   /**
@@ -21,6 +22,9 @@ Page({
     var that = this;
     var content = "<img style='margin-left: 0;border-radius:10px; width:100%;' src='../../files/indexBanner.png'/><div>此处为富文本<div/>" ;
     WxParse.wxParse('article', 'html', content, that, 5);
+    this.setData({
+      state: options.state
+    })
   },
   //分享遮罩
   shareTab: function (e) {
@@ -40,6 +44,16 @@ Page({
     var phoneNum = e.currentTarget.dataset.pnum
     wx.makePhoneCall({
       phoneNumber: phoneNum.toString()
+    })
+  },
+  writeInfo: function (e) {
+    wx.navigateTo({
+      url: '/pages/addAdress/addAdress'
+    })
+  },
+  writeInfo2: function (e) {
+    wx.navigateTo({
+      url: '/pages/chooseJob/chooseJob'
     })
   },
   /**

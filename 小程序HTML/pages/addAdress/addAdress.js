@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    payShow: false,
     region: ['北京市', '朝阳区'],
   },
   bindRegionChange: function (e) {
@@ -12,6 +13,10 @@ Page({
     this.setData({
       region: e.detail.value
     })
+  },
+  // 支付
+  payTab: function (e) {
+    this.setData({ payShow: !this.data.payShow })
   },
   /**
    * 生命周期函数--监听页面加载

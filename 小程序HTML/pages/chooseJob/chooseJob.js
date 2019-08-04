@@ -19,6 +19,11 @@ Page({
       jobList: jobLists
     })
   },
+  nextStep(){
+    wx.navigateTo({
+      url: '/pages/writeInfo/writeInfo'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
