@@ -137,7 +137,7 @@
       </view>
       <!-- 待支付 -->
       <view class="orderItem" wx:if="{{active==1}}">
-        <view class="orderTop flex_dom">
+        <view class="orderTop flex_dom" bindtap="goDetail" data-type="3">
           <image src="../../files/img_kecheng.png"></image>
           <view class="orderInfo flex_1">
             <view class="orderName line2 font30 color-333">4小时吃透病句解析</view>
@@ -163,7 +163,7 @@
         </view>
       </view>
       <view class="orderItem" wx:if="{{active==1}}">
-        <view class="orderTop flex_dom">
+        <view class="orderTop flex_dom" bindtap="goDetail" data-type="3">
           <image src="../../files/img_kecheng.png"></image>
           <view class="orderInfo flex_1">
             <view class="orderName line2 font30 color-333">4小时吃透病句解析</view>
@@ -190,7 +190,7 @@
       </view>
       <!-- 已完成 -->
       <view class="orderItem" wx:if="{{active==2}}">
-        <view class="orderTop flex_dom">
+        <view class="orderTop flex_dom" bindtap="goDetail" data-type="0">
           <image src="../../files/img_tuijian1.png"></image>
           <view class="orderInfo flex_1">
             <view class="orderName line2 font30 color-333">4小时吃透病句解析</view>
@@ -215,7 +215,7 @@
         </view>
       </view>
       <view class="orderItem" wx:if="{{active==2}}">
-        <view class="orderTop flex_dom">
+        <view class="orderTop flex_dom" bindtap="goDetail" data-type="4">
           <image src="../../files/img_tuijian1.png"></image>
           <view class="orderInfo flex_1">
             <view class="orderName line2 font30 color-333">4小时吃透病句解析</view>
@@ -240,7 +240,7 @@
         </view>
       </view>
       <view class="orderItem" wx:if="{{active==2}}">
-        <view class="orderTop flex_dom">
+        <view class="orderTop flex_dom" bindtap="goDetail" data-type="4">
           <image src="../../files/img_tuijian1.png"></image>
           <view class="orderInfo flex_1">
             <view class="orderName line2 font30 color-333">4小时吃透病句解析</view>
@@ -267,7 +267,7 @@
         </view>
       </view>
       <view class="orderItem" wx:if="{{active==2}}">
-        <view class="orderTop flex_dom">
+        <view class="orderTop flex_dom" bindtap="goDetail" data-type="1">
           <image src="../../files/img_tuijian1.png"></image>
           <view class="orderInfo flex_1">
             <view class="orderName line2 font30 color-333">4小时吃透病句解析</view>
@@ -292,7 +292,7 @@
         </view>
       </view>
       <view class="orderItem" wx:if="{{active==2}}">
-        <view class="orderTop flex_dom">
+        <view class="orderTop flex_dom" bindtap="goDetail" data-type="3">
           <image src="../../files/img_tuijian1.png"></image>
           <view class="orderInfo flex_1">
             <view class="orderName line2 font30 color-333">4小时吃透病句解析</view>
@@ -318,7 +318,7 @@
       </view>
       <!-- 待评价 -->
       <view class="orderItem" wx:if="{{active==3}}">
-        <view class="orderTop flex_dom">
+        <view class="orderTop flex_dom" bindtap="goDetail" data-type="0">
           <image src="../../files/img_kecheng.png"></image>
           <view class="orderInfo flex_1">
             <view class="orderName line2 font30 color-333">4小时吃透病句解析</view>
@@ -344,7 +344,7 @@
         </view>
       </view>
       <view class="orderItem" wx:if="{{active==3}}">
-        <view class="orderTop flex_dom">
+        <view class="orderTop flex_dom" bindtap="goDetail" data-type="0">
           <image src="../../files/img_kecheng.png"></image>
           <view class="orderInfo flex_1">
             <view class="orderName line2 font30 color-333">4小时吃透病句解析</view>
