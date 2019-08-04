@@ -25,7 +25,7 @@
     </view>
     <view class="orderGroup flex_dom">
       <view class="groupLabel">收货人</view>
-      <view class="groupDetail color-666 flex_dom flex_item_between"><view>汲汲</view><view>15812356985</view></view>
+      <view class="groupDetail color-666 flex_dom flex_item_between flex_1"><view>汲汲</view><view>15812356985</view></view>
     </view>
     <view class="orderGroup flex_dom">
       <view class="groupLabel">职 位</view>
@@ -86,7 +86,7 @@
     </view>
     <view class="orderGroup flex_dom">
       <view class="groupLabel">收货人</view>
-      <view class="groupDetail color-666 flex_dom flex_item_between"><view>汲汲</view><view>15812356985</view></view>
+      <view class="groupDetail color-666 flex_dom flex_item_between flex_1"><view>汲汲</view><view>15812356985</view></view>
     </view>
     <view class="orderGroup flex_dom">
       <view class="groupLabel">职 位</view>
@@ -150,7 +150,7 @@
     </view>
     <view class="orderGroup flex_dom">
       <view class="groupLabel">收货人</view>
-      <view class="groupDetail color-666 flex_dom flex_item_between"><view>汲汲</view><view>15812356985</view></view>
+      <view class="groupDetail color-666 flex_dom flex_item_between flex_1"><view>汲汲</view><view>15812356985</view></view>
     </view>
     <view class="orderGroup flex_dom">
       <view class="groupLabel">职 位</view>
@@ -211,7 +211,7 @@
     </view>
     <view class="orderGroup flex_dom">
       <view class="groupLabel">收货人</view>
-      <view class="groupDetail color-666 flex_dom flex_item_between"><view>汲汲</view><view>15812356985</view></view>
+      <view class="groupDetail color-666 flex_dom flex_item_between flex_1"><view>汲汲</view><view>15812356985</view></view>
     </view>
     <view class="orderGroup flex_dom">
       <view class="groupLabel">职 位</view>

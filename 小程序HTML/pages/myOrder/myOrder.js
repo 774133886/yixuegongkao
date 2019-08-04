@@ -21,6 +21,11 @@ Page({
       active: e.currentTarget.dataset.idx
     })
   },
+  goEva(){
+    wx.navigateTo({
+      url: '../evaluation/evaluation',
+    })
+  },
   goDetail(e){
     wx.navigateTo({
       url: '../orderDetail/orderDetail?state='+e.currentTarget.dataset.type,

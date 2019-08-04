@@ -338,7 +338,7 @@
             <view class="font20 color-999 flex_1"></view>
             <view>
               <button class="defaultBtn" hover-class="defaultBtn-hover">取消订单</button>
-              <button class="blueBtn" hover-class="blueBtn-hover">去评价</button>
+              <button class="blueBtn" hover-class="blueBtn-hover" bindtap="goEva">去评价</button>
             </view>
           </view>
         </view>
@@ -364,7 +364,7 @@
             <view class="font20 color-999 flex_1"></view>
             <view>
               <button class="defaultBtn" hover-class="defaultBtn-hover">取消订单</button>
-              <button class="blueBtn" hover-class="blueBtn-hover">去评价</button>
+              <button class="blueBtn" hover-class="blueBtn-hover" bindtap="goEva">去评价</button>
             </view>
           </view>
         </view>
