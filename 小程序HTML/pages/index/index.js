@@ -411,31 +411,31 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function (options) {
-    var that = this;
-    // this.loadUser();
-    // this.getlist();
-    http.postReq('/api/User/info', {}, function (res) {
-      setTimeout(function () {
-        that.getlist();
-      }, 0);
-    })
-    var that = this;
+    // var that = this;
+    // // this.loadUser();
+    // // this.getlist();
+    // http.postReq('/api/User/info', {}, function (res) {
+    //   setTimeout(function () {
+    //     that.getlist();
+    //   }, 0);
+    // })
+    // var that = this;
     
-    //iphone 底部横线适配
-    var iphones = ['iPhone X', 'iPhone XR', 'iPhone XS', 'iPhone XS Max', 'iPhone11,8', 'iPhone11,2', 'iPhone11,4', 'iPhone11,6', 'unknown<iPhone11,2>', 'unknown<iPhone11,8>', 'unknown<iPhone11,4>', 'unknown<iPhone11,6>']
-    wx.getSystemInfo({
-      success: function (res) {
-        //console.log(res.model)
-        //console.log(res.language)//zh_CN(en)
-        //console.log(res.model=="iPhone X")
-        // console.log(iphones.indexOf(res.model) > -1)
-        if (iphones.indexOf(res.model) > -1) {
-          that.setData({
-            isIphone: true
-          })
-        }
-      }
-    })
+    // //iphone 底部横线适配
+    // var iphones = ['iPhone X', 'iPhone XR', 'iPhone XS', 'iPhone XS Max', 'iPhone11,8', 'iPhone11,2', 'iPhone11,4', 'iPhone11,6', 'unknown<iPhone11,2>', 'unknown<iPhone11,8>', 'unknown<iPhone11,4>', 'unknown<iPhone11,6>']
+    // wx.getSystemInfo({
+    //   success: function (res) {
+    //     //console.log(res.model)
+    //     //console.log(res.language)//zh_CN(en)
+    //     //console.log(res.model=="iPhone X")
+    //     // console.log(iphones.indexOf(res.model) > -1)
+    //     if (iphones.indexOf(res.model) > -1) {
+    //       that.setData({
+    //         isIphone: true
+    //       })
+    //     }
+    //   }
+    // })
   },
 
   /**

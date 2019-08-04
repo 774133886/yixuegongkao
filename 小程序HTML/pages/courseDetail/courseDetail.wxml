@@ -49,7 +49,7 @@
         <text class='font20 color-999 m-l-10'> 开课 : 2019.03.23  19:00 </text>
         <text class='font20 color-999 m-l-30'> 总课时 ：2.0小时</text>
       </view>
-      <view class='center m-t-10'>
+      <view class='center'>
         <image class='litleIcon' src='../../files/icon_baoming.png'></image>
         <text class='font20 color-999 m-l-10'> 报名: 2019.03.20  13:00 — 2019.03.23  19:00</text>
       </view>
