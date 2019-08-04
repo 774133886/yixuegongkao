@@ -42,6 +42,7 @@
 }
 .liveBtn2,.liveBtn2-hover{
   background:rgba(230,230,230,1);
+  color: #666;
 }
 .liveBtn3,.liveBtn3-hover{
   background:rgba(223,242,255,1);

@@ -19,7 +19,7 @@
     <view class="font30 color-333">3、</view>
     <view class="flex_dom flex_item_mid flex_1">
       <view class="flex_1">
-        <view class="font30 color-333">江苏判断推理特色</view>
+        <view class="font30 color-333">资料分析统计术语</view>
         <view class="font20 color-666 m-t-20">
           <text class="m-r-20">开课时间</text>
           <text>2019.05.30  09:30-15:00</text>
@@ -32,7 +32,7 @@
     <view class="font30 color-333">3、</view>
     <view class="flex_dom flex_item_mid flex_1">
       <view class="flex_1">
-        <view class="font30 color-333">江苏判断推理特色</view>
+        <view class="font30 color-333">资料分析结构阅读</view>
         <view class="font20 color-666 m-t-20">
           <text class="m-r-20">开课时间</text>
           <text>2019.05.30  09:30-15:00</text>
@@ -45,7 +45,7 @@
     <view class="font30 color-333">2、</view>
     <view class="flex_dom flex_item_mid flex_1">
       <view class="flex_1">
-        <view class="font30 color-333">江苏判断推理特色</view>
+        <view class="font30 color-333">判断图形推理</view>
         <view class="font20 color-666 m-t-20">
           <text class="m-r-20">开课时间</text>
           <text>2019.05.30  09:30-15:00</text>

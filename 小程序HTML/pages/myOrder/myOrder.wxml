@@ -6,7 +6,7 @@
     <view bindtap="choiceTab" data-idx="2" class="{{active==2?'active':''}}">已完成</view>
     <view bindtap="choiceTab" data-idx="3" class="{{active==3?'active':''}}">待评价</view>
   </view>
-  <scroll-view style="display: none" scroll-y="{{true}}" class="flex_1 orderCtt">
+  <scroll-view scroll-y="{{true}}" class="flex_1 orderCtt">
     <view class="orderList">
     <!-- 全部 -->
       <view class="orderItem" wx:if="{{active==0}}">

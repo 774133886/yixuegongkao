@@ -18,7 +18,7 @@
   </view>
   <view class="flex_dom flex_item_between perIcon text-center bg-fff m-b-20">
     <view bindtap="goOrder">
-      <image src="../../files/icon_dingdan.png"></image>
+      <image src="../../files/icon_dingdan1.png"></image>
       <view>我的订单</view>
     </view>
     <view class="kefu">

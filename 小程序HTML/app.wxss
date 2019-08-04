@@ -922,3 +922,6 @@ view{
 .color-FF3636{
   color: #FF3636
 }
+page{
+  border-top: 1px solid #F8F8F8;
+}
