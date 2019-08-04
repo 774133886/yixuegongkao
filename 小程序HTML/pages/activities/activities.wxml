@@ -6,7 +6,7 @@
   </view>
   <!-- 拼团 -->
   <view class="activitList" wx:if="{{active==1}}">
-    <view class="activitItem flex_dom">
+    <view class="activitItem flex_dom" bindtap="goDetail" data-state="1">
       <view class="activitImage">
         <image class="actIcon" src="../../files/img_pintuan.png"></image>
         <image class="actPic" src="../../files/img_kecheng_big.png"></image>
@@ -34,7 +34,7 @@
         </view>
       </view>
     </view>
-    <view class="activitItem flex_dom">
+    <view class="activitItem flex_dom" bindtap="goDetail" data-state="1">
       <view class="activitImage">
         <image class="actIcon2" src="../../files/img_manyuan.png"></image>
         <image class="actPic" src="../../files/img_tuijian1.png"></image>
@@ -62,7 +62,7 @@
         </view>
       </view>
     </view>
-    <view class="activitItem flex_dom">
+    <view class="activitItem flex_dom" bindtap="goDetail" data-state="1">
       <view class="activitImage">
         <image class="actIcon" src="../../files/img_pintuan.png"></image>
         <image class="actPic" src="../../files/img_kecheng_big.png"></image>
@@ -95,7 +95,7 @@
   </view>
   <!-- 秒杀 -->
   <view class="activitList" wx:if="{{active==2}}">
-    <view class="activitItem flex_dom">
+    <view class="activitItem flex_dom" bindtap="goDetail" data-state="2">
       <view class="activitImage">
         <image class="actIcon" src="../../files/img_miaosha.png"></image>
         <image class="actPic" src="../../files/img_kecheng_big.png"></image>
@@ -122,7 +122,7 @@
         </view>
       </view>
     </view>
-    <view class="activitItem flex_dom">
+    <view class="activitItem flex_dom" bindtap="goDetail" data-state="2">
       <view class="activitImage">
         <image class="actIcon2" src="../../files/img_manyuan.png"></image>
         <image class="actPic" src="../../files/img_tuijian1.png"></image>
@@ -150,7 +150,7 @@
         </view>
       </view>
     </view>
-    <view class="activitItem flex_dom">
+    <view class="activitItem flex_dom" bindtap="goDetail" data-state="2">
       <view class="activitImage">
         <image class="actIcon" src="../../files/img_miaosha.png"></image>
         <image class="actPic" src="../../files/img_kecheng_big.png"></image>

@@ -19,6 +19,11 @@ Page({
       active: e.currentTarget.dataset.id
     })
   },
+  goDetail(e){
+    wx.navigateTo({
+      url: '../courseDetail/courseDetail?state='+e.currentTarget.dataset.state,
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

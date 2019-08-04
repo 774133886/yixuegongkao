@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/index/index",
+
     "pages/order/order",
     "pages/myOrder/myOrder",
     "pages/course/course",
@@ -29,8 +31,7 @@
     "pages/chooseJob/chooseJob",
     "pages/writeInfo/writeInfo", 
     "pages/assembleList/assembleList",
-    "pages/assembling/assembling",
-    "pages/index/index"
+    "pages/assembling/assembling"
 
   ],
   "window": {
