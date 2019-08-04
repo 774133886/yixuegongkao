@@ -62,10 +62,10 @@
         <text class="font24 m-l-20 color-999">已成50</text>
         <text class="font24 m-l-30 color-999">在拼20</text>
       </view>
-      <view class="">
+      <navigator url="/pages/assembleList/assembleList" hover-class="none" class="">
         <text class="font24 vertical_mid color-999">更多</text>
         <image style="margin-left:0 ;" class='starPic vertical_mid' src='../../files/icon_more2.png'></image>
-      </view>
+      </navigator>
     </view>
     <view class="ptLists">
       <view class="ptList border-b-eee p-v-30 between-center">
@@ -83,7 +83,7 @@
           </view>
         </view>
         <view class="hgt100rpx">
-          <button class="ptBtn">参团</button>
+          <navigator url="/pages/assembling/assembling" hover-class="none" class="ptBtn text-center">参团</navigator>
         </view>
       </view>
       <view class="ptList p-v-30 between-center">
@@ -101,7 +101,7 @@
           </view>
         </view>
         <view class="hgt100rpx">
-          <button class="ptBtn">参团</button>
+          <navigator url="/pages/assembling/assembling" hover-class="none" class="ptBtn text-center">参团</navigator>
         </view>
       </view>
     </view>
@@ -222,14 +222,14 @@
       <text catchtap='shareTab' class='color-999 font330'>取消</text>
     </view>
     <view class='hgt300rpx around-center'>
-      <view class='hgt150rpx column-center-b'>
+      <button style="line-height:inherit;" open-type='share' class='hgt150rpx column-center-b'>
         <image src='../../files/icon_weixin.png' class='wid90rpx hgt90rpx'></image>
         <text class='color-333 font30'>微信好友</text> 
-      </view>
-      <view class='hgt150rpx column-center-b'>
+      </button>
+      <navigator url="/pages/poster/poster" hover-class="none" class='hgt150rpx column-center-b'>
         <image src='../../files/icon_haibao.png' class='wid90rpx hgt90rpx'></image>
         <text class='color-333 font30'>生成海报</text> 
-      </view>
+      </navigator>
     </view>
   </view>
 </view>
@@ -242,7 +242,7 @@
       <text catchtap='contactTab' class='color-999 font330'>取消</text>
     </view>
     <view class='hgt300rpx around-center'>
-      <view class='hgt130rpx column-center-b'>
+      <view bindtap="phonecallevent" data-pnum='{{sServiceTel}}' class='hgt130rpx column-center-b'>
         <image src='../../files/icon_dianhua.png' class='wid60rpx hgt60rpx'></image>
         <text class='color-333 font30'>电话咨询</text> 
       </view>

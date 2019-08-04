@@ -108,14 +108,14 @@
       <text catchtap='shareTab' class='color-999 font330'>取消</text>
     </view>
     <view class='hgt300rpx around-center'>
-      <view class='hgt150rpx column-center-b'>
+      <button style="line-height:inherit;" open-type='share' class='hgt150rpx column-center-b'>
         <image src='../../files/icon_weixin.png' class='wid90rpx hgt90rpx'></image>
         <text class='color-333 font30'>微信好友</text> 
-      </view>
-      <view class='hgt150rpx column-center-b'>
+      </button>
+      <navigator url="/pages/poster/poster" hover-class="none" class='hgt150rpx column-center-b'>
         <image src='../../files/icon_haibao.png' class='wid90rpx hgt90rpx'></image>
         <text class='color-333 font30'>生成海报</text> 
-      </view>
+      </navigator>
     </view>
   </view>
 </view>
@@ -128,6 +128,6 @@
       <button hover-class='none' class='font30 color-999 Btn_blank' catchtap='closeMark'>我知道了</button>
       <button hover-class='none' class='font30 color-fff Btn_blue' catchtap='closeMark'>我要开团</button>
     </view>
-    
+     
   </view>
 </view>

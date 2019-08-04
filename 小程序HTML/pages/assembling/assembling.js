@@ -11,7 +11,8 @@ Page({
   data: {
     shareShow: false,
     payShow:false,
-    nomore: false
+    nomore: false,
+    sServiceTel: '15928773528'
   },
 
   // 支付
@@ -25,6 +26,13 @@ Page({
   //拼团失败遮罩
   closeMark: function (e) {
     this.setData({ nomore: !this.data.nomore })
+  },
+  //电话
+  phonecallevent: function (e) {
+    var phoneNum = e.currentTarget.dataset.pnum
+    wx.makePhoneCall({
+      phoneNumber: phoneNum.toString()
+    })
   },
   /**
    * 生命周期函数--监听页面加载

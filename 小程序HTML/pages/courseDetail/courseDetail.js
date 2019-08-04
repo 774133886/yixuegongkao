@@ -11,6 +11,7 @@ Page({
   data: {
     shareShow:false,
     contactShow:false,
+    sServiceTel:'15928773528'
   },
 
   /**
@@ -32,6 +33,13 @@ Page({
   backIndex: function (e) {
     wx.switchTab({
       url: '/pages/index/index'
+    })
+  },
+  //电话
+  phonecallevent: function (e) {
+    var phoneNum = e.currentTarget.dataset.pnum
+    wx.makePhoneCall({
+      phoneNumber: phoneNum.toString()
     })
   },
   /**

@@ -2,7 +2,7 @@
 <view class='Con font30 l-pad40'>
   <view class='hgt80rpx between-center'>
     <input type='text' class='font24 l-pad20 bg-search flex_1 hgt60rpx' placeholder='搜索课程名称/老师' placeholder-class='color-999'></input>
-    <text class='ccolor-333 m-l-20'>搜索</text>
+    <navigator url="/pages/searchList/searchList" hover-class="none" class='ccolor-333 m-l-20'>搜索</navigator>
   </view>
   <view class='hgt80rpx between-center'>
     <text class='color-666'>搜索历史</text>
