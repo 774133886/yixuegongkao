@@ -4,7 +4,7 @@
   <view class='wid100 relative'>
       <image class='courseBnr' mode="aspectFill" lazy-load="false" src='../../files/img_kecheng_big.png'></image>
       <!-- 秒杀拼团 -->
-      <image wx:if="{{state==1}}" class="ptTag" src="../../files/img_pintuan.png" mode="aspectFill" lazy-load="false" ></image>
+      <image wx:if="{{state==1}}" class="ptTag" src="../../files/icon_pintuan_big.png" mode="aspectFill" lazy-load="false" ></image>
       <image wx:if="{{state==2}}" class="ptTag" src="../../files/img_miaosha.png" mode="aspectFill" lazy-load="false" ></image>
       <!-- 拼团 -->
       <view wx:if="{{state==1}}" class="hgt80rpx l-pad40 ptArea font34 between-center">
@@ -109,7 +109,7 @@
   </view>
   <view class='grayLine'></view>
   <view class='pjArea l-pad40 p-t-20 p-b-20'>
-     <view class='pjTitle between-center hgt07rem {{pjshow?"":"border-b-eee"}'>
+     <view class='pjTitle between-center hgt07rem {{pjshow?"":"border-b-eee"}}'>
       <view class='center flex_1'>
         <text class='color-333'>用户评价</text>
         <text class='font24 color-999'>（共255条）</text>
@@ -123,7 +123,7 @@
           <image class='starPic' src='../../files/icon_collect_pre.png'></image>
         </view>
         <text class='font24 color-999 m-l-20'>4.9分</text>
-        <image bindtap="changepj" class='{{pjshow?"":"ratate180"} starPic m-l-10' src='../../files/icon_xiangshang.png'></image>
+        <image bindtap="changepj" class='{{pjshow?"":"ratate180"}} starPic m-l-10' src='../../files/icon_xiangshang.png'></image>
       </view>
     </view>
     <view wx:if="{{pjshow}}" class='pjLists m-t-10'>

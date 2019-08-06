@@ -111,7 +111,7 @@ page{
   height: 30rpx;
 }
 .acBox .wx-swiper-dots.wx-swiper-dots-horizontal{
-  margin-bottom: -10rpx;
+  margin-bottom: -20rpx;
 }
 .acBox .wx-swiper-dot{
   width:15rpx;
