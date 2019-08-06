@@ -12,7 +12,8 @@ Page({
     shareShow:false,
     contactShow:false,
     sServiceTel:'15928773528',
-    state:0
+    state:0,
+    pjshow:true,
   },
 
   /**
@@ -55,6 +56,10 @@ Page({
     wx.navigateTo({
       url: '/pages/chooseJob/chooseJob'
     })
+  },
+  // 评价折叠
+  changepj(){
+    this.setData({ pjshow: !this.data.pjshow })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

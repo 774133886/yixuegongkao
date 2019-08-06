@@ -13,9 +13,9 @@
       </view>
       <!-- 秒杀 -->
       <view wx:if="{{state==2}}" class="hgt80rpx ptArea font34 between-center">
-        <view class="wid280rpx color-FF3636 column-center-b p-v-10 hgt80rpx">
+        <view class="wid280rpx color-FF3636 column-center-c p-v-10 hgt80rpx">
           <view style="color:#FF6C6C;" class="font20 lh1">199  人已秒杀</view>
-          <view class="font30 lh1">¥2999.9 <text class="lineThrough font20">¥2999.9</text></view>
+          <!-- <view class="font30 lh1">¥2999.9 <text class="lineThrough font20">¥2999.9</text></view> -->
         </view>
         <view class="wid280rpx color-FF3636 column-center-b p-v-10 hgt80rpx">
           <view style="color:#FF6C6C;" class="font20 lh1">限时秒杀</view>
@@ -109,7 +109,7 @@
   </view>
   <view class='grayLine'></view>
   <view class='pjArea l-pad40 p-t-20 p-b-20'>
-     <view class='pjTitle between-center hgt07rem'>
+     <view class='pjTitle between-center hgt07rem {{pjshow?"":"border-b-eee"}'>
       <view class='center flex_1'>
         <text class='color-333'>用户评价</text>
         <text class='font24 color-999'>（共255条）</text>
@@ -123,10 +123,10 @@
           <image class='starPic' src='../../files/icon_collect_pre.png'></image>
         </view>
         <text class='font24 color-999 m-l-20'>4.9分</text>
-        <image class='starPic m-l-10' src='../../files/icon_xiangshang.png'></image>
+        <image bindtap="changepj" class='{{pjshow?"":"ratate180"} starPic m-l-10' src='../../files/icon_xiangshang.png'></image>
       </view>
     </view>
-    <view class='pjLists m-t-10'>
+    <view wx:if="{{pjshow}}" class='pjLists m-t-10'>
       <view class='pjList border-b-eee p-v-20'>
         <view class='between-center'>
           <text class='flex_1 only_line color-333 font26 m-r-20'>人海孤鸿1234567</text>

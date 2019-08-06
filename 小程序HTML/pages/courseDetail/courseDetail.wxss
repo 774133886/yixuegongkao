@@ -94,3 +94,6 @@ page{
   width: 118rpx;
   height: 48rpx;
 }
+.ratate180{
+  transform: rotate(180deg)
+}
