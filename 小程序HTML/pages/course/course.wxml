@@ -17,15 +17,15 @@
         <image class="index_tag2" src="../../files/img_pintuan.png" mode="aspectFill" lazy-load="false" ></image>
       </view>
       <view class='flex_1 m-l-20 p-b-30 column-between hgt230rpx'>
-        <view class='l-h-40rpx'>
+        <view class='l-h-40rpx font24'>
           <view class='color-333 font30'>4小时吃透病句解析</view>
           <view class='center m-t-5'>
-            <view class='wid160rpx color-999 font20'>开课时间</view>
-            <view class='font20 color-666'>2019.05.30</view>
+            <view class='wid160rpx color-999'>开课时间</view>
+            <view class='color-666'>2019.05.30</view>
           </view>
           <view class='center'>
-            <view class='wid160rpx color-999 font20'>已报/限报</view>
-            <view class='font20 color-666'>24/30 人</view>
+            <view class='wid160rpx color-999'>已报/限报</view>
+            <view class='color-666'>24/30 人</view>
           </view>
         </view>
         <view class='between-center'>
@@ -44,15 +44,15 @@
         <image class="index_tag2" src="../../files/img_baoming.png" mode="aspectFill" lazy-load="false" ></image>
       </view>
       <view class='flex_1 m-l-20 p-b-30 column-between hgt230rpx'>
-        <view class='l-h-40rpx'>
+        <view class='l-h-40rpx font24'>
           <view class='color-333 font30'>江苏判断推理特色专题</view>
           <view class='center m-t-5'>
-            <view class='wid160rpx color-999 font20'>开课时间</view>
-            <view class='font20 color-666'>2019.05.30</view>
+            <view class='wid160rpx color-999'>开课时间</view>
+            <view class='color-666'>2019.05.30</view>
           </view>
           <view class='center'>
-            <view class='wid160rpx color-999 font20'>已报/限报</view>
-            <view class='font20 color-666'>24/30 人</view>
+            <view class='wid160rpx color-999'>已报/限报</view>
+            <view class='color-666'>24/30 人</view>
           </view>
         </view>
         <view class='between-center'>
@@ -71,11 +71,11 @@
         <image class="index_tag2" src="../../files/img_baoming.png" mode="aspectFill" lazy-load="false" ></image>
       </view>
       <view class='flex_1 m-l-20 p-b-30 column-between hgt230rpx'>
-        <view class='l-h-40rpx'>
+        <view class='l-h-40rpx font24'>
           <view class='color-333 font30'>江苏判断推理特色专题</view>
           <view class='center m-t-5'>
-            <view class='wid160rpx color-999 font20'>开课时间</view>
-            <view class='font20 color-666'>2019.05.30</view>
+            <view class='wid160rpx color-999'>开课时间</view>
+            <view class='color-666'>2019.05.30</view>
           </view>
           <view class='center'>
             <view class='wid160rpx color-999 font20'>已报/限报</view>

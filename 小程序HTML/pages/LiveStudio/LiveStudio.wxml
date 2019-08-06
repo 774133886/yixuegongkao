@@ -3,8 +3,8 @@
   <image class="liveImg" src="../../files/img_kecheng_big.png"></image>
   <view class="flex_1">
     <view class="font30 color-333">4小时吃透病句解析</view>
-    <view class="font20 color-333 m-t-15">2019江苏省考</view>
-    <view class="font20 color-bd m-t-15">2019.05.30  19:00-21:00</view>
+    <view class="font22 color-333 m-t-10">2019江苏省考</view>
+    <view class="font22 color-bd m-t-10">2019.05.30  19:00-21:00</view>
   </view>
 </view>
 <view class="liveStudio">
@@ -20,7 +20,7 @@
     <view class="flex_dom flex_item_mid flex_1">
       <view class="flex_1">
         <view class="font30 color-333">资料分析统计术语</view>
-        <view class="font20 color-666 m-t-20">
+        <view class="font22 color-666 m-t-15">
           <text class="m-r-20">开课时间</text>
           <text>2019.05.30  09:30-15:00</text>
         </view>
@@ -33,7 +33,7 @@
     <view class="flex_dom flex_item_mid flex_1">
       <view class="flex_1">
         <view class="font30 color-333">资料分析结构阅读</view>
-        <view class="font20 color-666 m-t-20">
+        <view class="font22 color-666 m-t-15">
           <text class="m-r-20">开课时间</text>
           <text>2019.05.30  09:30-15:00</text>
         </view>
@@ -46,7 +46,7 @@
     <view class="flex_dom flex_item_mid flex_1">
       <view class="flex_1">
         <view class="font30 color-333">判断图形推理</view>
-        <view class="font20 color-666 m-t-20">
+        <view class="font22 color-666 m-t-15">
           <text class="m-r-20">开课时间</text>
           <text>2019.05.30  09:30-15:00</text>
         </view>
@@ -59,7 +59,7 @@
     <view class="flex_dom flex_item_mid flex_1">
       <view class="flex_1">
         <view class="font30 color-333">江苏判断推理特色</view>
-        <view class="font20 color-666 m-t-20">
+        <view class="font22 color-666 m-t-15">
           <text class="m-r-20">开课时间</text>
           <text>2019.05.30  09:30-15:00</text>
         </view>

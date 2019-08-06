@@ -38,12 +38,12 @@
       <view class="flex_1">
       <view bindtap="goDetail">
         <view class="font30 color-333">江苏判断推理特色专题</view>
-        <view class="font20 color-999 m-t-5">
+        <view class="font22 color-999">
         <text>已讲2节</text>
         <text class="textCen">/</text>
         <text>共23节课</text>
         </view>
-        <view class="font20 color-999 m-t-5">
+        <view class="font22 color-999">
           <text class="m-r-20">总课时</text>
           <text>123小时</text>
         </view>
@@ -58,12 +58,12 @@
       <view class="flex_1">
         <view bindtap="goDetail">
           <view class="font30 color-333">江苏判断推理特色专题</view>
-          <view class="font20 color-999 m-t-5">
+          <view class="font22 color-999">
           <text>全部完成</text>
           <text class="textCen">/</text>
           <text>共23节课</text>
           </view>
-          <view class="font20 color-999 m-t-5">
+          <view class="font22 color-999">
             <text class="m-r-20">总课时</text>
             <text>123小时</text>
           </view>
@@ -78,12 +78,12 @@
       <view class="flex_1">
         <view  bindtap="goDetail">
           <view class="font30 color-333">江苏判断推理特色专题</view>
-          <view class="font20 color-999 m-t-5">
+          <view class="font22 color-999">
           <text>全部完成</text>
           <text class="textCen">/</text>
           <text>共23节课</text>
           </view>
-          <view class="font20 color-999 m-t-5">
+          <view class="font22 color-999">
             <text class="m-r-20">总课时</text>
             <text>123小时</text>
           </view>
