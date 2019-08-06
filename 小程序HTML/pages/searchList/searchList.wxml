@@ -14,12 +14,12 @@
         <view class='l-h-40rpx'>
           <view class='color-333 font30'>4小时吃透病句解析</view>
           <view class='center m-t-5'>
-            <view class='wid160rpx color-999 font20'>开课时间</view>
-            <view class='font20 color-666'>2019.05.30</view>
+            <view class='wid160rpx color-999 font24'>开课时间</view>
+            <view class='font24 color-666'>2019.05.30</view>
           </view>
           <view class='center'>
-            <view class='wid160rpx color-999 font20'>已报/限报</view>
-            <view class='font20 color-666'>24/30 人</view>
+            <view class='wid160rpx color-999 font24'>已报/限报</view>
+            <view class='font24 color-666'>24/30 人</view>
           </view>
         </view>
         <view class='between-center'>
@@ -27,7 +27,7 @@
             <text class='font36 color-FF1919'>¥2999.9</text>
             <text class='color-999 font18 m-l-15 lineThrough'>¥2999.9</text>
           </view>
-          <!-- <text class='color-999 font20 '>已购</text> -->
+          <!-- <text class='color-999 font24 '>已购</text> -->
         </view>
         
       </view>
@@ -41,12 +41,12 @@
         <view class='l-h-40rpx'>
           <view class='color-333 font30'>江苏判断推理特色专题</view>
           <view class='center m-t-5'>
-            <view class='wid160rpx color-999 font20'>开课时间</view>
-            <view class='font20 color-666'>2019.05.30</view>
+            <view class='wid160rpx color-999 font24'>开课时间</view>
+            <view class='font24 color-666'>2019.05.30</view>
           </view>
           <view class='center'>
-            <view class='wid160rpx color-999 font20'>已报/限报</view>
-            <view class='font20 color-666'>24/30 人</view>
+            <view class='wid160rpx color-999 font24'>已报/限报</view>
+            <view class='font24 color-666'>24/30 人</view>
           </view>
         </view>
         <view class='between-center'>
@@ -54,7 +54,7 @@
             <text class='font36 color-FF1919'>¥2999.9</text>
             <text class='color-999 font18 m-l-15 lineThrough'>¥2999.9</text>
           </view>
-          <text class='color-999 font20 '>已购</text>
+          <text class='color-999 font24 '>已购</text>
         </view>
         
       </view>
@@ -68,12 +68,12 @@
         <view class='l-h-40rpx'>
           <view class='color-333 font30'>江苏判断推理特色专题</view>
           <view class='center m-t-5'>
-            <view class='wid160rpx color-999 font20'>开课时间</view>
-            <view class='font20 color-666'>2019.05.30</view>
+            <view class='wid160rpx color-999 font24'>开课时间</view>
+            <view class='font24 color-666'>2019.05.30</view>
           </view>
           <view class='center'>
-            <view class='wid160rpx color-999 font20'>已报/限报</view>
-            <view class='font20 color-666'>24/30 人</view>
+            <view class='wid160rpx color-999 font24'>已报/限报</view>
+            <view class='font24 color-666'>24/30 人</view>
           </view>
         </view>
         <view class='between-center'>
@@ -81,7 +81,7 @@
             <text class='font36 color-FF1919'>¥2999.9</text>
             <text class='color-999 font18 m-l-15 lineThrough'>¥2999.9</text>
           </view>
-          <text class='color-999 font20 '>已购</text>
+          <text class='color-999 font24 '>已购</text>
         </view>
         
       </view>

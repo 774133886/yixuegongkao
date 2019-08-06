@@ -21,49 +21,49 @@
     <view class='inline_div nav-item'>
       <navigator class="column-center-c "  url="/pages/course/course" hover-class="none" open-type="switchTab">
         <image class="nav-icon" src="../../files/icon_1_xitongke.png" mode="aspectFill" lazy-load="false" ></image>
-        <view class="font30 color-333" >系统课</view>
+        <view class="font28 color-333" >系统课</view>
       </navigator>
     </view>
     <view class='inline_div nav-item'>
       <navigator class="column-center-c"  url="" hover-class="none" open-type="navigate">
         <image class="nav-icon" src="../../files/icon_2_shenlun.png" mode="aspectFill" lazy-load="false" ></image>
-        <view class="font30 color-333" >申论</view>
+        <view class="font28 color-333" >申论</view>
       </navigator>
     </view>
     <view class='inline_div nav-item'>
       <navigator class="column-center-c"  url="" hover-class="none" open-type="navigate">
         <image class="nav-icon" src="../../files/icon_3_hangce.png" mode="aspectFill" lazy-load="false" ></image>
-        <view class="font30 color-333" >行测</view>
+        <view class="font28 color-333" >行测</view>
       </navigator>
     </view>
     <view class='inline_div nav-item'>
       <navigator class="column-center-c"  url="" hover-class="none" open-type="navigate">
         <image class="nav-icon" src="../../files/icon_4_mianshi.png" mode="aspectFill" lazy-load="false" ></image>
-        <view class="font30 color-333" >面试</view>
+        <view class="font28 color-333" >面试</view>
       </navigator>
     </view>
     <view class='inline_div nav-item'>
       <navigator class="column-center-c"  url="" hover-class="none" open-type="navigate">
         <image class="nav-icon" src="../../files/icon_5_shiye.png" mode="aspectFill" lazy-load="false" ></image>
-        <view class="font30 color-333" >事业单位</view>
+        <view class="font28 color-333" >事业单位</view>
       </navigator>
     </view>
     <view class='inline_div nav-item'>
       <navigator class="column-center-c"  url="" hover-class="none" open-type="navigate">
         <image class="nav-icon" src="../../files/icon_6_others.png" mode="aspectFill" lazy-load="false" ></image>
-        <view class="font30 color-333" >其他</view>
+        <view class="font28 color-333" >其他</view>
       </navigator>
     </view>
     <view class='inline_div nav-item'>
       <navigator class="column-center-c"  url="" hover-class="none" open-type="navigate">
         <image class="nav-icon" src="../../files/icon_7_daka.png" mode="aspectFill" lazy-load="false" ></image>
-        <view class="font30 color-333" >打卡</view>
+        <view class="font28 color-333" >打卡</view>
       </navigator>
     </view>
     <view bindtap='closeMark' class='inline_div nav-item'>
       <navigator class="column-center-c"  url="" hover-class="none" open-type="navigate">
         <image class="nav-icon" src="../../files/icon_8_more.png" mode="aspectFill" lazy-load="false" ></image>
-        <view class="font30 color-333" >更多</view>
+        <view class="font28 color-333" >更多</view>
       </navigator>
     </view>
   </view>  
@@ -72,7 +72,7 @@
     <view class="between-center hgt80rpx" hover-class="none" hover-stop-propagation="false">
       <view class="center" hover-class="none" hover-stop-propagation="false">
         <image class="wid50rpx hgt50rpx m-r-10" src="../../files/img_niao.png" mode="aspectFill" lazy-load="false" ></image>
-        <view class="font36 relative color-333" >
+        <view class="font32 relative color-333" >
           <image class="titleBg" src="../../files/img_huodong_bg.png"></image>
           <text class='relative'>活动专区</text>
         </view>
@@ -83,7 +83,7 @@
           <image class="listHead" src="../../files/img_user.png"></image>
           <image class="listHead" src="../../files/img_user.png"></image>
         </view>
-        <text class='font20 color-999 m-l-10'>66人等正在参与</text>
+        <text class='font24 color-999 m-l-10'>66人等正在参与</text>
         <image class="icon_right m-l-10" src="../../files/icon_xiangyou.png"></image>
       </navigator>
     </view>
@@ -96,14 +96,14 @@
               <image class="wid100 hgt130rpx" src="../../files/img_kecheng.png" mode="aspectFill" lazy-load="false" ></image>
               <image class="index_tag" src="../../files/img_pintuan.png" mode="aspectFill" lazy-load="false" ></image>
             </view>
-            <view class='color-FF1919 l-h-30rpx m-t-5 font14'>剩余  02天 20:12:13</view>
-            <view class='color-999 l-h-30rpx font14'>
+            <view class='color-FF1919 l-h-40rpx m-t-5 font20'>剩余  02天 20:12:13</view>
+            <view class='color-999 l-h-40rpx font20'>
               <text>限报</text>
               <text class='m-l-10'>1234人</text>
             </view>
             <view class=''>
               <text class='font26 color-FF1919'>¥2999.9</text>
-              <text class='color-999 font16 lineThrough'>¥2999.9</text>
+              <text class='color-999 font18 m-l-10 lineThrough'>¥2999.9</text>
             </view>
           </navigator>
           <navigator url="/pages/courseDetail/courseDetail?state=2" hover-class="none" class='inline_div acList'>
@@ -111,14 +111,14 @@
               <image class="wid100 hgt130rpx" src="../../files/img_kecheng2.png" mode="aspectFill" lazy-load="false" ></image>
               <image class="index_tag" src="../../files/img_miaosha.png" mode="aspectFill" lazy-load="false" ></image>
             </view>
-            <view class='color-FF1919 l-h-30rpx m-t-5 font14'>剩余  02天 20:12:13</view>
-            <view class='color-999 l-h-30rpx font14'>
+            <view class='color-FF1919 l-h-40rpx m-t-5 font20'>剩余  02天 20:12:13</view>
+            <view class='color-999 l-h-40rpx font20'>
               <text>已报</text>
               <text class='m-l-10'>1234人</text>
             </view>
             <view class=''>
               <text class='font26 color-FF1919'>¥2999.9</text>
-              <text class='color-999 font16 lineThrough'>¥2999.9</text>
+              <text class='color-999 font18 m-l-10 lineThrough'>¥2999.9</text>
             </view>
           </navigator>
           <view class='inline_div acList'>
@@ -126,14 +126,14 @@
               <image class="wid100 hgt130rpx" src="../../files/img_kecheng.png" mode="aspectFill" lazy-load="false" ></image>
               <image class="index_tag" src="../../files/img_pintuan.png" mode="aspectFill" lazy-load="false" ></image>
             </view>
-            <view class='color-FF1919 l-h-30rpx m-t-5 font14'>剩余  02天 20:12:13</view>
-            <view class='color-999 l-h-30rpx font14'>
+            <view class='color-FF1919 l-h-40rpx m-t-5 font20'>剩余  02天 20:12:13</view>
+            <view class='color-999 l-h-40rpx font20'>
               <text>限报</text>
               <text class='m-l-10'>1234人</text>
             </view>
             <view class=''>
               <text class='font26 color-FF1919'>¥2999.9</text>
-              <text class='color-999 font16 lineThrough'>¥2999.9</text>
+              <text class='color-999 font18 m-l-10 lineThrough'>¥2999.9</text>
             </view>
           </view>
         </swiper-item>
@@ -143,14 +143,14 @@
               <image class="wid100 hgt130rpx" src="../../files/img_kecheng2.png" mode="aspectFill" lazy-load="false" ></image>
               <image class="index_tag" src="../../files/img_pintuan.png" mode="aspectFill" lazy-load="false" ></image>
             </view>
-            <view class='color-FF1919 l-h-30rpx m-t-5 font14'>剩余  02天 20:12:13</view>
-            <view class='color-999 l-h-30rpx font14'>
+            <view class='color-FF1919 l-h-40rpx m-t-5 font20'>剩余  02天 20:12:13</view>
+            <view class='color-999 l-h-40rpx font20'>
               <text>限报</text>
               <text class='m-l-10'>1234人</text>
             </view>
             <view class=''>
               <text class='font26 color-FF1919'>¥2999.9</text>
-              <!-- <text class='color-999 font16 lineThrough'>¥2999.9</text> -->
+              <!-- <text class='color-999 font18 m-l-10 lineThrough'>¥2999.9</text> -->
             </view>
           </view>
         </swiper-item>
@@ -163,30 +163,30 @@
     <view class="between-center m-b-15 hgt80rpx" hover-class="none" hover-stop-propagation="false">
       <view class="center" hover-class="none" hover-stop-propagation="false">
         <image class="wid50rpx hgt50rpx m-r-10" src="../../files/img_niao.png" mode="aspectFill" lazy-load="false" ></image>
-        <view class="font36 relative color-333" >
+        <view class="font32 relative color-333" >
           <image class="titleBg" src="../../files/img_huodong_bg.png"></image>
           <text class='relative'>推荐课程</text>
         </view>
       </view>
     </view>
-    <navigator url="/pages/courseDetail/courseDetail" hover-class="none" class='index_courseList hgt250rpx between border-b-eee'>
+    <navigator url="/pages/courseDetail/courseDetail?state=1" hover-class="none" class='index_courseList hgt250rpx between border-b-eee'>
       <view class='hgt210rpx wid320rpx relative'>
-        <image class="wid100 hgt210rpx" src="../../files/img_tuijian1.png" mode="aspectFill" lazy-load="false" ></image>
-        <image class="index_tag2" src="../../files/img_baoming.png" mode="aspectFill" lazy-load="false" ></image>
+        <image class="wid100 hgt210rpx" src="../../files/img_tuijian2.png" mode="aspectFill" lazy-load="false" ></image>
+        <image class="index_tag2" src="../../files/img_pintuan.png" mode="aspectFill" lazy-load="false" ></image>
       </view>
       <view class='flex_1 m-l-20 p-b-40 column-between hgt250rpx'>
-        <view class='l-h-40rpx'>
+        <view class='l-h-40rpx font22'>
           <view class='center'>
-            <view class='wid160rpx color-999 font20'>开课时间</view>
-            <view class='font20 color-333'>2019.07.24</view>
+            <view class='wid160rpx color-999'>开课时间</view>
+            <view class='color-333'>2019.07.24</view>
           </view>
           <view class='center'>
-            <view class='wid160rpx color-999 font20'>总课时</view>
-            <view class='font20 color-333'>24 课时</view>
+            <view class='wid160rpx color-999'>总课时</view>
+            <view class=' color-333'>24 课时</view>
           </view>
           <view class='center'>
-            <view class='wid160rpx color-999 font20'>已报/限报</view>
-            <view class='font20 color-333'>24/30 人</view>
+            <view class='wid160rpx color-999'>已报/限报</view>
+            <view class='color-333'>24/30 人</view>
           </view>
         </view>
         <view class=''>
@@ -201,18 +201,18 @@
         <image class="index_tag2" src="../../files/img_baoming.png" mode="aspectFill" lazy-load="false" ></image>
       </view>
       <view class='flex_1 m-l-20 p-b-40 column-between hgt250rpx'>
-        <view class='l-h-40rpx'>
+        <view class='l-h-40rpx font22'>
           <view class='center'>
-            <view class='wid160rpx color-999 font20'>开课时间</view>
-            <view class='font20 color-333'>2019.07.24</view>
+            <view class='wid160rpx color-999'>开课时间</view>
+            <view class='color-333'>2019.07.24</view>
           </view>
           <view class='center'>
-            <view class='wid160rpx color-999 font20'>总课时</view>
-            <view class='font20 color-333'>24 课时</view>
+            <view class='wid160rpx color-999'>总课时</view>
+            <view class='color-333'>24 课时</view>
           </view>
           <view class='center'>
-            <view class='wid160rpx color-999 font20'>已报/限报</view>
-            <view class='font20 color-333'>24/30 人</view>
+            <view class='wid160rpx color-999'>已报/限报</view>
+            <view class='color-333'>24/30 人</view>
           </view>
         </view>
         <view class=''>
@@ -227,18 +227,18 @@
         <image class="index_tag2" src="../../files/img_manyuan.png" mode="aspectFill" lazy-load="false" ></image>
       </view>
       <view class='flex_1 m-l-20 p-b-40 column-between hgt250rpx'>
-        <view class='l-h-40rpx'>
+        <view class='l-h-40rpx font22'>
           <view class='center'>
-            <view class='wid160rpx color-999 font20'>开课时间</view>
-            <view class='font20 color-333'>2019.07.24</view>
+            <view class='wid160rpx color-999'>开课时间</view>
+            <view class='color-333'>2019.07.24</view>
           </view>
           <view class='center'>
-            <view class='wid160rpx color-999 font20'>总课时</view>
-            <view class='font20 color-333'>24 课时</view>
+            <view class='wid160rpx color-999'>总课时</view>
+            <view class='color-333'>24 课时</view>
           </view>
           <view class='center'>
-            <view class='wid160rpx color-999 font20'>已报/限报</view>
-            <view class='font20 color-333'>24/30 人</view>
+            <view class='wid160rpx color-999'>已报/限报</view>
+            <view class='color-333'>24/30 人</view>
           </view>
         </view>
         <view class=''>
