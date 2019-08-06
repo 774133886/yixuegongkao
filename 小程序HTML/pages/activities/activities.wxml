@@ -10,7 +10,7 @@
       <view class="activitImage">
         <image class="actIcon" src="../../files/img_pintuan.png"></image>
         <image class="actPic" src="../../files/img_kecheng_big.png"></image>
-        <view class="actText flex_dom font16">
+        <view class="actText flex_dom font20">
           <view class="flex_1">4人团</view>
           <view>剩余 02天 12:23:25</view>
         </view>
@@ -66,7 +66,7 @@
       <view class="activitImage">
         <image class="actIcon" src="../../files/img_pintuan.png"></image>
         <image class="actPic" src="../../files/img_kecheng_big.png"></image>
-        <view class="actText flex_dom font16">
+        <view class="actText flex_dom font20">
           <view class="flex_1">4人团</view>
           <view>剩余 02天 12:23:25</view>
         </view>
