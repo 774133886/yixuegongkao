@@ -11,7 +11,7 @@
       </view>
     </view>
     <view>
-      <image class="icon-right" src="../../files/icon_jiantou.png"></image>
+      <!-- <image class="icon-right" src="../../files/icon_jiantou.png"></image> -->
     </view>
   </view>
   <view class="bg-fff">

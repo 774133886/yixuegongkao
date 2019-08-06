@@ -3,28 +3,28 @@
   <view class="orderTitle">今日课程</view>
   <view>
     <view class="orderItem flex_dom flex_item_mid">
-      <view class="flex_1">
+      <view class="flex_1" bindtap="goDetail">
         <view class="font30 color-333">4小时吃透病句解析</view>
         <view class="font24 color-333 m-t-15">【5月30日 19:00】 判断图形推理</view>
         <view class="font24 color-bd m-t-15">2019.05.30  19:00-21:00</view>
       </view>
-      <button class="orderBtn1" hover-class="orderBtn1-hover" bindtap="goLive">观看回放</button>
+      <button class="orderBtn1" hover-class="orderBtn1-hover">观看回放</button>
     </view>
     <view class="orderItem flex_dom flex_item_mid">
-      <view class="flex_1">
+      <view class="flex_1" bindtap="goDetail">
         <view class="font30 color-333">江苏判断推理特色专题</view>
         <view class="font24 color-333 m-t-15">【5月30日 19:00】 判断图形推理</view>
         <view class="font24 color-bd m-t-15">2019.05.30  19:00-21:00</view>
       </view>
-      <button class="orderBtn2" hover-class="orderBtn2-hover" bindtap="goLive">正在进行</button>
+      <button class="orderBtn2" hover-class="orderBtn2-hover">正在进行</button>
     </view>
     <view class="orderItem flex_dom flex_item_mid">
-      <view class="flex_1">
+      <view class="flex_1" bindtap="goDetail">
         <view class="font30 color-333">江苏判断推理特色专题</view>
         <view class="font24 color-333 m-t-15">【5月30日 19:00】 判断图形推理</view>
         <view class="font24 color-bd m-t-15">2019.05.30  19:00-21:00</view>
       </view>
-      <button class="orderBtn3" hover-class="orderBtn3-hover" bindtap="goLive">暂停中</button>
+      <button class="orderBtn3" hover-class="orderBtn3-hover">暂停中</button>
     </view>
 
     <!-- 暂无 -->
@@ -34,17 +34,39 @@
   <view class="orderTitle">所有课程</view>
   <view class="orderList">
     <view class="orderItem2 flex_dom">
-      <image src="../../files/img_tuijian1.png"></image>
+      <image src="../../files/img_tuijian1.png" bindtap="goDetail"></image>
       <view class="flex_1">
+      <view bindtap="goDetail">
         <view class="font30 color-333">江苏判断推理特色专题</view>
         <view class="font20 color-999 m-t-5">
-        <text>第23次开课</text>
+        <text>已讲2节</text>
         <text class="textCen">/</text>
         <text>共23节课</text>
         </view>
         <view class="font20 color-999 m-t-5">
           <text class="m-r-20">总课时</text>
           <text>123小时</text>
+        </view>
+      </view>
+        <view class="text-right">
+          <button class="orderBtn4" hover-class="orderBtn4-hover" bindtap="goLive">开始学习</button>
+        </view>
+      </view>
+    </view>
+    <view class="orderItem2 flex_dom">
+      <image src="../../files/img_tuijian1.png" bindtap="goDetail"></image>
+      <view class="flex_1">
+        <view bindtap="goDetail">
+          <view class="font30 color-333">江苏判断推理特色专题</view>
+          <view class="font20 color-999 m-t-5">
+          <text>全部完成</text>
+          <text class="textCen">/</text>
+          <text>共23节课</text>
+          </view>
+          <view class="font20 color-999 m-t-5">
+            <text class="m-r-20">总课时</text>
+            <text>123小时</text>
+          </view>
         </view>
         <view class="text-right">
           <button class="orderBtn4" hover-class="orderBtn4-hover" bindtap="goLive">开始学习</button>
@@ -52,35 +74,19 @@
       </view>
     </view>
     <view class="orderItem2 flex_dom">
-      <image src="../../files/img_tuijian1.png"></image>
+      <image src="../../files/img_tuijian1.png" bindtap="goDetail"></image>
       <view class="flex_1">
-        <view class="font30 color-333">江苏判断推理特色专题</view>
-        <view class="font20 color-999 m-t-5">
-        <text>第23次开课</text>
-        <text class="textCen">/</text>
-        <text>共23节课</text>
-        </view>
-        <view class="font20 color-999 m-t-5">
-          <text class="m-r-20">总课时</text>
-          <text>123小时</text>
-        </view>
-        <view class="text-right">
-          <button class="orderBtn4" hover-class="orderBtn4-hover" bindtap="goLive">开始学习</button>
-        </view>
-      </view>
-    </view>
-    <view class="orderItem2 flex_dom">
-      <image src="../../files/img_tuijian1.png"></image>
-      <view class="flex_1">
-        <view class="font30 color-333">江苏判断推理特色专题</view>
-        <view class="font20 color-999 m-t-5">
-        <text>第23次开课</text>
-        <text class="textCen">/</text>
-        <text>共23节课</text>
-        </view>
-        <view class="font20 color-999 m-t-5">
-          <text class="m-r-20">总课时</text>
-          <text>123小时</text>
+        <view  bindtap="goDetail">
+          <view class="font30 color-333">江苏判断推理特色专题</view>
+          <view class="font20 color-999 m-t-5">
+          <text>全部完成</text>
+          <text class="textCen">/</text>
+          <text>共23节课</text>
+          </view>
+          <view class="font20 color-999 m-t-5">
+            <text class="m-r-20">总课时</text>
+            <text>123小时</text>
+          </view>
         </view>
         <view class="text-right">
           <button class="orderBtn4" hover-class="orderBtn4-hover" bindtap="goLive">开始学习</button>

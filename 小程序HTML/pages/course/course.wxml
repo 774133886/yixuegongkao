@@ -7,6 +7,8 @@
     <view class="{{active==4?'active':''}}" bindtap="choiceTab" data-id="4">面试</view>
     <view class="{{active==5?'active':''}}" bindtap="choiceTab" data-id="5">事业单位</view>
     <view class="{{active==6?'active':''}}" bindtap="choiceTab" data-id="6">其他</view>
+    <view class="{{active==7?'active':''}}" bindtap="choiceTab" data-id="7">拼团</view>
+    <view class="{{active==8?'active':''}}" bindtap="choiceTab" data-id="8">秒杀</view>
   </view>
   <view class="indexAArea p-t-20 p-b-20" hover-class="none" hover-stop-propagation="false">
     <navigator hover-class='none' url='../courseDetail/courseDetail?state=1' class='index_courseList hgt230rpx between border-b-eee'>

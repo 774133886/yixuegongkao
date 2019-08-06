@@ -1,5 +1,5 @@
 <!--pages/LiveStudio/LiveStudio.wxml-->
-<view class="flex_dom flex_item_mid liveOrder">
+<view class="flex_dom flex_item_mid liveOrder" bindtap="goDetail">
   <image class="liveImg" src="../../files/img_kecheng_big.png"></image>
   <view class="flex_1">
     <view class="font30 color-333">4小时吃透病句解析</view>

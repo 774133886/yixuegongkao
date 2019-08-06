@@ -19,7 +19,7 @@
       </view>
     </view>
     <view class="font24 color-333 border-b-eee evaluateText">老师讲的很细很细，举例生动形象，课堂活跃度较高，很喜欢听老师的课程。</view>
-    <view class="evaluateBtm flex_dom flex_item_mid">
+    <view class="evaluateBtm flex_dom flex_item_mid" bindtap="goDetail">
       <image src="../../files/img_kecheng.png"></image>
       <view class="font30 color-333">4小时吃透病句解析</view>
     </view>
@@ -43,9 +43,9 @@
       </view>
     </view>
     <view class="font24 color-333 border-b-eee evaluateText">老师讲的很细很细，举例生动形象，课堂活跃度较高，很喜欢听老师的课程。</view>
-    <view class="evaluateBtm flex_dom flex_item_mid">
+    <view class="evaluateBtm flex_dom flex_item_mid" bindtap="goDetail">
       <image src="../../files/img_kecheng.png"></image>
-      <view class="font30 color-333">4小时吃透病句解析4小时吃透病句解析4小时吃透病句解析</view>
+      <view class="font30 color-333 flex_1">4小时吃透病句解析4小时吃透病句解析4小时吃透病句解析</view>
     </view>
   </view>
 </view>

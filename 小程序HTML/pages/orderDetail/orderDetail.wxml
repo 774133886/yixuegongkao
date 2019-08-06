@@ -8,7 +8,7 @@
       <view>已完成</view>
     </view>
     <view class="orderGroup allGroup flex_dom">
-      <view class="orderInfo flex_dom">
+      <view class="orderInfo flex_dom" bindtap="goDetail">
         <image src="../../files/img_kecheng.png"></image>
         <view class="orderInfo flex_1">
           <view class="orderName line2 font30 color-333">4小时吃透病句解析</view>
@@ -69,7 +69,7 @@
       <view>已完成</view>
     </view>
     <view class="orderGroup allGroup allGroup flex_dom">
-      <view class="orderInfo flex_dom">
+      <view class="orderInfo flex_dom" bindtap="goDetail">
         <image src="../../files/img_kecheng.png"></image>
         <view class="orderInfo flex_1">
           <view class="orderName line2 font30 color-333">4小时吃透病句解析</view>
@@ -133,7 +133,7 @@
       <view>退款中</view>
     </view>
     <view class="orderGroup allGroup flex_dom">
-      <view class="orderInfo flex_dom">
+      <view class="orderInfo flex_dom" bindtap="goDetail">
         <image src="../../files/img_kecheng.png"></image>
         <view class="orderInfo flex_1">
           <view class="orderName line2 font30 color-333">4小时吃透病句解析</view>
@@ -194,7 +194,7 @@
       <view class="color-blue">待支付</view>
     </view>
     <view class="orderGroup allGroup flex_dom">
-      <view class="orderInfo flex_dom">
+      <view class="orderInfo flex_dom" bindtap="goDetail">
         <image src="../../files/img_kecheng.png"></image>
         <view class="orderInfo flex_1">
           <view class="orderName line2 font30 color-333">4小时吃透病句解析</view>
@@ -246,7 +246,7 @@
       <view>已取消</view>
     </view>
     <view class="orderGroup allGroup flex_dom">
-      <view class="orderInfo flex_dom">
+      <view class="orderInfo flex_dom" bindtap="goDetail">
         <image src="../../files/img_kecheng.png"></image>
         <view class="orderInfo flex_1">
           <view class="orderName line2 font30 color-333">4小时吃透病句解析</view>
