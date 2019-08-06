@@ -14,6 +14,7 @@ Page({
     sServiceTel:'15928773528',
     state:0,
     pjshow:true,
+    type:0
   },
 
   /**
@@ -26,6 +27,11 @@ Page({
     this.setData({
       state: options.state
     })
+    if (options.type){
+      this.setData({
+        type: options.type
+      })
+    }
   },
   //分享遮罩
   shareTab: function (e) {

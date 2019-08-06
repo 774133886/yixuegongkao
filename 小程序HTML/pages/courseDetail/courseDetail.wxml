@@ -108,8 +108,8 @@
     </view>
   </view>
   <view class='grayLine'></view>
-  <view class='pjArea l-pad40 p-t-20 p-b-20'>
-     <view class='pjTitle between-center hgt07rem {{pjshow?"":"border-b-eee"}}'>
+  <view class='pjArea l-pad40 p-t-20 p-b-20 {{pjshow?"":"border-b-eee"}}'>
+     <view class='pjTitle between-center hgt07rem'>
       <view class='center flex_1'>
         <text class='color-333'>用户评价</text>
         <text class='font24 color-999'>（共255条）</text>
@@ -126,50 +126,54 @@
         <image bindtap="changepj" class='{{pjshow?"":"ratate180"}} starPic m-l-10' src='../../files/icon_xiangshang.png'></image>
       </view>
     </view>
-    <view wx:if="{{pjshow}}" class='pjLists m-t-10'>
-      <view class='pjList border-b-eee p-v-20'>
-        <view class='between-center'>
-          <text class='flex_1 only_line color-333 font26 m-r-20'>人海孤鸿1234567</text>
-          <view class='center'>
-            <image class='icon666' src='../../files/icon_dianzan.png'></image>
-            <text class='font24 color-999 m-l-15'>24</text>
+    <view wx:if="{{pjshow}}" class="pjListArea">
+      <view  class='pjLists m-t-10'>
+        <view class='pjList border-b-eee p-v-20'>
+          <view class='between-center'>
+            <text class='flex_1 only_line color-333 font26 m-r-20'>人海孤鸿1234567</text>
+            <view class='center'>
+              <image class='icon666' src='../../files/icon_dianzan.png'></image>
+              <text class='font24 color-999 m-l-15'>24</text>
+            </view>
+          </view>
+          <view class='font20 color-999'>2019.1.4   9:30</view>
+          <view class='color-777 font24 m-t-10'>老师讲的很细很细，举例生动形象，课堂活跃度较高，很喜欢听老师的课程。</view>
+          <navigator url="/pages/allApply/allApply" hover-class="none" class='center-end color-5273FF font24'>回复</navigator>
+          <navigator url="/pages/allApply/allApply" hover-class="none" class='center-end color-5273FF font24'>
+            <text>查看全部3条评论</text>
+            <image style='margin-left:0;' class='starPic' src='../../files/icon_xiangyou_b.png'></image>
+          </navigator>
+        </view>
+      </view>
+      <view class='pjLists m-t-10'>
+        <view class='pjList border-b-eee p-v-20'>
+          <view class='between-center'>
+            <text class='flex_1 only_line color-333 font26 m-r-20'>人海孤鸿1234567</text>
+            <view class='center'>
+              <image class='icon666' src='../../files/icon_dianzan.png'></image>
+              <text class='font24 color-999 m-l-15'>24</text>
+            </view>
+          </view>
+          <view class='font20 color-999'>2019.1.4   9:30</view>
+          <view class='color-777 font24 m-t-10'>老师讲的很细很细，举例生动形象，课堂活跃度较高，很喜欢听老师的课程。</view>
+          <navigator url="/pages/allApply/allApply" hover-class="none" class='center-end color-5273FF font24'>回复</navigator>
+          <view class='center-end color-5273FF font24'>
+            <text>查看全部3条评论</text>
+            <image style='margin-left:0;' class='starPic' src='../../files/icon_xiangyou_b.png'></image>
           </view>
         </view>
-        <view class='font20 color-999'>2019.1.4   9:30</view>
-        <view class='color-777 font24 m-t-10'>老师讲的很细很细，举例生动形象，课堂活跃度较高，很喜欢听老师的课程。</view>
-        <navigator url="/pages/allApply/allApply" hover-class="none" class='center-end color-5273FF font24'>回复</navigator>
-        <navigator url="/pages/allApply/allApply" hover-class="none" class='center-end color-5273FF font24'>
-          <text>查看全部3条评论</text>
-          <image style='margin-left:0;' class='starPic' src='../../files/icon_xiangyou_b.png'></image>
-        </navigator>
       </view>
-    </view>
-    <view class='pjLists m-t-10'>
-      <view class='pjList border-b-eee p-v-20'>
-        <view class='between-center'>
-          <text class='flex_1 only_line color-333 font26 m-r-20'>人海孤鸿1234567</text>
-          <view class='center'>
-            <image class='icon666' src='../../files/icon_dianzan.png'></image>
-            <text class='font24 color-999 m-l-15'>24</text>
-          </view>
+      <navigator url="/pages/commentDtl/commentDtl" hover-class="none" class='around-center hgt70rpx'>
+        <view class='center'>
+          <text class='font24 color-999'>查看所有评论</text>
+          <image style='margin-left:0;' class='icon666' src='../../files/icon_more.png'></image>
         </view>
-        <view class='font20 color-999'>2019.1.4   9:30</view>
-        <view class='color-777 font24 m-t-10'>老师讲的很细很细，举例生动形象，课堂活跃度较高，很喜欢听老师的课程。</view>
-        <view class='center-end color-5273FF font24'>回复</view>
-        <view class='center-end color-5273FF font24'>
-          <text>查看全部3条评论</text>
-          <image style='margin-left:0;' class='starPic' src='../../files/icon_xiangyou_b.png'></image>
-        </view>
-      </view>
+      </navigator>
+
     </view>
-    <navigator url="/pages/commentDtl/commentDtl" hover-class="none" class='around-center hgt70rpx'>
-      <view class='center'>
-        <text class='font24 color-999'>查看所有评论</text>
-        <image style='margin-left:0;' class='icon666' src='../../files/icon_more.png'></image>
-      </view>
-    </navigator>
+    
   </view>
-  <view class='cusDtl l-pad40 p-b-50'>
+  <view class='cusDtl l-pad40 m-t-15 p-b-50'>
     <view class='hgt60rpx color-333 center'>课程详情</view>
     <view class='fwcon p-v-20 overflow_hide'>
       <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
@@ -187,11 +191,13 @@
       <text class='font20 color-999'>回到主页</text>
     </view>
   </view>
-  <button bindtap="writeInfo" hover-class="none" class='bmBtn font36'>立即报名</button>
-  <button bindtap="writeInfo2" hover-class="none" class='bmBtn font36'>面试报名</button>
-  <!-- <button hover-class="none" class='bmBtn font36 btn_green'>即将开始</button> -->
-  <!-- <button hover-class="none" class='bmBtn font36 btn_blue'>开始学习</button> -->
-  <!-- <button hover-class="none" class='bmBtn font36 btn_gray'>报名结束</button> -->
+  <button wx:if="{{type == 0}}" bindtap="writeInfo" hover-class="none" class='bmBtn font36'>立即报名</button>
+  <button wx:if="{{type == 3}}" bindtap="writeInfo2" hover-class="none" class='bmBtn font36'>立即报名</button>
+  <button wx:if="{{type == 4}}" bindtap="writeInfo2" hover-class="none" class='bmBtn font36 btn_green'>即将开始</button>
+  <button wx:if="{{type == 5}}" bindtap="writeInfo2" hover-class="none" class='bmBtn font36 btn_blue'>开始学习</button>
+  <button wx:if="{{type == 1}}" bindtap="writeInfo" hover-class="none" class='bmBtn font36 btn_gray'>已满员</button>
+  <button wx:if="{{type == 2}}" bindtap="writeInfo" hover-class="none" class='bmBtn font36 btn_gray'>报名结束</button>
+  
 </view>
 <view wx:if="{{state==1}}" class='l-pad20 cdBot border-t-eee hgt100rpx between-center'>
   <view class='center hgt80rpx'>

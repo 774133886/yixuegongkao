@@ -195,10 +195,10 @@
         </view>
       </view>
     </navigator>
-    <navigator hover-class='none' url='' class='index_courseList hgt250rpx between border-b-eee'>
+    <navigator hover-class='none' url='/pages/courseDetail/courseDetail?state=2' class='index_courseList hgt250rpx between border-b-eee'>
       <view class='hgt210rpx wid320rpx relative'>
         <image class="wid100 hgt210rpx" src="../../files/img_tuijian2.png" mode="aspectFill" lazy-load="false" ></image>
-        <image class="index_tag2" src="../../files/img_baoming.png" mode="aspectFill" lazy-load="false" ></image>
+        <image class="index_tag2" src="../../files/img_miaosha.png" mode="aspectFill" lazy-load="false" ></image>
       </view>
       <view class='flex_1 m-l-20 p-b-40 column-between hgt250rpx'>
         <view class='l-h-40rpx font22'>
@@ -221,10 +221,146 @@
         </view>
       </view>
     </navigator>
-    <navigator hover-class='none' url='' class='index_courseList hgt250rpx between border-b-eee'>
+    <!-- 报名结束 -->
+    <navigator hover-class='none' url='/pages/courseDetail/courseDetail?state=0&type=2' class='index_courseList hgt250rpx between border-b-eee'>
+      <view class='hgt210rpx wid320rpx relative'>
+        <image class="wid100 hgt210rpx" src="../../files/img_tuijian2.png" mode="aspectFill" lazy-load="false" ></image>
+        <image class="index_tag2" src="../../files/img_baoming.png" mode="aspectFill" lazy-load="false" ></image>
+      </view>
+      <view class='flex_1 m-l-20 p-b-40 column-between hgt250rpx'>
+        <view class='l-h-40rpx font22'>
+          <view class='center'>
+            <view class='wid160rpx color-999'>开课时间</view>
+            <view class='color-333'>2019.07.24</view>
+          </view>
+          <view class='center'>
+            <view class='wid160rpx color-999'>总课时</view>
+            <view class='color-333'>24 课时</view>
+          </view>
+          <view class='center'>
+            <view class='wid160rpx color-999'>已报/限报</view>
+            <view class='color-333'>24/30 人</view>
+          </view>
+        </view>
+        <view class=''>
+          <text class='font36 color-FF1919'>¥299</text>
+          <text class='color-999 font18 m-l-15 lineThrough'>¥299</text>
+        </view>
+      </view>
+    </navigator>
+    <!-- 已满员 -->
+    <navigator hover-class='none' url='/pages/courseDetail/courseDetail?state=0&type=1' class='index_courseList hgt250rpx between border-b-eee'>
       <view class='hgt210rpx wid320rpx relative'>
         <image class="wid100 hgt210rpx" src="../../files/img_tuijian2.png" mode="aspectFill" lazy-load="false" ></image>
         <image class="index_tag2" src="../../files/img_manyuan.png" mode="aspectFill" lazy-load="false" ></image>
+      </view>
+      <view class='flex_1 m-l-20 p-b-40 column-between hgt250rpx'>
+        <view class='l-h-40rpx font22'>
+          <view class='center'>
+            <view class='wid160rpx color-999'>开课时间</view>
+            <view class='color-333'>2019.07.24</view>
+          </view>
+          <view class='center'>
+            <view class='wid160rpx color-999'>总课时</view>
+            <view class='color-333'>24 课时</view>
+          </view>
+          <view class='center'>
+            <view class='wid160rpx color-999'>已报/限报</view>
+            <view class='color-333'>24/30 人</view>
+          </view>
+        </view>
+        <view class=''>
+          <text class='font36 color-FF1919'>¥299</text>
+          <text class='color-999 font18 m-l-15 lineThrough'>¥299</text>
+        </view>
+      </view>
+    </navigator>
+    <!-- 正常 -->
+    <navigator hover-class='none' url='/pages/courseDetail/courseDetail?state=0&type=0' class='index_courseList hgt250rpx between border-b-eee'>
+      <view class='hgt210rpx wid320rpx relative'>
+        <image class="wid100 hgt210rpx" src="../../files/img_tuijian2.png" mode="aspectFill" lazy-load="false" ></image>
+        <!-- <image class="index_tag2" src="../../files/img_manyuan.png" mode="aspectFill" lazy-load="false" ></image> -->
+      </view>
+      <view class='flex_1 m-l-20 p-b-40 column-between hgt250rpx'>
+        <view class='l-h-40rpx font22'>
+          <view class='center'>
+            <view class='wid160rpx color-999'>开课时间</view>
+            <view class='color-333'>2019.07.24</view>
+          </view>
+          <view class='center'>
+            <view class='wid160rpx color-999'>总课时</view>
+            <view class='color-333'>24 课时</view>
+          </view>
+          <view class='center'>
+            <view class='wid160rpx color-999'>已报/限报</view>
+            <view class='color-333'>24/30 人</view>
+          </view>
+        </view>
+        <view class=''>
+          <text class='font36 color-FF1919'>¥299</text>
+          <text class='color-999 font18 m-l-15 lineThrough'>¥299</text>
+        </view>
+      </view>
+    </navigator>
+    <!-- 正常 -->
+    <navigator hover-class='none' url='/pages/courseDetail/courseDetail?state=0&type=5' class='index_courseList hgt250rpx between border-b-eee'>
+      <view class='hgt210rpx wid320rpx relative'>
+        <image class="wid100 hgt210rpx" src="../../files/img_tuijian2.png" mode="aspectFill" lazy-load="false" ></image>
+        <!-- <image class="index_tag2" src="../../files/img_manyuan.png" mode="aspectFill" lazy-load="false" ></image> -->
+      </view>
+      <view class='flex_1 m-l-20 p-b-40 column-between hgt250rpx'>
+        <view class='l-h-40rpx font22'>
+          <view class='center'>
+            <view class='wid160rpx color-999'>开课时间</view>
+            <view class='color-333'>2019.07.24</view>
+          </view>
+          <view class='center'>
+            <view class='wid160rpx color-999'>总课时</view>
+            <view class='color-333'>24 课时</view>
+          </view>
+          <view class='center'>
+            <view class='wid160rpx color-999'>已报/限报</view>
+            <view class='color-333'>24/30 人</view>
+          </view>
+        </view>
+        <view class=''>
+          <text class='font36 color-FF1919'>¥299</text>
+          <text class='color-999 font18 m-l-15 lineThrough'>¥299</text>
+        </view>
+      </view>
+    </navigator>
+    <!-- 正常 -->
+    <navigator hover-class='none' url='/pages/courseDetail/courseDetail?state=0&type=4' class='index_courseList hgt250rpx between border-b-eee'>
+      <view class='hgt210rpx wid320rpx relative'>
+        <image class="wid100 hgt210rpx" src="../../files/img_tuijian2.png" mode="aspectFill" lazy-load="false" ></image>
+        <!-- <image class="index_tag2" src="../../files/img_manyuan.png" mode="aspectFill" lazy-load="false" ></image> -->
+      </view>
+      <view class='flex_1 m-l-20 p-b-40 column-between hgt250rpx'>
+        <view class='l-h-40rpx font22'>
+          <view class='center'>
+            <view class='wid160rpx color-999'>开课时间</view>
+            <view class='color-333'>2019.07.24</view>
+          </view>
+          <view class='center'>
+            <view class='wid160rpx color-999'>总课时</view>
+            <view class='color-333'>24 课时</view>
+          </view>
+          <view class='center'>
+            <view class='wid160rpx color-999'>已报/限报</view>
+            <view class='color-333'>24/30 人</view>
+          </view>
+        </view>
+        <view class=''>
+          <text class='font36 color-FF1919'>¥299</text>
+          <text class='color-999 font18 m-l-15 lineThrough'>¥299</text>
+        </view>
+      </view>
+    </navigator>
+    <!-- 面试 -->
+    <navigator hover-class='none' url='/pages/courseDetail/courseDetail?state=0&type=3' class='index_courseList hgt250rpx between border-b-eee'>
+      <view class='hgt210rpx wid320rpx relative'>
+        <image class="wid100 hgt210rpx" src="../../files/img_tuijian1.png" mode="aspectFill" lazy-load="false" ></image>
+        <!-- <image class="index_tag2" src="../../files/img_manyuan.png" mode="aspectFill" lazy-load="false" ></image> -->
       </view>
       <view class='flex_1 m-l-20 p-b-40 column-between hgt250rpx'>
         <view class='l-h-40rpx font22'>
