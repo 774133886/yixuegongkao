@@ -18,7 +18,7 @@
           <!-- <view class="font30 lh1">¥2999.9 <text class="lineThrough font20">¥2999.9</text></view> -->
         </view>
         <view class="wid280rpx color-FF3636 column-center-b p-v-10 hgt80rpx">
-          <view style="color:#FF6C6C;" class="font20 lh1">限时秒杀</view>
+          <view style="color:#FF6C6C;" class="font20 lh1">距结束</view>
           <view class="font30 lh1">2天12:12:12</view>
         </view>
       </view>

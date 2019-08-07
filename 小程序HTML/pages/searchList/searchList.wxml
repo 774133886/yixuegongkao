@@ -27,7 +27,7 @@
             <text class='font36 color-FF1919'>¥2999.9</text>
             <text class='color-999 font18 m-l-15 lineThrough'>¥2999.9</text>
           </view>
-          <!-- <text class='color-999 font24 '>已购</text> -->
+          <!-- <text class='color-999 font24 p-t-5'>已购</text> -->
         </view>
         
       </view>
@@ -54,7 +54,7 @@
             <text class='font36 color-FF1919'>¥2999.9</text>
             <text class='color-999 font18 m-l-15 lineThrough'>¥2999.9</text>
           </view>
-          <text class='color-999 font24 '>已购</text>
+          <text class='color-999 p-t-5 font24 '>已购</text>
         </view>
         
       </view>
@@ -81,7 +81,7 @@
             <text class='font36 color-FF1919'>¥2999.9</text>
             <text class='color-999 font18 m-l-15 lineThrough'>¥2999.9</text>
           </view>
-          <text class='color-999 font24 '>已购</text>
+          <text class='color-999 font24 p-t-5'>已购</text>
         </view>
         
       </view>
