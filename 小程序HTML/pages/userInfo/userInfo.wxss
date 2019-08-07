@@ -44,3 +44,7 @@ page{
   line-height: 100rpx;
   margin-top: 26rpx;
 }
+.outBtn2{
+  color: #1E9EF3;
+  margin-bottom: 15rpx;
+}
