@@ -5,7 +5,7 @@
       <image class='courseBnr' mode="aspectFill" lazy-load="false" src='../../files/img_kecheng_big.png'></image>
       <!-- 秒杀拼团 -->
       <image wx:if="{{state==1}}" class="ptTag" src="../../files/icon_pintuan_big.png" mode="aspectFill" lazy-load="false" ></image>
-      <image wx:if="{{state==2}}" class="ptTag" src="../../files/img_miaosha.png" mode="aspectFill" lazy-load="false" ></image>
+      <image wx:if="{{state==2}}" class="ptTag" src="../../files/icon_miaosha_big.png" mode="aspectFill" lazy-load="false" ></image>
       <!-- 拼团 -->
       <view wx:if="{{state==1}}" class="hgt80rpx l-pad40 ptArea font34 between-center">
         <view class="color-FF1919">4人团</view>
