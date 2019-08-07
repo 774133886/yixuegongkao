@@ -191,7 +191,7 @@
         </view>
         <view class=''>
           <text class='font36 color-FF1919'>¥2999.9</text>
-          <text class='color-999 font18 m-l-15 lineThrough'>¥2999.9</text>
+          <text class='color-999 font24 m-l-15 lineThrough'>¥2999.9</text>
         </view>
       </view>
     </navigator>
@@ -217,7 +217,7 @@
         </view>
         <view class=''>
           <text class='font36 color-FF1919'>¥299</text>
-          <text class='color-999 font18 m-l-15 lineThrough'>¥259</text>
+          <text class='color-999 font24 m-l-15 lineThrough'>¥259</text>
         </view>
       </view>
     </navigator>
@@ -244,7 +244,7 @@
         </view>
         <view class=''>
           <text class='font36 color-FF1919'>¥299</text>
-          <text class='color-999 font18 m-l-15 lineThrough'>¥299</text>
+          <text class='color-999 font24 m-l-15 lineThrough'>¥299</text>
         </view>
       </view>
     </navigator>
@@ -271,7 +271,7 @@
         </view>
         <view class=''>
           <text class='font36 color-FF1919'>¥299</text>
-          <text class='color-999 font18 m-l-15 lineThrough'>¥299</text>
+          <text class='color-999 font24 m-l-15 lineThrough'>¥299</text>
         </view>
       </view>
     </navigator>
@@ -298,7 +298,7 @@
         </view>
         <view class=''>
           <text class='font36 color-FF1919'>¥299</text>
-          <text class='color-999 font18 m-l-15 lineThrough'>¥299</text>
+          <text class='color-999 font24 m-l-15 lineThrough'>¥299</text>
         </view>
       </view>
     </navigator>
@@ -325,7 +325,7 @@
         </view>
         <view class=''>
           <text class='font36 color-FF1919'>¥299</text>
-          <text class='color-999 font18 m-l-15 lineThrough'>¥299</text>
+          <text class='color-999 font24 m-l-15 lineThrough'>¥299</text>
         </view>
       </view>
     </navigator>
@@ -352,7 +352,7 @@
         </view>
         <view class=''>
           <text class='font36 color-FF1919'>¥299</text>
-          <text class='color-999 font18 m-l-15 lineThrough'>¥299</text>
+          <text class='color-999 font24 m-l-15 lineThrough'>¥299</text>
         </view>
       </view>
     </navigator>
@@ -379,7 +379,7 @@
         </view>
         <view class=''>
           <text class='font36 color-FF1919'>¥299</text>
-          <text class='color-999 font18 m-l-15 lineThrough'>¥299</text>
+          <text class='color-999 font24 m-l-15 lineThrough'>¥299</text>
         </view>
       </view>
     </navigator>

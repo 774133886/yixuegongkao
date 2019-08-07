@@ -97,3 +97,6 @@ page{
 .ratate180{
   transform: rotate(180deg)
 }
+.m-l-60{
+  margin-left: 60rpx;
+}

@@ -14,7 +14,7 @@
       <!-- 秒杀 -->
       <view wx:if="{{state==2}}" class="hgt80rpx ptArea font34 between-center">
         <view class="wid280rpx color-FF3636 column-center-c p-v-10 hgt80rpx">
-          <view style="color:#FF6C6C;" class="font20 lh1">199  人已秒杀</view>
+          <view style="color:#FF6C6C;" class="lh1 font34">199  人已秒杀</view>
           <!-- <view class="font30 lh1">¥2999.9 <text class="lineThrough font20">¥2999.9</text></view> -->
         </view>
         <view class="wid280rpx color-FF3636 column-center-b p-v-10 hgt80rpx">
@@ -30,9 +30,9 @@
         <!-- <text class='font36 color-green m-r-30'>免费</text> -->
         <text class='font36 color-FF1919'>¥2999.9</text>
         <text class='color-999 font24 m-l-15 lineThrough'>¥2999.9</text>
-        <text wx:if="{{state!=1}}" class='color-5273FF m-l-30 font20'>300</text>
+        <text wx:if="{{state!=1}}" class='color-5273FF m-l-60 font20'>300</text>
         <text wx:if="{{state!=1}}" class='color-999 font20'>/1200人报名</text>
-        <text wx:if="{{state==1}}" class='color-FF1919 m-l-30 font24'>199 人已拼团</text>
+        <text wx:if="{{state==1}}" class='color-FF1919 m-l-60 font24'>199 人已拼团</text>
      </view>
      <view class='center' catchtap='shareTab'>
       <image class='wid30rpx hgt30rpx' src='../../files/icon_share.png'></image>

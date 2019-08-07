@@ -130,13 +130,13 @@ page{
   background-color: rgba(248,248,248,1)
 }
 .indexBPic{
-  height: 16rpx;
-  width: 150rpx;
+  height: 30rpx;
+  /* width: 150rpx; */
 }
 .goTop{
   position: fixed;
-  width: 50rpx;
-  height: 50rpx;
+  width: 70rpx;
+  height: 70rpx;
   right: 19rpx;
   bottom: 200rpx;
 }
