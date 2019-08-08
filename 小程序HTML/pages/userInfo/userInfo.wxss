@@ -48,3 +48,9 @@ page{
   color: #1E9EF3;
   margin-bottom: 15rpx;
 }
+.outBtn1{
+  position: fixed;
+  bottom: 50rpx;
+  left: 0;
+  right: 0;
+}

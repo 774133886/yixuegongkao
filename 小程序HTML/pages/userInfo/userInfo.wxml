@@ -43,5 +43,5 @@
     </view>
   </view>
   <view class="outBtn outBtn2 bg-fff text-center">一键保存</view>
-  <view class="outBtn bg-fff text-center" bindtap="goLogin">退出登录</view>
+  <view class="outBtn outBtn1 bg-fff text-center" bindtap="goLogin">退出登录</view>
 </view>
