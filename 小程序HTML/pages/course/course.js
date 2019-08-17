@@ -5,11 +5,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-    active: 1
+    active: 0,
+    list: [0,1,2,3,4,5,6,7]
   },
   choiceTab(e) {
     this.setData({
       active: e.currentTarget.dataset.id
+    })
+  },
+  swiperChange(e){
+    this.setData({
+      active: e.detail.current
     })
   },
   /**
