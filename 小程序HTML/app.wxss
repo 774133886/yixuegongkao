@@ -31,7 +31,7 @@ textarea:focus,input:focus,button:focus{outline:none}
 .bgimg_mid{background-position: center; background-repeat: no-repeat;}
 .overflow_auto{overflow: auto;-webkit-overflow-scrolling: touch;overflow-scrolling: touch; }
 .overflow_hide{overflow: hidden;}
-navigator{
+form,navigator{
     box-sizing: border-box;
 }
 

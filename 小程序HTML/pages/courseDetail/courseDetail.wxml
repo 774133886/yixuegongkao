@@ -14,12 +14,12 @@
       <!-- 秒杀 -->
       <view wx:if="{{state==2}}" class="hgt80rpx ptArea font34 between-center">
         <view class="wid280rpx color-FF3636 column-center-c p-v-10 hgt80rpx">
-          <view style="color:#FF6C6C;" class="lh1 font34">199  人已秒杀</view>
+          <view class="lh1 font34 color-FF1919">199  人已秒杀</view>
           <!-- <view class="font30 lh1">¥2999.9 <text class="lineThrough font20">¥2999.9</text></view> -->
         </view>
-        <view class="wid280rpx color-FF3636 column-center-b p-v-10 hgt80rpx">
-          <view style="color:#FF6C6C;" class="font20 lh1">距结束</view>
-          <view class="font30 lh1">2天12:12:12</view>
+        <view class="wid280rpx color-FF3636 center p-v-10 hgt80rpx">
+          <view class="font20 color-FF1919 lh1">距结束:</view>
+          <view class="font30 lh1 m-l-10">2天12:12:12</view>
         </view>
       </view>
   </view>

@@ -3,7 +3,7 @@
   display: block;
   width: 220rpx;
   height: 220rpx;
-  margin: 37rpx auto 92rpx;
+  margin: 37rpx auto 72rpx;
 }
 .curForm{
   width: 565rpx;
@@ -41,4 +41,8 @@
 }
 .btn-hover{
   background: inherit;
+}
+.acNav{
+  border-bottom: 1px solid rgba(30,158,243,1) !important;
+  color: rgba(30,158,243,1);
 }

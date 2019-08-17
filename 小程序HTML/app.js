@@ -1,9 +1,9 @@
 //app.js
 // const ald = require('./utils/ald-stat.js');
-const mtj = require('./utils/mtj-wx-sdk.js');
+// const mtj = require('./utils/mtj-wx-sdk.js');
 
-var do_md5 = require('utils/md5.js');
-var host = "https://shuyu.educhinstyle.cn";
+// var do_md5 = require('utils/md5.js');
+var host = "https://yxgk.kulend.com/";
 var aryFile = []; //上传文件成功后返回的服务器地址，如果执行一个新的上传时，需先设置为null
 App({
   host: host,
