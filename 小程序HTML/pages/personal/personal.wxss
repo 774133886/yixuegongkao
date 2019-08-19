@@ -15,6 +15,7 @@ page{
   width: 150rpx;
   height: 150rpx;
   margin-right: 66rpx;
+  border-radius: 50%;
 }
 .perIcon{
   padding: 35rpx 40rpx;

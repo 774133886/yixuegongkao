@@ -3,12 +3,12 @@
   <view class="perHeader bg-fff flex_dom flex_item_mid">
     <view class="flex_1 flex_dom flex_item_mid">
       <image wx:if="{{!isLogin}}" bindtap="goLogin" class="userImg" src="../../files/img_user1.png"></image>
-      <image wx:if="{{isLogin}}" class="userImg" src="../../files/img_user2.png"></image>
+      <image wx:if="{{isLogin}}" class="userImg" src="{{info.portrait}}"></image>
       <view>
         <view wx:if="{{!isLogin}}" class="font36 color-333">未登录</view>
         <view class="userInfo" wx:if="{{isLogin}}">
           <view class="font36 color-333">{{info.name}}</view>
-          <view class="font24 color-999 m-t-5">{{info.mobile.substring(0,3)}}****{{info.mobile.substring(7,11)}}</view>
+          <view class="font24 color-999 m-t-5">{{info.mobile2}}</view>
         </view>
       </view>
     </view>

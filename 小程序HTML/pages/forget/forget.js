@@ -5,14 +5,22 @@ Page({
    * 页面的初始数据
    */
   data: {
-    btntext: "获取验证码"
+    btntext: "获取验证码",
+    isEdit: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    if (options.type){
+      this.setData({
+        isEdit: true
+      })
+      wx.setNavigationBarTitle({
+        title: '修改密码'
+      })
+    }
   },
 
   getCode: function () {

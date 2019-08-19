@@ -15,6 +15,7 @@ page{
   width: 150rpx;
   height: 150rpx;
   margin-right: 66rpx;
+  border-radius: 50%;
 }
 .color-C5C4C4{
   color: #C5C4C4;
@@ -27,7 +28,7 @@ page{
 .infoItem:last-child{
   border: none;
 }
-.infoItem input{
+.infoItem input,.infoItem picker{
   display: block;
   width: 98rpx;
   height: 98rpx;
