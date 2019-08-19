@@ -13,7 +13,10 @@ Page({
     mask: false,
     floorstatus:false,
     nomore: false,
-    bannerlist: [{ image: '../../files/indexBanner.png' }, { image: '../../files/indexBanner.png' }]
+    bannerlist: [{ image: '../../files/indexBanner.png' }, { image: '../../files/indexBanner.png' }],
+    noData1: false,
+    noData2: false,
+    tjList:[],
   },
   //swiper
   swiperChange: function(e){
@@ -61,11 +64,6 @@ Page({
     })
   },
 
-  //开启中断遮罩
-  closeMark: function (e) {
-    this.setData({ nomore: !this.data.nomore})
-  },
- 
   //我的跳转
   goPersonal: function(){
     
@@ -79,130 +77,32 @@ Page({
     var token = wx.getStorageSync('token');
     if(!token) return;
     var that = this;
-    http.getReq('/api/Index/getBooks',function(res){
+    let data = {};
+    data.indexrmd = 1;
+    // data.sort = 2;
+    http.getReq('/api/public/get_course_list.htm',data,function(res){
       // res.data.rows[0].articles[1].time = '2019.06.09'
-      that.setData({
-        list: res.data.rows,
-        // 获取显示隐藏
-        p_show: res.data.flag
-      });
-      if (res.data.rows.length == 0){
+      if(res.code==0){
+        console.log(res.data.list);
         that.setData({
-          noData: true
+          tjList: res.data.list,
         });
-      }
-      that.listLocation();
-      console.log(res.data.rows);
-      var book = that.data.list[0];
-      if (book){
-        app.mtj.trackEvent('books', {
-          book: book.name
-        });
-      }
-    })
-  },
-  //点击去付款
-  goPay: function(){
-    var that = this;
-    var bookId = this.data.payBook.id;
-    var time = this.data.lookTime;
-    var lookTime = app.getTime(time);
-    this.setData({
-      lookTime: 0
-    });
-    //浏览时间
-    app.mtj.trackEvent('lookmask', {
-      time: lookTime,
-    });
-    wx.showLoading({
-      title: '',
-    })
-    http.postReq('/api/Book/buy', {book_id: bookId},function(res){
-      var data = res.data;
-      that.wxPay(data,function(){
-        //分享成功购买统计
-        if (that.data.pid) {
-          app.mtj.trackEvent('sharebuy', {
-            user: pid,
+        if (res.data.list.length == 0) {
+          that.setData({
+            noData2: true
           });
         }
-        wx.hideLoading();
-        wx.navigateTo({
-          url: '../paySuccess/paySuccess?money=' + that.data.payBook.price
-        });
-      });
-    })
-  },
-  //中断阅读支付
-  goPay2: function(){
-    var that = this;
-    var bookId = this.data.articleId;
-    var cType = this.data.cType;
-    console.log(that.data.payBook)
-    if (cType == 'wechat'){
-      wx.showLoading({
-        title: '',
-      })
-      http.postReq('/api/Article/buy', { aid: bookId }, function (res) {
-        var data = res.data;
-        that.wxPay(data,function(){
-          wx.hideLoading();
-          that.setData({
-            mask2: false
-          });
-          wx.navigateTo({
-            url: '../paySuccess/paySuccess?money=' + that.data.payBook.price
-          });
-        });
-      })
-    }else{
-      http.postReq('/api/Article/coupon', { aid: bookId }, function (res) {
-        if(res.code == 120){
-          that.setData({
-            shareMask: true,
-            mask2: false
-          });
-        }
-        else{
-          that.setData({
-            mask2: false
-          });
-          that.getlist();
-        }
-      })
-    }
-  },
-  //付款
-  wxPay: function(data,func){
-    var that = this;
-    wx.requestPayment({
-      appId: data.appid,
-      timeStamp: String(data.timeStamp),
-      nonceStr: data.nonceStr,
-      package: data.package,
-      signType: 'MD5',
-      paySign: data.paySign,
-      success(res) {
+      }else{
         wx.showToast({
-          title: '支付成功',
-          icon: 'none'
-        });
-        that.setData({
-          mask: false,
-          mask2: false
-        });
-        that.getlist();
-        typeof func == 'function' && func();
-      },
-      fail(res) {
-        console.log(res)
-        wx.showToast({
-          title: '支付失败',
-          icon: 'none'
+          title: res.message,
+          icon: 'none',
+          duration: 2000
         })
       }
     })
   },
+ 
+  
   //滚动位置
   listLocation: function () {
     var that = this;
@@ -218,118 +118,10 @@ Page({
         })
       }
     }
-    // var active = wx.createSelectorQuery().select('#indexCtt').fields({
-    //   dataset: true,
-    //   size: true,
-    //   scrollOffset: true,
-    //   rect: true
-    // }, function (res) {
-    //   var cttTop = res.top;
-    //   var active2 = wx.createSelectorQuery().select('#' + selectId).fields({
-    //     dataset: true,
-    //     size: true,
-    //     scrollOffset: true,
-    //     rect: true
-    //   }, function (res) {
-    //     var itemTop = res.top - cttTop;
-    //     that.setData({
-    //       scrollTop: itemTop
-    //     })
-    //   }).exec()
-    // }).exec()
+    
     
   },
-  //获取手机号
-  getPhoneNumber: function (e) {
-    // console.log(e.detail.iv);
-    // console.log(e.detail.encryptedData);
-
-    var that = this;
-
-    wx.checkSession({
-      success() {
-        //session_key 未过期，并且在本生命周期一直有效
-        wx.request({
-          url: 'https://shuyu.educhinstyle.cn/api/Login/decode',
-          data: {
-            'encryptedData': e.detail.encryptedData,
-            'iv': encodeURIComponent(e.detail.iv),
-            'sessionKey': wx.getStorageSync('sskey')
-          },
-          method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-          // header: {
-          //   'content-type': 'application/json'
-          // }, // 设置请求的 header
-          success: function (res) {
-            if (res.data.phoneNumber) {//我后台设置的返回值为1是正确
-
-              http.postReq('/api/User/bindMobile', { 'mobile': res.data.phoneNumber }, function (res1) {
-                if (res1.code == 101) {
-                  that.setData({
-                    isPhone: false,
-                  });
-
-                  //存入缓存即可
-                  wx.setStorageSync('phone', res.data.phoneNumber);
-                  // 判断IOS
-                  if (this.data.isIos) {
-                    wx.showModal({
-                      title: '温馨提示',
-                      content: '小程序暂不支持开启阅读',
-                      confirmText: '好的',
-                      showCancel: false
-                    })
-                    return false;
-                  }
-                  that.setData({
-                    mask: true
-                  });
-                } else {
-                  wx.showToast({
-                    title: res1.msg,
-                    icon: 'none'
-                  })
-                }
-              })
-
-            } else {
-              // 还是关闭弹窗
-              wx.showToast({
-                title: '获取手机号失败',
-                icon: 'none'
-              });
-              that.setData({
-                isPhone: false,
-              })
-            }
-            // 判断是否第一次进入
-            if (wx.getStorageSync('first') == '') {
-              that.setData({
-                firstIn: true,
-              });
-            }
-          },
-          fail: function (err) {
-            wx.showToast({
-              title: err,
-              icon: 'none'
-            });
-            console.log(err);
-          }
-        })
-      },
-      fail() {
-        // session_key 已经失效，需要重新执行登录流程
-        wx.showToast({
-          title: '登录失效，重新登录',
-          icon: 'none'
-        });
-        that.userLogin(); //重新登录
-      }
-    })
-    
-      
-  },
+ 
   //首次进入提示
   firstCome: function(){
     wx.setStorageSync("first", true);
@@ -337,12 +129,7 @@ Page({
       firstIn: false
     })
   },
-  //按钮点击统计
-  clickBtn: function(name){
-    app.mtj.trackEvent('btns', {
-      btn: name,
-    });
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -365,19 +152,6 @@ Page({
       })
     }
     
-    //判断首次进入提示滑动
-    // console.log(wx.getStorageSync("token"))
-    // if (wx.getStorageSync("first") == null || wx.getStorageSync("first") == ""){
-    //   this.setData({
-    //     firstIn: true
-    //   })
-    // }else{
-    //   this.setData({
-    //     firstIn: false
-    //   })
-    // }
-
-
     // 判断IOS
     wx.getSystemInfo({
       success: function (res) {
@@ -394,6 +168,8 @@ Page({
       }
     })
 
+  // 获取首页数据
+    this.getlist();
 
   },
 
@@ -411,31 +187,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function (options) {
-    // var that = this;
-    // // this.loadUser();
-    // // this.getlist();
-    // http.postReq('/api/User/info', {}, function (res) {
-    //   setTimeout(function () {
-    //     that.getlist();
-    //   }, 0);
-    // })
-    // var that = this;
-    
-    // //iphone 底部横线适配
-    // var iphones = ['iPhone X', 'iPhone XR', 'iPhone XS', 'iPhone XS Max', 'iPhone11,8', 'iPhone11,2', 'iPhone11,4', 'iPhone11,6', 'unknown<iPhone11,2>', 'unknown<iPhone11,8>', 'unknown<iPhone11,4>', 'unknown<iPhone11,6>']
-    // wx.getSystemInfo({
-    //   success: function (res) {
-    //     //console.log(res.model)
-    //     //console.log(res.language)//zh_CN(en)
-    //     //console.log(res.model=="iPhone X")
-    //     // console.log(iphones.indexOf(res.model) > -1)
-    //     if (iphones.indexOf(res.model) > -1) {
-    //       that.setData({
-    //         isIphone: true
-    //       })
-    //     }
-    //   }
-    // })
+
   },
 
   /**

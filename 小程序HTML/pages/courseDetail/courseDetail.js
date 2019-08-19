@@ -32,6 +32,8 @@ Page({
         type: options.type
       })
     }
+    // 获取详情
+    this.getptList()
   },
   //分享遮罩
   shareTab: function (e) {
@@ -66,6 +68,27 @@ Page({
   // 评价折叠
   changepj(){
     this.setData({ pjshow: !this.data.pjshow })
+  },
+
+  // 获取拼团详情
+  getptList(){
+    let that = this;
+    var data = {};
+    data.id = 550580447711305;
+    console.log(data)
+    http.postReq('/api/pintuan/public/get_product_detail.htm', data, function (res) {
+      if (res.code == 0) {
+        wx.showToast({
+          title: res.message,
+          icon: 'none',
+          duration: 2000
+        })
+
+      } else {
+
+        return false;
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
