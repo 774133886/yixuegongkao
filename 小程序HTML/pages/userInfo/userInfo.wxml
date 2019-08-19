@@ -2,11 +2,11 @@
 <view class="userInfo font30">
   <view class="perHeader bg-fff flex_dom flex_item_mid">
     <view class="flex_1 flex_dom flex_item_mid">
-      <image class="userImg" src="../../files/img_user2.png"></image>
+      <image class="userImg" src="{{info.portrait}}"></image>
       <view>
         <view class="userInfo">
-          <view class="font36 color-333">将作匠</view>
-          <view class="font24 color-999 m-t-15">NO.2019.0206</view>
+          <view class="font36 color-333">{{info.name}}</view>
+          <view class="font24 color-999 m-t-15">NO.{{info.member_id}}</view>
         </view>
       </view>
     </view>
@@ -17,22 +17,30 @@
   <view class="bg-fff">
     <view class="flex_dom flex_item_mid infoItem">
       <text class="color-333">真实姓名：</text>
-      <input value="李宏伟" placeholder="请输入" class="flex_1"></input>
+      <input value="{{info.real_name}}" placeholder="请输入" class="flex_1"></input>
       <!-- <view class="color-C5C4C4">修改</view> -->
     </view>
     <view class="flex_dom flex_item_mid infoItem">
       <text class="color-333">性别：</text>
-      <input value="男" placeholder="请输入" class="flex_1"></input>
+      <picker class="flex_1" mode="selector" value="{{info.sex}}" bindchange="sexChange" range="{{sexSelect}}">
+        <view class="picker" wx:if="{{info.sex == 0}}">保密</view>
+        <view class="picker" wx:if="{{info.sex == 1}}">男</view>
+        <view class="picker" wx:if="{{info.sex == 2}}">女</view>
+      </picker>
+      <!-- <input value="{{sex}}" placeholder="请输入" class="flex_1"></input> -->
       <!-- <view class="color-C5C4C4">修改</view> -->
     </view>
     <view class="flex_dom flex_item_mid infoItem">
       <text class="color-333">邮箱：</text>
-      <input value="1654656165@qq.com" placeholder="请输入" class="flex_1"></input>
+      <input value="{{info.email}}" placeholder="请输入" class="flex_1"></input>
       <!-- <view class="color-C5C4C4">修改</view> -->
     </view>
     <view class="flex_dom flex_item_mid infoItem">
       <text class="color-333">出生年月：</text>
-      <input value="1998年6月15日" placeholder="请输入" class="flex_1"></input>
+      <picker mode="date" class="flex_1" bindchange="dateChange">
+        <view class="picker">{{info.birth_year+'-'+info.birth_month+'-'+info.birth_day}}</view>
+      </picker>
+      <!-- <input value="{{}}" placeholder="请输入" class="flex_1"></input> -->
       <!-- <view class="color-C5C4C4">修改</view> -->
     </view>
     <view class="flex_dom flex_item_mid infoItem" bindtap="goLogin">
@@ -43,5 +51,5 @@
     </view>
   </view>
   <view class="outBtn outBtn2 bg-fff text-center">一键保存</view>
-  <view class="outBtn outBtn1 bg-fff text-center" bindtap="goLogin">退出登录</view>
+  <view class="outBtn outBtn1 bg-fff text-center" bindtap="goOut">退出登录</view>
 </view>

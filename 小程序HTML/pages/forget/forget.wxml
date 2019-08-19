@@ -17,7 +17,7 @@
     <view class="curFormButton">
       <button class="font36" hover-class="btn-hover">修改密码</button>
     </view>
-    <view class="text-center m-t-20">
+    <view class="text-center m-t-20" wx:if="{{!isEdit}}">
       <text class="font30 color-999" bindtap="goLogin">已有账号，去登录</text>
     </view>
   </view>

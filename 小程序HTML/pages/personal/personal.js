@@ -37,10 +37,15 @@ Page({
   getInfo(){ 
     var that = this;
     http.getReq('api/member/member_detail.htm',{}, function (res) {
-      console.log(res.data)
       if (res.code == 0) {
+        res.data.mobile2 = res.data.mobile.substring(0, 3) + "****" + res.data.mobile.substring(7, 11)
         that.setData({
-          info: res.data
+          info: res.data,
+          isLogin: true
+        })
+      }else{
+        that.setData({
+          isLogin: false
         })
       }
     })
