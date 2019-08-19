@@ -18,8 +18,9 @@
       <view class="curFormButton">
         <button form-type='submit' class="font36" hover-class="btn-hover">登录</button>
       </view>
-      <view class="text-center m-t-20">
-        <text class="font30 color-999" bindtap="goForget" >忘记密码？</text>
+      <view class="clearFix m-t-20">
+        <text class="font30 color-999 fl" bindtap="goRegister" >新用户注册</text>
+        <text class="font30 color-999 fr" bindtap="goForget" >忘记密码？</text>
       </view>
     </view>
   </form>

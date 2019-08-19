@@ -1,18 +1,21 @@
 // pages/personal/personal.js
+const http = require('../../http.js')
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    isLogin: false
+    isLogin: false,
+    info: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getInfo()
   },
   goFollow(){
     wx.navigateTo({url: '../follow/follow',})
@@ -29,6 +32,17 @@ Page({
   callTell(){
     wx.makePhoneCall({
       phoneNumber: '002-6432-569',
+    })
+  },
+  getInfo(){ 
+    var that = this;
+    http.getReq('api/member/member_detail.htm',{}, function (res) {
+      console.log(res.data)
+      if (res.code == 0) {
+        that.setData({
+          info: res.data
+        })
+      }
     })
   },
   /**

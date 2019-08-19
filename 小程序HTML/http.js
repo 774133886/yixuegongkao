@@ -2,7 +2,7 @@ var rootDocment = 'https://yxgk.kulend.com/';
 var header = {
   'Accept': 'application/x-www-form-urlencoded',
   'content-type': 'application/x-www-form-urlencoded',
-  'Authorization': null,
+  'Authorization': wx.getStorageSync('token') || null,
   
   
 }
@@ -29,7 +29,7 @@ function getReq(url, data, cb) {
     data = {};
   }
   wx.request({
-    url: rootDocment + url + '?token=' + token,
+    url: rootDocment + url,
     data: data,
     header: header,
     method: 'get',

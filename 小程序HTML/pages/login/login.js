@@ -126,7 +126,7 @@ Page({
   formSubmit: function (e) {
 
     var that = this;
-    console.log('form发生了submit事件，携带数据为：', e.detail.value)
+    // console.log('form发生了submit事件，携带数据为：', e.detail.value)
     if (!e.detail.value.mobile || !e.detail.value.password) {
       wx.showToast({
         title: '输入不能为空',
@@ -179,7 +179,7 @@ Page({
   formSubmit2(e) {
 
     var that = this;
-    console.log('form发生了submit事件，携带数据为：', e.detail.value)
+    // console.log('form发生了submit事件，携带数据为：', e.detail.value)
     if (!e.detail.value.mobile || !e.detail.value.checkcode) {
       wx.showToast({
         title: '输入不能为空',
@@ -221,6 +221,9 @@ Page({
   },
   goForget: function(){
     wx.navigateTo({url: "../forget/forget"})
+  },
+  goRegister(){
+    wx.navigateTo({ url: "../register/register" })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
