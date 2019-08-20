@@ -1,19 +1,17 @@
 <!--pages/search/search.wxml-->
 <view class='Con font30 l-pad40'>
   <view class='hgt80rpx between-center'>
-    <input type='text' class='font24 l-pad20 bg-search flex_1 hgt60rpx' placeholder='搜索课程名称/老师' placeholder-class='color-999'></input>
-    <navigator url="/pages/searchList/searchList" hover-class="none" class='ccolor-333 m-l-20'>搜索</navigator>
+    <input type='text' bindinput='setp' class='font24 l-pad20 bg-search flex_1 hgt60rpx' placeholder='搜索课程名称/老师' placeholder-class='color-999'></input>
+    <view bindtap="goSearch" hover-class="none" class='ccolor-333 m-l-20'>搜索</view>
   </view>
   <view class='hgt80rpx between-center'>
     <text class='color-666'>搜索历史</text>
     <view class='center'>
       <image class='icon_del' src='../../files/icon_delete.png'></image>
-      <text class='m-l-10 color-999 font24'>清除</text>
+      <text bindtap="clearHis" class='m-l-10 color-999 font24'>清除</text>
     </view>
   </view>
   <view class='searcTagArea m-t-10'>
-    <view class='searcTag'>高数</view>
-    <view class='searcTag'>浙江省考</view>
-    <view class='searcTag'>江苏高考</view>
+    <view wx:for="{{s_history}}" wx:key="{{item}}" class='searcTag'>{{item}}</view>
   </view>
 </view>

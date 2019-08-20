@@ -1,87 +1,45 @@
 <!--pages/searchList/searchList.wxml-->
+<wxs module="filter" src="../../filter/Filters.wxs"></wxs>
 <view class='Con font30 l-pad40'>
   <view class='hgt80rpx between-center'>
-    <input type='text' class='font24 l-pad20 bg-search flex_1 hgt60rpx' placeholder='搜索课程名称/老师' placeholder-class='color-999'></input>
+    <input type='text' class='font24 l-pad20 bg-search flex_1 hgt60rpx' value="{{shText}}" placeholder='搜索课程名称/老师' placeholder-class='color-999'></input>
     <text class='ccolor-333 m-l-20'>搜索</text>
   </view>
   <view class="indexAArea p-t-20 p-b-20" hover-class="none" hover-stop-propagation="false">
-    <navigator url="/pages/courseDetail/courseDetail?state=1" hover-class="none" class='index_courseList hgt230rpx between border-b-eee'>
+    <navigator wx:for="{{tjList}}" url="/pages/courseDetail/courseDetail?c_id={{item.course_id}}" wx:key="{{item.course_id}}" hover-class="none" class='index_courseList hgt230rpx between border-b-eee'>
       <view class='hgt190rpx wid290rpx relative'>
-        <image class="wid100 hgt190rpx" src="../../files/img_kecheng.png" mode="aspectFill" lazy-load="false" ></image>
-        <image class="index_tag2" src="../../files/img_pintuan.png" mode="aspectFill" lazy-load="false" ></image>
+        <image class="wid100 hgt190rpx" src="{{item.image_small}}" mode="aspectFill" lazy-load="false" ></image>
+        <!-- 拼团 -->
+        <image wx:if="{{item.promotions.promotion_type==3}}" class="index_tag2" src="../../files/img_pintuan.png" mode="aspectFill" lazy-load="false" ></image>
+        <!-- 秒杀 -->
+        <image wx:if="{{item.promotions.promotion_type==2}}" class="index_tag2" src="../../files/img_miaosha.png" mode="aspectFill" lazy-load="false" ></image>
+        <!-- 已满员 -->
+        <image wx:if="{{item.apply_count==item.enroll_count}}" class="index_tag2" src="../../files/img_manyuan.png" mode="aspectFill" lazy-load="false" ></image>
+        <!-- 报名结束 -->
+        <image wx:if="{{item.is_end==1}}" class="index_tag2" src="../../files/img_baoming.png" mode="aspectFill" lazy-load="false" ></image>
+
       </view>
       <view class='flex_1 m-l-20 p-b-30 column-between hgt230rpx'>
         <view class='l-h-40rpx'>
-          <view class='color-333 font30'>4小时吃透病句解析</view>
+          <view class='color-333 font30'>{{item.name}}</view>
           <view class='center m-t-5'>
             <view class='wid160rpx color-999 font24'>开课时间</view>
-            <view class='font24 color-666'>2019.05.30</view>
+            <view class='font24 color-666'>{{filter.substrXX(item.class_time,0,10)}}</view>
           </view>
           <view class='center'>
             <view class='wid160rpx color-999 font24'>已报/限报</view>
-            <view class='font24 color-666'>24/30 人</view>
+            <view class='font24 color-666'>{{item.apply_count}}/{{item.enroll_count}} 人</view>
           </view>
         </view>
         <view class='between-center'>
-          <view class=''>
-            <text class='font36 color-FF1919'>¥2999.9</text>
-            <text class='color-999 font18 m-l-15 lineThrough'>¥2999.9</text>
+          <view wx:if="{{item.promotions}}" class=''>
+            <text class='font36 color-FF1919'>¥{{item.promotion_price}}</text>
+            <text class='color-999 font24 m-l-15 lineThrough'>¥{{item.price}}</text>
           </view>
-          <!-- <text class='color-999 font24 p-t-5'>已购</text> -->
-        </view>
-        
-      </view>
-    </navigator>
-    <navigator hover-class='none' url='/pages/courseDetail/courseDetail?state=0' class='index_courseList hgt230rpx between border-b-eee'>
-      <view class='hgt190rpx wid290rpx relative'>
-        <image class="wid100 hgt190rpx" src="../../files/img_tuijian1.png" mode="aspectFill" lazy-load="false" ></image>
-        <image class="index_tag2" src="../../files/img_baoming.png" mode="aspectFill" lazy-load="false" ></image>
-      </view>
-      <view class='flex_1 m-l-20 p-b-30 column-between hgt230rpx'>
-        <view class='l-h-40rpx'>
-          <view class='color-333 font30'>江苏判断推理特色专题</view>
-          <view class='center m-t-5'>
-            <view class='wid160rpx color-999 font24'>开课时间</view>
-            <view class='font24 color-666'>2019.05.30</view>
+          <view wx:else class=''>
+            <text class='font36 color-FF1919'>¥{{item.price}}</text>
           </view>
-          <view class='center'>
-            <view class='wid160rpx color-999 font24'>已报/限报</view>
-            <view class='font24 color-666'>24/30 人</view>
-          </view>
-        </view>
-        <view class='between-center'>
-          <view class=''>
-            <text class='font36 color-FF1919'>¥2999.9</text>
-            <text class='color-999 font18 m-l-15 lineThrough'>¥2999.9</text>
-          </view>
-          <text class='color-999 p-t-5 font24 '>已购</text>
-        </view>
-        
-      </view>
-    </navigator>
-    <navigator hover-class='none' url='' class='index_courseList hgt230rpx between border-b-eee'>
-      <view class='hgt190rpx wid290rpx relative'>
-        <image class="wid100 hgt190rpx" src="../../files/img_tuijian1.png" mode="aspectFill" lazy-load="false" ></image>
-        <image class="index_tag2" src="../../files/img_baoming.png" mode="aspectFill" lazy-load="false" ></image>
-      </view>
-      <view class='flex_1 m-l-20 p-b-30 column-between hgt230rpx'>
-        <view class='l-h-40rpx'>
-          <view class='color-333 font30'>江苏判断推理特色专题</view>
-          <view class='center m-t-5'>
-            <view class='wid160rpx color-999 font24'>开课时间</view>
-            <view class='font24 color-666'>2019.05.30</view>
-          </view>
-          <view class='center'>
-            <view class='wid160rpx color-999 font24'>已报/限报</view>
-            <view class='font24 color-666'>24/30 人</view>
-          </view>
-        </view>
-        <view class='between-center'>
-          <view class=''>
-            <text class='font36 color-FF1919'>¥2999.9</text>
-            <text class='color-999 font18 m-l-15 lineThrough'>¥2999.9</text>
-          </view>
-          <text class='color-999 font24 p-t-5'>已购</text>
+          <text wx:if="{{item.apply_status==6}}" class='color-999 font24 p-t-5'>已购</text>
         </view>
         
       </view>

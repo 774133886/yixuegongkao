@@ -5,14 +5,46 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    sText:'',
+    s_history:[]
   },
-
+  setp: function (e) {
+    console.log(e.detail.value);
+    this.setData({
+      sText: e.detail.value
+    })
+  },
+  goSearch(){
+    if (!this.data.sText){
+      wx.showToast({
+        title: '请输入搜索内容',
+        icon: 'none',
+        duration: 2000
+      })
+    }else{
+      var s_history = this.data.s_history;
+      console.log(typeof s_history)
+      s_history.push('sText');
+      wx.setStorageSync('s_history', s_history);
+      wx.navigateTo({
+        url: '/pages/searchList/searchList?kw=' + this.data.sText,
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    if (!wx.getStorageSync('s_history')){
+      this.setData({
+        s_history: wx.getStorageSync('s_history')
+      })
+    }else{
+      this.setData({
+        s_history:[]
+      })
+    }
+    
   },
 
   /**
