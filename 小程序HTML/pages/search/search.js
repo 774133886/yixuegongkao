@@ -6,7 +6,8 @@ Page({
    */
   data: {
     sText:'',
-    s_history:[]
+    s_history:[],
+    isfocus:true,
   },
   setp: function (e) {
     console.log(e.detail.value);
@@ -24,26 +25,39 @@ Page({
     }else{
       var s_history = this.data.s_history;
       console.log(typeof s_history)
-      s_history.push('sText');
+      s_history.unshift(this.data.sText);
       wx.setStorageSync('s_history', s_history);
+      this.setData({
+        sText:'',
+      })
       wx.navigateTo({
         url: '/pages/searchList/searchList?kw=' + this.data.sText,
       })
     }
   },
+  clearHis(){
+    var that = this
+    wx.showModal({
+      // title: '提示',
+      content: '是否清除搜索记录？',
+      success (res) {
+        if (res.confirm) {
+          wx.removeStorageSync('s_history');
+          that.setData({
+            s_history:[],
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+    
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (!wx.getStorageSync('s_history')){
-      this.setData({
-        s_history: wx.getStorageSync('s_history')
-      })
-    }else{
-      this.setData({
-        s_history:[]
-      })
-    }
+    
     
   },
 
@@ -58,7 +72,16 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    if (wx.getStorageSync('s_history')){
+      this.setData({
+        // 数组去重
+        s_history: Array.from(new Set(wx.getStorageSync('s_history'))).slice(0,9)
+      })
+    }else{
+      this.setData({
+        s_history:[]
+      })
+    }
   },
 
   /**
