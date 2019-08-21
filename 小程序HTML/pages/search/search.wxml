@@ -1,7 +1,7 @@
 <!--pages/search/search.wxml-->
 <view class='Con font30 l-pad40'>
   <view class='hgt80rpx between-center'>
-    <input type='text' focus='{{isfocus}}' bindinput='setp' class='font24 l-pad20 bg-search flex_1 hgt60rpx' placeholder='搜索课程名称/老师' placeholder-class='color-999'></input>
+    <input type='text' focus='{{isfocus}}' bindinput='setp' value="{{sText}}" class='font24 l-pad20 bg-search flex_1 hgt60rpx' placeholder='搜索课程名称/老师' placeholder-class='color-999'></input>
     <view bindtap="goSearch" hover-class="none" class='ccolor-333 m-l-20'>搜索</view>
   </view>
   <view class='hgt80rpx between-center'>

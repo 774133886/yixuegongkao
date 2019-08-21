@@ -11,9 +11,12 @@ Page({
   data: {
     shText:'',
     tjList:[],
+    s_history:[],
+    nomore:false,
     page: 1,
     totalPage: 1,
-    rows: 10
+    rows: 10,
+    noData:false,
   },
 
   /**
@@ -33,13 +36,14 @@ Page({
       // res.data.rows[0].articles[1].time = '2019.06.09'
       if (res.code == 0) {
         console.log(res.data.list);
-        that.setData({
-          tjList: res.data.list,
-          totalPage: Math.ceil(res.data.pagination.max_row_count / that.data.rows)
-        });
-        if (res.data.list.length == 0) {
+        if (that.data.page == 1) {
           that.setData({
-            noData2: true
+            tjList: res.data.list,
+            totalPage: Math.ceil(res.data.pagination.max_row_count / that.data.rows)
+          });
+        } else {
+          that.setData({
+            tjList: that.data.tjList.concat(res.data.list),
           });
         }
       } else {
@@ -51,9 +55,35 @@ Page({
       }
     })
   },
+
+  setp: function (e) {
+    console.log(e.detail.value);
+    this.setData({
+      shText: e.detail.value
+    })
+  },
+  goSearch() {
+    if (!this.data.shText) {
+      wx.showToast({
+        title: '请输入搜索内容',
+        icon: 'none',
+        duration: 2000
+      })
+    } else {
+      var s_history = this.data.s_history;
+      console.log(typeof s_history)
+      s_history.unshift(this.data.shText);
+      wx.setStorageSync('s_history', s_history);
+      this.setData({
+        page: 1,
+      })
+      this.getlist();
+    }
+  },
+
   onLoad: function (options) {
     this.setData({
-      shText: options.kw
+      shText: options.kw,
     })
     // 获取首页数据
     this.getlist();
@@ -71,7 +101,16 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    if (wx.getStorageSync('s_history')) {
+      this.setData({
+        // 数组去重
+        s_history: Array.from(new Set(wx.getStorageSync('s_history'))).slice(0, 9)
+      })
+    } else {
+      this.setData({
+        s_history: []
+      })
+    }
   },
 
   /**
@@ -99,7 +138,21 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    // 分页加载
+    var pages = this.data.page;
+    var total = this.data.totalPage;
+    console.log(pages, total)
+    if (pages >= total) {
+      this.setData({
+        nomore: true
+      });
+      return false;
+    }
+    pages++;
+    this.setData({
+      page: pages
+    });
+    this.getlist();
   },
 
   /**

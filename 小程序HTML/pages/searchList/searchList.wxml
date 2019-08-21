@@ -2,8 +2,8 @@
 <wxs module="filter" src="../../filter/Filters.wxs"></wxs>
 <view class='Con font30 l-pad40'>
   <view class='hgt80rpx between-center'>
-    <input type='text' class='font24 l-pad20 bg-search flex_1 hgt60rpx' value="{{shText}}" placeholder='搜索课程名称/老师' placeholder-class='color-999'></input>
-    <text class='ccolor-333 m-l-20'>搜索</text>
+    <input type='text' class='font24 l-pad20 bg-search flex_1 hgt60rpx' bindinput='setp' value="{{shText}}" placeholder='搜索课程名称/老师' placeholder-class='color-999'></input>
+    <text bindtap="goSearch" class='ccolor-333 m-l-20'>搜索</text>
   </view>
   <view class="indexAArea p-t-20 p-b-20" hover-class="none" hover-stop-propagation="false">
     <navigator wx:for="{{tjList}}" url="/pages/courseDetail/courseDetail?c_id={{item.course_id}}" wx:key="{{item.course_id}}" hover-class="none" class='index_courseList hgt230rpx between border-b-eee'>
@@ -44,7 +44,12 @@
         
       </view>
     </navigator>
-    <view class='nomore hgt50rpx around-center'>
+    <!--暂无数据  -->
+    <view wx:if='{{tjList.length==0}}' class='block text-center'>
+      <image style='margin-top:100rpx;' src='../../files/icon_nodata.png' class='no_dataImg' ></image>
+      <view class='color-999 m-t-20'>暂无数据~</view>
+    </view>
+    <view wx:if='{{nomore}}' class='nomore hgt50rpx around-center'>
       <text class='color-be font30'>没有更多了</text>
     </view>
   </view>

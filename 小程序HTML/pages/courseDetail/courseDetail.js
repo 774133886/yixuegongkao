@@ -9,6 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    info:{},
     shareShow:false,
     contactShow:false,
     sServiceTel:'15928773528',
@@ -74,19 +75,17 @@ Page({
   getptList(){
     let that = this;
     var data = {};
-    data.id = 550580447711305;
+    data.courseid = 550580447711305;
     console.log(data)
     http.postReq('/api/pintuan/public/get_product_detail.htm', data, function (res) {
       if (res.code == 0) {
+        this.setData({ info: res.data})
+      } else {
         wx.showToast({
           title: res.message,
           icon: 'none',
           duration: 2000
         })
-
-      } else {
-
-        return false;
       }
     })
   },

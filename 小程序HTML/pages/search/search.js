@@ -27,11 +27,11 @@ Page({
       console.log(typeof s_history)
       s_history.unshift(this.data.sText);
       wx.setStorageSync('s_history', s_history);
-      this.setData({
-        sText:'',
-      })
       wx.navigateTo({
         url: '/pages/searchList/searchList?kw=' + this.data.sText,
+      })
+      this.setData({
+        sText: '',
       })
     }
   },

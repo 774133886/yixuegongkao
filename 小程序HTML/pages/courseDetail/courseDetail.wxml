@@ -2,7 +2,7 @@
 <import src="../../wxParse/wxParse.wxml"/>
 <view class='Con font30'>
   <view class='wid100 relative'>
-      <image class='courseBnr' mode="aspectFill" lazy-load="false" src='../../files/img_kecheng_big.png'></image>
+      <image class='courseBnr' mode="aspectFill" lazy-load="false" src='{{info.image_large}}'></image>
       <!-- 秒杀拼团 -->
       <image wx:if="{{state==1}}" class="ptTag" src="../../files/icon_pintuan_big.png" mode="aspectFill" lazy-load="false" ></image>
       <image wx:if="{{state==2}}" class="ptTag" src="../../files/icon_miaosha_big.png" mode="aspectFill" lazy-load="false" ></image>
@@ -24,7 +24,7 @@
       </view>
   </view>
   <view class='courseTitleArea l-pad40 p-b-20'>
-    <view class='p-v-15  font36'>4小时吃透病句解析</view>
+    <view class='p-v-15  font36'>{{info.name}}</view>
     <view class='between-center'>
      <view class='flex_1'>
         <!-- <text class='font36 color-green m-r-30'>免费</text> -->
