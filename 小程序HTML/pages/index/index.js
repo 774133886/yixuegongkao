@@ -101,7 +101,28 @@ Page({
       }
     })
   },
- 
+  getBanner: function () {
+    var token = wx.getStorageSync('token');
+    if (!token) return;
+    var that = this;
+    let data = {};
+    data.tag = 'WX_APP_BANNER';
+    http.getReq('/api/app/get_page_elements.htm', data, function (res) {
+      // res.data.rows[0].articles[1].time = '2019.06.09'
+      if (res.code == 0) {
+        console.log(res.data);
+        that.setData({
+          bannerlist: res.data,
+        });
+      } else {
+        wx.showToast({
+          title: res.message,
+          icon: 'none',
+          duration: 2000
+        })
+      }
+    })
+  },
   
   //滚动位置
   listLocation: function () {
@@ -170,7 +191,7 @@ Page({
 
   // 获取首页数据
     this.getlist();
-
+    this.getBanner();
   },
 
   /**

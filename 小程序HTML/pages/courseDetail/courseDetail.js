@@ -15,7 +15,8 @@ Page({
     sServiceTel:'15928773528',
     state:0,
     pjshow:true,
-    type:0
+    type:0,
+    c_id:''
   },
 
   /**
@@ -23,18 +24,18 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    var content = "<img style='margin-left: 0;border-radius:10px; width:100%;' src='../../files/indexBanner.png'/><div>此处为富文本<div/>" ;
-    WxParse.wxParse('article', 'html', content, that, 5);
+    
     this.setData({
       state: options.state
     })
-    if (options.type){
+    if (options.c_id){
       this.setData({
-        type: options.type
+        c_id: options.c_id
       })
     }
     // 获取详情
-    this.getptList()
+    this.getInfo();
+    this.getpjList();
   },
   //分享遮罩
   shareTab: function (e) {
@@ -71,15 +72,35 @@ Page({
     this.setData({ pjshow: !this.data.pjshow })
   },
 
-  // 获取拼团详情
-  getptList(){
+  // 获取课程详情
+  getInfo(){
     let that = this;
     var data = {};
-    data.courseid = 550580447711305;
+    data.courseid = this.data.c_id;
     console.log(data)
-    http.postReq('/api/pintuan/public/get_product_detail.htm', data, function (res) {
+    http.postReq('api/public/get_course_comment_list.htm', data, function (res) {
       if (res.code == 0) {
-        this.setData({ info: res.data})
+        that.setData({ info: res.data})
+      } else {
+        wx.showToast({
+          title: res.message,
+          icon: 'none',
+          duration: 2000
+        })
+      }
+    })
+  },
+  // 获取评价详情
+  getpjList() {
+    let that = this;
+    var data = {};
+    data.courseid = this.data.c_id;
+    console.log(data)
+    http.postReq('api/public/get_course_detail.htm', data, function (res) {
+      if (res.code == 0) {
+        that.setData({ info: res.data })
+        var content = res.data.intro
+        WxParse.wxParse('article', 'html', content, that, 5);
       } else {
         wx.showToast({
           title: res.message,
