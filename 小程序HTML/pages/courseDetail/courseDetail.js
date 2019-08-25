@@ -16,7 +16,10 @@ Page({
     state:0,
     pjshow:true,
     type:0,
-    c_id:''
+    c_id:'',
+    pjInfo:{},
+    pjList:[],
+    pjscore:5
   },
 
   /**
@@ -77,10 +80,12 @@ Page({
     let that = this;
     var data = {};
     data.courseid = this.data.c_id;
-    console.log(data)
-    http.postReq('api/public/get_course_comment_list.htm', data, function (res) {
+    http.postReq('api/public/get_course_detail.htm', data, function (res) {
       if (res.code == 0) {
-        that.setData({ info: res.data})
+        that.setData({ 
+          info: res.data,
+          pjscore: Math.floor(res.data.score) 
+        })
       } else {
         wx.showToast({
           title: res.message,
@@ -95,12 +100,15 @@ Page({
     let that = this;
     var data = {};
     data.courseid = this.data.c_id;
-    console.log(data)
-    http.postReq('api/public/get_course_detail.htm', data, function (res) {
+    
+    http.postReq('api/public/get_course_comment_list.htm', data, function (res) {
       if (res.code == 0) {
-        that.setData({ info: res.data })
-        var content = res.data.intro
-        WxParse.wxParse('article', 'html', content, that, 5);
+        console.log(res.data)
+        that.setData({
+           pjInfo: res.data,
+            pjList: res.data.list.slice(0,2),
+           
+            });
       } else {
         wx.showToast({
           title: res.message,

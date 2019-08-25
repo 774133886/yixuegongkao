@@ -4,36 +4,33 @@
      <view class='pjTitle between-center hgt07rem'>
       <view class='center flex_1'>
         <text class='color-333 font36'>用户评价</text>
-        <text class='font24 color-999'>（共255条）</text>
+        <text class='font24 color-999'>（共{{pjList.length}}条）</text>
       </view>
       <view class='center'>
         <view class='center starList'>
-          <image class='starPic' src='../../files/icon_collect.png'></image>
-          <image class='starPic' src='../../files/icon_collect.png'></image>
-          <image class='starPic' src='../../files/icon_collect.png'></image>
-          <image class='starPic' src='../../files/icon_collect.png'></image>
-          <image class='starPic' src='../../files/icon_collect_pre.png'></image>
+          <image wx:for="{{pjscore}}" wx:key="{{unique}}" class='starPic' src='../../files/icon_collect.png'></image>
+          <image wx:for="{{5-pjscore}}" wx:key="{{unique}}" class='starPic' src='../../files/icon_collect_pre.png'></image>
         </view>
-        <text class='font24 color-999 m-l-20'>4.9分</text>
+        <text class='font24 color-999 m-l-20'>{{score}}分</text>
       </view>
     </view>
-    <view class='pjLists m-t-10'>
+    <view wx:for="{{pjList}}" wx:key="{{unique}}" class='pjLists m-t-10'>
       <view class='pjList border-b-eee p-v-20'>
         <view class='between-center'>
-          <image class='pjhPic' mode="aspectFill" src='../../files/img_user2.png'></image>
+          <image class='pjhPic radius_50' mode="aspectFill" src='{{item.member_portrait}}'></image>
           <view class="flex_1 m-l-25 hgt09rem column-around">
             <view class="between-center">
-              <text class='flex_1 only_line color-333 font26 m-r-20'>人海孤鸿1234567</text>
+              <text class='flex_1 only_line color-333 font26 m-r-20'>{{item.member_name}}</text>
               <view class='center'>
                 <image class='icon666' src='../../files/icon_dianzan.png'></image>
-                <text class='font24 color-999 m-l-15'>24</text>
+                <text class='font24 color-999 m-l-15'>{{item.praise_count}}</text>
               </view>
             </view>
-            <view class='font20 color-999'>2019.1.4   9:30</view>
+            <view class='font20 color-999'>{{item.comment_time}}</view>
           </view>
         </view>
         
-        <view class='color-777 font24 m-t-10'>老师讲的很细很细，举例生动形象，课堂活跃度较高，很喜欢听老师的课程。</view>
+        <view class='color-777 font24 m-t-10'>{{item.content}}</view>
         <view bindtap="layershow" class='center-end color-5273FF font24'>回复</view>
         <view class="applyBox relative font24">
           <view>
