@@ -19,7 +19,7 @@ Page({
     c_id:'',
     pjInfo:{},
     pjList:[],
-    pjscore:5
+    pjscore:0
   },
 
   /**
@@ -46,6 +46,41 @@ Page({
   },
   contactTab: function (e) {
     this.setData({ contactShow: !this.data.contactShow })
+  },
+  // 赞
+  liketap(e){
+    let that = this;
+    let islike = e.currentTarget.dataset.like;
+    let com_id = e.currentTarget.dataset.comid;
+    if(islike){
+      var data = {};
+      data.comment_id = com_id;
+      http.postReq('api/public/get_course_detail.htm', data, function (res) {
+        if (res.code == 0) {
+        
+        } else {
+          wx.showToast({
+            title: res.message,
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      })
+    }else{
+      var data = {};
+      data.comment_id = com_id;
+      http.postReq('api/public/get_course_detail.htm', data, function (res) {
+        if (res.code == 0) {
+        
+        } else {
+          wx.showToast({
+            title: res.message,
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      })
+    }
   },
   // 回到首页
   backIndex: function (e) {
