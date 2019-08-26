@@ -128,8 +128,8 @@
         <view class='pjList border-b-eee p-v-20'>
           <view class='between-center'>
             <text class='flex_1 only_line color-333 font26 m-r-20'>{{item.member_name}}</text>
-            <view bindtap="liketap" data-like="{{item.is_member_prise}}" data-comid="{{item.comment_id}}" class='center'>
-              <image class='icon666' src='{{item.is_member_prise?"../../files/icon_dianzan.png":"icon_dianzan_ore"}}'></image>
+            <view bindtap="liketap" data-like="{{item.is_member_praise}}" data-comid="{{item.comment_id}}" data-idx="{{index}}" class='center'>
+              <image class='icon666' src='{{item.is_member_praise?"../../files/icon_dianzan.png":"../../files/icon_dianzan_ore.png"}}'></image>
               <text class='font24 color-999 m-l-15'>{{item.praise_count}}</text>
             </view>
           </view>
