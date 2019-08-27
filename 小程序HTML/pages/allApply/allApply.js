@@ -1,11 +1,21 @@
 // pages/allApply/allApply.js
+const util = require('../../utils/util.js')
+const http = require('../../http.js')
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    layer:false
+    layer:false,
+    pjInfo:{},
+    pjList: [],
+    nomore: false,
+    page: 1,
+    totalPage: 1,
+    rows: 10,
+    c_id:'',
   },
   layershow(){
     this.setData({
@@ -21,9 +31,89 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this;
+    that.setData({
+      c_id: options.com_id
+    });
+    // 获取评价列表
+    this.getpjList();
   },
 
+  // 获取
+  getpjList() {
+    let that = this;
+    var data = {};
+    data.commentid = that.data.c_id;
+    data.page = that.data.page;
+    data.rows = that.data.rows;
+    http.postReq('api/public/get_comment_reply_list.htm', data, function (res) {
+      if (res.code == 0) {
+
+        if (that.data.page == 1) {
+          console.log(res.data)
+          that.setData({
+            pjInfo: res.data,
+            pjList: res.data.list,
+            totalPage: Math.ceil(res.data.pagination.max_row_count / that.data.rows)
+          });
+        } else {
+          that.setData({
+            pjList: that.data.pjList.concat(res.data.list),
+          });
+        }
+      } else {
+        wx.showToast({
+          title: res.message,
+          icon: 'none',
+          duration: 2000
+        })
+      }
+    })
+  },
+  // 评论获取
+  textCom: function (e) {
+    console.log(e.detail.value);
+    this.setData({
+      content: e.detail.value
+    })
+  },
+  // 回复评论
+  replyCom(){
+    let that = this;
+    var data = {};
+    data.commentid = that.data.c_id;
+    data.content = that.data.content;
+    if (!that.data.content){
+      wx.showToast({
+        title: '评论不能为空',
+        icon: 'none',
+        duration: 2000
+      })
+      return false;
+    }
+    http.postReq('api/business/reply_course_comment.htm', data, function (res) {
+      if (res.code == 0) {
+        wx.showToast({
+          title: res.message,
+          icon: 'none',
+          duration: 2000
+        })
+        that.setData({
+          layer: false,
+          page:1,
+          content:''
+        })
+        // 重新回去数据
+        that.getpjList();
+      } else {
+        wx.showToast({
+          title: res.message,
+          icon: 'none',
+          duration: 2000
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -63,7 +153,21 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    // 分页加载
+    var pages = this.data.page;
+    var total = this.data.totalPage;
+    console.log(pages, total)
+    if (pages >= total) {
+      this.setData({
+        nomore: true
+      });
+      return false;
+    }
+    pages++;
+    this.setData({
+      page: pages
+    });
+    this.getpjList();
   },
 
   /**

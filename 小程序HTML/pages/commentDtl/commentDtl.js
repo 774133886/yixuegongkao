@@ -16,11 +16,22 @@ Page({
     page: 1,
     totalPage: 1,
     rows: 10,
+    cid:0,
   },
-  layershow() {
+  layershow(e) {
     this.setData({
       layer: true
-    })
+    });
+    let cid = e.currentTarget.dataset.comid;
+    if(cid){
+      this.setData({
+        cid: cid
+      });
+    }else{
+      this.setData({
+        cid: 0
+      });
+    }
   },
   layerhide() {
     this.setData({

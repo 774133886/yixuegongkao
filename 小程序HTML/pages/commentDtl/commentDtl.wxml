@@ -20,7 +20,13 @@
           <image class='pjhPic radius_50' mode="aspectFill" src='{{item.member_portrait}}'></image>
           <view class="flex_1 m-l-25 hgt09rem column-around">
             <view class="between-center">
-              <text class='flex_1 only_line color-333 font26 m-r-20'>{{item.member_name}}</text>
+              <view class="center">
+                <text class='flex_1 only_line color-333 max_wid only_line font26 m-r-20'>{{item.member_name}}</text>
+                <view class='center starList'>
+                  <image wx:for="{{item.score}}" wx:key="{{unique}}" class='starPic' src='../../files/icon_collect.png'></image>
+                  <image wx:for="{{5-item.score}}" wx:key="{{unique}}" class='starPic' src='../../files/icon_collect_pre.png'></image>
+                </view>
+              </view>
               <view bindtap="liketap" data-like="{{item.is_member_praise}}" data-comid="{{item.comment_id}}" data-idx="{{index}}" class='center'>
                 <image class='icon666' src='{{item.is_member_praise?"../../files/icon_dianzan.png":"../../files/icon_dianzan_ore.png"}}'></image>
                 <text class='font24 color-999 m-l-15'>{{item.praise_count}}</text>
@@ -31,16 +37,15 @@
         </view>
         
         <view class='color-777 font24 m-t-10'>{{item.content}}</view>
-        <view bindtap="layershow" class='center-end color-5273FF font24'>回复</view>
-        <view class="applyBox relative font24">
+        <!-- <view bindtap="layershow" data-comid="{{item.comment_id}}" class='center-end color-5273FF font24'>回复</view> -->
+        <navigator url="/pages/allApply/allApply?com_id={{item.comment_id}}" hover-class="none" class='center-end color-5273FF font24'>回复</navigator>
+        <view wx:if="{{item.replys.length!=0}}" class="applyBox relative font24">
           <view wx:for="{{item.replys}}" wx:key="{{item.id}}" wx:for-item="apply">
-            <text class="color-333"> @梅美琳 </text>
-            <text class="color-666">回复</text>
-            <text class="color-333">@{{apply.member_name}}：</text>
+            <text class="color-333"> @{{apply.member_name}}：</text>
             <text class="color-666"> {{apply.content}}</text>       
           </view>
           <navigator url="/pages/allApply/allApply" hover-class="none" class='center-end color-5273FF font24'>
-            <text>查看全部{{item.replys}}条评论</text>
+            <text>查看全部{{item.reply_count}}条评论</text>
             <image style='margin-left:0;' class='starPic' src='../../files/icon_xiangyou_b.png'></image>
           </navigator>
           <image class='arrowPic' src='../../files/c_arrow.png'></image>
@@ -49,9 +54,10 @@
       </view>
     </view>
   </view>
-  <view class='cdBot l-pad40 border-t-eee hgt100rpx between-center'>
-    <input type="text" bindfocus="layershow" bindblur="layerhide" class="applyArea flex_1 font24" placeholder-class="color-999" placeholder="我也说一句"></input>  
+  <!-- <view class='cdBot l-pad40 border-t-eee hgt100rpx between-center'>
+    <input type="text" bindfocus="layershow" data-comid="0" focus="{{layer}}" bindblur="layerhide" class="applyArea flex_1 font24" placeholder-class="color-999" placeholder="我也说一句"></input>  
     <view class="font30 m-l-30 color-5273FF">评论</view>
-  </view>
+  </view> -->
+  <button class="hgt90rpx wid100 pjBtn">去评价</button>
 </view>
-<view class='markBox {{layer ? "" : "hide"}}'></view>
+<!-- <view bindtap="layerhide" class='markBox {{layer ? "" : "hide"}}'></view> -->

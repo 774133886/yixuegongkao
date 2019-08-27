@@ -127,7 +127,13 @@
       <view wx:for="{{pjList}}" wx:key="{{unique}}" class='pjLists m-t-10'>
         <view class='pjList border-b-eee p-v-20'>
           <view class='between-center'>
-            <text class='flex_1 only_line color-333 font26 m-r-20'>{{item.member_name}}</text>
+            <view class="center">
+              <text class='flex_1 only_line color-333 font26 m-r-20'>{{item.member_name}}</text>
+              <view class='center starList'>
+                <image wx:for="{{item.score}}" wx:key="{{unique}}" class='starPic' src='../../files/icon_collect.png'></image>
+                <image wx:for="{{5-item.score}}" wx:key="{{unique}}" class='starPic' src='../../files/icon_collect_pre.png'></image>
+              </view>
+            </view>
             <view bindtap="liketap" data-like="{{item.is_member_praise}}" data-comid="{{item.comment_id}}" data-idx="{{index}}" class='center'>
               <image class='icon666' src='{{item.is_member_praise?"../../files/icon_dianzan.png":"../../files/icon_dianzan_ore.png"}}'></image>
               <text class='font24 color-999 m-l-15'>{{item.praise_count}}</text>
@@ -135,14 +141,15 @@
           </view>
           <view class='font20 color-999'>{{item.comment_time}}</view>
           <view class='color-777 font24 m-t-10'>{{item.content}}</view>
-          <navigator url="/pages/allApply/allApply?c_id={{comment_id}}" hover-class="none" class='center-end color-5273FF font24'>回复</navigator>
-          <navigator url="/pages/allApply/allApply?c_id={{comment_id}}" hover-class="none" class='center-end color-5273FF font24'>
+          <navigator url="/pages/allApply/allApply?com_id={{item.comment_id}}" hover-class="none" class='center-end color-5273FF font24'>回复</navigator>
+          <navigator url="/pages/allApply/allApply?com_id={{item.comment_id}}" hover-class="none" class='center-end color-5273FF font24'>
             <text>查看全部{{item.reply_count}}条评论</text>
             <image style='margin-left:0;' class='starPic' src='../../files/icon_xiangyou_b.png'></image>
           </navigator>
         </view>
       </view>
-      <navigator url="/pages/commentDtl/commentDtl?c_id={{c_id}}&score={{info.score}}" hover-class="none" class='around-center hgt70rpx'>
+      <view wx:if="{{pjList.length==0}}" class="text-center font24 color-999 p-v-20">暂无评价~</view>
+      <navigator wx:if="{{pjList.length!=0}}" url="/pages/commentDtl/commentDtl?c_id={{c_id}}&score={{info.score}}" hover-class="none" class='around-center hgt70rpx'>
         <view class='center'>
           <text class='font24 color-999'>查看所有评论</text>
           <image style='margin-left:0;' class='icon666' src='../../files/icon_more.png'></image>

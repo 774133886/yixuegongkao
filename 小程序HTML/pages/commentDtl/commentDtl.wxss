@@ -15,6 +15,19 @@ page{
   background-color: #fff;
   z-index: 9;
 }
+.pjBtn{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  color: #fff;
+  text-align: center;
+  font-size: 28rpx;
+  border-radius: 0;
+  line-height: 90rpx;
+  background-color: #5273FF;
+  z-index: 10;
+}
 .cdIcon{
   width: 46rpx;
   height: 46rpx;
@@ -43,4 +56,7 @@ page{
   height: 29rpx;
   top: -20rpx;
   left: 30rpx;
+}
+.max_wid{
+  max-width: 300rpx;
 }
