@@ -27,7 +27,52 @@ Page({
       layer: false
     })
   },
-
+  // 赞
+  liketap(e) {
+    let that = this;
+    let islike = e.currentTarget.dataset.like;
+    let index = e.currentTarget.dataset.idx;
+    console.log(islike)
+    let com_id = e.currentTarget.dataset.comid;
+    let pjList = that.data.pjList;
+    if (!islike) {
+      var data = {};
+      data.commentid = com_id;
+      http.postReq('api/business/comment_praise.htm', data, function (res) {
+        if (res.code == 0) {
+          pjList[index].praise_count++;
+          pjList[index].is_member_praise = true;
+          that.setData({
+            pjList: pjList
+          })
+        } else {
+          wx.showToast({
+            title: res.message,
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      })
+    } else {
+      var data = {};
+      data.commentid = com_id;
+      http.postReq('api/business/comment_praise_cancel.htm', data, function (res) {
+        if (res.code == 0) {
+          pjList[index].praise_count--;
+          pjList[index].is_member_praise = false;
+          that.setData({
+            pjList: pjList
+          })
+        } else {
+          wx.showToast({
+            title: res.message,
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */

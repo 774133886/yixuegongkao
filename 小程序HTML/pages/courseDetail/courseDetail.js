@@ -51,13 +51,20 @@ Page({
   liketap(e){
     let that = this;
     let islike = e.currentTarget.dataset.like;
+    let index = e.currentTarget.dataset.idx;
+    console.log(islike)
     let com_id = e.currentTarget.dataset.comid;
-    if(islike){
+    let pjList = that.data.pjList;
+    if(!islike){
       var data = {};
-      data.comment_id = com_id;
-      http.postReq('api/public/get_course_detail.htm', data, function (res) {
+      data.commentid = com_id;
+      http.postReq('api/business/comment_praise.htm', data, function (res) {
         if (res.code == 0) {
-        
+          pjList[index].praise_count++;
+          pjList[index].is_member_praise = true;
+          that.setData({
+            pjList: pjList
+          })
         } else {
           wx.showToast({
             title: res.message,
@@ -68,10 +75,14 @@ Page({
       })
     }else{
       var data = {};
-      data.comment_id = com_id;
-      http.postReq('api/public/get_course_detail.htm', data, function (res) {
+      data.commentid = com_id;
+      http.postReq('api/business/comment_praise_cancel.htm', data, function (res) {
         if (res.code == 0) {
-        
+          pjList[index].praise_count--;
+          pjList[index].is_member_praise = false;
+          that.setData({
+            pjList: pjList
+          })
         } else {
           wx.showToast({
             title: res.message,
