@@ -137,7 +137,7 @@
           <view class='color-777 font24 m-t-10'>{{item.content}}</view>
           <navigator url="/pages/allApply/allApply?c_id={{comment_id}}" hover-class="none" class='center-end color-5273FF font24'>回复</navigator>
           <navigator url="/pages/allApply/allApply?c_id={{comment_id}}" hover-class="none" class='center-end color-5273FF font24'>
-            <text>查看全部{{pjInfo.pagination.max_row_count}}条评论</text>
+            <text>查看全部{{item.reply_count}}条评论</text>
             <image style='margin-left:0;' class='starPic' src='../../files/icon_xiangyou_b.png'></image>
           </navigator>
         </view>

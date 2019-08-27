@@ -33,18 +33,14 @@
         <view class='color-777 font24 m-t-10'>{{item.content}}</view>
         <view bindtap="layershow" class='center-end color-5273FF font24'>回复</view>
         <view class="applyBox relative font24">
-          <view>
-            <text class="color-333">@讲座将：</text>
-            <text class="color-666"> 我也喜欢老师的讲课风格，本来学习就挺累的要愉快的听课，哈哈。</text>       
-          </view>
-          <view>
+          <view wx:for="{{item.replys}}" wx:key="{{item.id}}" wx:for-item="apply">
             <text class="color-333"> @梅美琳 </text>
             <text class="color-666">回复</text>
-            <text class="color-333">@讲座将：</text>
-            <text class="color-666"> 你说的对！</text>       
+            <text class="color-333">@{{apply.member_name}}：</text>
+            <text class="color-666"> {{apply.content}}</text>       
           </view>
           <navigator url="/pages/allApply/allApply" hover-class="none" class='center-end color-5273FF font24'>
-            <text>查看全部3条评论</text>
+            <text>查看全部{{item.replys}}条评论</text>
             <image style='margin-left:0;' class='starPic' src='../../files/icon_xiangyou_b.png'></image>
           </navigator>
           <image class='arrowPic' src='../../files/c_arrow.png'></image>
