@@ -52,13 +52,13 @@ Page({
         if (that.data.page == 1) {
           console.log(res.data)
           that.setData({
-            pjInfo: res.data,
-            pjList: res.data.list,
-            totalPage: Math.ceil(res.data.pagination.max_row_count / that.data.rows)
+            pjInfo: res.data.comment,
+            pjList: res.data.replys.list,
+            totalPage: Math.ceil(res.data.replys.pagination.max_row_count / that.data.rows)
           });
         } else {
           that.setData({
-            pjList: that.data.pjList.concat(res.data.list),
+            pjList: that.data.pjList.concat(res.data.replys.list),
           });
         }
       } else {
@@ -113,6 +113,98 @@ Page({
         })
       }
     })
+  },
+  // 赞
+  liketap(e) {
+    let that = this;
+    let islike = e.currentTarget.dataset.like;
+    console.log(islike)
+    let com_id = e.currentTarget.dataset.comid;
+    let pjInfo = that.data.pjInfo;
+    if (!islike) {
+      var data = {};
+      data.commentid = com_id;
+      http.postReq('api/business/comment_praise.htm', data, function (res) {
+        if (res.code == 0) {
+          pjInfo.praise_count++;
+          pjInfo.is_member_praise = true;
+          that.setData({
+            pjInfo: pjInfo
+          })
+        } else {
+          wx.showToast({
+            title: res.message,
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      })
+    } else {
+      var data = {};
+      data.commentid = com_id;
+      http.postReq('api/business/comment_praise_cancel.htm', data, function (res) {
+        if (res.code == 0) {
+          pjInfo.praise_count--;
+          pjInfo.is_member_praise = false;
+          that.setData({
+            pjInfo: pjInfo
+          })
+        } else {
+          wx.showToast({
+            title: res.message,
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      })
+    }
+  },
+  // 赞
+  liketap2(e) {
+    let that = this;
+    let islike = e.currentTarget.dataset.like;
+    let index = e.currentTarget.dataset.idx;
+    console.log(islike)
+    let com_id = e.currentTarget.dataset.comid;
+    let pjList = that.data.pjList;
+    if (!islike) {
+      var data = {};
+      data.commentid = com_id;
+      http.postReq('api/business/comment_praise.htm', data, function (res) {
+        if (res.code == 0) {
+          console.log(index)
+          pjList[index].praise_count++;
+          pjList[index].is_member_praise = true;
+          that.setData({
+            pjList: pjList
+          })
+        } else {
+          wx.showToast({
+            title: res.message,
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      })
+    } else {
+      var data = {};
+      data.commentid = com_id;
+      http.postReq('api/business/comment_praise_cancel.htm', data, function (res) {
+        if (res.code == 0) {
+          pjList[index].praise_count--;
+          pjList[index].is_member_praise = false;
+          that.setData({
+            pjList: pjList
+          })
+        } else {
+          wx.showToast({
+            title: res.message,
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
