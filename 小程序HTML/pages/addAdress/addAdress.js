@@ -1,4 +1,7 @@
 // pages/addAdress/addAdress.js
+const util = require('../../utils/util.js')
+const http = require('../../http.js')
+const app = getApp();
 Page({
 
   /**
@@ -7,6 +10,10 @@ Page({
   data: {
     payShow: false,
     region: ['北京市', '朝阳区'],
+    phone:'',
+    name:"",
+    doorNum:''
+
   },
   bindRegionChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -16,7 +23,33 @@ Page({
   },
   // 支付
   payTab: function (e) {
+    var that = this;
+    if(!this.data.phone||!this.data.name||!this.data.doorNum){
+      wx.showToast({
+        title: '输入不能为空',
+        icon: 'none',
+        duration: 2000
+      })
+      return false
+    }
+    var myreg = /^[1][0-9][0-9]{9}$/;
+    if (!myreg.test(this.data.phone)) {
+      wx.showToast({
+        title: '手机号格式错误',
+        icon: 'none',
+        duration: 2000
+      })
+      return false;
+    }
     this.setData({ payShow: !this.data.payShow })
+  },
+  // input
+  changeInput: function(e){
+    var key = e.currentTarget.dataset.keyName;
+    var value = e.detail.value;
+    this.setData({
+      [key]:value
+    });
   },
   /**
    * 生命周期函数--监听页面加载

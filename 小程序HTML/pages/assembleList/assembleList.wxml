@@ -57,7 +57,7 @@
         </view>
         <navigator url="/pages/assembling/assembling" hover-class="none" class="ptBtn text-center">参团</navigator>
       </view>
-      <view style="margin-top:30rpx;" class='nomore hgt50rpx around-center'>
+      <view wx:if="{{nomore}}" style="margin-top:30rpx;" class='nomore hgt50rpx around-center'>
         <text class='color-be font24'>没有更多了</text>
       </view>
     </view>

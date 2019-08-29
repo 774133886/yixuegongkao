@@ -11,16 +11,16 @@
       </view>
     </picker>
     <view class="l-pad40 center hgt100rpx">
-      <input type="text" class="font30 flex_1 color-333" placeholder="请输入具体的小区及门牌号" placeholder-class="color-999"></input>
+      <input type="text" data-key-name="doorNum" bindinput="changeInput" class="font30 flex_1 color-333" placeholder="请输入具体的小区及门牌号" placeholder-class="color-999"></input>
     </view>
   </view>
   <view class="grayLine" style="height:6rpx;"></view>
   <view class="bg-fff">
     <view class="l-pad40 border-b-eee center hgt100rpx">
-      <input type="text" class="font30 flex_1 color-333" maxlength="10" placeholder="请输入收件人姓名" placeholder-class="color-999"></input>
+      <input type="text" data-key-name="name" bindinput="changeInput" class="font30 flex_1 color-333" maxlength="10" placeholder="请输入收件人姓名" placeholder-class="color-999"></input>
     </view>
     <view class="l-pad40 border-b-eee center hgt100rpx">
-      <input type="number" class="font30 flex_1 color-333" maxlength="11" placeholder="请输入联系电话" placeholder-class="color-999"></input>
+      <input type="number" data-key-name="phone" bindinput="changeInput" class="font30 flex_1 color-333" maxlength="11" placeholder="请输入联系电话" placeholder-class="color-999"></input>
     </view>
   </view>
   <view class="hgt300rpx m-t-300 around-center">
