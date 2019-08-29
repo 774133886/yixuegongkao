@@ -1,4 +1,5 @@
 <!--pages/course/course.wxml-->
+<wxs module="filter" src="../../filter/Filters.wxs"></wxs>
 <view class='Con flex_column font30 l-pad40'>
   <view class="courseTab">
     <view class="{{active==0?'active':''}}" bindtap="choiceTab" data-id="0">系统课</view>
@@ -12,38 +13,38 @@
   </view>
   <view class="flex_1 relative">
     <swiper class="swiperCon" indicator-dots="{{false}}" autoplay="{{false}}" bindchange="swiperChange" current="{{active}}">
-      <block wx:for="{{list}}">
+      <block wx:for="{{courseList}}" wx:key="item" wx:for-index="index">
         <swiper-item>
-          <scroll-view scroll-y="{{true}}" class="indexAArea p-t-20 p-b-20" hover-class="none" hover-stop-propagation="false">
+          <scroll-view scroll-y="{{true}}" class="indexAArea p-t-20 p-b-20" bindscrolltolower="bindscrolltolower" hover-class="none" hover-stop-propagation="false">
             <view class="swiperItem">
-              <navigator hover-class='none' url='../courseDetail/courseDetail?state=1' class='index_courseList hgt230rpx between border-b-eee'>
+              <navigator wx:for="{{courseList[index]}}" wx:key="course" wx:for-item="course" hover-class='none' url='../courseDetail/courseDetail?state=1' class='index_courseList hgt230rpx between border-b-eee'>
                 <view class='hgt190rpx wid290rpx relative'>
-                  <image class="wid100 hgt190rpx" src="../../files/img_kecheng.png" mode="aspectFill" lazy-load="false" ></image>
+                  <image class="wid100 hgt190rpx" src="{{course.image_small}}" mode="aspectFill" lazy-load="false" ></image>
                   <image class="index_tag2" src="../../files/img_pintuan.png" mode="aspectFill" lazy-load="false" ></image>
                 </view>
                 <view class='flex_1 m-l-20 p-b-30 column-between hgt230rpx'>
                   <view class='l-h-40rpx font24'>
-                    <view class='color-333 font30'>4小时吃透病句解析</view>
+                    <view class='color-333 font30'>{{course.name}}</view>
                     <view class='center m-t-5'>
                       <view class='wid160rpx color-999'>开课时间</view>
-                      <view class='color-666'>2019.05.30</view>
+                      <view class='color-666'>{{filter.formatDate(course.class_time)}}</view>
                     </view>
                     <view class='center'>
                       <view class='wid160rpx color-999'>已报/限报</view>
-                      <view class='color-666'>24/30 人</view>
+                      <view class='color-666'>{{course.apply_count}}/{{course.enroll_count}} 人</view>
                     </view>
                   </view>
                   <view class='between-center'>
                     <view class=''>
-                      <text class='font36 color-FF1919'>¥2999.9</text>
-                      <text class='color-999 font24 m-l-15 lineThrough'>¥2999.9</text>
+                      <text class='font36 color-FF1919'>¥{{course.price}}</text>
+                      <text class='color-999 font24 m-l-15 lineThrough'>¥{{course.price}}</text>
                     </view>
                     <!-- <text class='color-999 font20 '>已购</text> -->
                   </view>
                   
                 </view>
               </navigator>
-              <navigator hover-class='none' url='../courseDetail/courseDetail?state=0' class='index_courseList hgt230rpx between border-b-eee'>
+              <!-- <navigator hover-class='none' url='../courseDetail/courseDetail?state=0' class='index_courseList hgt230rpx between border-b-eee'>
                 <view class='hgt190rpx wid290rpx relative'>
                   <image class="wid100 hgt190rpx" src="../../files/img_tuijian1.png" mode="aspectFill" lazy-load="false" ></image>
                   <image class="index_tag2" src="../../files/img_baoming.png" mode="aspectFill" lazy-load="false" ></image>
@@ -96,9 +97,10 @@
                   </view>
                   
                 </view>
-              </navigator>
+              </navigator> -->
               <view class='nomore hgt50rpx around-center'>
-                <text class='color-be font30'>没有更多了</text>
+                <text wx:if="{{pageList[index].max_page_index != pageList[index].page_index}}" class='color-be font30'>加载中。。。</text>
+                <text wx:else class='color-be font30'>没有更多了</text>
               </view>
             </view>
           </scroll-view>

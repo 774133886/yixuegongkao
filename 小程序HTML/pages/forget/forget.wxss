@@ -1,5 +1,6 @@
 /* pages/forget/forget.wxss */
 .curForm{
+  display: block;
   width: 565rpx;
   margin: 53rpx auto 0;
 }

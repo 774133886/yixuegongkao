@@ -1,24 +1,24 @@
 <!--pages/forget/forget.wxml-->
 <view>
-  <view class="curForm">
+  <form class="curForm" bindsubmit="formSubmit">
     <view class="curFormItem">
-      <input class="placeholder-999 font30" type="phone" placeholder="请输入手机号码"></input>
+      <input name='mobile' bindinput='setp' class="placeholder-999 font30" type="phone" placeholder="请输入手机号码"></input>
     </view>
     <view class="curFormItem">
-      <input class="placeholder-999 font30" type="number" maxlength="6" placeholder="请输入验证码"></input>
+      <input name='checkcode' class="placeholder-999 font30" type="number" maxlength="6" placeholder="请输入验证码"></input>
       <view class="tellCode font30" bindtap="getCode">{{btntext}}</view>
     </view>
     <view class="curFormItem">
-      <input class="placeholder-999 font30" type="password" placeholder="请输入密码"></input>
+      <input name='password' class="placeholder-999 font30" type="password" placeholder="请输入密码"></input>
     </view>
     <view class="curFormItem">
-      <input class="placeholder-999 font30" type="password" placeholder="确认请输入密码"></input>
+      <input name='password2' class="placeholder-999 font30" type="password" placeholder="确认请输入密码"></input>
     </view>
     <view class="curFormButton">
-      <button class="font36" hover-class="btn-hover">修改密码</button>
+      <button class="font36" hover-class="btn-hover" form-type='submit'>修改密码</button>
     </view>
     <view class="text-center m-t-20" wx:if="{{!isEdit}}">
       <text class="font30 color-999" bindtap="goLogin">已有账号，去登录</text>
     </view>
-  </view>
+  </form>
 </view>
