@@ -132,6 +132,8 @@ Page({
           info: res.data,
           pjscore: Math.floor(res.data.score) 
         })
+        var content = res.data.intro;
+        WxParse.wxParse('article', 'html', content, that, 5);
       } else {
         wx.showToast({
           title: res.message,

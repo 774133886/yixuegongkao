@@ -177,13 +177,15 @@
       <text class='font20 color-999'>回到主页</text>
     </view>
   </view>
-  <button wx:if="{{type == 0}}" bindtap="writeInfo" hover-class="none" class='bmBtn font36'>立即报名</button>
-  <button wx:if="{{type == 3}}" bindtap="writeInfo2" hover-class="none" class='bmBtn font36'>立即报名</button>
-  <button wx:if="{{type == 4}}" bindtap="writeInfo2" hover-class="none" class='bmBtn font36 btn_green'>即将开始</button>
-  <button wx:if="{{type == 5}}" bindtap="writeInfo2" hover-class="none" class='bmBtn font36 btn_blue'>开始学习</button>
-  <button wx:if="{{type == 1}}" bindtap="writeInfo" hover-class="none" class='bmBtn font36 btn_gray'>已满员</button>
-  <button wx:if="{{type == 2}}" bindtap="writeInfo" hover-class="none" class='bmBtn font36 btn_gray'>报名结束</button>
-  
+  <!-- <button  bindtap="writeInfo" hover-class="none" class='bmBtn font36'>{{info.apply_status_text}}</button> -->
+  <button wx:if="{{info.apply_status == 1}}" bindtap="writeInfo" hover-class="none" class='bmBtn font36'>{{info.apply_status_text}}</button>
+  <button wx:if="{{info.apply_status == 1}}" bindtap="writeInfo" hover-class="none" class='bmBtn font36 btn_green'>即将开始</button>
+  <!-- 已购买 -->
+  <button wx:if="{{info.apply_status == 6}}" bindtap="writeInfo" hover-class="none" class='bmBtn font36 btn_blue'>{{info.apply_status_text}}</button>
+  <button wx:if="{{info.apply_status == 3}}" hover-class="none" class='bmBtn font36 btn_gray'>已满员</button>
+  <button wx:if="{{info.apply_status == 2}}" hover-class="none" class='bmBtn font36 btn_gray'>报名结束</button>
+  <!-- 面试职位 -->
+  <button wx:if="{{info.apply_status == 9}}" bindtap="writeInfo2" hover-class="none" class='bmBtn font36 btn_blue'>{{info.apply_status_text}}</button>
 </view>
 <view wx:if="{{state==1}}" class='l-pad20 cdBot border-t-eee hgt100rpx between-center'>
   <view class='center hgt80rpx'>

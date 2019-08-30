@@ -17,6 +17,7 @@ Page({
     noData1: false,
     noData2: false,
     tjList:[],
+    acList:[]
   },
   //swiper
   swiperChange: function(e){
@@ -93,6 +94,47 @@ Page({
           });
         }
       }else{
+        wx.showToast({
+          title: res.message,
+          icon: 'none',
+          duration: 2000
+        })
+      }
+    })
+  },
+  // 获取活动列表
+  getAclist: function () {
+    var that = this;
+    let data = {};
+    
+    // data.indexrmd = 1;
+    // // data.sort = 2;
+    http.getReq('api/public/get_index_promotion_list.htm', data, function (res) {
+      // res.data.rows[0].articles[1].time = '2019.06.09'
+      if (res.code == 0) {
+        console.log(res.data);
+        let  List = (function () {
+          var theAry = [];
+
+          res.data.forEach(function (item, index, ary) {
+
+            if (!theAry[Math.floor(index / 3)]) {
+
+              theAry[Math.floor(index / 3)] = [];
+
+            }
+            theAry[Math.floor(index / 3)].push(item);
+
+          });
+
+          return theAry
+
+        })()
+        console.log(List);
+        that.setData({
+          acList: List,
+        });
+      } else {
         wx.showToast({
           title: res.message,
           icon: 'none',
@@ -192,6 +234,7 @@ Page({
   // 获取首页数据
     this.getlist();
     this.getBanner();
+    this.getAclist();
   },
 
   /**
