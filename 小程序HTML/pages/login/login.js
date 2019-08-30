@@ -26,40 +26,7 @@ Page({
     })
   },
   onLoad: function (options) {
-    var that = this;
-    // 微信自己登录
-    wx.login({
-      success: function (res1) {
-        if (res1.code) {
-          wx.getUserInfo({
-            success: function (res) {
-              console.log(res)
-              //获取用户敏感数据密文和偏移向量
-              that.setData({ encryptedData: res.encryptedData })
-              that.setData({ iv: res.iv })
-            }
-          })
-          wx.request({
-            url: 'https://yxgk.kulend.com/api/member/login/weixin_app_login.htm?code=' + res1.code,
-            method: 'POST',
-            header: http.header,
-            success: function (res2) {
-              if (res2) {
-                // console.log(1)
-                // wx.setStorageSync('token', res2.data.result.token);
-
-              } else {
-                wx.showToast({
-                  title: res.message,
-                  icon: 'none',
-                  duration: 2000
-                })
-              }
-            }
-          })
-        }
-      }
-    })
+    
   },
   // 验证码手机号获取
   setp: function (e) {
@@ -236,7 +203,40 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    var that = this;
+    // 微信自己登录
+    wx.login({
+      success: function (res1) {
+        if (res1.code) {
+          wx.getUserInfo({
+            success: function (res) {
+              console.log(res)
+              //获取用户敏感数据密文和偏移向量
+              that.setData({ encryptedData: res.encryptedData })
+              that.setData({ iv: res.iv })
+            }
+          })
+          wx.request({
+            url: 'https://yxgk.kulend.com/api/member/login/weixin_app_login.htm?code=' + res1.code,
+            method: 'POST',
+            header: http.header,
+            success: function (res2) {
+              if (res2) {
+                // console.log(1)
+                // wx.setStorageSync('token', res2.data.result.token);
 
+              } else {
+                wx.showToast({
+                  title: res.message,
+                  icon: 'none',
+                  duration: 2000
+                })
+              }
+            }
+          })
+        }
+      }
+    })
   },
 
   /**

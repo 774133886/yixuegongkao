@@ -8,6 +8,32 @@
   </view>
   <scroll-view scroll-y="{{true}}" class="flex_1 orderCtt">
     <view class="orderList">
+      <view wx:for="{{list}}" wx:key="item" class="orderItem" wx:if="{{active==0}}">
+        <view class="orderTop flex_dom" bindtap="goDetail" data-type="3">
+          <image src="../../files/img_kecheng.png"></image>
+          <view class="orderInfo flex_1">
+            <view class="orderName line2 font30 color-333">{{item.title}}</view>
+            <view class="orderPrice">
+              <view class="font36 redPrice">¥{{item.pay_price}}</view>
+              <view class="font24 color-999 grayPrice">¥{{item.price}}</view>
+            </view>
+          </view>
+          <view wx:if="{{item.status == 2}}" class="orderIcon1 font24 orderState">待支付</view>
+        </view>
+        <view class="orderBtm">
+          <view class="flex_dom flex_item_mid">
+            <view class="flex_1 font24 color-333">合计金额</view>
+            <view class="font36 redPrice">¥{{item.pay_price}}</view>
+          </view>
+          <view class="flex_dom flex_item_mid m-t-20">
+            <view class="font24 color-999 flex_1">10分钟以后自动取消订单</view>
+            <view>
+              <button class="defaultBtn" hover-class="defaultBtn-hover">取消订单</button>
+              <button class="blueBtn" hover-class="blueBtn-hover">立即支付</button>
+            </view>
+          </view>
+        </view>
+      </view>
     <!-- 全部 -->
       <view class="orderItem" wx:if="{{active==0}}">
         <view class="orderTop flex_dom" bindtap="goDetail" data-type="3">
@@ -27,7 +53,7 @@
             <view class="font36 redPrice">¥2999.9</view>
           </view>
           <view class="flex_dom flex_item_mid m-t-20">
-            <view class="font20 color-999 flex_1">10分钟以后自动取消订单</view>
+            <view class="font24 color-999 flex_1">10分钟以后自动取消订单</view>
             <view>
               <button class="defaultBtn" hover-class="defaultBtn-hover">取消订单</button>
               <button class="blueBtn" hover-class="blueBtn-hover">立即支付</button>

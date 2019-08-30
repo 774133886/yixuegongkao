@@ -62,6 +62,15 @@ function formatNumber(n) {
   n = n.toString()
   return n[1] ? n : '0' + n
 }
+function formatDate(date) {
+  if(!date) return "";
+  date = getDate(date);
+  var year = date.getFullYear()
+  var month = date.getMonth() + 1
+  var day = date.getDate()
+
+  return [year, month, day].map(formatNumber).join('.')
+}
 
 module.exports = {
   abs: Filters.abs,
@@ -69,6 +78,7 @@ module.exports = {
   strIndexOf: Filters.strIndexOf,
   strIndexOfHTTP: Filters.strIndexOfHTTP,
   formatTime: Filters.formatTime,
+  formatDate: formatDate,
   substrXX: Filters.substrXX
 
 

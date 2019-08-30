@@ -1,4 +1,7 @@
 // pages/forget/forget.js
+const util = require('../../utils/util.js')
+const http = require('../../http.js')
+const app = getApp();
 Page({
 
   /**
@@ -44,6 +47,114 @@ Page({
   },
   goLogin:function(){
     wx.navigateBack({url: '../login/login'})
+  },
+  // 验证码手机号获取
+  setp: function (e) {
+    this.setData({
+      phone: e.detail.value
+    })
+  },
+  //获取验证码
+  getCode: function () {
+    var that = this;
+    var time = this.data.time;
+    var phone = this.data.phone;
+    var myreg = /^[1][0-9][0-9]{9}$/;
+    // console.log(phone);
+    if (!myreg.test(phone)) {
+      wx.showToast({
+        title: '手机号格式错误',
+        icon: 'none',
+        duration: 2000
+      })
+      return false;
+    }
+    console.log(this.data.time)
+    this.sendcode(phone);
+  },
+  // 发送短信
+  sendcode: function (phone) {
+    var data = {};
+    data.mobile = phone;
+    var time = this.data.time;
+    var that = this;
+    console.log(data)
+    // return false;
+    http.postReq(this.data.isEdit?'/api/member/send_change_pwd_sms.htm':'/api/member/login/send_find_password_sms.htm', data, function (res) {
+      if (res.ret_code == 0) {
+        wx.showToast({
+          title: res.message,
+          icon: 'none',
+          duration: 2000
+        })
+        if (time == 60) {
+          var countTime = setInterval(function () {
+            if (time == 1) {
+              time = 60;
+              clearInterval(countTime);
+            } else {
+              time--;
+            }
+            that.setData({
+              time: time
+            })
+          }, 1000)
+        }
+      } else {
+        return false;
+      }
+    })
+  },
+  formSubmit(e) {
+
+    var that = this;
+    console.log(e.detail.value);
+    // console.log('form发生了submit事件，携带数据为：', e.detail.value)
+    if (!e.detail.value.mobile || !e.detail.value.checkcode || !e.detail.value.password || !e.detail.value.password2) {
+      wx.showToast({
+        title: '输入不能为空',
+        icon: 'none',
+        duration: 2000
+      })
+      return false;
+    }
+    var myreg = /^[1][0-9][0-9]{9}$/;
+    if (!myreg.test(e.detail.value.mobile)) {
+      wx.showToast({
+        title: '手机号格式错误',
+        icon: 'none',
+        duration: 2000
+      })
+      return false;
+    }
+    if (e.detail.value.password != e.detail.value.password2){
+      wx.showToast({
+        title: '密码不一致',
+        icon: 'none',
+        duration: 2000
+      })
+      return false;
+    }
+
+    var data = e.detail.value;
+    // data.token = token;
+    // return false;
+    http.postReq('/api/member/login/find_password_reset.htm', data, function (res) {
+
+      if (res.code == 0) {
+        wx.navigateBack()
+      } else {
+
+        wx.showToast({
+          title: res.message,
+          icon: 'none',
+          duration: 2000
+        })
+      }
+
+
+      console.log(res)
+    });
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
