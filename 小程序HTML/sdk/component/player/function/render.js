@@ -1,0 +1,1 @@
+var $=require("../../../api/jquery");module.exports=function(n,e){return $.each(e,function(e,r){n=n.replace(new RegExp("\\$\\{"+e+"\\}","g"),function(){return r})}),n};

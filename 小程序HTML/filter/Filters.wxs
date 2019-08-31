@@ -47,7 +47,8 @@ var Filters = {
   }
 }
 function formatTime(date) {
-  date = date.replace('/Date(', '').replace(')/', '');
+  if (!date) return "";
+  date = getDate(date);
   var year = date.getFullYear()
   var month = date.getMonth() + 1
   var day = date.getDate()
@@ -77,7 +78,7 @@ module.exports = {
   toFix: Filters.toFix,
   strIndexOf: Filters.strIndexOf,
   strIndexOfHTTP: Filters.strIndexOfHTTP,
-  formatTime: Filters.formatTime,
+  formatTime: formatTime,
   formatDate: formatDate,
   substrXX: Filters.substrXX
 

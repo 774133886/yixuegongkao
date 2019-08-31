@@ -17,10 +17,10 @@ Page({
   // 长按
   previewImage: function (e) {
     var current = e.target.dataset.src;
-    // wx.previewImage({
-    //   current: current,
-    //   urls: [current]
-    // })
+    wx.previewImage({
+      current: current,
+      urls: [current]
+    })
   },
   // 保存图片
   saveImage() {

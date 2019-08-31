@@ -21,9 +21,6 @@ Page({
     this.setData({
       active: e.currentTarget.dataset.id
     })
-    if (this.data.courseList[this.data.active].length == 0) {
-      this.getInfo()
-    }
   },
   swiperChange(e){
     this.setData({
@@ -65,7 +62,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    debugger
+    if(options.type){
+      this.setData({
+        active: options.type
+      })
+    }
   },
 
   /**

@@ -21,6 +21,8 @@ function getReq(url, data, cb) {
       })
     }, 2000)
     return false;
+  }else{
+    header["Authorization"] = token
   }
   wx.showLoading({
     title: '加载中',

@@ -2,8 +2,19 @@
 page,.myOrde{
   height: 100%
 }
+swiper{
+  height: 100%;
+}
+.swiper-item{
+  height: 100%;
+}
 .orderCtt{
   overflow-y: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 .orderTab{
   border-bottom: 2px solid #F8F8F8;

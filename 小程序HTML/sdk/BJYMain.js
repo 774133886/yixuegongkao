@@ -1,0 +1,1 @@
+module.exports.eventEmitter=require("./api/eventEmitter");

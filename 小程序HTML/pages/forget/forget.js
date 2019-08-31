@@ -81,7 +81,7 @@ Page({
     console.log(data)
     // return false;
     http.postReq(this.data.isEdit?'/api/member/send_change_pwd_sms.htm':'/api/member/login/send_find_password_sms.htm', data, function (res) {
-      if (res.ret_code == 0) {
+      if (res.code == 0) {
         wx.showToast({
           title: res.message,
           icon: 'none',

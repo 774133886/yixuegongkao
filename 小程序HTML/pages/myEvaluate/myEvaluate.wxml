@@ -1,51 +1,24 @@
 <!--pages/myEvaluate/myEvaluate.wxml-->
+<wxs module="filter" src="../../filter/Filters.wxs"></wxs>
 <view class="myEvaluate">
-  <view class="evaluateItem">
+  <view class="evaluateItem" wx:for="{{list}}" wx:key="item">
     <view class="flex_dom evaluateTop">
       <view class="flex_1 flex_dom flex_item_mid">
-        <image class="user_img" src="../../files/img_user.png"></image>
+        <image class="user_img" src="{{item.member_portrait}}"></image>
         <view>
-          <view class="font26 color-333">人海孤鸿</view>
-          <view class="font20 color-999 m-t-10">2019.1.4   9:30</view>
+          <view class="font26 color-333">{{item.member_name}}</view>
+          <view class="font20 color-999 m-t-10">{{filter.formatTime(item.comment_time)}}</view>
         </view>
       </view>
       <view class="stars">
-        <image src="../../files/icon_collect_1.png"></image>
-        <image src="../../files/icon_collect_1.png"></image>
-        <image src="../../files/icon_collect_1.png"></image>
-        <image src="../../files/icon_collect_1.png"></image>
-        <image src="../../files/icon_collect_3.png"></image>
-        <text class="font24 color-999 m-l-20">4.9分</text>
+        <image wx:for="{{starList}}" wx:key="item" src="{{item.score>=item?'../../files/icon_collect_3.png':'../../files/icon_collect_1.png'}}"></image>
+        <text class="font24 color-999 m-l-20">{{item.score}}分</text>
       </view>
     </view>
-    <view class="font24 color-333 border-b-eee evaluateText">老师讲的很细很细，举例生动形象，课堂活跃度较高，很喜欢听老师的课程。</view>
-    <view class="evaluateBtm flex_dom flex_item_mid" bindtap="goDetail">
-      <image src="../../files/img_kecheng.png"></image>
-      <view class="font30 color-333">4小时吃透病句解析</view>
-    </view>
-  </view>
-  <view class="evaluateItem">
-    <view class="flex_dom evaluateTop">
-      <view class="flex_1 flex_dom flex_item_mid">
-        <image class="user_img" src="../../files/img_user.png"></image>
-        <view>
-          <view class="font26 color-333">人海孤鸿</view>
-          <view class="font20 color-999 m-t-10">2019.1.4   9:30</view>
-        </view>
-      </view>
-      <view class="stars">
-        <image src="../../files/icon_collect_1.png"></image>
-        <image src="../../files/icon_collect_1.png"></image>
-        <image src="../../files/icon_collect_1.png"></image>
-        <image src="../../files/icon_collect_1.png"></image>
-        <image src="../../files/icon_collect_3.png"></image>
-        <text class="font24 color-999 m-l-20">4.9分</text>
-      </view>
-    </view>
-    <view class="font24 color-333 border-b-eee evaluateText">老师讲的很细很细，举例生动形象，课堂活跃度较高，很喜欢听老师的课程。</view>
-    <view class="evaluateBtm flex_dom flex_item_mid" bindtap="goDetail">
-      <image src="../../files/img_kecheng.png"></image>
-      <view class="font30 color-333 flex_1">4小时吃透病句解析4小时吃透病句解析4小时吃透病句解析</view>
+    <view class="font24 color-333 border-b-eee evaluateText">{{item.content}}</view>
+    <view class="evaluateBtm flex_dom flex_item_mid" data-id="{{item.course.course_id}}" bindtap="goDetail">
+      <image src="{{item.course.image_small}}"></image>
+      <view class="font30 color-333">{{item.course.name}}</view>
     </view>
   </view>
 </view>

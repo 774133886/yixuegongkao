@@ -1,0 +1,1 @@
+var sysInfo=wx.getSystemInfoSync(),model=sysInfo.model,system=sysInfo.system.toLowerCase();exports.isIphoneX=function(){return"iPhone X"==model},exports.isAndroid=function(){return-1!=system.indexOf("android")},exports.isDevtools=function(){return"devtools"==sysInfo.platform},exports.clientType=function(){return"devtools"==sysInfo.platform?7:"android"==sysInfo.platform?8:9};
