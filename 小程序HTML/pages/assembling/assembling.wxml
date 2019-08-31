@@ -13,8 +13,8 @@
         <view class='color-333 font36'>{{info.title}}</view>
         <view class='between-center'>
           <view class=''>
-            <text class='font36 color-FF1919'>¥2999.9</text>
-            <text class='color-999 font20 m-l-15 lineThrough'>¥2999.9</text>
+            <text class='font36 color-FF1919'>¥{{info.promoter_price}}</text>
+            <text class='color-999 font20 m-l-15 lineThrough'>¥{{info.original_price}}</text>
           </view>  
           <!-- <text class='color-999 font20 '>已购</text> -->
         </view>
