@@ -12,21 +12,26 @@ Page({
     page: 1,
     totalPage: 1,
     rows: 10,
+    p_id:'',
   },
 
 
   // 获取评价详情
-  getList(e) {
+  getList() {
     let that = this;
     var data = {};
-    data.courseid = e;
+    data.productId = that.data.p_id;
     data.page = that.data.page;
     data.rows = that.data.rows;
-    http.postReq('api/public/get_course_comment_list.htm', data, function (res) {
+    http.postReq('api/pintuan/public/get_current_group_list.htm', data, function (res) {
       if (res.code == 0) {
         
         if (that.data.page == 1) {
           console.log(res.data)
+          var list = res.data.list;
+          list.forEach(function(v,i){
+            
+          })
           that.setData({
             pjInfo: res.data,
             pjList: res.data.list,
@@ -51,13 +56,13 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    // that.setData({
-    //   pjscore: Math.floor(Number(options.score)),
-    //   score: Number(options.score),
-    //   c_id: options.c_id
-    // });
+    that.setData({
+      // pjscore: Math.floor(Number(options.score)),
+      // score: Number(options.score),
+      p_id: options.p_id
+    });
     // 获取列表
-    this.getList(options.c_id);
+    this.getList();
   },
 
   /**
@@ -71,7 +76,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    var strtime = '2013-08-30 18:55:49';
 
+    var date = new Date(strtime); 
+    
+    var timestamp = Date.parse(new Date());
+    console.log(date.getTime(), timestamp)
   },
 
   /**

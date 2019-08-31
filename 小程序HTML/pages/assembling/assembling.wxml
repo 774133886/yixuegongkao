@@ -13,7 +13,7 @@
         <view class='color-333 font36'>{{info.title}}</view>
         <view class='between-center'>
           <view class=''>
-            <text class='font36 color-FF1919'>¥{{info.promoter_price}}</text>
+            <text class='font36 color-FF1919'>¥{{info.price}}</text>
             <text class='color-999 font20 m-l-15 lineThrough'>¥{{info.original_price}}</text>
           </view>  
           <!-- <text class='color-999 font20 '>已购</text> -->
@@ -64,10 +64,10 @@
   
   <view class='cdBot border-t-eee hgt100rpx between-center'>
     <view class='l-pad40'>
-      <text class='font36 color-FF1919'>¥2999.9</text>
-      <text class='color-999 font20 m-l-20 lineThrough'>¥2999.9</text>
+      <text class='font36 color-FF1919'>¥{{info.price}}</text>
+      <text class='color-999 font20 m-l-20 lineThrough'>¥{{info.original_price}}</text>
     </view>
-    <button bindtap="payTab" hover-class="none" class='bmBtn font36'>立即拼团</button>
+    <button bindtap="payTab" wx:if="{{info_con.can_join}}" hover-class="none" class='bmBtn font36'>立即拼团</button>
     <!-- <button  bindtap="payTab" hover-class="none" class='bmBtn font36'>立即开团</button> -->
   </view>
 </view>
@@ -112,7 +112,7 @@
         <image src='../../files/icon_weixin.png' class='wid90rpx hgt90rpx'></image>
         <text class='color-333 font30'>微信好友</text> 
       </button>
-      <navigator url="/pages/poster/poster" hover-class="none" class='hgt150rpx column-center-b'>
+      <navigator url="/pages/poster/poster?c_id={{c_id}}" hover-class="none" class='hgt150rpx column-center-b'>
         <image src='../../files/icon_haibao.png' class='wid90rpx hgt90rpx'></image>
         <text class='color-333 font30'>生成海报</text> 
       </navigator>

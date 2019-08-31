@@ -10,11 +10,13 @@ Page({
    */
   data: {
     info:{},
+    info_con:{},
     shareShow: false,
     payShow:false,
     nomore: false,
     sServiceTel: '15928773528',
-    p_id:''
+    p_id:'',
+    c_id:''
   },
 
   // 支付
@@ -40,14 +42,17 @@ Page({
   getInfo() {
     let that = this;
     var data = {};
-    data.id = this.data.p_id;
-    http.postReq('api/pintuan/public/get_product_detail.htm', data, function (res) {
+    data.groupId = this.data.g_id;
+    http.postReq('api/pintuan/public/get_group_detail.htm', data, function (res) {
       if (res.code == 0) {
         that.setData({
-          info: res.data,
+          info: res.data.product,
+          info_con: res.data,
+          c_id: res.data.product.course.id
         })
-        // var content = res.data.intro;
-        // WxParse.wxParse('article', 'html', content, that, 5);
+        console.log(res.data.product.description.split(',')) 
+        var content = res.data.product.course.intro;
+        WxParse.wxParse('article', 'html', content, that, 5);
       } else {
         wx.showToast({
           title: res.message,
@@ -62,9 +67,9 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    if (options.p_id) {
+    if (options.g_id) {
       this.setData({
-        p_id: options.p_id
+        g_id: options.g_id
       })
     }
     that.getInfo();
@@ -116,6 +121,27 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    var that = this;
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    var info = that.data.Info;
+    return {
+      title: '跟我一起学习这门课程',
+      path: '/pages/assembling/assembling?g_id=' + that.data.g_id,
+      imageUrl: info.image_large,
+      success: (res) => {    // 成功后要做的事情
+        //console.log(res.shareTickets[0])
+        // console.log
+        that.setData({
+          shareShow: false
+        })
+      },
+      fail: function (res) {
+        // 分享失败
+        console.log(res)
+      }
+    }
   }
 })

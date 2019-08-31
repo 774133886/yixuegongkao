@@ -37,6 +37,76 @@ var Filters = {
       }
     }
   },
+  // 秒转时分秒
+  toTime: function (s) {
+    var t;
+    if (s > -1) {
+      var hour = Math.floor(s / 3600);
+      var min = Math.floor(s / 60) % 60;
+      var sec = s % 60;
+      if (hour > 0) {
+        if (hour < 10) {
+          t = '0' + hour + "h";
+        } else {
+          t = hour + "h";
+        }
+        if (min < 10) { t += "0"; }
+        t += min + "min";
+        if (sec < 10) { t += "0"; }
+        t += sec + "s";
+      } else {
+        if (min > 0) {
+          if (min < 10) { t += "0"; }
+          t = min + "min";
+          if (sec < 10) { t += "0"; }
+          t += sec + "s";
+        } else {
+          if (sec < 10) { t += "0"; }
+          t = sec + "s";
+        }
+
+      }
+
+
+
+    }
+    return t;
+  },
+  // 秒转时分秒
+  toTime2: function (s) {
+    var t;
+    if (s > -1) {
+      var hour = Math.floor(s / 3600);
+      var min = Math.floor(s / 60) % 60;
+      var sec = s % 60;
+      if (hour > 0) {
+        if (hour < 10) {
+          t = '0' + hour + "h:";
+        } else {
+          t = hour + "h:";
+        }
+        if (min < 10) { t += "0"; }
+        t += min + ":";
+        if (sec < 10) { t += "0"; }
+        t += sec;
+      } else {
+        if (min > 0) {
+          if (min < 10) { t += "0"; }
+          t = min + ":";
+          if (sec < 10) { t += "0"; }
+          t += sec;
+        } else {
+          if (sec < 10) { t += "0"; }
+          t = sec;
+        }
+
+      }
+
+
+
+    }
+    return t;
+  },
   substrXX: function (val, start, length) {
     if (length == undefined) {
       return val.toString().substring(start);
@@ -80,7 +150,9 @@ module.exports = {
   strIndexOfHTTP: Filters.strIndexOfHTTP,
   formatTime: formatTime,
   formatDate: formatDate,
-  substrXX: Filters.substrXX
-
+  substrXX: Filters.substrXX,
+  // 秒转时分秒
+  toTime: Filters.toTime,
+  toTime2: Filters.toTime2,
 
 }
