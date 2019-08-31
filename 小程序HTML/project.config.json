@@ -33,12 +33,19 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 1,
 			"list": [
 				{
 					"id": 0,
 					"name": "pages/assembling/assembling",
 					"pathName": "pages/assembling/assembling",
+					"query": "g_id=568447511562313",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/assembleList/assembleList",
+					"pathName": "pages/assembleList/assembleList",
 					"query": "p_id=550580447711305",
 					"scene": null
 				}

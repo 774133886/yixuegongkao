@@ -119,12 +119,18 @@ Page({
       // res.data.rows[0].articles[1].time = '2019.06.09'
       if (res.code == 0) {
         console.log(res.data);
+        var aclist = res.data;
+        aclist.forEach(function (v, i) {
+          v.last_time = new Date(v.end_time).getTime() - Date.parse(new Date());
+          console.log(v.last_time)
+        })
+
 
 
         let  List = (function () {
           var theAry = [];
 
-          res.data.forEach(function (item, index, ary) {
+          aclist.forEach(function (item, index, ary) {
 
             if (!theAry[Math.floor(index / 3)]) {
 
@@ -201,6 +207,26 @@ Page({
     })
   },
 
+  //储存配置信息
+  savePz: function () {
+    var that = this;
+    let data = {};
+    http.getReq('api/app/wxapp_config.htm', data, function (res) {
+      // res.data.rows[0].articles[1].time = '2019.06.09'
+      if (res.code == 0) {
+        wx.setStorageSync("deployInfo", res.data);
+      } else {
+        wx.showToast({
+          title: res.message,
+          icon: 'none',
+          duration: 2000
+        })
+      }
+    })
+    
+
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -243,6 +269,8 @@ Page({
     this.getlist();
     this.getBanner();
     this.getAclist();
+    this.savePz();
+    
   },
 
   /**

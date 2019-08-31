@@ -17,10 +17,13 @@ Page({
     pjshow:true,
     type:0,
     c_id:'',
+    p_id:'',
     pjInfo:{},
     pjList:[],
     pjscore:0,
     promotions:[], //活动
+    ptInfo:{},//拼团详情
+    group_list:[],
   },
 
   /**
@@ -37,9 +40,22 @@ Page({
         c_id: options.c_id
       })
     }
-    // 获取详情
-    this.getInfo();
-    this.getpjList();
+    if (options.state) {
+      this.setData({
+        state: options.state
+      })
+    }
+    if (options.state==1){
+      this.getPtInfo();
+      this.setData({
+        p_id: options.c_id
+      })
+    }else{
+      // 获取详情
+      this.getInfo();
+      // this.getpjList();
+    }
+    
   },
   //分享遮罩
   shareTab: function (e) {
@@ -132,9 +148,37 @@ Page({
         that.setData({ 
           info: res.data,
           promotions: res.data.promotions[0],
-          pjscore: Math.floor(res.data.score) 
+          pjList: res.data.comments,
+          pjscore: Math.floor(res.data.score),
         })
         var content = res.data.intro;
+        WxParse.wxParse('article', 'html', content, that, 5);
+      } else {
+        wx.showToast({
+          title: res.message,
+          icon: 'none',
+          duration: 2000
+        })
+      }
+    })
+  },
+  // 获取拼团课程详情
+  getPtInfo() {
+    let that = this;
+    var data = {};
+    data.id = this.data.c_id;
+    http.postReq('api/pintuan/public/get_product_detail.htm', data, function (res) {
+      if (res.code == 0) {
+        that.setData({
+          info: res.data.course_detail,
+          promotions: res.data.course_detail.promotions[0],
+          pjList: res.data.course_detail.comments,
+          pjscore: Math.floor(res.data.course_detail.score),
+          ptInfo: res.data,
+          group_list: res.data.current_group_list,
+          c_id: res.data.course_detail.course_id,//重置c_id
+        })
+        var content = res.data.course_detail.intro;
         WxParse.wxParse('article', 'html', content, that, 5);
       } else {
         wx.showToast({

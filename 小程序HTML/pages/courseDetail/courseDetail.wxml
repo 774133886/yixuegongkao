@@ -4,15 +4,15 @@
   <view class='wid100 relative'>
       <image class='courseBnr' mode="aspectFill" lazy-load="false" src='{{info.image_large}}'></image>
       <!-- 秒杀拼团 -->
-      <image wx:if="{{promotions.promotion_type==4}}" class="ptTag" src="../../files/icon_pintuan_big.png" mode="aspectFill" lazy-load="false" ></image>
+      <image wx:if="{{state==1}}" class="ptTag" src="../../files/icon_pintuan_big.png" mode="aspectFill" lazy-load="false" ></image>
       <image wx:if="{{promotions.promotion_type==2}}" class="ptTag" src="../../files/icon_miaosha_big.png" mode="aspectFill" lazy-load="false" ></image>
       <!-- 拼团 -->
-      <view wx:if="{{promotions.promotion_type==4}}" class="hgt80rpx l-pad40 ptArea font34 between-center">
-        <view class="color-FF1919">{{promotions.promotion_limit_count}}人团</view>
-        <view class="color-FF1919">剩余 03天20:12:12</view>
+      <view wx:if="{{state==1}}" class="hgt80rpx l-pad40 ptArea font34 between-center">
+        <view class="color-FF1919">{{ptInfo.group_size}}人团</view>
+        <view class="color-FF1919">剩余 03天20:12:12 {{ptInfo.end_time}}</view>
       </view>
       <!-- 秒杀 -->
-      <view wx:if="{{promotions.promotion_type==2}}}" class="hgt80rpx ptArea font34 between-center">
+      <view wx:if="{{promotions.promotion_type==2}}" data-36="{{promotions.promotion_type}}" class="hgt80rpx ptArea font34 between-center">
         <view class="wid280rpx color-FF3636 column-center-c p-v-10 hgt80rpx">
           <view class="lh1 font34 color-FF1919">{{promotions.promotion_partake_count}}  人已秒杀</view>
           <!-- <view class="font30 lh1">¥2999.9 <text class="lineThrough font20">¥2999.9</text></view> -->
@@ -26,13 +26,17 @@
   <view class='courseTitleArea l-pad40 p-b-20'>
     <view class='p-v-15  font36'>{{info.name}}</view>
     <view class='between-center'>
-     <view class='flex_1'>
+     <view class='flex_1 center'>
         <!-- <text class='font36 color-green m-r-30'>免费</text> -->
-        <text class='font36 color-FF1919'>¥{{info.price}}</text>
-        <text class='color-999 font24 m-l-15 lineThrough'>¥2999.9</text>
-        <text wx:if="{{promotions.promotion_type!=4}}" class='color-5273FF m-l-60 font20'>{{info.apply_count}}</text>
-        <text wx:if="{{promotions.promotion_type!=4}}" class='color-999 font20'>/{{info.enroll_count}}人报名</text>
-        <text wx:if="{{promotions.promotion_type==4}}" class='color-FF1919 m-l-60 font24'>{{promotions.promotion_partake_count}} 人已拼团</text>
+        <text wx:if="{{!promotions}}" class='font36 color-FF1919'>¥{{info.price}}</text>
+        <!-- 活动价 -->
+        <view wx:else >
+          <text class='font36 color-FF1919'>¥{{promotions.promotion_price}}</text>
+          <text class='color-999 font24 m-l-15 lineThrough'>¥{{info.price}}</text>
+        </view>
+        <text wx:if="{{pstate!=1}}" class='color-5273FF m-l-60 font20'>{{info.apply_count}}</text>
+        <text wx:if="{{pstate!=1}}" class='color-999 font20'>/{{info.enroll_count}}人报名</text>
+        <text wx:if="{{state==1}}" class='color-FF1919 m-l-60 font24'>{{ptInfo.group_count}} 人已拼团</text>
      </view>
      <view class='center' catchtap='shareTab'>
       <image class='wid30rpx hgt30rpx' src='../../files/icon_share.png'></image>
@@ -56,56 +60,39 @@
      </view>
   </view>
   <!-- 拼团 -->
-  <view wx:if="{{promotions.promotion_type==4}}" class='grayLine'></view>
-  <view wx:if="{{promotions.promotion_type==4}}" class="ptBox p-t-20 l-pad40">
+  <view wx:if="{{state==1}}" class='grayLine'></view>
+  <view wx:if="{{state==1}}" class="ptBox p-t-20 l-pad40">
     <view class="between-center">
       <view class="center">
         <view class="color-333">正在拼团</view>
-        <text class="font24 m-l-20 color-999">已成50</text>
-        <text class="font24 m-l-30 color-999">在拼20</text>
+        <text class="font24 m-l-20 color-999">已成{{ptInfo.success_group_count}}</text>
+        <text class="font24 m-l-30 color-999">在拼{{ptInfo.current_group_count}}</text>
       </view>
-      <navigator url="/pages/assembleList/assembleList" hover-class="none" class="">
+      <navigator url="/pages/assembleList/assembleList?p_id={{p_id}}" hover-class="none" class="">
         <text class="font24 vertical_mid color-999">更多</text>
         <image style="margin-left:0 ;" class='starPic vertical_mid' src='../../files/icon_more2.png'></image>
       </navigator>
     </view>
-    <view class="ptLists">
+    <view wx:for="{{group_list}}" wx:key="unique" class="ptLists">
       <view class="ptList border-b-eee p-v-30 between-center">
         <image class='wid110rpx hgt110rpx radius_50' src='../../files/img_user2.png'></image>
         <view class="hgt130rpx m-l-20 flex_1 column-between">
           <view class="center">
-            <text class="color-333">人海孤鸿</text>
+            <text class="color-333">{{item.promoter_name}}</text>
             <text class="color-999 font24 m-l-20">发起了拼团</text>
           </view>
           <view class="color-999 font24">
-            还差<text class="color-FF3636">1</text>人成团
+            还差<text class="color-FF3636">{{item.group_size-item.current_users}}</text>人成团
           </view>
           <view class="color-999 font24">
             <text class="color-FF3636">仅剩20:15:16 </text> 结束         
           </view>
         </view>
         <view class="hgt100rpx">
-          <navigator url="/pages/assembling/assembling" hover-class="none" class="ptBtn text-center">参团</navigator>
+          <navigator url="/pages/assembling/assembling?g_id={{item.group_id}}" hover-class="none" class="ptBtn text-center">参团</navigator>
         </view>
       </view>
-      <view class="ptList p-v-30 between-center">
-        <image class='wid110rpx hgt110rpx radius_50' src='../../files/img_user2.png'></image>
-        <view class="hgt130rpx m-l-20 flex_1 column-between">
-          <view class="center">
-            <text class="color-333">人海孤鸿</text>
-            <text class="color-999 font24 m-l-20">发起了拼团</text>
-          </view>
-          <view class="color-999 font24">
-            还差<text class="color-FF3636">1</text>人成团
-          </view>
-          <view class="color-999 font24">
-            <text class="color-FF3636">仅剩20:15:16 </text> 结束         
-          </view>
-        </view>
-        <view class="hgt100rpx">
-          <navigator url="/pages/assembling/assembling" hover-class="none" class="ptBtn text-center">参团</navigator>
-        </view>
-      </view>
+
     </view>
   </view>
   <view class='grayLine'></view>
@@ -113,7 +100,7 @@
      <view class='pjTitle between-center hgt07rem'>
       <view class='center flex_1'>
         <text class='color-333'>用户评价</text>
-        <text class='font24 color-999'>（共{{pjInfo.pagination.max_row_count}}条）</text>
+        <text class='font24 color-999'>（共{{info.grade_count}}条）</text>
       </view>
       <view class='center'>
         <view class='center starList'>
@@ -167,7 +154,7 @@
     </view>
   </view>
 </view>
-<view wx:if="{{promotions.promotion_type!=4}}" class='cdBot border-t-eee hgt100rpx between-center'>
+<view wx:if="{{state!=1}}" class='cdBot border-t-eee hgt100rpx between-center'>
   <view class='center l-pad20 hgt80rpx'>
     <view bindtap="contactTab" class='hgt80rpx wid180rpx column-center-b'>
       <image style='margin-left:0;' class='cdIcon' src='../../files/icon_kefu.png'></image>
@@ -188,7 +175,7 @@
   <!-- 面试职位 -->
   <button wx:if="{{info.apply_status == 9}}" bindtap="writeInfo2" hover-class="none" class='bmBtn font36 btn_blue'>{{info.apply_status_text}}</button>
 </view>
-<view wx:if="{{promotions.promotion_type==4}}" class='l-pad20 cdBot border-t-eee hgt100rpx between-center'>
+<view wx:if="{{state==1}}" class='l-pad20 cdBot border-t-eee hgt100rpx between-center'>
   <view class='center hgt80rpx'>
     <view bindtap="contactTab" class='hgt80rpx wid130rpx column-center-b'>
       <image style='margin-left:0;' class='cdIcon' src='../../files/icon_kefu.png'></image>
@@ -201,11 +188,11 @@
   </view>
   <view class="between-center ptBuy m-r-20">
     <view bindtap="writeInfo" class="wid50 color-FF3636 column-center-b p-v-10 hgt70rpx">
-      <view class="font20 lh1">¥3999.0</view>
+      <view class="font20 lh1">¥{{ptInfo.original_price}}</view>
       <view class="font24 lh1">单独购买</view>
     </view>
     <navigator url="/pages/assembling/assembling" hover-class="none" class="wid50 bg-FF3636 color-fff column-center-b p-v-10 hgt70rpx">
-      <view class="font20 lh1">¥2999.0</view>
+      <view class="font20 lh1">¥{{ptInfo.promoter_price}}</view>
       <view class="font24 lh1">邀请好友参团</view>
     </navigator>
   </view>
@@ -243,10 +230,11 @@
         <image src='../../files/icon_dianhua.png' class='wid60rpx hgt60rpx'></image>
         <text class='color-333 font30'>电话咨询</text> 
       </view>
-      <view class='hgt130rpx column-center-b'>
+      <!-- <button></button> -->
+      <button  open-type="contact" hover-class="none" class='hgt130rpx column-center-b'>
         <image src='../../files/icon_liaotian.png' class='wid60rpx hgt60rpx'></image>
         <text class='color-333 font30'>聊天咨询</text> 
-      </view>
+      </button>
     </view>
   </view>
 </view>

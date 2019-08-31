@@ -127,34 +127,37 @@ Page({
     that.drawText(context, name, 10, 280, 30, 315);
 
     var priceName, price;
-    if (that.data.info.promotions){
+    if (that.data.info.promotions[0]){
       console.log(that.data.info.promotions[0].promotion_type)
       if (that.data.info.promotions[0].promotion_type==2){
         priceName = '秒杀价'; 
         price = that.data.info.promotions[0].promotion_price;
       } 
-      if (that.data.info.promotions[0].promotion_type == 3) {
+      if (that.data.info.promotions[0].promotion_type == 4) {
         priceName = '拼团价';
         price = that.data.info.promotions[0].promotion_price;
       }
+      // 绘制删除价格
+      if (that.data.info.promotions[0].promotion_type == 2 || that.data.info.promotions[0].promotion_type == 4) {
+        context.setFontSize(14);
+        context.setFillStyle('#999');
+        // context.setTextAlign('center');
+        context.fillText(that.data.info.price, 135, 330);
+
+        context.setLineWidth(1);//设置线条的宽度
+        context.setStrokeStyle('#999');//设置线条的样式
+        context.moveTo(132, 325);//设置线条的起始路径坐标
+        context.lineTo(165, 325);//设置线条的终点路径坐标
+        context.stroke();//对当前路径进行描边
+
+      }
+
     }else{
       priceName = '价格';
       price = that.data.info.price;
     }
     
-    if (that.data.info.promotions[0].promotion_type == 2 || that.data.info.promotions[0].promotion_type == 3) {
-      context.setFontSize(14);
-      context.setFillStyle('#999');
-      // context.setTextAlign('center');
-      context.fillText(that.data.info.price, 115, 330);
-
-      context.setLineWidth(1);//设置线条的宽度
-      context.setStrokeStyle('#999');//设置线条的样式
-      context.moveTo(112, 325);//设置线条的起始路径坐标
-      context.lineTo(145, 325);//设置线条的终点路径坐标
-      context.stroke();//对当前路径进行描边
-
-    }
+    
     context.setFontSize(16);
     context.setFillStyle('#999');
     // context.setTextAlign('center');
