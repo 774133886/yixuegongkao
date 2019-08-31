@@ -91,51 +91,22 @@
     <view class='font0 p-t-20 acBox'>
       <swiper indicator-dots="true"  style='height:270rpx;'>
         <swiper-item wx:for="{{acList}}" wx:key="unique" class="acItem">
-          <navigator wx:for="{{item}}" wx:for-item="it" wx:key="unique" url="/pages/courseDetail/courseDetail?state=1" hover-class="none" class='inline_div acList'>
+          <navigator wx:for="{{item}}" wx:for-item="it" wx:key="unique" url="/pages/courseDetail/courseDetail?c_id={{it.id}}" hover-class="none" class='inline_div acList'>
             <view class='relative wid100 hgt130rpx'>
               <image class="wid100 hgt130rpx" src="{{it.image_large}}" mode="aspectFill" lazy-load="false" ></image>
-              <image class="index_tag" src="../../files/img_pintuan.png" mode="aspectFill" lazy-load="false" ></image>
+              <image wx:if="{{it.type==4}}" class="index_tag" src="../../files/img_pintuan.png" mode="aspectFill" lazy-load="false" ></image>
+              <image wx:if="{{it.type==2}}" class="index_tag" src="../../files/img_miaosha.png" mode="aspectFill" lazy-load="false" ></image>
             </view>
             <view class='color-FF1919 l-h-40rpx m-t-5 font20'>剩余  02天 20:12:13</view>
             <view class='color-999 l-h-40rpx font20'>
               <text>限报</text>
-              <text class='m-l-10'>1234人</text>
+              <text class='m-l-10'>{{it.limit_count}}人</text>
             </view>
             <view class=''>
               <text class='font26 color-FF1919'>¥{{it.price}}</text>
               <text class='color-999 font18 m-l-10 lineThrough'>¥{{it.original_price}}</text>
             </view>
           </navigator>
-          <!-- <navigator url="/pages/courseDetail/courseDetail?state=2" hover-class="none" class='inline_div acList'>
-            <view class='relative wid100 hgt130rpx'>
-              <image class="wid100 hgt130rpx" src="../../files/img_kecheng2.png" mode="aspectFill" lazy-load="false" ></image>
-              <image class="index_tag" src="../../files/img_miaosha.png" mode="aspectFill" lazy-load="false" ></image>
-            </view>
-            <view class='color-FF1919 l-h-40rpx m-t-5 font20'>剩余  02天 20:12:13</view>
-            <view class='color-999 l-h-40rpx font20'>
-              <text>已报</text>
-              <text class='m-l-10'>1234人</text>
-            </view>
-            <view class=''>
-              <text class='font26 color-FF1919'>¥2999.9</text>
-              <text class='color-999 font18 m-l-10 lineThrough'>¥2999.9</text>
-            </view>
-          </navigator>
-          <view class='inline_div acList'>
-            <view class='relative wid100 hgt130rpx'>
-              <image class="wid100 hgt130rpx" src="../../files/img_kecheng.png" mode="aspectFill" lazy-load="false" ></image>
-              <image class="index_tag" src="../../files/img_pintuan.png" mode="aspectFill" lazy-load="false" ></image>
-            </view>
-            <view class='color-FF1919 l-h-40rpx m-t-5 font20'>剩余  02天 20:12:13</view>
-            <view class='color-999 l-h-40rpx font20'>
-              <text>限报</text>
-              <text class='m-l-10'>1234人</text>
-            </view>
-            <view class=''>
-              <text class='font26 color-FF1919'>¥2999.9</text>
-              <text class='color-999 font18 m-l-10 lineThrough'>¥2999.9</text>
-            </view>
-          </view> -->
         </swiper-item>
       </swiper>
       

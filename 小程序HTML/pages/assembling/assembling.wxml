@@ -7,10 +7,10 @@
   <view class="bg-fff ">
     <view hover-class='none' url='' class='l-pad40 hgt230rpx between-center border-b-eee'>
       <view class='hgt170rpx wid260rpx relative'>
-        <image class="wid100 hgt190rpx" src="../../files/img_kecheng.png" mode="aspectFill" lazy-load="false" ></image>
+        <image class="wid100 hgt190rpx" src="{{info.image_small}}" mode="aspectFill" lazy-load="false" ></image>
       </view>
-      <view class='flex_1 m-l-30 p-v-10 column-between hgt170rpx'>
-        <view class='color-333 font36'>4小时吃透病句解析</view>
+      <view class='flex_1 m-l-30 column-between hgt170rpx'>
+        <view class='color-333 font36'>{{info.title}}</view>
         <view class='between-center'>
           <view class=''>
             <text class='font36 color-FF1919'>¥2999.9</text>

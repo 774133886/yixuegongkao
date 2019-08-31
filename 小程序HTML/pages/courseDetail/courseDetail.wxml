@@ -4,17 +4,17 @@
   <view class='wid100 relative'>
       <image class='courseBnr' mode="aspectFill" lazy-load="false" src='{{info.image_large}}'></image>
       <!-- 秒杀拼团 -->
-      <image wx:if="{{state==1}}" class="ptTag" src="../../files/icon_pintuan_big.png" mode="aspectFill" lazy-load="false" ></image>
-      <image wx:if="{{state==2}}" class="ptTag" src="../../files/icon_miaosha_big.png" mode="aspectFill" lazy-load="false" ></image>
+      <image wx:if="{{promotions.promotion_type==4}}" class="ptTag" src="../../files/icon_pintuan_big.png" mode="aspectFill" lazy-load="false" ></image>
+      <image wx:if="{{promotions.promotion_type==2}}" class="ptTag" src="../../files/icon_miaosha_big.png" mode="aspectFill" lazy-load="false" ></image>
       <!-- 拼团 -->
-      <view wx:if="{{state==1}}" class="hgt80rpx l-pad40 ptArea font34 between-center">
-        <view class="color-FF1919">4人团</view>
+      <view wx:if="{{promotions.promotion_type==4}}" class="hgt80rpx l-pad40 ptArea font34 between-center">
+        <view class="color-FF1919">{{promotions.promotion_limit_count}}人团</view>
         <view class="color-FF1919">剩余 03天20:12:12</view>
       </view>
       <!-- 秒杀 -->
-      <view wx:if="{{state==2}}" class="hgt80rpx ptArea font34 between-center">
+      <view wx:if="{{promotions.promotion_type==2}}}" class="hgt80rpx ptArea font34 between-center">
         <view class="wid280rpx color-FF3636 column-center-c p-v-10 hgt80rpx">
-          <view class="lh1 font34 color-FF1919">199  人已秒杀</view>
+          <view class="lh1 font34 color-FF1919">{{promotions.promotion_partake_count}}  人已秒杀</view>
           <!-- <view class="font30 lh1">¥2999.9 <text class="lineThrough font20">¥2999.9</text></view> -->
         </view>
         <view class="wid280rpx color-FF3636 center p-v-10 hgt80rpx">
@@ -30,9 +30,9 @@
         <!-- <text class='font36 color-green m-r-30'>免费</text> -->
         <text class='font36 color-FF1919'>¥{{info.price}}</text>
         <text class='color-999 font24 m-l-15 lineThrough'>¥2999.9</text>
-        <text wx:if="{{state!=1}}" class='color-5273FF m-l-60 font20'>{{info.apply_count}}</text>
-        <text wx:if="{{state!=1}}" class='color-999 font20'>/{{info.enroll_count}}人报名</text>
-        <text wx:if="{{state==1}}" class='color-FF1919 m-l-60 font24'>{{info.enroll_count}} 人已拼团</text>
+        <text wx:if="{{promotions.promotion_type!=4}}" class='color-5273FF m-l-60 font20'>{{info.apply_count}}</text>
+        <text wx:if="{{promotions.promotion_type!=4}}" class='color-999 font20'>/{{info.enroll_count}}人报名</text>
+        <text wx:if="{{promotions.promotion_type==4}}" class='color-FF1919 m-l-60 font24'>{{promotions.promotion_partake_count}} 人已拼团</text>
      </view>
      <view class='center' catchtap='shareTab'>
       <image class='wid30rpx hgt30rpx' src='../../files/icon_share.png'></image>
@@ -55,8 +55,9 @@
       </view>
      </view>
   </view>
-  <view wx:if="{{state==1}}" class='grayLine'></view>
-  <view wx:if="{{state==1}}" class="ptBox p-t-20 l-pad40">
+  <!-- 拼团 -->
+  <view wx:if="{{promotions.promotion_type==4}}" class='grayLine'></view>
+  <view wx:if="{{promotions.promotion_type==4}}" class="ptBox p-t-20 l-pad40">
     <view class="between-center">
       <view class="center">
         <view class="color-333">正在拼团</view>
@@ -166,7 +167,7 @@
     </view>
   </view>
 </view>
-<view wx:if="{{state!=1}}" class='cdBot border-t-eee hgt100rpx between-center'>
+<view wx:if="{{promotions.promotion_type!=4}}" class='cdBot border-t-eee hgt100rpx between-center'>
   <view class='center l-pad20 hgt80rpx'>
     <view bindtap="contactTab" class='hgt80rpx wid180rpx column-center-b'>
       <image style='margin-left:0;' class='cdIcon' src='../../files/icon_kefu.png'></image>
@@ -187,7 +188,7 @@
   <!-- 面试职位 -->
   <button wx:if="{{info.apply_status == 9}}" bindtap="writeInfo2" hover-class="none" class='bmBtn font36 btn_blue'>{{info.apply_status_text}}</button>
 </view>
-<view wx:if="{{state==1}}" class='l-pad20 cdBot border-t-eee hgt100rpx between-center'>
+<view wx:if="{{promotions.promotion_type==4}}" class='l-pad20 cdBot border-t-eee hgt100rpx between-center'>
   <view class='center hgt80rpx'>
     <view bindtap="contactTab" class='hgt80rpx wid130rpx column-center-b'>
       <image style='margin-left:0;' class='cdIcon' src='../../files/icon_kefu.png'></image>
@@ -222,7 +223,7 @@
         <image src='../../files/icon_weixin.png' class='wid90rpx hgt90rpx'></image>
         <text class='color-333 font30'>微信好友</text> 
       </button>
-      <navigator url="/pages/poster/poster" hover-class="none" class='hgt150rpx column-center-b'>
+      <navigator url="/pages/poster/poster?c_id={{c_id}}" hover-class="none" class='hgt150rpx column-center-b'>
         <image src='../../files/icon_haibao.png' class='wid90rpx hgt90rpx'></image>
         <text class='color-333 font30'>生成海报</text> 
       </navigator>

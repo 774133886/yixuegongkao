@@ -8,82 +8,59 @@ Page({
    * 页面的初始数据
    */
   data: {
-    path: "",
-    avatar: "",
-    quan: "../../images/quan.png",
-    maskHidden: false,
-    name: "风云天clear",
-    slogan:'7天get有趣的建筑园林知识, 从不同维度了解传统文化！',
-    token: wx.getStorageSync('token'),
-    path4:''
-  },
+    image_large: "",
+    wxapp_qrcode: "",
+    info:{}
+   
+  }, 
   /**
    * 生命周期函数--监听页面加载
    */
+
+  // 获取课程详情
+  getInfo() {
+    let that = this;
+    
+  },
   onLoad: function (options) {
     setTimeout(() => {
       that.createNewImg();
     }, 3000)
     var that = this;
-    http.postReq('/api/Book/shareBook', { bid: options.id }, function (res) {
-      if (res.code == 101) {
+    var data = {};
+    data.courseid = options.c_id;
+    http.postReq('api/public/get_course_detail.htm', data, function (res) {
+      if (res.code == 0) {
         that.setData({
-          name: res.data.nickname,
-          // path: res.data.bpath,
-          // avatar: res.data.avatar,
+          info: res.data,
         })
+      // 下载二维码图片
         wx.downloadFile({
-          url: res.data.bpath,
+          url: res.data.wxapp_qrcode,
           success: function (res) {
             console.log(res.tempFilePath);
             that.setData({
-              path: res.tempFilePath,
+              wxapp_qrcode: res.tempFilePath,
             })
           }, fail: function (fres) {
 
           }
         })
+        // 下载主图片
         wx.downloadFile({
-          url: res.data.avatar,
+          url: res.data.image_large,
           success: function (res) {
             console.log(res.tempFilePath);
             that.setData({
-              avatar: res.tempFilePath,
+              image_large: res.tempFilePath,
             })
           }, fail: function (fres) {
 
           }
         })
-
-
-        http.postReq('/api/User/getQrcode',{}, function (res1) {
-          if (res1.code == 101) {
-            // that.setData({
-            //   path4: res1.data.data,
-            // })
-            wx.downloadFile({
-              url: res1.data,
-              success: function (res2) {
-                that.setData({
-                  path4: res2.tempFilePath,
-                })
-                console.log(that.data.path4);
-                // setTimeout(() => {
-                //   that.createNewImg();
-                // }, 3000)
-              }
-            })
-          } else {
-            wx.showToast({
-              title: res1.msg,
-              icon: 'none',
-              duration: 2000
-            })
-          }
-        })
-      }else{
+      } else {
         wx.showToast({
-          title: res.msg,
+          title: res.message,
           icon: 'none',
           duration: 2000
         })
@@ -91,57 +68,129 @@ Page({
     })
 
   },
-  
+  drawText(ctx, str, leftWidth, initHeight, titleHeight, canvasWidth) {
+    let lineWidth = 0;
+    let lastSubStrIndex = 0; //每次开始截取的字符串的索引
+    for (let i = 0; i < str.length; i++) {
+      lineWidth += ctx.measureText(str[i]).width;
+      if (lineWidth > canvasWidth) {
+        ctx.fillText(str.substring(lastSubStrIndex, i), leftWidth, initHeight); //绘制截取部分
+        initHeight += 22; //22为 文字大小20 + 2
+        lineWidth = 0;
+        lastSubStrIndex = i;
+        titleHeight += 22;
+      }
+      if (i == str.length - 1) { //绘制剩余部分
+        ctx.fillText(str.substring(lastSubStrIndex, i + 1), leftWidth, initHeight);
+      }
+    }
+    // 标题border-bottom 线距顶部距离
+    titleHeight = titleHeight + 10;
+    return titleHeight;
+  },
+
+
+
   //将canvas转换为图片保存到本地，然后将图片路径传给image图片的src
   createNewImg: function () {
     var that = this;
     var context = wx.createCanvasContext('mycanvas');
-    context.setFillStyle("rgba(0,0,0,0)")
+    context.setFillStyle("rgba(255,255,255,1)")
     context.fillRect(0, 0, 375, 590)
     // var path = that.data.path;
     var path = "../../files/poster.png";
     console.log(path);
     //将模板图片绘制到canvas,在开发工具中drawImage()函数有问题，不显示图片
     //不知道是什么原因，手机环境能正常显示
-    var path1 = that.data.touxiang;
+    var path1 = that.data.image_large;
     //将模板图片绘制到canvas,在开发工具中drawImage()函数有问题，不显示图片
-    var path2 = that.data.avatar;
-    var path4 = that.data.path4;
+    var path2 = that.data.image_large;
+    var path4 = that.data.wxapp_qrcode;
     console.log(path4)
     //不知道是什么原因，手机环境能正常显示
 
-    var name = that.data.name || '';
+    var name = that.data.info.name || '';
     console.log(name);
-    context.arc(186, 528, 35, 0, Math.PI * 2, true);
-    context.closePath();
-    context.fillStyle = "white";
-    context.strokeStyle = "rgba(0,0,0,0)";
-    context.fill();
-    context.stroke();
-    context.drawImage(path, 0, 0, 375, 602);
-    context.stroke();
-    //绘制名字
-    // context.setFontSize(18);
-    // context.setFillStyle('#ffffff');
-    // context.setTextAlign('center');
-    // context.fillText(name, 160, 52);
-    // //绘制白色背景
-
     // context.arc(186, 528, 35, 0, Math.PI * 2, true);
     // context.closePath();
     // context.fillStyle = "white";
     // context.strokeStyle = "rgba(0,0,0,0)";
     // context.fill();
     // context.stroke();
-    // //绘制扫码二维码 
-    // context.drawImage(path4, 161, 503, 50, 50);
-    // context.stroke();
-    // // 绘制头像
-    // context.arc(63, 60, 30, 0, 2 * Math.PI) //画出圆
-    // context.strokeStyle = "rgba(0,0,0,0)";
-    // context.clip(); //裁剪上面的圆形
-    // context.drawImage(path2, 31, 31, 62, 62); // 在刚刚裁剪的园上画图
-    // context.stroke();
+    context.drawImage(path2, 0, 0, 375, 250);
+    context.stroke();
+    //绘制名字
+    context.setFontSize(22);
+    context.setFillStyle('#333');
+    // context.setTextAlign('center');
+    // context.fillText(name, 10, 280);
+    that.drawText(context, name, 10, 280, 30, 315);
+
+    var priceName, price;
+    if (that.data.info.promotions){
+      console.log(that.data.info.promotions[0].promotion_type)
+      if (that.data.info.promotions[0].promotion_type==2){
+        priceName = '秒杀价'; 
+        price = that.data.info.promotions[0].promotion_price;
+      } 
+      if (that.data.info.promotions[0].promotion_type == 3) {
+        priceName = '拼团价';
+        price = that.data.info.promotions[0].promotion_price;
+      }
+    }else{
+      priceName = '价格';
+      price = that.data.info.price;
+    }
+    
+    if (that.data.info.promotions[0].promotion_type == 2 || that.data.info.promotions[0].promotion_type == 3) {
+      context.setFontSize(14);
+      context.setFillStyle('#999');
+      // context.setTextAlign('center');
+      context.fillText(that.data.info.price, 115, 330);
+
+      context.setLineWidth(1);//设置线条的宽度
+      context.setStrokeStyle('#999');//设置线条的样式
+      context.moveTo(112, 325);//设置线条的起始路径坐标
+      context.lineTo(145, 325);//设置线条的终点路径坐标
+      context.stroke();//对当前路径进行描边
+
+    }
+    context.setFontSize(16);
+    context.setFillStyle('#999');
+    // context.setTextAlign('center');
+    context.fillText(priceName, 10, 330);
+    // 绘制价格文字
+    
+    context.setFontSize(24);
+    context.setFillStyle('#FF3636');
+    // context.setTextAlign('center');
+    context.fillText('¥' + price, 65, 330);
+    // 绘制仅剩
+    context.setFontSize(14);
+    context.setFillStyle('#666');
+    // context.setTextAlign('center');
+    context.fillText('仅剩' + (that.data.info.enroll_count - that.data.info.apply_count) +'名',275, 330);
+    // 结束时间
+    context.setFontSize(14);
+    context.setFillStyle('#FF1414');
+    // context.setTextAlign('center');
+    context.fillText('结束时间 ' + that.data.info.apply_end_time.slice(0,16), 10, 360);
+    // 绘制线
+    context.setLineWidth(1);//设置线条的宽度
+    context.setStrokeStyle('#eee');//设置线条的样式
+    context.moveTo(10, 380);//设置线条的起始路径坐标
+    context.lineTo(360, 380);//设置线条的终点路径坐标
+    context.stroke();//对当前路径进行描边
+    //绘制扫码二维码 
+    context.drawImage(path4, 108, 400, 162, 162);
+    context.stroke();
+    //绘制文字
+    context.setFontSize(16);
+    context.setFillStyle('#666');
+    // context.setTextAlign('center');
+    context.fillText('码上查看课程', 138, 585);
+    
+  
     
   
 
@@ -284,26 +333,6 @@ Page({
    */
   onShow: function () {
     var that = this;
-    // wx.getUserInfo({
-    //   success: res => {
-    //     console.log(res.userInfo, "huoqudao le ")
-    //     this.setData({
-    //       name: res.userInfo.nickName,
-    //     })
-    //     wx.downloadFile({
-    //       url: res.userInfo.avatarUrl, //仅为示例，并非真实的资源
-    //       success: function (res) {
-    //         // 只要服务器有响应数据，就会把响应内容写入文件并进入 success 回调，业务需要自行判断是否下载到了想要的内容
-    //         if (res.statusCode === 200) {
-    //           console.log(res, "reererererer")
-    //           that.setData({
-    //             touxiang: res.tempFilePath
-    //           })
-    //         }
-    //       }
-    //     })
-    //   }
-    // })
 
    
   },

@@ -9,10 +9,12 @@ Page({
    * 页面的初始数据
    */
   data: {
+    info:{},
     shareShow: false,
     payShow:false,
     nomore: false,
-    sServiceTel: '15928773528'
+    sServiceTel: '15928773528',
+    p_id:''
   },
 
   // 支付
@@ -34,13 +36,38 @@ Page({
       phoneNumber: phoneNum.toString()
     })
   },
+  // 获取拼团详情
+  getInfo() {
+    let that = this;
+    var data = {};
+    data.id = this.data.p_id;
+    http.postReq('api/pintuan/public/get_product_detail.htm', data, function (res) {
+      if (res.code == 0) {
+        that.setData({
+          info: res.data,
+        })
+        // var content = res.data.intro;
+        // WxParse.wxParse('article', 'html', content, that, 5);
+      } else {
+        wx.showToast({
+          title: res.message,
+          icon: 'none',
+          duration: 2000
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     var that = this;
-    var content = "<img style='margin-left: 0;border-radius:10px; width:100%;' src='../../files/indexBanner.png'/><div>此处为富文本<div/>";
-    WxParse.wxParse('article', 'html', content, that, 5);
+    if (options.p_id) {
+      this.setData({
+        p_id: options.p_id
+      })
+    }
+    that.getInfo();
   },
 
   /**

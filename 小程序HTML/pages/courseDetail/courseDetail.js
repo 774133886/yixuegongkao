@@ -19,7 +19,8 @@ Page({
     c_id:'',
     pjInfo:{},
     pjList:[],
-    pjscore:0
+    pjscore:0,
+    promotions:[], //活动
   },
 
   /**
@@ -130,6 +131,7 @@ Page({
       if (res.code == 0) {
         that.setData({ 
           info: res.data,
+          promotions: res.data.promotions[0],
           pjscore: Math.floor(res.data.score) 
         })
         var content = res.data.intro;
@@ -212,6 +214,27 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    var that = this;
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    var info = that.data.Info;
+    return {
+      title: '跟我一起学习这门课程',
+      path: '/pages/courseDetail/courseDetail?c_id=' + that.data.c_id,
+      imageUrl: info.image_large,
+      success: (res) => {    // 成功后要做的事情
+        //console.log(res.shareTickets[0])
+        // console.log
+        that.setData({
+          shareShow: false
+        })
+      },
+      fail: function (res) {
+        // 分享失败
+        console.log(res)
+      }
+    }
   }
 })

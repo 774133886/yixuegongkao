@@ -113,6 +113,8 @@ Page({
       // res.data.rows[0].articles[1].time = '2019.06.09'
       if (res.code == 0) {
         console.log(res.data);
+
+        
         let  List = (function () {
           var theAry = [];
 
