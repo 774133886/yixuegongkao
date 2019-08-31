@@ -30,7 +30,13 @@ Page({
       book: book.name
     });
   },
-
+  saveStor(e){
+    var type = e.currentTarget.dataset.type
+    wx.setStorageSync("c_type", type);
+    wx.switchTab({
+      url: '/pages/course/course'
+    })
+  },
   // 获取滚动条当前位置
   onPageScroll: function (e) {
     if (e.scrollTop > 100) {
@@ -114,7 +120,7 @@ Page({
       if (res.code == 0) {
         console.log(res.data);
 
-        
+
         let  List = (function () {
           var theAry = [];
 
