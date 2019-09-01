@@ -9,3 +9,4 @@
 .m-t-300{
   margin-top: 300rpx !important;
 }
+@import '../addAdress/addAdress.wxss'

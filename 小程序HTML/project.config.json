@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 3,
 			"list": [
 				{
 					"id": 0,
@@ -47,6 +47,20 @@
 					"name": "pages/assembleList/assembleList",
 					"pathName": "pages/assembleList/assembleList",
 					"query": "p_id=550580447711305",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/courseDetail/courseDetail",
+					"pathName": "pages/courseDetail/courseDetail",
+					"query": "c_id=50436084&state=0",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/writeInfo/writeInfo",
+					"pathName": "pages/writeInfo/writeInfo",
+					"query": "c_id=50397500",
 					"scene": null
 				}
 			]
