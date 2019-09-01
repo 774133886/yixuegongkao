@@ -128,7 +128,7 @@
       <view class='hgt210rpx wid320rpx relative'>
         <image class="wid100 hgt210rpx" src="{{item.image_small}}" mode="aspectFill" lazy-load="false" ></image>
         <!-- 拼团 -->
-        <image wx:if="{{item.promotions.promotion_type==3}}" class="index_tag2" src="../../files/img_pintuan.png" mode="aspectFill" lazy-load="false" ></image>
+        <image wx:if="{{item.promotions.promotion_type==4}}" class="index_tag2" src="../../files/img_pintuan.png" mode="aspectFill" lazy-load="false" ></image>
         <!-- 秒杀 -->
         <image wx:if="{{item.promotions.promotion_type==2}}" class="index_tag2" src="../../files/img_miaosha.png" mode="aspectFill" lazy-load="false" ></image>
         <!-- 已满员 -->
@@ -152,7 +152,7 @@
           </view>
         </view>
         <view wx:if="{{item.promotions}}" class=''>
-          <text class='font36 color-FF1919'>¥{{item.promotion_price}}</text>
+          <text class='font36 color-FF1919'>¥{{item.promotions[0].promotion_price}}</text>
           <text class='color-999 font24 m-l-15 lineThrough'>¥{{item.price}}</text>
         </view>
         <view wx:else class=''>

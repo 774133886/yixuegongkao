@@ -29,7 +29,7 @@
     <view class='between-center'>
      <view class='flex_1 center'>
         <!-- <text class='font36 color-green m-r-30'>免费</text> -->
-        <text wx:if="{{!promotions}}" class='font36 color-FF1919'>¥{{info.price}}</text>
+        <text wx:if="{{info.promotions.length==0}}" class='font36 color-FF1919'>¥{{info.price}}</text>
         <!-- 活动价 -->
         <view wx:else >
           <text class='font36 color-FF1919'>¥{{promotions.promotion_price}}</text>

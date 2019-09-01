@@ -154,27 +154,30 @@ Page({
           pjscore: Math.floor(res.data.score),
         })
         // 秒杀倒计时
-        if (res.data.promotions[0].promotion_type==2){
-         
-          var msTime = (new Date(res.data.promotions[0].promotion_end_time).getTime() - Date.parse(new Date())) / 1000;
-          if (msTime > 0) {
-            var countTime = setInterval(function () {
-              if (msTime == 1) {
-                msTime = 0;
-                clearInterval(countTime);
-                // 重新获取数据
-                that.getInfo();
-              } else {
-                msTime--;
-              }
-              that.setData({
-                msTime: msTime,
-              })
-            }, 1000)
-          } else {
-            return false;
+        if (res.data.promotions.length){
+          if (res.data.promotions[0].promotion_type == 2) {
+
+            var msTime = (new Date(res.data.promotions[0].promotion_end_time).getTime() - Date.parse(new Date())) / 1000;
+            if (msTime > 0) {
+              var countTime = setInterval(function () {
+                if (msTime == 1) {
+                  msTime = 0;
+                  clearInterval(countTime);
+                  // 重新获取数据
+                  that.getInfo();
+                } else {
+                  msTime--;
+                }
+                that.setData({
+                  msTime: msTime,
+                })
+              }, 1000)
+            } else {
+              return false;
+            }
           }
         }
+        
         var content = res.data.intro;
         WxParse.wxParse('article', 'html', content, that, 5);
       } else {
