@@ -1,4 +1,10 @@
 /* pages/activities/activities.wxss */
+page,.activities{
+  height: 100%;
+}
+swiper,swiper-item{
+  height: 100%;
+}
 .activitiesTab view{
   display: inline-block;
   font-size: 26rpx;
@@ -22,6 +28,14 @@
   height:2rpx;
   background:rgba(4,155,254,1);
   border-radius:1rpx;
+}
+.activitList{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
 }
 .activitItem{
   padding: 35rpx 40rpx;
@@ -89,7 +103,7 @@
   text-align: center;
   color: #BEBEBE;
   font-size: 30rpx;
-  margin-top: 60rpx;
+  padding: 20rpx 0;
 }
 .noData image{
   width: 360rpx;

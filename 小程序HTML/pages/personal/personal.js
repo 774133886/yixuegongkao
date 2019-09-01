@@ -8,13 +8,18 @@ Page({
    */
   data: {
     isLogin: false,
-    info: {}
+    info: {},
+    kefuPhone: ""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var deployInfo = wx.getStorageSync("deployInfo");
+    this.setData({
+      kefuPhone: deployInfo.service_phone
+    })
     this.getInfo()
   },
   goFollow(){
@@ -31,7 +36,7 @@ Page({
   },
   callTell(){
     wx.makePhoneCall({
-      phoneNumber: '002-6432-569',
+      phoneNumber: this.data.kefuPhone,
     })
   },
   getInfo(){ 

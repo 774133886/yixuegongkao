@@ -1,98 +1,105 @@
 <!--pages/activities/activities.wxml-->
-<view class="activities">
+<wxs module="filter" src="../../filter/Filters.wxs"></wxs>
+<view class="activities flex_column">
   <view class="activitiesTab text-center">
-    <view class="{{active==1?'active':''}}" bindtap="choiceTab" data-id="1">拼团</view>
-    <view class="{{active==2?'active':''}}" bindtap="choiceTab" data-id="2">秒杀</view>
+    <view class="{{active==0?'active':''}}" bindtap="choiceTab" data-id="0">拼团</view>
+    <view class="{{active==1?'active':''}}" bindtap="choiceTab" data-id="1">秒杀</view>
   </view>
   <!-- 拼团 -->
-  <view class="activitList" wx:if="{{active==1}}">
-    <view class="activitItem flex_dom" bindtap="goDetail" data-state="1">
-      <view class="activitImage">
-        <image class="actIcon" src="../../files/img_pintuan.png"></image>
-        <image class="actPic" src="../../files/img_kecheng_big.png"></image>
-        <view class="actText flex_dom font20">
-          <view class="flex_1">4人团</view>
-          <view>剩余 02天 12:23:25</view>
-        </view>
-      </view>
-      <view class="flex_1">
-        <view class="textLine font20">
-          <view class="wid110 color-999">开课时间</view>
-          <view class="color-333">2019.05.23</view>
-        </view>
-        <view class="textLine font20">
-          <view class="wid110 color-999">总课时</view>
-          <view class="color-333">24课时</view>
-        </view>
-        <view class="textLine font20">
-          <view class="wid110 color-999">拼团价</view>
-          <view class="redPrice font36">¥2999.9</view>
-          <view class="grayPrice color-999">¥3999</view>
-        </view>
-        <view class="textLine font20">
-          <view class="color-999">39人已报名</view>
-        </view>
-      </view>
-    </view>
-    <view class="activitItem flex_dom" bindtap="goDetail" data-state="1">
-      <view class="activitImage">
-        <image class="actIcon2" src="../../files/img_manyuan.png"></image>
-        <image class="actPic" src="../../files/img_tuijian1.png"></image>
-        <!-- <view class="actText flex_dom font16">
-          <view class="flex_1">4人团</view>
-          <view>剩余 02天 12:23:25</view>
-        </view> -->
-      </view>
-      <view class="flex_1">
-        <view class="textLine font20">
-          <view class="wid110 color-999">开课时间</view>
-          <view class="color-333">2019.05.23</view>
-        </view>
-        <view class="textLine font20">
-          <view class="wid110 color-999">总课时</view>
-          <view class="color-333">24课时</view>
-        </view>
-        <view class="textLine font20">
-          <view class="wid110 color-999">拼团价</view>
-          <view class="redPrice font36">¥2999.9</view>
-          <view class="grayPrice color-999">¥3999</view>
-        </view>
-        <view class="textLine font20">
-          <view class="color-999">39人已报名</view>
-        </view>
-      </view>
-    </view>
-    <view class="activitItem flex_dom" bindtap="goDetail" data-state="1">
-      <view class="activitImage">
-        <image class="actIcon" src="../../files/img_pintuan.png"></image>
-        <image class="actPic" src="../../files/img_kecheng_big.png"></image>
-        <view class="actText flex_dom font20">
-          <view class="flex_1">4人团</view>
-          <view>剩余 02天 12:23:25</view>
-        </view>
-      </view>
-      <view class="flex_1">
-        <view class="textLine font20">
-          <view class="wid110 color-999">开课时间</view>
-          <view class="color-333">2019.05.23</view>
-        </view>
-        <view class="textLine font20">
-          <view class="wid110 color-999">总课时</view>
-          <view class="color-333">24课时</view>
-        </view>
-        <view class="textLine font20">
-          <view class="wid110 color-999">拼团价</view>
-          <view class="redPrice font36">¥2999.9</view>
-          <view class="grayPrice color-999">¥3999</view>
-        </view>
-        <view class="textLine font20">
-          <view class="color-999">39人已报名</view>
-        </view>
-      </view>
-    </view>
-
-    <view class="noMore">没有更多了</view>
+  <view class="flex_1 relative">
+    <swiper class="swiperCon" indicator-dots="{{false}}" autoplay="{{false}}" bindchange="swiperChange" current="{{active}}">
+      <block wx:key="item" wx:for-index="index">
+        <swiper-item>
+          <scroll-view scroll-y="{{true}}" wx:if="{{active==0}}" class="activitList" bindscrolltolower="bindscrolltolower">
+              <view wx:for="{{pt_list}}" wx:key="pt" wx:for-item="pt" class="activitItem flex_dom" bindtap="goDetail" data-id="{{pt.id}}">
+                <view class="activitImage">
+                  <image wx:if="{{active==0&&pt.status_text!='已满员'&&pt.status_text!='已结束'}}" class="actIcon" src="../../files/img_pintuan.png"></image>
+                  <image wx:if="{{active==0&&pt.status_text=='已满员'}}" class="actIcon2" src="../../files/img_manyuan.png"></image>
+                  <image wx:if="{{active==0&&pt.status_text=='已结束'}}" class="actIcon2" src="../../files/img_baoming.png"></image>
+                  <image class="actPic" src="{{pt.image_large}}"></image>
+                  <view wx:if="{{pt.status_text=='秒杀中'||pt.status_text=='团购中'||pt.status_text=='活动中'}}">
+                    <view class="actText flex_dom font20">
+                      <view class="flex_1">{{pt.group_size}}人团</view>
+                      <view>剩余 {{filter.toTime2(pt.last_time)}}</view>
+                    </view>
+                  </view>
+                </view>
+                <view class="flex_1">
+                  <view class="textLine font20">
+                    <view class="wid110 color-999">开课时间</view>
+                    <view class="color-333">{{filter.formatDate(pt.course_detail.class_time)}}</view>
+                  </view>
+                  <view class="textLine font20">
+                    <view class="wid110 color-999">总课时</view>
+                    <view class="color-333">{{pt.course_detail.class_hour||0}}课时</view>
+                  </view>
+                  <view class="textLine font20">
+                    <view class="wid110 color-999">拼团价</view>
+                    <view class="redPrice font36">¥{{pt.price}}</view>
+                    <view class="grayPrice color-999">¥{{pt.original_price}}</view>
+                  </view>
+                  <view class="textLine font20">
+                    <view class="color-999">{{pt.quantity}}人已报名</view>
+                  </view>
+                </view>
+              </view>
+              <view  class="noData text-center" wx:if="{{(list[index].length==0&&pages[index].page_index==1)}}">
+                <image src="../../files/img_quesheng.png"></image>
+                <view class="font30 color-999">暂无活动哦~</view>
+              </view>
+              <view class="text-center" wx:if="{{list[index].length>5}}">
+                <text wx:if="{{pages[index].max_page_index != pages[index].page_index}}" class='color-be font30'>加载中。。。</text> 
+                <view wx:else class="noMore">没有更多了</view>
+              </view>
+            </scroll-view>
+        </swiper-item>
+        <swiper-item>
+          <scroll-view scroll-y="{{true}}" wx:if="{{active==1}}" class="activitList" bindscrolltolower="bindscrolltolower">
+              <view wx:for="{{ms_list}}" wx:key="pt" wx:for-item="pt" class="activitItem flex_dom" bindtap="goDetail" data-id="{{pt.id}}">
+                <view class="activitImage">
+                  <image wx:if="{{active==1&&pt.status_text!='已满员'&&pt.status_text!='已结束'}}" class="actIcon" src="../../files/img_miaosha.png"></image>
+                  <image wx:if="{{active==1&&pt.status_text=='已满员'}}" class="actIcon2" src="../../files/img_manyuan.png"></image>
+                  <image wx:if="{{active==1&&pt.status_text=='已结束'}}" class="actIcon2" src="../../files/img_baoming.png"></image>
+                  <image class="actPic" src="{{pt.image_large}}"></image>
+                  <view wx:if="{{pt.status_text=='秒杀中'||pt.status_text=='团购中'||pt.status_text=='活动中'}}">
+                    <view class="actText font20">
+                      <view class="text-center">剩余 {{filter.toTime2(pt.last_time)}}</view>
+                    </view>
+                  </view>
+                </view>
+                <view class="flex_1">
+                  <view class="textLine font20">
+                    <view class="wid110 color-999">开课时间</view>
+                    <view class="color-333">{{filter.formatDate(pt.course_detail.class_time)}}</view>
+                  </view>
+                  <view class="textLine font20">
+                    <view class="wid110 color-999">总课时</view>
+                    <view class="color-333">{{pt.course_detail.class_hour||0}}课时</view>
+                  </view>
+                  <view class="textLine font20">
+                    <view class="wid110 color-999">秒杀价</view>
+                    <view class="redPrice font36">¥{{pt.price}}</view>
+                    <view class="grayPrice color-999">¥{{pt.original_price}}</view>
+                  </view>
+                  <view class="textLine font20">
+                    <view class="color-999">{{pt.partake_count}}人已报名</view>
+                  </view>
+                </view>
+              </view>
+              <view  class="noData text-center" wx:if="{{(list[index].length==0&&pages[index].page_index==1)}}">
+                <image src="../../files/img_quesheng.png"></image>
+                <view class="font30 color-999">暂无活动哦~</view>
+              </view>
+              <view class="text-center" wx:if="{{list[index].length>5}}">
+                <text wx:if="{{pages[index].max_page_index != pages[index].page_index}}" class='color-be font30'>加载中。。。</text> 
+                <view wx:else class="noMore">没有更多了</view>
+              </view>
+            </scroll-view>
+        </swiper-item>
+      </block>
+    </swiper>
   </view>
+  
   <!-- 秒杀 -->
   <view class="activitList" wx:if="{{active==2}}">
     <view class="activitItem flex_dom" bindtap="goDetail" data-state="2">
@@ -181,8 +188,5 @@
     <view class="noMore">没有更多了</view>
     
   </view>
-  <view  class="noData text-center" wx:if="{{active==3}}">
-    <image src="../../files/img_quesheng.png"></image>
-    <view class="font30 color-999">暂无活动哦~</view>
-  </view>
+  
 </view>

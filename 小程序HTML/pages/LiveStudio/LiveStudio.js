@@ -2,6 +2,9 @@
 const util = require('../../utils/util.js')
 const http = require('../../http.js')
 const app = getApp();
+var bjy = require('../../sdk/BJYMain');
+var eventEmitter = bjy.eventEmitter;
+
 Page({
 
   /**
@@ -11,7 +14,8 @@ Page({
     courseid: '',
     sort: 1,
     list: [],
-    info: {}
+    info: {},
+    vid: ""
   },
 
   /**
@@ -23,6 +27,17 @@ Page({
     })
     this.getInfo();
     this.getList();
+  },
+  playLive(e){
+    this.setData({
+      vid: e.currentTarget.dataset.id
+    });
+    this.customPlay();
+  },
+  // 自定义播放
+  customPlay: function () {
+    var me = this;
+    me.selectComponent('#bjy-player').customPlay();
   },
   goDetail(){
     wx.navigateTo({

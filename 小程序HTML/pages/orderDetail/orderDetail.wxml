@@ -1,56 +1,63 @@
 <!--pages/orderDetail/orderDetail.wxml-->
 <view class="orderDetail font30 color-333">
   <!-- 已完成 -->
-  <view wx:if="{{state==0}}">
+  <view>
+    <view class="orderTs color-666">订单金额已退还到支付账户，请核对金额。</view>
     <view class="orderGroup flex_dom color-999">
       <view>订单编号</view>
-      <view class="flex_1 orderNum">1214343546474743</view>
-      <view>已完成</view>
+      <view class="flex_1 orderNum">{{info.order_id}}</view>
+      <view wx:if="{{item.status == 2}}" class="color-blue">待支付</view>
+      <view wx:if="{{item.status!=2&&item.status!=3}}">已完成</view>
+      <view wx:if="{{item.status == 3}}">已取消</view>
     </view>
     <view class="orderGroup allGroup flex_dom">
       <view class="orderInfo flex_dom" bindtap="goDetail">
         <image src="../../files/img_kecheng.png"></image>
         <view class="orderInfo flex_1">
-          <view class="orderName line2 font30 color-333">4小时吃透病句解析</view>
+          <view class="orderName line2 font30 color-333">{{info.title}}</view>
           <view class="orderPrice">
-            <view class="font36 redPrice">¥2999.9</view>
-            <view class="font24 color-999 grayPrice">¥2999.9</view>
+            <view class="font36 redPrice">¥{{info.pay_price}}</view>
+            <view class="font24 color-999 grayPrice">¥{{info.price}}</view>
           </view>
         </view>
       </view>
     </view>
-    <view class="orderGroup flex_dom">
+    <view class="orderGroup flex_dom" wx:if="{{info.member_address}}">
       <view class="groupLabel">地 址</view>
-      <view class="groupDetail color-666">浙江省杭州市西湖区文三西路古荡新 村西38幢2单元301室</view>
+      <view class="groupDetail color-666">{{info.member_address}}</view>
     </view>
     <view class="orderGroup flex_dom">
       <view class="groupLabel">收货人</view>
-      <view class="groupDetail color-666 flex_dom flex_item_between flex_1"><view>汲汲</view><view>15812356985</view></view>
+      <view class="groupDetail color-666 flex_dom flex_item_between flex_1"><view>{{info.member_realname}}</view><view>{{info.member_mobile}}</view></view>
     </view>
-    <view class="orderGroup flex_dom">
+    <view class="orderGroup flex_dom" wx:if="{{info.course&&info.course.job_name}}">
       <view class="groupLabel">职 位</view>
-      <view class="groupDetail color-666">13314012000000017浙江省南湖监狱（湖州安吉）-监狱管理2</view>
+      <view class="groupDetail color-666">{{info.course.job_name}}</view>
     </view>
-    <view class="orderGroup flex_dom flex_item_mid flex_item_between">
+    <view class="orderGroup flex_dom flex_item_mid flex_item_between" wx:if="{{info.pay_type}}">
       <view class="groupLabel">支付方式</view>
-      <view class="groupDetail color-666 flex_dom flex_item_mid">
+      <view class="groupDetail color-666 flex_dom flex_item_mid" wx:if="{{info.pay_type=='wxpay'}}">
         <image class="icon-wechat" src="../../files/icon_weixin1.png"></image>
         <text class="font24 m-l-20">微信支付</text>
       </view>
+      <view class="groupDetail color-666 flex_dom flex_item_mid" wx:if="{{info.pay_type=='alipay'}}">
+        <!-- <image class="icon-wechat" src="../../files/icon_weixin1.png"></image> -->
+        <text class="font24 m-l-20">支付宝支付</text>
+      </view>
     </view>
-    <view class="orderGroup flex_dom flex_item_between">
+    <view class="orderGroup flex_dom flex_item_between" wx:if="{{info.pay_price}}">
       <view class="groupLabel">合计金额</view>
-      <view class="groupDetail color-red">¥2999.0</view>
+      <view class="groupDetail color-red">¥{{info.pay_price}}</view>
     </view>
     <view class="orderGroup flex_dom flex_item_between">
       <view class="groupLabel">下单时间</view>
-      <view class="groupDetail color-666">2019-05-57  19:23</view>
+      <view class="groupDetail color-666">{{info.create_time}}</view>
     </view>
-    <view class="orderGroup flex_dom flex_item_between">
+    <view class="orderGroup flex_dom flex_item_between" wx:if="{{info.pay_time}}">
       <view class="groupLabel">支付时间</view>
-      <view class="groupDetail color-666">2019-05-57  19:23</view>
+      <view class="groupDetail color-666">{{info.pay_time}}</view>
     </view>
-    <view class="orderGroup2">
+    <view class="orderGroup2" wx:if="{{info.is_pintuan}}">
       <view class="groupLabel">拼团信息</view>
       <view class="m-t-30 flex_dom flex_item_mid">
         <image class="user_img" src="../../files/img_user.png"></image>
@@ -278,9 +285,12 @@
     </view>
   </view>
 
-
-  <button wx:if="{{state==0}}" class="blueButton" hover-class="blueButton-hover">评价课程</button>
+  <button wx:for="{{info.actions}}" wx:key="item" bindtap="orderButtonClick" data-type="{{button.action}}" data-text="{{button.text}}"
+  class="blueButton" hover-class="blueButton-hover">
+  {{item.text}}
+  </button>
+  <!-- <button wx:if="{{state==0}}" class="blueButton" hover-class="blueButton-hover">评价课程</button>
   <button wx:if="{{state==1 || state==2}}" class="blueButton" hover-class="blueButton-hover" open-type="contact">联系客服</button>
-  <button wx:if="{{state==3}}" class="blueButton" hover-class="blueButton-hover">立即支付</button>
+  <button wx:if="{{state==3}}" class="blueButton" hover-class="blueButton-hover">立即支付</button> -->
 
 </view>

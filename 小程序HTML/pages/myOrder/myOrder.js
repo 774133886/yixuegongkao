@@ -9,18 +9,57 @@ Page({
    */
   data: {
     active: 0,
-    list: [[],[],[],[]],
-    pages: [{},{},{},{}]
+    list: [],
+    pages: [],
+    tabs: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      active: 0
+    this.getTabs()
+  },
+  // 获取tabs
+  getTabs(){
+    var deployInfo = wx.getStorageSync('deployInfo');
+    if (deployInfo) {
+      this.setData({
+        tabs: deployInfo.order_tabs
+      });
+      this.loadList();
+    } else {
+      var that = this;
+      http.getReq('api/app/wxapp_config.htm', {}, function (res) {
+        if (res.code == 0) {
+          wx.setStorageSync("deployInfo", res.data);
+          that.setData({
+            tabs: deployInfo.order_tabs
+          });
+          that.loadList()
+        } else {
+          wx.showToast({
+            title: res.message,
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      })
+    }
+  },
+  //格式化数组
+  loadList(){
+    var list = [];
+    var pages = [];
+    this.data.tabs.forEach(function(item, index){
+      list.push([]);
+      pages.push({})
     });
-    
+    this.setData({
+      list: list,
+      pages: pages
+    });
+    this.getList();
   },
   //取消订单
   cancelOrder(e){
@@ -46,15 +85,16 @@ Page({
       url: '../evaluation/evaluation',
     })
   },
-  goDetail(e){
+  goDetail(id){
     wx.navigateTo({
-      url: '../orderDetail/orderDetail?state='+e.currentTarget.dataset.type,
+      url: '../orderDetail/orderDetail?id='+id,
     })
   },
   swiperChange(e){
     this.setData({
       active: e.detail.current
     });
+    console.log(this.data.pages[this.data.active]);
     if (this.data.list[this.data.active].length == 0) {
       this.getList()
     }
@@ -62,20 +102,7 @@ Page({
   getList(obj){
     var that = this;
     var data = {};
-    switch (this.data.active){
-      case 0:
-        data.status = "";
-        break;
-      case 1:
-        data.status = 2;
-        break;
-      case 2:
-        data.status = 1;
-        break;
-      case 3:
-        data.status = 6;
-        break;
-    }
+    data.status = this.data.tabs[this.data.active].status;
     Object.assign(data,obj?obj:{});
     http.postReq('/api/business/get_member_order_list.htm', data,function(res){
         if(res.code==0){
@@ -86,7 +113,7 @@ Page({
             list[that.data.active] = list[that.data.active].concat(res.data.list);
           }
           var pages = that.data.pages;
-          pages[that.data.acitve] = res.data.pagination;
+          pages[that.data.active] = res.data.pagination;
           that.setData({
             list: list,
             pages: pages
@@ -102,6 +129,20 @@ Page({
     }
     this.getList({ page: page + 1 })
   },
+  // 点击按钮
+  orderButtonClick(e) {
+    var that = this;
+    var id = e.currentTarget.dataset.id;
+    var type = e.currentTarget.dataset.type;
+    var text = e.currentTarget.dataset.text;
+    switch(text){
+      case '查看订单':
+        that.goDetail(id);
+        break;
+      default:
+        break;
+    }
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -113,7 +154,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getList()
+    
   },
 
   /**

@@ -3,10 +3,10 @@
   <view class="orderTitle">今日课程</view>
   <view>
     <view class="orderItem flex_dom flex_item_mid" wx:for="{{courseList}}" wx:key="item">
-      <view class="flex_1" bindtap="goDetail">
+      <view class="flex_1" bindtap="goDetail" data-id="{{item.course_id}}">
         <view class="font30 color-333">{{item.name}}</view>
-        <view class="font24 color-333 m-t-15">【5月30日 19:00】 判断图形推理</view>
-        <view class="font24 color-bd m-t-15">2019.05.30  19:00-21:00</view>
+        <!-- <view class="font24 color-333 m-t-15">【5月30日 19:00】 判断图形推理</view> -->
+        <view class="font24 color-bd m-t-15">{{item.class_time}}</view>
       </view>
       <button class="orderBtn1" hover-class="orderBtn1-hover">观看回放</button>
     </view>
@@ -34,7 +34,7 @@
   <view class="orderTitle">所有课程</view>
   <view class="orderList">
     <view class="orderItem2 flex_dom" wx:for="{{myList}}" wx:key="item">
-      <image src="{{item.image_small}}" bindtap="goDetail"></image>
+      <image src="{{item.image_small}}" bindtap="goDetail" data-id="{{item.course_id}}"></image>
       <view class="flex_1">
       <view bindtap="goDetail">
         <view class="font30 color-333">{{item.name}}</view>

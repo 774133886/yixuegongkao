@@ -34,11 +34,11 @@
   <view class="perList color-333 bg-fff">
     <view class="perItem flex_dom flex_item_mid" bindtap="callTell">
       <view class="flex_1">
-      客服热线<text class="color-999">（002-6432-569）</text>
+      客服热线<text class="color-999">（{{kefuPhone}}）</text>
       </view>
       <image src="../../files/icon_xiangyou1.png"></image>
     </view>
-    <view class="perItem flex_dom flex_item_mid" bindtap="goFollow">
+    <view class="perItem flex_dom flex_item_mid" bindtap="goFollow" wx:if="{{!info.subscribed}}">
       <view class="flex_1">
       关注公众号
       </view>

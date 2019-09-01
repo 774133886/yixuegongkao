@@ -127,10 +127,6 @@ var Filters = {
 
         }
       }
-      
-
-
-
     }
     return t;
   },

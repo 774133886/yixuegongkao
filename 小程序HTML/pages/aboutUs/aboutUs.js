@@ -1,12 +1,15 @@
 // pages/aboutUs/aboutUs.js
 let WxParse = require('../../wxParse/wxParse.js');
+const util = require('../../utils/util.js')
+const http = require('../../http.js')
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    wxParseData: ""
+    article: ""
   },
 
   /**
@@ -14,8 +17,25 @@ Page({
    */
   onLoad: function (options) {
     // WxParse.wxParse('article', 'html', article, that, 5);
+    this.getInfo()
   },
-
+  getInfo(){
+    var that = this;
+    http.postReq("/api/app/wxapp_about_us.htm",{},function(res){
+      if(res.code==0){
+        that.setData({
+          article: res.data.content
+        });
+        var article = that.data.article;
+        WxParse.wxParse('article', 'html', article, that, 5);
+      }else{
+        wx.showToast({
+          title: res.message,
+          icon: 'none'
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -1,4 +1,7 @@
 // pages/evaluation/evaluation.js
+const util = require('../../utils/util.js')
+const http = require('../../http.js')
+const app = getApp();
 Page({
 
   /**
@@ -7,14 +10,17 @@ Page({
   data: {
     list: [1,2,3,4,5],
     checkStar: 0,
-    text: ""
+    text: "",
+    id: ""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      id: options.id
+    })
   },
   tapStar(e){
     this.setData({
@@ -27,8 +33,21 @@ Page({
     })
   },
   submit(){
-    wx.redirectTo({
-      url: "../evaluatSuccess/evaluatSuccess"
+    var data = {};
+    data.courseid = this.data.id;
+    data.content = this.data.text;
+    data.score = this.data.checkStar;
+    http.postReq("/api/business/save_course_comment.htm",data,function(res){
+      if(res.code==0){
+        wx.redirectTo({
+          url: "../evaluatSuccess/evaluatSuccess"
+        })
+      }else{
+        wx.showToast({
+          title: res.message,
+          icon: "none"
+        })
+      }
     })
   },
   /**

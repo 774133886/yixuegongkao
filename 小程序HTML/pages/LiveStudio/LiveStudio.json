@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "课程直播间",
-  "usingComponents": {}
+  "usingComponents": {
+    "BJYPlayer": "/sdk/component/player/player"
+  }
 }

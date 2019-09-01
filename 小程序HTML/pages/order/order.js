@@ -23,9 +23,9 @@ Page({
       url: '../LiveStudio/LiveStudio?id='+e.currentTarget.dataset.id
     })
   },
-  goDetail(){
+  goDetail(e){
     wx.navigateTo({
-      url: '../courseDetail/courseDetail',
+      url: '../courseDetail/courseDetail?c_id='+e.currentTarget.dataset.id,
     })
   },
   getTodayCourse(){

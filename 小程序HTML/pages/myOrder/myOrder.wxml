@@ -1,10 +1,11 @@
 <!--pages/myOrder/myOrder.wxml-->
 <view class="myOrde flex_column">
   <view class="orderTab flex_dom flex_item_between" style="display: none">
-    <view bindtap="choiceTab" data-idx="0" class="{{active==0?'active':''}}">全部</view>
+    <view wx:for="{{tabs}}" wx:key="{{item}}" wx:for-index="index" bindtap="choiceTab" data-idx="{{index}}" class="{{active==index?'active':''}}">{{item.name}}</view>
+    <!-- <view bindtap="choiceTab" data-idx="0" class="{{active==0?'active':''}}">全部</view>
     <view bindtap="choiceTab" data-idx="1" class="{{active==1?'active':''}}">待支付</view>
     <view bindtap="choiceTab" data-idx="2" class="{{active==2?'active':''}}">已完成</view>
-    <view bindtap="choiceTab" data-idx="3" class="{{active==3?'active':''}}">待评价</view>
+    <view bindtap="choiceTab" data-idx="3" class="{{active==3?'active':''}}">待评价</view> -->
   </view>
   <view class="flex_1 relative">
     <swiper class="swiperCon" indicator-dots="{{false}}" autoplay="{{false}}" bindchange="swiperChange" current="{{active}}">
@@ -23,7 +24,7 @@
                   </view>
                 </view>
                 <view wx:if="{{item.status == 2}}" class="orderIcon1 font24 orderState">待支付</view>
-                <view wx:if="{{item.status == 1||(item.status!=2&&item.status==3)}}" class="color-999 font24 orderState">已完成</view>
+                <view wx:if="{{item.status == 1||(item.status!=2&&item.status!=3)}}" class="color-999 font24 orderState">已完成</view>
                 <view wx:if="{{item.status == 3}}" class="color-999 font24 orderState">已取消</view>
               </view>
               <view class="orderBtm">
@@ -31,15 +32,6 @@
                   <view class="flex_1 font24 color-333">合计金额</view>
                   <view class="font36 redPrice">¥{{item.pay_price}}</view>
                 </view>
-                <!-- 待支付 -->
-                <!-- <view class="flex_dom flex_item_mid m-t-20" wx:if="{{item.status == 2}}">
-                  <view class="font24 color-999 flex_1">10分钟以后自动取消订单</view>
-                  <view>
-                    <button class="defaultBtn" data-id="{{item.order_id}}" bindtap="cancelOrder" hover-class="defaultBtn-hover">取消订单</button>
-                    <button class="blueBtn" hover-class="blueBtn-hover">立即支付</button>
-                  </view>
-                </view> -->
-                <!-- 已完成 -->
                 <view>
                   <view class="flex_dom flex_item_mid m-t-20" wx:if="{{item.actions.length}}">
                     <view class="font20 color-999 flex_1">
@@ -47,7 +39,7 @@
                       <view wx:if="{{item.action=='detali'}}">拼团失败，自动退款</view>
                     </view>
                     <view>
-                      <button 
+                      <button bindtap="orderButtonClick" data-type="{{button.action}}" data-id="{{item.order_id}}" data-text="{{button.text}}"
                       wx:for="{{item.actions}}" 
                       wx:key="button" 
                       wx:for-item="button"
@@ -61,12 +53,16 @@
               </view>
             </view>
           </view>
-          <view class='around-center p-v-20'>
-                <text wx:if="{{pages[index].max_page_index != pages[index].page_index}}" class='color-be font30'>加载中。。。</text>          
-                <view wx:else>
-                  <text wx:if="{{list[index].length>0}}" class='color-be font30'>没有更多了</text>
-                </view>
-              </view>
+          <view  class="noData text-center" wx:if="{{(list[index].length==0&&pages[index].page_index==1)}}">
+            <image src="../../files/img_quesheng.png"></image>
+            <view class="font30 color-999">暂无订单哦~</view>
+          </view>
+          <view class='around-center p-v-20' wx:if="{{list[index].length>3}}">
+            <text wx:if="{{pages[index].max_page_index != pages[index].page_index}}" class='color-be font30'>加载中。。。</text> 
+            <view wx:else>
+              <text class='color-be font30'>没有更多了</text>
+            </view>
+          </view>
         </scroll-view>
         </swiper-item>
       </block>

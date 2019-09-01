@@ -1,5 +1,5 @@
 <!--pages/LiveStudio/LiveStudio.wxml-->
-<BJYPlayer></BJYPlayer>
+<BJYPlayer wx:if="{{vid}}" id="bjy-player" vid="{{vid}}" autoplay="{{true}}"></BJYPlayer>
 <view class="flex_dom flex_item_mid liveOrder" bindtap="goDetail">
   <image class="liveImg" src="{{info.image_small}}"></image>
   <view class="flex_1">
@@ -27,7 +27,7 @@
           <text>{{item.start_time}}</text>
         </view>
       </view>
-      <button class="liveBtn1" hover-class="liveBtn1-hover">开始学习</button>
+      <button class="liveBtn1" hover-class="liveBtn1-hover" bindtap="playLive" data-id="{{item.room_id}}">开始学习</button>
     </view>
   </view>
   <!-- <view class="orderItem flex_dom">

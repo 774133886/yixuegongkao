@@ -32,7 +32,22 @@ Page({
   },
   getInfo(obj){
     var that = this;
-    var params = Object.assign({ type: this.data.active == 0 ? 6 : this.data.active },obj?obj:{})
+    var active = this.data.active;
+    var data = {};
+    if(active==6){
+      data["type"] && delete data["type"];
+      data.promotionType = 4
+    } else if (active == 7){
+      data["type"] && delete data["type"];
+      data.promotionType = 2
+    } else if (active == 0) {
+      data["promotionType"] && delete data["promotionType"];
+      data.type = 6
+    } else {
+      data["promotionType"] && delete data["promotionType"];
+      data.type = active
+    }
+    var params = Object.assign(data, obj ? obj : {})
     http.postReq('/api/public/get_course_list.htm', params,function(res){
       if(res.code == 0){
         var list = that.data.courseList;
@@ -62,7 +77,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    debugger
     if(options.type){
       this.setData({
         active: options.type
