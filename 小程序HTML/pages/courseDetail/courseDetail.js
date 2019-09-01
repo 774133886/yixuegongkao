@@ -128,9 +128,15 @@ Page({
     })
   },
   writeInfo: function (e) {
-    wx.navigateTo({
-      url: '/pages/addAdress/addAdress'
-    })
+    if (this.data.info.enroll_fields.length){
+      wx.setStorageSync('enroll_fields', this.data.info.enroll_fields);
+      wx.navigateTo({
+        url: '/pages/writeInfo/writeInfo?c_id=' + this.data.c_id
+      })
+    }else{
+      console.log("支付")
+    }
+    
   },
   writeInfo2: function (e) {
     wx.navigateTo({

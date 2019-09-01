@@ -1,48 +1,102 @@
 <!--pages/writeInfo/writeInfo.wxml-->
-<view class='Con font30'>
+<form class='Con font30'  bindsubmit="formSubmit">
   <view class="l-pad40 text-center font24 color-333 bg-248 p-t-30 p-b-30">
     请如实填写信息，否则不能报名成功。
   </view>
   <view class="bg-fff">
-    <view class="l-pad40 border-b-eee center hgt100rpx">
-      <input type="text" class="font30 flex_1 color-333" maxlength="10" placeholder="请输入你的真实姓名" placeholder-class="color-999"></input>
+    <view wx:if='{{realname}}' class="l-pad40 border-b-eee center hgt100rpx">
+      <input  type="text" name="realname" class="font30 flex_1 color-333" maxlength="10" placeholder="请输入你的真实姓名" placeholder-class="color-999"></input>
     </view>
-    <view class="l-pad40 border-b-eee center hgt100rpx">
-      <input type="number" class="font30 flex_1 color-333" maxlength="11" placeholder="请输入你的手机号码" placeholder-class="color-999"></input>
+    <view wx:if='{{mobile}}' class="l-pad40 border-b-eee center hgt100rpx">
+      <input type="number" name="mobile" class="font30 flex_1 color-333" maxlength="11" placeholder="请输入你的手机号码" placeholder-class="color-999"></input>
     </view>
-    <view class="l-pad40 border-b-eee between-center hgt100rpx">
-      <input type="number" class="font30 flex_1 color-333" maxlength="6" placeholder="请输入验证码" placeholder-class="color-999"></input>
+    <view wx:if='{{qq}}' class="l-pad40 border-b-eee center hgt100rpx">
+      <input type="number" name="qq" class="font30 flex_1 color-333" maxlength="12" placeholder="请输入你的qq号码" placeholder-class="color-999"></input>
+    </view>
+    <view wx:if='{{Remark}}' class="l-pad40 border-b-eee between-center hgt100rpx">
+      <input type="number" name="Remark" class="font30 flex_1 color-333" maxlength="6" placeholder="请输入验证码" placeholder-class="color-999"></input>
       <view class="color-1E9EF3 font30" bindtap="getCode">{{btntext}}</view>
     </view>
   </view>
   <view class="grayLine" style="height:6rpx;"></view>
-  <view class="bg-fff">
+  <view wx:if='{{extra}}' class="bg-fff">
     <view class="l-pad40 border-b-eee center hgt100rpx">
       <view class="color-333">笔试总分：</view>
-      <input type="text" class="font30 flex_1 color-333" maxlength="10" placeholder="" placeholder-class="color-999"></input>
+      <input type="text" data-key-name="grade" bindinput="changeInput" class="font30 flex_1 color-333" maxlength="10" placeholder="" placeholder-class="color-999"></input>
     </view>
     <view class="l-pad40 border-b-eee center hgt100rpx">
       <view class="color-333">笔试排名：</view>
-      <input type="text" class="font30 flex_1 color-333" maxlength="10" placeholder="" placeholder-class="color-999"></input>
+      <input type="text" data-key-name="rank" bindinput="changeInput"  class="font30 flex_1 color-333" maxlength="10" placeholder="" placeholder-class="color-999"></input>
     </view>
     <view class="l-pad40 border-b-eee center hgt100rpx">
       <view class="color-333">招考人数：</view>
-      <input type="text" class="font30 flex_1 color-333" maxlength="10" placeholder="" placeholder-class="color-999"></input>
+      <input type="text" data-key-name="number" bindinput="changeInput" class="font30 flex_1 color-333" maxlength="10" placeholder="" placeholder-class="color-999"></input>
     </view>
     <view class="l-pad40 border-b-eee center hgt100rpx">
       <view class="color-333">行测分数：</view>
-      <input type="text" class="font30 flex_1 color-333" maxlength="10" placeholder="" placeholder-class="color-999"></input>
+      <input type="text" data-key-name="grade_aat" bindinput="changeInput" class="font30 flex_1 color-333" maxlength="10" placeholder="" placeholder-class="color-999"></input>
+    </view>
+    <view class="l-pad40 border-b-eee center hgt100rpx">
+      <view class="color-333">申论分数：</view>
+      <input type="text" data-key-name="grade_essay" bindinput="changeInput"  class="font30 flex_1 color-333" maxlength="10" placeholder="" placeholder-class="color-999"></input>
     </view>
     <view class="l-pad40 border-b-eee center hgt100rpx">
       <view class="color-333">其他科目：</view>
-      <input type="text" class="font30 flex_1 color-333" maxlength="20" placeholder="" placeholder-class="color-999"></input>
-    </view>
-    <view class="l-pad40 border-b-eee center hgt100rpx">
-      <view class="color-333">备注：</view>
-      <input type="text" class="font30 flex_1 color-333" maxlength="200" placeholder="" placeholder-class="color-999"></input>
+      <input type="text" data-key-name="grade_other" bindinput="changeInput"  class="font30 flex_1 color-333" maxlength="20" placeholder="" placeholder-class="color-999"></input>
     </view>
   </view>
+  <view wx:if='{{remark}}' class="l-pad40 border-b-eee center hgt100rpx">
+    <view class="color-333">备注：</view>
+    <input type="text" name="remark" class="font30 flex_1 color-333" maxlength="200" placeholder="" placeholder-class="color-999"></input>
+  </view>
+  <view wx:if='{{address}}' class='Con font30'>
+    <view class="l-pad40 font24 color-333 bg-248 p-t-15 p-b-15">
+      联系方式及收货地址将用于上课资料的寄发，请认真填写，确保无误。
+    </view>
+    <view class="bg-fff">
+      <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+        <view class="picker l-pad40 border-b-eee hgt100rpx between-center">
+          <text class="font30 color-333"> {{region[0]}}{{region[1]}}{{region[2]}}</text>
+          <image style='margin-left:0;' class='wid30rpx hgt30rpx' src='../../files/icon_xiangyou1.png'></image>
+        </view>
+      </picker>
+      <view class="l-pad40 center border-b-eee hgt100rpx">
+        <input type="text" data-key-name="doorNum" bindinput="changeInput" class="font30 flex_1 color-333" placeholder="请输入具体的小区及门牌号" placeholder-class="color-999"></input>
+      </view>
+    </view>
+    <!-- <view class="hgt300rpx m-t-300 around-center">
+      <button bindtap='payTab' class="payRn color-fff font40" hover-class="none">支付</button>
+    </view> -->
+  </view>
   <view class="hgt300rpx around-center">
-    <button class="payBtn color-fff font40" hover-class="none">提交</button>
+    <button form-type='submit' class="payRn color-fff font40" hover-class="none">提交</button>
+  </view>
+</form>
+<!-- 支付 -->
+<view bindtap='payTab' class='markBox font30 {{payShow ? "" : "hide"}}'>
+  <view catchtap='notThis' class='payBox l-pad40'>
+    <view class='hgt100rpx center-end'>
+      <text catchtap='payTab' class='color-999 font330'>取消</text>
+    </view>
+    <view class='hgt90rpx border-b-eee between-center'>
+      <text class='color-333 font30'>支付方式</text> 
+      <view class='center'>
+        <image src='../../files/icon_wechat_pay.png' class='wid60rpx hgt50rpx'></image>
+        <text class='color-999 font24 m-l-10'>微信支付</text> 
+      </view>
+    </view>
+    <view class='hgt90rpx border-b-eee between-center'>
+      <text class='color-333 font30'>合计金额</text> 
+      <view class='font30 color-FF3636'> ¥{{payInfo.price}}</view>
+    </view>
+    <view class='hgt90rpx between-center'>
+      <text class='color-333 font30'>订单编号</text> 
+      <view class='font30 color-999'>{{payInfo.order_id}}</view>
+    </view>
+    <view class="m-t-50">
+      <view class="hgt130rpx around-center">
+        <button bindtap='payTap' hover-class="none" class="color-fff payBtn font36">立即支付</button>
+      </view>
+    </view>
   </view>
 </view>
