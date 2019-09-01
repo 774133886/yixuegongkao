@@ -2,7 +2,7 @@
 <wxs module="filter" src="../../filter/Filters.wxs"></wxs>
 <view class='Con font30'>
   <view class="l-pad40 text-center font30 color-FF3636 bg-248 p-t-25 p-b-25">
-    拼团活动剩余  12天20:15:16
+    拼团活动剩余  {{filter.toTime2(ptTime)}}
   </view>
   <view class="bg-fff l-pad40">
     <view class="between-center border-b-eee p-v-25">
@@ -21,7 +21,7 @@
             还差<text class="color-FF3636">{{item.group_size-item.current_users}}</text>人成团
           </view>
           <view class="color-999 font24">
-            <text class="color-FF3636">仅剩20:15:16 </text> 结束         
+            <text class="color-FF3636">仅剩 {{filter.toTime2(item.last_time)}}</text> 结束         
           </view>
         </view>
         <navigator url="/pages/assembling/assembling?g_id={{item.group_id}}" hover-class="none" class="ptBtn text-center">参团</navigator>

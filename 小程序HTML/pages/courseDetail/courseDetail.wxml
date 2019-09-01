@@ -1,4 +1,5 @@
 <!--pages/courseDetail/courseDetail.wxml-->
+<wxs module="filter" src="../../filter/Filters.wxs"></wxs>
 <import src="../../wxParse/wxParse.wxml"/>
 <view class='Con font30'>
   <view class='wid100 relative'>
@@ -9,7 +10,7 @@
       <!-- 拼团 -->
       <view wx:if="{{state==1}}" class="hgt80rpx l-pad40 ptArea font34 between-center">
         <view class="color-FF1919">{{ptInfo.group_size}}人团</view>
-        <view class="color-FF1919">剩余 03天20:12:12 {{ptInfo.end_time}}</view>
+        <view class="color-FF1919">剩余  {{filter.toTime2(ptTime)}}</view>
       </view>
       <!-- 秒杀 -->
       <view wx:if="{{promotions.promotion_type==2}}" data-36="{{promotions.promotion_type}}" class="hgt80rpx ptArea font34 between-center">
@@ -19,7 +20,7 @@
         </view>
         <view class="wid280rpx color-FF3636 center p-v-10 hgt80rpx">
           <view class="font20 color-FF1919 lh1">距结束:</view>
-          <view class="font30 lh1 m-l-10">2天12:12:12</view>
+          <view class="font30 lh1 m-l-10">{{filter.toTime2(msTime)}}</view>
         </view>
       </view>
   </view>
@@ -68,7 +69,7 @@
         <text class="font24 m-l-20 color-999">已成{{ptInfo.success_group_count}}</text>
         <text class="font24 m-l-30 color-999">在拼{{ptInfo.current_group_count}}</text>
       </view>
-      <navigator url="/pages/assembleList/assembleList?p_id={{p_id}}" hover-class="none" class="">
+      <navigator url="/pages/assembleList/assembleList?p_id={{p_id}}&time={{ptTime}}" hover-class="none" class="">
         <text class="font24 vertical_mid color-999">更多</text>
         <image style="margin-left:0 ;" class='starPic vertical_mid' src='../../files/icon_more2.png'></image>
       </navigator>
@@ -85,7 +86,7 @@
             还差<text class="color-FF3636">{{item.group_size-item.current_users}}</text>人成团
           </view>
           <view class="color-999 font24">
-            <text class="color-FF3636">仅剩20:15:16 </text> 结束         
+            <text class="color-FF3636">仅剩{{filter.toTime2(item.last_time)}}</text> 结束         
           </view>
         </view>
         <view class="hgt100rpx">

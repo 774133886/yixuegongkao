@@ -98,7 +98,7 @@
               <image wx:if="{{it.type==2}}" class="index_tag" src="../../files/img_miaosha.png" mode="aspectFill" lazy-load="false" ></image>
             </view>
             <!-- 02天 20:12:13 -->
-            <view class='color-FF1919 l-h-40rpx m-t-5 font20'>剩余 {{filter.toTime2(it.last_time/1000)}}</view>
+            <view class='color-FF1919 l-h-40rpx m-t-5 font20'>剩余 {{filter.toTime2(it.last_time)}}</view>
             <view class='color-999 l-h-40rpx font20'>
               <text>限报</text>
               <text class='m-l-10'>{{it.limit_count}}人</text>

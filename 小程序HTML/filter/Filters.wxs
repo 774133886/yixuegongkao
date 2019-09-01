@@ -76,31 +76,58 @@ var Filters = {
   toTime2: function (s) {
     var t;
     if (s > -1) {
-      var hour = Math.floor(s / 3600);
+      var day = Math.floor(s / (3600*24));
+      var hour = Math.floor(s / 3600) % 24;
       var min = Math.floor(s / 60) % 60;
       var sec = s % 60;
-      if (hour > 0) {
-        if (hour < 10) {
-          t = '0' + hour + "h:";
-        } else {
-          t = hour + "h:";
-        }
-        if (min < 10) { t += "0"; }
-        t += min + ":";
-        if (sec < 10) { t += "0"; }
-        t += sec;
-      } else {
-        if (min > 0) {
+      if (day>0){
+        if (hour > 0) {
+          if (hour < 10) {
+            t = day +'天 '+ ' 0' + hour + ":";
+          } else {
+            t = day + '天 ' + hour + ":";
+          }
           if (min < 10) { t += "0"; }
-          t = min + ":";
+          t += min + ":";
           if (sec < 10) { t += "0"; }
           t += sec;
         } else {
-          if (sec < 10) { t += "0"; }
-          t = sec;
-        }
+          if (min > 0) {
+            if (min < 10) { t += "0"; }
+            t = min + ":";
+            if (sec < 10) { t += "0"; }
+            t += sec;
+          } else {
+            if (sec < 10) { t += "0"; }
+            t = sec;
+          }
 
+        }
+      }else{
+        if (hour > 0) {
+          if (hour < 10) {
+            t = '0' + hour + ":";
+          } else {
+            t =  hour + ":";
+          }
+          if (min < 10) { t += "0"; }
+          t += min + ":";
+          if (sec < 10) { t += "0"; }
+          t += sec;
+        } else {
+          if (min > 0) {
+            if (min < 10) { t += "0"; }
+            t = min + ":";
+            if (sec < 10) { t += "0"; }
+            t += sec;
+          } else {
+            if (sec < 10) { t += "0"; }
+            t = sec;
+          }
+
+        }
       }
+      
 
 
 

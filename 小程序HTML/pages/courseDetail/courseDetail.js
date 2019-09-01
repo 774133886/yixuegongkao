@@ -24,6 +24,8 @@ Page({
     promotions:[], //活动
     ptInfo:{},//拼团详情
     group_list:[],
+    ptTime:'',
+    msTime:''
   },
 
   /**
@@ -151,6 +153,28 @@ Page({
           pjList: res.data.comments,
           pjscore: Math.floor(res.data.score),
         })
+        // 秒杀倒计时
+        if (res.data.promotions[0].promotion_type==2){
+         
+          var msTime = (new Date(res.data.promotions[0].promotion_end_time).getTime() - Date.parse(new Date())) / 1000;
+          if (msTime > 0) {
+            var countTime = setInterval(function () {
+              if (msTime == 1) {
+                msTime = 0;
+                clearInterval(countTime);
+                // 重新获取数据
+                that.getInfo();
+              } else {
+                msTime--;
+              }
+              that.setData({
+                msTime: msTime,
+              })
+            }, 1000)
+          } else {
+            return false;
+          }
+        }
         var content = res.data.intro;
         WxParse.wxParse('article', 'html', content, that, 5);
       } else {
@@ -178,6 +202,59 @@ Page({
           group_list: res.data.current_group_list,
           c_id: res.data.course_detail.course_id,//重置c_id
         })
+        // 拼团倒计时
+        var ptTime = (new Date(res.data.end_time).getTime() - Date.parse(new Date())) / 1000;
+        if (ptTime>0) {
+          var countTime = setInterval(function () {
+            if (ptTime == 1) {
+              ptTime = 0;
+              clearInterval(countTime);
+              // 重新获取数据
+              that.getPtInfo();
+            } else {
+              ptTime--;
+            }
+            that.setData({
+              ptTime: ptTime,
+            })
+          }, 1000)
+        } else {
+          return false;
+        }
+
+        var list = that.data.group_list;
+        // expire_time
+        // setTimeout(()=>{
+        //   console.log(res.data.pjList)
+        // },200)
+
+        list.forEach(function (a, b) {
+          a.last_time = (new Date(a.expire_time).getTime() - Date.parse(new Date())) / 1000;
+          console.log(a.last_time)
+
+          var time = a.last_time
+          console.log(a.last_time);
+          if (a.last_time) {
+            var countTime = setInterval(function () {
+              if (a.last_time == 1) {
+                a.last_time = 0;
+                clearInterval(countTime);
+                // 重新获取数据
+                that.getPtInfo();
+              } else {
+                a.last_time--;
+              }
+              that.setData({
+                group_list: list,
+              })
+            }, 1000)
+          } else {
+            return false;
+          }
+
+        })
+        
+
         var content = res.data.course_detail.intro;
         WxParse.wxParse('article', 'html', content, that, 5);
       } else {

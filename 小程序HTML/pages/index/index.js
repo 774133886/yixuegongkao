@@ -121,7 +121,7 @@ Page({
         console.log(res.data);
         var aclist = res.data;
         aclist.forEach(function (v, i) {
-          v.last_time = new Date(v.end_time).getTime() - Date.parse(new Date());
+          v.last_time = (new Date(v.end_time).getTime() - Date.parse(new Date()))/1000;
           console.log(v.last_time)
         })
 
@@ -145,6 +145,32 @@ Page({
 
         })()
         console.log(List);
+
+        List.forEach(function (v, i) {
+          v.forEach(function(a,b){
+            var time = a.last_time
+             console.log(a.last_time);
+            if (a.last_time) {
+              var countTime = setInterval(function () {
+                if (a.last_time == 1) {
+                  a.last_time = 0;
+                  clearInterval(countTime);
+                  // 重新获取数据
+                  that.getAclist();
+                } else {
+                  a.last_time--;
+                }
+                that.setData({
+                  acList: List,
+                })
+              }, 1000)
+            } else {
+              return false;
+            }
+          })
+          
+        })
+
         that.setData({
           acList: List,
         });

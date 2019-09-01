@@ -16,7 +16,7 @@ Page({
   },
 
 
-  // 获取评价详情
+  // 获取详情
   getList() {
     let that = this;
     var data = {};
@@ -28,10 +28,7 @@ Page({
         
         if (that.data.page == 1) {
           console.log(res.data)
-          var list = res.data.list;
-          list.forEach(function(v,i){
-            
-          })
+          
           that.setData({
             pjInfo: res.data,
             pjList: res.data.list,
@@ -42,6 +39,38 @@ Page({
             pjList: that.data.pjList.concat(res.data.list),
           });
         }
+        
+        var list = that.data.pjList;
+        
+        list.forEach(function (a, b) {
+          a.last_time = (new Date(a.expire_time).getTime() - Date.parse(new Date())) / 1000;
+          console.log(a.last_time)
+       
+            var time = a.last_time
+            console.log(a.last_time);
+            if (a.last_time) {
+              var countTime = setInterval(function () {
+                if (a.last_time == 1) {
+                  a.last_time = 0;
+                  clearInterval(countTime);
+                  // 重新获取数据
+                  that.setData({
+                    page: 1,
+                  })
+                  that.getList();
+                } else {
+                  a.last_time--;
+                }
+                that.setData({
+                  pjList: list,
+                })
+              }, 1000)
+            } else {
+              return false;
+            }
+        
+        })
+
       } else {
         wx.showToast({
           title: res.message,
@@ -59,10 +88,32 @@ Page({
     that.setData({
       // pjscore: Math.floor(Number(options.score)),
       // score: Number(options.score),
-      p_id: options.p_id
+      p_id: options.p_id,
+      ptTime: options.time,
     });
     // 获取列表
     this.getList();
+    var ptTime = that.data.ptTime;
+    if (ptTime > 0) {
+      var countTime = setInterval(function () {
+        if (ptTime == 1) {
+          ptTime = 0;
+          clearInterval(countTime);
+          // 重新获取数据
+          that.setData({
+            page: 1,
+          })
+          that.getList();
+        } else {
+          ptTime--;
+        }
+        that.setData({
+          ptTime: ptTime,
+        })
+      }, 1000)
+    } else {
+      return false;
+    }
   },
 
   /**
