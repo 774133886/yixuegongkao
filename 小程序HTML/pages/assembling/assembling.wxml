@@ -1,8 +1,9 @@
 <!--pages/assembling/assembling.wxml-->
 <import src="../../wxParse/wxParse.wxml"/>
+<wxs module="filter" src="../../filter/Filters.wxs"></wxs>
 <view class='Con font30'>
   <view class="l-pad40 text-center font30 color-FF3636 bg-248 p-t-25 p-b-25">
-    拼团活动剩余  12天20:15:16
+    拼团活动剩余  {{filter.toTime2(ptTime)}}
   </view>
   <view class="bg-fff ">
     <view hover-class='none' url='' class='l-pad40 hgt230rpx between-center border-b-eee'>

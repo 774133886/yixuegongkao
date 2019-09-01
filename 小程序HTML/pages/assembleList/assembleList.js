@@ -13,6 +13,7 @@ Page({
     totalPage: 1,
     rows: 10,
     p_id:'',
+    ptTime:''
   },
 
 

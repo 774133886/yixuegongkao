@@ -16,7 +16,8 @@ Page({
     nomore: false,
     sServiceTel: '15928773528',
     p_id:'',
-    c_id:''
+    c_id:'',
+    ptTime: ''
   },
 
   // 支付
@@ -69,10 +70,33 @@ Page({
     var that = this;
     if (options.g_id) {
       this.setData({
-        g_id: options.g_id
+        g_id: options.g_id,
+        // ptTime: options.time,
+        ptTime: 5126413,
       })
     }
     that.getInfo();
+    var ptTime = that.data.ptTime;
+    if (ptTime > 0) {
+      var countTime = setInterval(function () {
+        if (ptTime == 1) {
+          ptTime = 0;
+          clearInterval(countTime);
+          // 重新获取数据
+          that.setData({
+            page: 1,
+          })
+          that.getList();
+        } else {
+          ptTime--;
+        }
+        that.setData({
+          ptTime: ptTime,
+        })
+      }, 1000)
+    } else {
+      return false;
+    }
   },
 
   /**

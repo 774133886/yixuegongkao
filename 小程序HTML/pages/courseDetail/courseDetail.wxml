@@ -166,15 +166,35 @@
       <text class='font20 color-999'>回到主页</text>
     </view>
   </view>
-  <!-- <button  bindtap="writeInfo" hover-class="none" class='bmBtn font36'>{{info.apply_status_text}}</button> -->
-  <button wx:if="{{info.apply_status == 1}}" bindtap="writeInfo" hover-class="none" class='bmBtn font36'>{{info.apply_status_text}}</button>
-  <button wx:if="{{info.apply_status == 1}}" bindtap="writeInfo" hover-class="none" class='bmBtn font36 btn_green'>即将开始</button>
-  <!-- 已购买 -->
-  <button wx:if="{{info.apply_status == 6}}" bindtap="writeInfo" hover-class="none" class='bmBtn font36 btn_blue'>{{info.apply_status_text}}</button>
-  <button wx:if="{{info.apply_status == 3}}" hover-class="none" class='bmBtn font36 btn_gray'>已满员</button>
-  <button wx:if="{{info.apply_status == 2}}" hover-class="none" class='bmBtn font36 btn_gray'>报名结束</button>
-  <!-- 面试职位 -->
-  <button wx:if="{{info.apply_status == 9}}" bindtap="writeInfo2" hover-class="none" class='bmBtn font36 btn_blue'>{{info.apply_status_text}}</button>
+  <!-- 是否活动 -->
+  <view wx:if="{{info.promotions.length==0}}">
+    <button wx:if="{{info.apply_status == 0}}" bindtap="writeInfo" hover-class="none" class='bmBtn font36 btn_green'>即将开始</button>
+    <button wx:if="{{info.apply_status == 1}}" bindtap="writeInfo" hover-class="none" class='bmBtn font36'>立即报名</button>
+    <button wx:if="{{info.apply_status == 2}}" hover-class="none" class='bmBtn font36 btn_gray'>报名结束</button>
+    <button wx:if="{{info.apply_status == 3}}" hover-class="none" class='bmBtn font36 btn_gray'>已满员</button>
+    <button wx:if="{{info.apply_status == 4}}" bindtap="writeInfo" hover-class="none" class='bmBtn font36'>购买课程</button>
+    <!-- 已购买 -->
+    <button wx:if="{{info.apply_status == 5||info.apply_status == 6}}" bindtap="writeInfo" hover-class="none" class='bmBtn font36 btn_blue'>开始学习</button>
+    <!-- 面试职位 -->
+    <button wx:if="{{info.apply_status == 9}}" bindtap="writeInfo2" hover-class="none" class='bmBtn font36 btn_blue'>面试职位</button>
+  </view>
+  <view wx:else>
+    <view wx:if="{{promotions.promotion_status==0}}">
+      <button  hover-class="none" class='bmBtn font36 btn_gray'>活动未开始</button>
+    </view>
+    <view wx:if="{{promotions.promotion_status==1}}">
+      <button wx:if="{{promotions.promotion_type == 1}}" bindtap="writeInfo" hover-class="none" class='bmBtn font36'>立即报名</button>
+      <button wx:if="{{promotions.promotion_type == 2}}" bindtap="writeInfo" hover-class="none" class='bmBtn font36'>马上抢</button>
+      <button wx:if="{{promotions.promotion_type == 4}}" bindtap="writeInfo" hover-class="none" class='bmBtn font36'>马上参团</button>
+    </view>
+    <view wx:if="{{promotions.promotion_status==2}}">
+      <button  hover-class="none" class='bmBtn font36 btn_gray'>活动已结束</button>
+    </view>
+    <view wx:if="{{promotions.promotion_status==3}}">
+      <button  hover-class="none" class='bmBtn font36 btn_gray'>人数已满</button>
+    </view>
+  </view>
+
 </view>
 <view wx:if="{{state==1}}" class='l-pad20 cdBot border-t-eee hgt100rpx between-center'>
   <view class='center hgt80rpx'>
@@ -227,7 +247,7 @@
       <text catchtap='contactTab' class='color-999 font330'>取消</text>
     </view>
     <view class='hgt300rpx around-center'>
-      <view bindtap="phonecallevent" data-pnum='{{sServiceTel}}' class='hgt130rpx column-center-b'>
+      <view bindtap="phonecallevent" data-pnum='{{deployInfo.service_phone}}' class='hgt130rpx column-center-b'>
         <image src='../../files/icon_dianhua.png' class='wid60rpx hgt60rpx'></image>
         <text class='color-333 font30'>电话咨询</text> 
       </view>

@@ -25,7 +25,8 @@ Page({
     ptInfo:{},//拼团详情
     group_list:[],
     ptTime:'',
-    msTime:''
+    msTime:'',
+    deployInfo:{}
   },
 
   /**
@@ -35,7 +36,8 @@ Page({
     var that = this;
     
     this.setData({
-      state: options.state
+      state: options.state,
+      deployInfo: wx.getStorageSync('deployInfo')
     })
     if (options.c_id){
       this.setData({
