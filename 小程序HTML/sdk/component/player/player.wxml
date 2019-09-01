@@ -1,0 +1,89 @@
+<view class="wrapper" id="bjy-video-wrapper">
+    <video class="video"
+           wx:if="{{showVideo}}"
+           id="player"
+           custom-cache="{{false}}"
+           src="{{url}}"
+           initial-time="{{initialTime}}"
+           duration="{{duration}}"
+           controls="{{controls}}"
+           danmu-list="{{danmuList}}"
+           danmu-btn="{{danmuBtn}}"
+           enable-danmu="{{enableDanmu}}"
+           autoplay="{{autoplay}}"
+           loop="{{loop}}"
+           muted="{{muted}}"
+           page-gesture="{{pageGesture}}"
+           direction="{{direction}}"
+           show-progress="{{showProgress}}"
+           show-fullscreen-btn="{{showFullscreenBtn}}"
+           show-center-play-btn="{{showCenterPlayBtn && !customPlayerImg.url && !customPlayerBtn.content}}"
+           enable-progress-gesture="{{enableProgressGesture}}"
+           objectFit="{{objectFit}}"
+           poster="{{poster}}"
+           bindplay="onPlay"
+           bindpause="onPause"
+           bindended="onEnded"
+           bindtimeupdate="onTimeupdate"
+           bindfullscreenchange="onFullscreenchange"
+           bindwaiting="onWaiting"
+           binderror="onError"
+           bindtap="onVideoTap"
+    >
+        <cover-image class="audio-cover"
+                     style="height: {{audioCoverHeight}}px"
+                     src="/sdk/component/player/image/audioCover.png"
+                     bindtap="audioCoverTap"
+                     hidden="{{!(currentDefinition == 'audio')}}">
+        </cover-image>
+        <cover-image src="{{watermark.url}}"
+                     class="{{watermarkClass}} watermark"
+                     hidden="{{!watermark.pos}}">
+        </cover-image>
+        <cover-image src="{{customPlayerImg.url}}"
+                     class="custom-player-img"
+                     style="{{customPlayerImg.css}}"
+                     bindtap="customPlay"
+                     hidden="{{!showCustomPlayerImg || !customPlayerImg.url}}">
+        </cover-image>
+        
+        <cover-view hidden="{{!showCustomPlayerImg || !customPlayerBtn.content}}">
+            <button class="custom-player-btn" 
+                    style="{{customPlayerBtn.css}}"
+                    bindtap="customPlay">
+                    {{customPlayerBtn.content}}
+            </button>
+        </cover-view>
+        <selection
+            options="{{rateOptions}}"
+            showOptions="{{showOptions}}"
+            current="{{currentRate}}"
+            my-class="rate-selection"
+            showSelection="{{showRateSelection}}"
+            bind:optionTap="onRateTap"
+        ></selection>
+    <selection
+            options="{{definitionOptions}}"
+            showOptions="{{showOptions}}"
+            current="{{currentDefinition}}"
+            my-class="definition-selection"
+            showSelection="{{showDefinitionSelection && definitionOptions.length >= 2}}"
+            bind:optionTap="onDefinitionTap"
+    ></selection>
+        <!--
+        <cover-view class="definition-selection"
+                    hidden="{{!showDefinitionSelection || definitionOptions.length < 2}}">
+            <selection
+                    options="{{definitionOptions}}"
+                    showOptions="{{showOptions}}"
+                    current="{{currentDefinition}}"
+                    bind:optionTap="onDefinitionTap"
+            ></selection>
+        </cover-view>
+        -->
+    </video>
+    <image class="report-image"
+           binderror="onImageError"
+           src="{{reportUrl}}"
+    mode="scaleToFill"></image>
+</view>

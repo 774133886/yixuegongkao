@@ -14,42 +14,37 @@
       <!-- <image class="icon-right" src="../../files/icon_jiantou.png"></image> -->
     </view>
   </view>
-  <view class="bg-fff">
-    <view class="flex_dom flex_item_mid infoItem">
+  <form bindsubmit="formSubmit">
+    <view class="flex_dom flex_item_mid infoItem bg-fff">
       <text class="color-333">真实姓名：</text>
-      <input value="{{info.real_name}}" placeholder="请输入" class="flex_1"></input>
+      <input name='realname' value="{{info.real_name}}" placeholder="请输入" class="flex_1"></input>
       <!-- <view class="color-C5C4C4">修改</view> -->
     </view>
-    <view class="flex_dom flex_item_mid infoItem">
+    <view class="flex_dom flex_item_mid infoItem bg-fff">
       <text class="color-333">性别：</text>
-      <picker class="flex_1" mode="selector" value="{{info.sex}}" bindchange="sexChange" range="{{sexSelect}}">
+      <picker name='sex' class="flex_1" mode="selector" value="{{info.sex}}" bindchange="sexChange" range="{{sexSelect}}">
         <view class="picker" wx:if="{{info.sex == 0}}">保密</view>
         <view class="picker" wx:if="{{info.sex == 1}}">男</view>
         <view class="picker" wx:if="{{info.sex == 2}}">女</view>
       </picker>
-      <!-- <input value="{{sex}}" placeholder="请输入" class="flex_1"></input> -->
-      <!-- <view class="color-C5C4C4">修改</view> -->
     </view>
-    <view class="flex_dom flex_item_mid infoItem">
+    <view class="flex_dom flex_item_mid infoItem bg-fff">
       <text class="color-333">邮箱：</text>
-      <input value="{{info.email}}" placeholder="请输入" class="flex_1"></input>
-      <!-- <view class="color-C5C4C4">修改</view> -->
+      <input name='email' value="{{info.email}}" placeholder="请输入" class="flex_1"></input>
     </view>
-    <view class="flex_dom flex_item_mid infoItem">
+    <view class="flex_dom flex_item_mid infoItem bg-fff">
       <text class="color-333">出生年月：</text>
       <picker mode="date" class="flex_1" bindchange="dateChange">
         <view class="picker">{{info.birth_year+'-'+info.birth_month+'-'+info.birth_day}}</view>
       </picker>
-      <!-- <input value="{{}}" placeholder="请输入" class="flex_1"></input> -->
-      <!-- <view class="color-C5C4C4">修改</view> -->
     </view>
-    <view class="flex_dom flex_item_mid infoItem" bindtap="goLogin">
+    <view class="flex_dom flex_item_mid infoItem bg-fff" bindtap="goLogin">
       <view class="flex_1">
         <text class="color-333">修改密码</text>
       </view>
       <image class="icon-right" src="../../files/icon_jiantou.png"></image>
     </view>
-  </view>
-  <view class="outBtn outBtn2 bg-fff text-center">一键保存</view>
+    <button form-type='submit' hover-class="outBtn-hover" class="outBtn outBtn2 bg-fff text-center">一键保存</button>
+  </form>
   <view class="outBtn outBtn1 bg-fff text-center" bindtap="goOut">退出登录</view>
 </view>

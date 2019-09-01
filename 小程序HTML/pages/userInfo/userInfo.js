@@ -22,6 +22,22 @@ Page({
       url: '../forget/forget?type=1',
     })
   },
+  formSubmit(e){
+    var data = e.detail.value;
+    data.name = this.data.info.name;
+    data.year = this.data.info.birth_year;
+    data.month = this.data.info.birth_month;
+    data.day = this.data.info.birth_day;
+    console.log(data);
+    http.postReq("/api/member/member_detail_update.htm",data,function(res){
+      if(res.code == 0){
+        wx.showToast({
+          title: "修改成功",
+          icon: "none"
+        })
+      }
+    })
+  },
   goOut(){
     wx.removeStorageSync("token");
     wx.switchTab({url: "../index/index"})

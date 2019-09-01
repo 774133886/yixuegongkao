@@ -1,34 +1,36 @@
 <!--pages/LiveStudio/LiveStudio.wxml-->
+<BJYPlayer></BJYPlayer>
 <view class="flex_dom flex_item_mid liveOrder" bindtap="goDetail">
-  <image class="liveImg" src="../../files/img_kecheng_big.png"></image>
+  <image class="liveImg" src="{{info.image_small}}"></image>
   <view class="flex_1">
-    <view class="font30 color-333">4小时吃透病句解析</view>
+    <view class="font30 color-333">{{info.name}}</view>
     <view class="font22 color-333 m-t-10">2019江苏省考</view>
-    <view class="font22 color-bd m-t-10">2019.05.30  19:00-21:00</view>
+    <view class="font22 color-bd m-t-10">{{info.class_time}}</view>
   </view>
 </view>
 <view class="liveStudio">
   <view class="liveTitle flex_dom flex_item_between">
     <view class="font30 color-333">课时</view>
-    <view>
+    <view bindtap="changeSort">
       <image src="../../files/icon_paixu.png"></image>
-      <text class="font24 color-999">排序</text>
+      <text class="font24 color-999">{{sort==1?'升序':'降序'}}</text>
     </view>
   </view>
-  <view class="orderItem flex_dom">
-    <view class="font30 color-333">3、</view>
+  <view class="orderItem flex_dom" wx:for="{{list}}" wx:key="item" wx:for-index="index">
+    <view class="font30 color-333" wx:if="{{sort==1}}">{{index+1}}、</view>
+    <view class="font30 color-333" wx:if="{{sort==2}}">{{list.length-index}}、</view>
     <view class="flex_dom flex_item_mid flex_1">
       <view class="flex_1">
-        <view class="font30 color-333">资料分析统计术语</view>
+        <view class="font30 color-333 line2">{{item.title}}</view>
         <view class="font22 color-666 m-t-15">
           <text class="m-r-20">开课时间</text>
-          <text>2019.05.30  09:30-15:00</text>
+          <text>{{item.start_time}}</text>
         </view>
       </view>
       <button class="liveBtn1" hover-class="liveBtn1-hover">开始学习</button>
     </view>
   </view>
-  <view class="orderItem flex_dom">
+  <!-- <view class="orderItem flex_dom">
     <view class="font30 color-333">3、</view>
     <view class="flex_dom flex_item_mid flex_1">
       <view class="flex_1">
@@ -66,5 +68,5 @@
       </view>
       <button class="liveBtn3" hover-class="liveBtn3-hover">查看回放</button>
     </view>
-  </view>
+  </view> -->
 </view>

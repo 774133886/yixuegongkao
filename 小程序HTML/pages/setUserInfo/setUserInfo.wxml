@@ -1,0 +1,32 @@
+<!--pages/setUserInfo/setUserInfo.wxml-->
+<view>
+  <view class="h1">账户设置</view>
+  <view class="h2">您的账户需要完成以下设置才能正常使用！</view>
+  <form>
+    <view class="flex_dom flex_item_mid m-b-30">
+      <view class="font24 color-333 m-r-20">昵称</view>
+      <input bindinput="setName" class="curInput flex_1" placeholder="请输入您的昵称" placeholder-style="color: #999"></input>
+    </view>
+    <view class="flex_dom flex_item_mid m-b-30">
+      <view class="font24 color-333 m-r-20">省份</view>
+      <!-- <input class="curInput flex_1" placeholder="请选择您的省份" placeholder-style="color: #999"></input> -->
+      <picker class="flex_1" bindchange="bindPickerChange" value="{{province}}" range-key="name" range="{{provinceList}}">
+        <view class="picker curInput">
+          <view wx:if="{{province}}">{{provinceList[province].name}}</view>
+          <view wx:else class="color-999">请选择您的省份</view>
+        </view>
+      </picker>
+    </view>
+    <view class="flex_dom flex_item_mid">
+      <view class="font24 color-333 m-r-20">城市</view>
+      <picker class="flex_1" bindchange="bindPickerChange2" value="{{city}}" range-key="name" range="{{cityList}}">
+        <view class="picker curInput">
+          <view wx:if="{{city}}">{{cityList[city].name}}</view>
+          <view wx:else class="color-999">请选择您的城市</view>
+        </view>
+      </picker>
+      <!-- <input class="curInput flex_1" placeholder="请选择您的城市" placeholder-style="color: #999"></input> -->
+    </view>
+    <button bindtap="formSubmit" class="curBtn" hover-class="curBtn-hover">保存设置</button>
+  </form>
+</view>

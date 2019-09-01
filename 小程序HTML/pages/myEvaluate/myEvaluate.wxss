@@ -10,6 +10,7 @@
   width: 95rpx;
   height: 95rpx;
   margin-right: 25rpx;
+  border-radius: 50%;
 }
 .stars image{
   width: 26rpx;
