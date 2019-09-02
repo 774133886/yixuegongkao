@@ -80,8 +80,8 @@
       <navigator url="/pages/activities/activities" hover-class="none" class="center" hover-class="none" hover-stop-propagation="false">
         <view class='wid90rpx headPicArea relative'>
           <image class="listHead" src="../../files/img_user.png"></image>
-          <image class="listHead" src="../../files/img_user.png"></image>
-          <image class="listHead" src="../../files/img_user.png"></image>
+          <image class="listHead" src="../../files/head1.jpg"></image>
+          <image class="listHead" src="../../files/head2.jpg"></image>
         </view>
         <text class='font24 color-999 m-l-10'>正在参与</text>
         <image class="icon_right m-l-10" src="../../files/icon_xiangyou.png"></image>

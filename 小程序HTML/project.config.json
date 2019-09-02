@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 4,
 			"list": [
 				{
 					"id": 0,
@@ -61,6 +61,13 @@
 					"name": "pages/writeInfo/writeInfo",
 					"pathName": "pages/writeInfo/writeInfo",
 					"query": "c_id=50397500",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/chooseJob/chooseJob",
+					"pathName": "pages/chooseJob/chooseJob",
+					"query": "c_id=50445622",
 					"scene": null
 				}
 			]

@@ -46,3 +46,14 @@ page{
 .btn_gray{
   background:rgba(153,153,153,1) !important;
 }
+
+.topSearch{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+}
+.cList{
+  margin-top: 80rpx;
+}

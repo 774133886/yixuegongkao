@@ -1,0 +1,27 @@
+.payRn{
+  width:370rpx;
+  height:90rpx;
+  line-height: 90rpx;
+  background:rgba(30,158,243,1);
+  border-radius:45rpx;
+}
+.m-t-300{
+  margin-top: 300rpx !important;
+}
+.payBox{
+  height: auto;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: #fff;
+  z-index: 2;
+}
+.payBtn{
+  width:556rpx;
+  height:85rpx;
+  background:rgba(253,54,54,1);
+  border-radius:43rpx;
+  line-height: 85rpx;
+}

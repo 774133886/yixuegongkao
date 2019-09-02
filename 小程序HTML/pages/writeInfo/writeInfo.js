@@ -12,7 +12,8 @@ Page({
     enroll_fields:[],
     payShow: false,
     region: ['北京市', '北京市','朝阳区'],
-    payInfo:{}
+    payInfo:{},
+    phone:''
   },
   bindRegionChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -34,19 +35,63 @@ Page({
     if (this.data.btntext != "获取验证码") {
       return false;
     }
+   
+    var myreg = /^[1][0-9][0-9]{9}$/;
+    if (!myreg.test(this.data.phone)) {
+      wx.showToast({
+        title: '手机号格式错误',
+        icon: 'none',
+        duration: 2000
+      })
+      return false;
+    }
+    
+    var data = {};
+    data.mobile = this.data.phone;
     var _this = this
     var coden = 60    // 定义60秒的倒计时
-    var codeV = setInterval(function () {
-      _this.setData({    // _this这里的作用域不同了
-        btntext: (--coden) + 's'
-      })
-      if (coden == -1) {  // 清除setInterval倒计时，这里可以做很多操作，按钮变回原样等
-        clearInterval(codeV)
-        _this.setData({
-          btntext: '获取验证码'
+    // return false;
+    http.postReq('/api/member/login/send_weixin_app_bind_sms.htm', data, function (res) {
+      if (res.code == 0) {
+        wx.showToast({
+          title: res.message,
+          icon: 'none',
+          duration: 2000
         })
+        var codeV = setInterval(function () {
+          _this.setData({    // _this这里的作用域不同了
+            btntext: (--coden) + 's'
+          })
+          if (coden == -1) {  // 清除setInterval倒计时，这里可以做很多操作，按钮变回原样等
+            clearInterval(codeV)
+            _this.setData({
+              btntext: '获取验证码'
+            })
+          }
+        }, 1000)  //  1000是1秒
+
+        // if (time == 60) {
+        //   var countTime = setInterval(function () {
+        //     if (time == 1) {
+        //       time = 60;
+        //       clearInterval(countTime);
+        //     } else {
+        //       time--;
+        //     }
+        //     that.setData({
+        //       time: time
+        //     })
+        //   }, 1000)
+        // }
+
+      } else {
+
+        return false;
       }
-    }, 1000)  //  1000是1秒
+    })
+
+    
+    
   },
   formSubmit(e){
     var that = this; 
@@ -131,13 +176,20 @@ Page({
           setTimeout(()=>{
             wx.navigateBack();
           },1500)
-        }
+        } 
       } else {
         wx.showToast({
           title: res.message,
           icon: 'none',
           duration: 3000
         })
+        if(res.code==8){
+          setTimeout(() => {
+            wx.navigateTo({
+              url: '/pages/myOrder/myOrder',
+            })
+          }, 1500)
+        }
       }
     });
   },
@@ -150,7 +202,7 @@ Page({
     // data.orderid = '00221167';
 
     http.postReq('api/business/wx_pre_pay_order.htm', data, function (res) {
-      var data = res.result;
+      var data = res.data;
       that.wxPay(data, function () {
         wx.hideLoading();
         // wx.setStorageSync('subject', that.data.subject);
@@ -164,18 +216,18 @@ Page({
   wxPay: function (data, func) {
     var that = this;
     wx.requestPayment({
-      appId: data.appId,
+      appId: data.appid,
       timeStamp: String(data.timestamp),
-      nonceStr: data.nonceStr,
+      nonceStr: data.nonce_str,
       package: data.package,
-      signType: 'MD5',
-      paySign: data.paySign,
+      signType: data.sign_type,
+      paySign: data.sign,
       success(res) {
         wx.showToast({
           title: '支付成功',
           icon: 'none'
         });
-        that.setData({ mask: false });
+        that.setData({ payShow: false });
         // that.getlist();
         typeof func == 'function' && func();
       },
@@ -187,6 +239,11 @@ Page({
         })
       }
     })
+  },
+  payTab: function (e) {
+    var that = this;
+
+    this.setData({ payShow: !this.data.payShow })
   },
   /**
    * 生命周期函数--监听页面加载

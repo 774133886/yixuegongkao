@@ -8,37 +8,55 @@ Page({
    * 页面的初始数据
    */
   data: {
+    shText:'',
     nomore: false,
     page: 1,
     totalPage: 1,
     rows: 10,
     c_id:'',
     keyword:'',
-    jobList: [{ phone: '15928764528', add: "浙江省南湖监狱（湖州安吉）", type: '艺术', selected: false }, { phone: '15928764528', add: "浙江省南湖监狱（湖州安吉）", type: '艺术', selected: false }, { phone: '15928764528', add: "浙江省南湖监狱（湖州安吉）", type: '艺术', selected: false }, { phone: '15928764528', add: "浙江省南湖监狱（湖州安吉）", type: '艺术', selected: false }, { phone: '15928764528', add: "浙江省南湖监狱（湖州安吉）", type: '艺术', selected: false }]
+    jobList: [],
+    c_price:'',
+    idx:0,
+    id:''
   },
   // 单选
   selectThis(e){
     var idx = e.currentTarget.dataset.idx;
+    var c_price = e.currentTarget.dataset.price;
+    var id = e.currentTarget.dataset.id;
     var jobLists = this.data.jobList;
+    console.log(c_price)
     jobLists.forEach((i,v)=>{
       i.selected = false;
     })
     jobLists[idx].selected = true;
     this.setData({
-      jobList: jobLists
+      jobList: jobLists,
+      c_price: c_price,
+      id:id,
     })
   },
   nextStep(){
-    wx.navigateTo({
-      url: '/pages/writeInfo/writeInfo'
-    })
+    if (this.data.id){
+      wx.navigateTo({
+        url: '/pages/writeInfo/writeInfo?c_id='+this.data.id
+      })
+    }else{
+      wx.showToast({
+        title: '请先选择职位',
+        icon: 'none',
+        duration: 2000
+      })
+    }
+    
   },
   getlist(){
     // 
     let that = this;
     var data = {};
     data.courseid = that.data.c_id;
-    data.keyword = that.data.keyword;
+    data.keyword = that.data.shText;
     data.page = that.data.page;
     data.rows = that.data.rows;
     http.postReq('api/public/get_course_job_list.htm', data, function (res) {
@@ -74,6 +92,30 @@ Page({
       }
     })
   },
+  setp: function (e) {
+    console.log(e.detail.value);
+    this.setData({
+      shText: e.detail.value
+    })
+  },
+  goSearch() {
+    if (!this.data.shText) {
+      wx.showToast({
+        title: '请输入搜索内容',
+        icon: 'none',
+        duration: 2000
+      })
+    } else {
+      // var s_history = this.data.s_history;
+      // console.log(typeof s_history)
+      // s_history.unshift(this.data.shText);
+      // wx.setStorageSync('s_history', s_history);
+      this.setData({
+        page: 1,
+      })
+      this.getlist();
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -84,7 +126,7 @@ Page({
 
     });
     // 获取列表
-    this.getList();
+    this.getlist();
   },
 
   /**
@@ -126,7 +168,21 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    // 分页加载
+    var pages = this.data.page;
+    var total = this.data.totalPage;
+    console.log(pages, total)
+    if (pages >= total) {
+      this.setData({
+        nomore: true
+      });
+      return false;
+    }
+    pages++;
+    this.setData({
+      page: pages
+    });
+    this.getlist();
   },
 
   /**

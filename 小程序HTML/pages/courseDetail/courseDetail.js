@@ -139,9 +139,13 @@ Page({
     
   },
   writeInfo2: function (e) {
-    wx.navigateTo({
-      url: '/pages/chooseJob/chooseJob'
-    })
+    if (this.data.info.enroll_fields.length) {
+      wx.setStorageSync('enroll_fields', this.data.info.enroll_fields);
+      wx.navigateTo({
+        url: '/pages/chooseJob/chooseJob?c_id=' + this.data.c_id
+      })
+    }
+    
   },
   // 评价折叠
   changepj(){

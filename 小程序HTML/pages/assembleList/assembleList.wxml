@@ -26,14 +26,19 @@
         </view>
         <navigator url="/pages/assembling/assembling?g_id={{item.group_id}}" hover-class="none" class="ptBtn text-center">参团</navigator>
       </view>
+      <!--暂无数据  -->
+      <view wx:if='{{pjList.length==0}}' class='block text-center'>
+        <image style='margin-top:100rpx;' src='../../files/icon_nodata.png' class='no_dataImg' ></image>
+        <view class='color-999 m-t-20'>暂无数据~</view>
+      </view>
       <view wx:if="{{nomore}}" style="margin-top:30rpx;" class='nomore hgt50rpx around-center'>
         <text class='color-be font24'>没有更多了</text>
       </view>
     </view>
   </view>
   
-  <view class="hgt300rpx around-center">
+  <!-- <view class="hgt300rpx around-center">
     <button class="payBtn color-fff font40" hover-class="none">提交</button>
-  </view>
+  </view> -->
 </view>
 

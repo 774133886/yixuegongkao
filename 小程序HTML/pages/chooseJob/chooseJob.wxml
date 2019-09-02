@@ -1,25 +1,32 @@
 <!--pages/chooseJob/chooseJob.wxml-->
 <view class="Con bg-fff font30">
   <view class="l-pad40">
-    <view class='hgt80rpx between-center'>
+    <!-- <view class='hgt80rpx between-center'>
       <input type='text' class='font24 l-pad20 bg-search flex_1 hgt60rpx' placeholder='搜索课程名称/老师' placeholder-class='color-999'></input>
       <text class='ccolor-333 m-l-20'>搜索</text>
+    </view> -->
+    <view class='hgt80rpx l-pad40 topSearch between-center'>
+      <input type='text' class='font24 l-pad20 bg-search flex_1 hgt60rpx' bindinput='setp' value="{{shText}}" placeholder='请输入关键词搜索' placeholder-class='color-999'></input>
+      <text bindtap="goSearch" class='ccolor-333 m-l-20'>搜索</text>
     </view>
     <view class="cList">
-      <view wx:for="{{jobList}}" bindtap="selectThis" wx:key='{{item}}' data-idx="{{index}}" class="border-b-eee between-center hgt110rpx">
+      <view wx:for="{{jobList}}" bindtap="selectThis" data-id="{{item.course_id}}" data-price="{{item.price}}" wx:key='{{item}}' data-idx="{{index}}" class="border-b-eee between-center hgt110rpx">
         <view class="hgt07rpx font24 column-between flex_1">
-          <text class="color-333">{{item.phone}}</text>
-          <text class="color-333">{{item.add}}{{item.type}}</text>
+          <text class="color-333">{{item.name_1}}</text>
+          <text class="color-333">{{item.name_2}}</text>
         </view>
         <view wx:if="{{!item.selected}}" class="cjCircle wid37"></view>
         <image wx:if="{{item.selected}}" src='../../files/icon_pitch.png' class='wid37'></image>
       </view>
     </view>
+    <view wx:if='{{nomore}}' class='nomore hgt50rpx around-center'>
+      <text class='color-be font30'>没有更多了</text>
+    </view>
   </view>
   <view class='cdBot border-t-eee hgt100rpx between-center'>
     <view class='l-pad40'>
-      <text class='font36 color-FF1919'>¥2999.9</text>
-      <text class='color-999 font20 m-l-20 lineThrough'>¥2999.9</text>
+      <text wx:if="{{c_price}}" class='font36 color-FF1919'>¥{{c_price}}</text>
+      <!-- <text class='color-999 font20 m-l-20 lineThrough'>¥2999.9</text> -->
     </view>
     <button hover-class="none" bindtap="nextStep" class='bmBtn btn_blue font36'>下一步</button>
   </view>
