@@ -149,7 +149,7 @@ Page({
     data.client = 5;
     // data.orderid = '00221167';
 
-    http.postReq('/api/business/wx_pre_pay_order.htm', data, function (res) {
+    http.postReq('api/business/wx_pre_pay_order.htm', data, function (res) {
       var data = res.result;
       that.wxPay(data, function () {
         wx.hideLoading();
