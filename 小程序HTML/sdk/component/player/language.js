@@ -1,1 +1,0 @@
-exports.AUDIO_ONLY="音频",exports.INFO_ALERT_TITLE="提示",exports.INFO_ALERT_CONFIRM="知道了",exports.CONTINUE_PLAY="你上次播放到${time},是否继续?",exports.NO_NETWORK="无网络连接,请检查您的网络设置",exports.NO_WIFI="正在使用3G/4G网络,请注意您的流量";

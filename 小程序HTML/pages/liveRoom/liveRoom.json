@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "直播",
+  "usingComponents": {
+    "userPlayer": "/sdk/component/userPlayer/userPlayer",
+    "teacherPlayer": "/sdk/component/teacherPlayer/teacherPlayer"
+  },
+  "disableScroll": true
+}

@@ -1,1 +1,0 @@
-exports.REQUEST_PATH="https://www.baijiayun.com/vod/video/getPlayUrl",exports.REQUEST_PATHTEST="https://test-www.baijiayun.com/vod/video/getPlayUrl",exports.REQUEST_PATH_VERIFY_CODE="https://www.baijiayun.com/vod/video/getWxPlayUrl",exports.REQUEST_PATH_VERIFY_CODETEST="https://test-www.baijiayun.com/vod/video/getWxPlayUrl",exports.TOAST_DURATION=3e3;

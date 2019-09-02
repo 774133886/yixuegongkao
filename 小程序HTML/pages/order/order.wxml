@@ -5,27 +5,14 @@
     <view class="orderItem flex_dom flex_item_mid" wx:for="{{courseList}}" wx:key="item">
       <view class="flex_1" bindtap="goDetail" data-id="{{item.course_id}}">
         <view class="font30 color-333">{{item.name}}</view>
-        <!-- <view class="font24 color-333 m-t-15">【5月30日 19:00】 判断图形推理</view> -->
+        <view class="font24 color-333 m-t-15" wx:if="{{item.today_rooms&&item.today_rooms[0]}}">{{item.today_rooms[0].title}}</view>
         <view class="font24 color-bd m-t-15">{{item.class_time}}</view>
       </view>
-      <button class="orderBtn1" hover-class="orderBtn1-hover">观看回放</button>
-    </view>
-    <!-- <view class="orderItem flex_dom flex_item_mid">
-      <view class="flex_1" bindtap="goDetail">
-        <view class="font30 color-333">江苏判断推理特色专题</view>
-        <view class="font24 color-333 m-t-15">【5月30日 19:00】 判断图形推理</view>
-        <view class="font24 color-bd m-t-15">2019.05.30  19:00-21:00</view>
-      </view>
-      <button class="orderBtn2" hover-class="orderBtn2-hover">正在进行</button>
-    </view>
-    <view class="orderItem flex_dom flex_item_mid">
-      <view class="flex_1" bindtap="goDetail">
-        <view class="font30 color-333">江苏判断推理特色专题</view>
-        <view class="font24 color-333 m-t-15">【5月30日 19:00】 判断图形推理</view>
-        <view class="font24 color-bd m-t-15">2019.05.30  19:00-21:00</view>
-      </view>
-      <button class="orderBtn3" hover-class="orderBtn3-hover">暂停中</button>
-    </view> -->
+      <button class="orderBtn2" wx:if="{{item.today_rooms[0].status_text=='正在进行'||item.today_rooms[0].status_text=='进行中'}}" hover-class="orderBtn2-hover" bindtap="playLive" data-item="{{item}}">正在进行</button>
+      <button bindtap="playLive" data-item="{{item}}" class="orderBtn3" wx:if="{{item.today_rooms[0].status_text=='尚未开始'}}" hover-class="orderBtn3-hover">尚未开始</button>
+      <button bindtap="playLive" data-item="{{item}}" class="orderBtn3" wx:if="{{item.today_rooms[0].status_text=='即将开始'}}" hover-class="orderBtn3-hover">即将开始</button>
+      <button bindtap="playLive" data-item="{{item}}" class="orderBtn3" wx:if="{{item.today_rooms[0].status_text=='暂停中'}}" hover-class="orderBtn3-hover">暂停中</button>
+      <button bindtap="playLive" data-item="{{item}}" class="orderBtn1" wx:if="{{item.today_rooms[0].status_text=='观看回放'}}" hover-class="orderBtn1-hover">观看回放</button>
 
     <!-- 暂无 -->
     <view class="noData" wx:if="{{courseList.length==0}}">暂无今日课程，可以去复习一下~</view>
@@ -54,17 +41,18 @@
       </view>
     </view>
   </view>
+  </view>
 </view>
 
 <!-- 未登录 -->
-<!-- <view class="noLogin">
+<view class="noLogin" wx:if="{{!token}}">
   <image src="../../files/img_quesheng1.png"></image>
   <view class="font24 color-999">还没有登录哦，登录后可查看课程</view>
   <button class="noLoginBtn" hover-class="noLoginBtn-hover">去登录</button>
-</view> -->
+</view>
 <!-- 课程为空 -->
-<!-- <view class="noLogin">
+<view class="noLogin" wx:if="{{myList.length==0}}">
   <image src="../../files/img_quesheng2.png"></image>
   <view class="font24 color-999 m-t-15">记录是空的诶，您尚未购买课程</view>
   <button class="noLoginBtn" hover-class="noLoginBtn-hover">去逛逛</button>
-</view> -->
+</view>

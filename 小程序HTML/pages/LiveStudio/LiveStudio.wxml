@@ -1,5 +1,4 @@
 <!--pages/LiveStudio/LiveStudio.wxml-->
-<BJYPlayer wx:if="{{vid}}" id="bjy-player" vid="{{vid}}" autoplay="{{true}}"></BJYPlayer>
 <view class="flex_dom flex_item_mid liveOrder" bindtap="goDetail">
   <image class="liveImg" src="{{info.image_small}}"></image>
   <view class="flex_1">
@@ -27,46 +26,11 @@
           <text>{{item.start_time}}</text>
         </view>
       </view>
-      <button class="liveBtn1" hover-class="liveBtn1-hover" bindtap="playLive" data-id="{{item.room_id}}">开始学习</button>
+      <button class="liveBtn1" wx:if="{{item.status_text=='正在进行'||item.status_text=='进行中'}}" hover-class="liveBtn1-hover" bindtap="playLive" data-item="{{item}}">正在进行</button>
+      <button class="liveBtn2"bindtap="playLive" data-item="{{item}}" wx:if="{{item.status_text=='尚未开始'}}" hover-class="liveBtn2-hover">尚未开始</button>
+      <button class="liveBtn2"bindtap="playLive" data-item="{{item}}" wx:if="{{item.status_text=='即将开始'}}" hover-class="liveBtn2-hover">即将开始</button>
+      <button class="liveBtn2"bindtap="playLive" data-item="{{item}}" wx:if="{{item.status_text=='暂停中'}}" hover-class="liveBtn2-hover">暂停中</button>
+      <button class="liveBtn3"bindtap="playLive" data-item="{{item}}" wx:if="{{item.status_text=='观看回放'}}" hover-class="liveBtn3-hover">观看回放</button>
     </view>
   </view>
-  <!-- <view class="orderItem flex_dom">
-    <view class="font30 color-333">3、</view>
-    <view class="flex_dom flex_item_mid flex_1">
-      <view class="flex_1">
-        <view class="font30 color-333">资料分析结构阅读</view>
-        <view class="font22 color-666 m-t-15">
-          <text class="m-r-20">开课时间</text>
-          <text>2019.05.30  09:30-15:00</text>
-        </view>
-      </view>
-      <button class="liveBtn2" hover-class="liveBtn2-hover">尚未开始</button>
-    </view>
-  </view>
-  <view class="orderItem flex_dom">
-    <view class="font30 color-333">2、</view>
-    <view class="flex_dom flex_item_mid flex_1">
-      <view class="flex_1">
-        <view class="font30 color-333">判断图形推理</view>
-        <view class="font22 color-666 m-t-15">
-          <text class="m-r-20">开课时间</text>
-          <text>2019.05.30  09:30-15:00</text>
-        </view>
-      </view>
-      <button class="liveBtn3" hover-class="liveBtn3-hover">查看回放</button>
-    </view>
-  </view>
-  <view class="orderItem flex_dom">
-    <view class="font30 color-333">4、</view>
-    <view class="flex_dom flex_item_mid flex_1">
-      <view class="flex_1">
-        <view class="font30 color-333">江苏判断推理特色</view>
-        <view class="font22 color-666 m-t-15">
-          <text class="m-r-20">开课时间</text>
-          <text>2019.05.30  09:30-15:00</text>
-        </view>
-      </view>
-      <button class="liveBtn3" hover-class="liveBtn3-hover">查看回放</button>
-    </view>
-  </view> -->
 </view>

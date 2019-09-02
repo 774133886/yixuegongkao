@@ -1,6 +1,5 @@
 {
   "component": true,
   "usingComponents": {
-    "selection": "../selection/selection"
   }
 }

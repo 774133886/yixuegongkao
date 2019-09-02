@@ -1,23 +1,26 @@
 {
   "pages": [
     "pages/index/index",
-
     "pages/order/order",
+    "pages/liveRoom/liveRoom",
+    "pages/backRoom/backRoom",
+    "pages/orderDetail/orderDetail",
     "pages/myOrder/myOrder",
+    "pages/personal/personal",
+    "pages/login/login",
+
+    "pages/setUserInfo/setUserInfo",
     "pages/course/course",
     "pages/LiveStudio/LiveStudio",
     "pages/paySuccess/paySuccess",
     "pages/activities/activities",
-    "pages/personal/personal",
     "pages/follow/follow",
     "pages/aboutUs/aboutUs",
-    "pages/orderDetail/orderDetail",
     "pages/evaluation/evaluation",
     "pages/evaluatSuccess/evaluatSuccess",
     "pages/myEvaluate/myEvaluate",
     "pages/userInfo/userInfo",
     "pages/register/register",
-    "pages/login/login",
     "pages/forget/forget",
 
     "pages/mine/mine",
