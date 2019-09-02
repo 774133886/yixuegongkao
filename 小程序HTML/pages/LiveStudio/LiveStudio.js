@@ -2,8 +2,6 @@
 const util = require('../../utils/util.js')
 const http = require('../../http.js')
 const app = getApp();
-var bjy = require('../../sdk/BJYMain');
-var eventEmitter = bjy.eventEmitter;
 
 Page({
 
@@ -28,16 +26,17 @@ Page({
     this.getInfo();
     this.getList();
   },
-  playLive(e){
-    this.setData({
-      vid: e.currentTarget.dataset.id
-    });
-    this.customPlay();
-  },
-  // 自定义播放
-  customPlay: function () {
-    var me = this;
-    me.selectComponent('#bjy-player').customPlay();
+  playLive(e) {
+    var item = e.currentTarget.dataset.item;
+    if (item.status_text == "观看回放"){
+      wx.navigateTo({
+        url: '../backRoom/backRoom?id=' + item.room_id
+      })
+    } else if (item.can_open_live){
+      wx.navigateTo({
+        url: '../liveRoom/liveRoom?id=' + item.room_id
+      })
+    }
   },
   goDetail(){
     wx.navigateTo({

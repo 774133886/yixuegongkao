@@ -1,89 +1,25 @@
-<view class="wrapper" id="bjy-video-wrapper">
-    <video class="video"
-           wx:if="{{showVideo}}"
-           id="player"
-           custom-cache="{{false}}"
-           src="{{url}}"
-           initial-time="{{initialTime}}"
-           duration="{{duration}}"
-           controls="{{controls}}"
-           danmu-list="{{danmuList}}"
-           danmu-btn="{{danmuBtn}}"
-           enable-danmu="{{enableDanmu}}"
-           autoplay="{{autoplay}}"
-           loop="{{loop}}"
-           muted="{{muted}}"
-           page-gesture="{{pageGesture}}"
-           direction="{{direction}}"
-           show-progress="{{showProgress}}"
-           show-fullscreen-btn="{{showFullscreenBtn}}"
-           show-center-play-btn="{{showCenterPlayBtn && !customPlayerImg.url && !customPlayerBtn.content}}"
-           enable-progress-gesture="{{enableProgressGesture}}"
-           objectFit="{{objectFit}}"
-           poster="{{poster}}"
-           bindplay="onPlay"
-           bindpause="onPause"
-           bindended="onEnded"
-           bindtimeupdate="onTimeupdate"
-           bindfullscreenchange="onFullscreenchange"
-           bindwaiting="onWaiting"
-           binderror="onError"
-           bindtap="onVideoTap"
-    >
-        <cover-image class="audio-cover"
-                     style="height: {{audioCoverHeight}}px"
-                     src="/sdk/component/player/image/audioCover.png"
-                     bindtap="audioCoverTap"
-                     hidden="{{!(currentDefinition == 'audio')}}">
-        </cover-image>
-        <cover-image src="{{watermark.url}}"
-                     class="{{watermarkClass}} watermark"
-                     hidden="{{!watermark.pos}}">
-        </cover-image>
-        <cover-image src="{{customPlayerImg.url}}"
-                     class="custom-player-img"
-                     style="{{customPlayerImg.css}}"
-                     bindtap="customPlay"
-                     hidden="{{!showCustomPlayerImg || !customPlayerImg.url}}">
-        </cover-image>
-        
-        <cover-view hidden="{{!showCustomPlayerImg || !customPlayerBtn.content}}">
-            <button class="custom-player-btn" 
-                    style="{{customPlayerBtn.css}}"
-                    bindtap="customPlay">
-                    {{customPlayerBtn.content}}
-            </button>
+<view class="player-wrapper" bindlongtap="onPlayerLongTap">
+    <live-player id="player-{{userInfo.id}}" autoplay
+                 bindfullscreenchange="onFullscreenChange"
+                 bindnetstatus="onNetStatus" class="player"
+                 bindstatechange="onStateChange" binderror="onError"
+                 src="{{streamName}}" mode="live"
+                 style="width: 100%;height:100%;">
+        <cover-view class="cover-image-wrapper" hidden="{{!(!userInfo.videoOn || notSupported)}}">
         </cover-view>
-        <selection
-            options="{{rateOptions}}"
-            showOptions="{{showOptions}}"
-            current="{{currentRate}}"
-            my-class="rate-selection"
-            showSelection="{{showRateSelection}}"
-            bind:optionTap="onRateTap"
-        ></selection>
-    <selection
-            options="{{definitionOptions}}"
-            showOptions="{{showOptions}}"
-            current="{{currentDefinition}}"
-            my-class="definition-selection"
-            showSelection="{{showDefinitionSelection && definitionOptions.length >= 2}}"
-            bind:optionTap="onDefinitionTap"
-    ></selection>
-        <!--
-        <cover-view class="definition-selection"
-                    hidden="{{!showDefinitionSelection || definitionOptions.length < 2}}">
-            <selection
-                    options="{{definitionOptions}}"
-                    showOptions="{{showOptions}}"
-                    current="{{currentDefinition}}"
-                    bind:optionTap="onDefinitionTap"
-            ></selection>
+        <cover-image class="cover-image" hidden="{{!(!userInfo.videoOn || notSupported)}}"
+                     src="{{coverImage}}">
+        </cover-image>
+        <cover-view class="player-cover" bindtap="onPlayerTap">
         </cover-view>
-        -->
-    </video>
-    <image class="report-image"
-           binderror="onImageError"
-           src="{{reportUrl}}"
-    mode="scaleToFill"></image>
+        <cover-view class="player-name" hidden="{{!showName}}"
+                    style="font-size: {{styleInfo.fontSize}}px">
+            {{userInfo.name}}
+        </cover-view>
+        <cover-view class="player-loading"
+                    hidden="{{!(showLoading && userInfo.videoOn)}}"
+                    style="font-size:{{styleInfo.fontSize}}px" >
+            {{language.LOADING}}
+        </cover-view>
+    </live-player>
 </view>

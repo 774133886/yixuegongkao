@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "imageLayer": "/sdk/component/whiteboard/imageLayer/imageLayer",
+    "canvasLayer": "/sdk/component/whiteboard/canvasLayer/canvasLayer",
+    "pptSelection": "/sdk/component/whiteboard/pptSelection/pptSelection",
+    "maskCover": "/sdk/component/maskCover/maskCover"
+  }
+}

@@ -9,7 +9,8 @@ Page({
    */
   data: {
     courseList: [],
-    myList: []
+    myList: [],
+    token: wx.getStorageSync("token")||""
   },
 
   /**
@@ -17,6 +18,15 @@ Page({
    */
   onLoad: function (options) {
 
+  },
+  playLive(e){
+    var item = e.currentTarget.dataset.item;
+    // if (!item.today_rooms[0].can_open_live){
+    //   return;
+    // }
+    wx.navigateTo({
+      url: '../liveRoom/liveRoom?id=' + item.today_rooms[0].room_id
+    })
   },
   goLive(e){
     wx.navigateTo({

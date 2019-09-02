@@ -1,0 +1,23 @@
+<!--pages/liveRoom/liveRoom.wxml-->
+<view class="player-wrapper" hidden="{{hidePlayer}}">
+    <!-- <userPlayer
+            styleInfo="{{styleInfo}}"
+            excludeUsers="{{excludeUsers}}"
+            bind:setUserList="onSetUserList"
+            bind:userPlayerTap="onUserPlayerTap"
+            bind:AVStatusChange="onAVStatusChange"
+            bind:isSupportedChanged="onIsSupportedChanged"
+    >
+    </userPlayer> -->
+</view>
+<view class="player" hidden="{{hidePlayer}}">
+    <teacherPlayer
+                   fullScreen="{{fullScreen}}"
+            bind:teacherPlayerTap ="onPlayerTap"
+            bind:isSupportedChanged="onTeacherPlayerSupportedChanged"
+            bind:AVStatusChange='onTeacherPlayerAVStatusChange'
+    >
+    </teacherPlayer>
+</view>
+
+
