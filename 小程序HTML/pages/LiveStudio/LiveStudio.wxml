@@ -4,7 +4,7 @@
   <image class="liveImg" src="{{info.image_small}}"></image>
   <view class="flex_1">
     <view class="font30 color-333">{{info.name}}</view>
-    <view class="font22 color-333 m-t-10">2019江苏省考</view>
+    <!-- <view class="font22 color-333 m-t-10">2019江苏省考</view> -->
     <view class="font22 color-bd m-t-10">{{info.class_time}}</view>
   </view>
 </view>

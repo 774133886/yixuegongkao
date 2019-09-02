@@ -48,3 +48,9 @@ page{
   height: 100%;
   opacity: 0;
 }
+.gongzhonghao{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}

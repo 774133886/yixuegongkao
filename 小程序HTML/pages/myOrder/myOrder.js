@@ -62,11 +62,16 @@ Page({
     this.getList();
   },
   //取消订单
-  cancelOrder(e){
-    var id = e.currentTarget.dataset.id;
+  cancelOrder(id){
+    // var id = e.currentTarget.dataset.id;
+    var that = this;
     http.postReq("/api/business/cancle_order.htm", { orderid: id },function(res){
       if(res.code==0){
-
+        wx.showToast({
+          title: "取消订单成功",
+          icon: "none"
+        });
+        that.getList()
       }else{
         wx.showToast({
           title: res.message,
@@ -99,15 +104,15 @@ Page({
       this.getList()
     }
   },
-  getList(obj){
+  getList(obj,flag){
     var that = this;
     var data = {};
     data.status = this.data.tabs[this.data.active].status;
-    Object.assign(data,obj?obj:{});
+    Object.assign(data, obj ? obj : { page: 1 });
     http.postReq('/api/business/get_member_order_list.htm', data,function(res){
         if(res.code==0){
           var list = that.data.list;
-          if (list[that.data.active].length == 0) {
+          if (list[that.data.active].length == 0 || data.page==1) {
             list[that.data.active] = res.data.list;
           } else {
             list[that.data.active] = list[that.data.active].concat(res.data.list);
@@ -138,6 +143,9 @@ Page({
     switch(text){
       case '查看订单':
         that.goDetail(id);
+        break;
+      case '取消订单':
+        that.cancelOrder(id);
         break;
       default:
         break;
