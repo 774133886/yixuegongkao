@@ -75,7 +75,6 @@
   </view>
 </view>
 <component-pay wx:if="{{wxPay}}" is-pt="true" pay-info="{{payInfo}}" bindpayShow="payShow"></component-pay>
-<paybox /> 
 <!-- 支付 -->
 <!-- <view bindtap='payTab' class='markBox font30 {{payShow ? "" : "hide"}}'>
   <view catchtap='notThis' class='payBox l-pad40'>
