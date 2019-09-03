@@ -1,3 +1,6 @@
+const util = require('../../utils/util.js')
+const http = require('../../http.js')
+const app = getApp();
 Component({
   options: {
     multipleSlots: true // 在组件定义时的选项中启用多slot支持 
@@ -24,7 +27,11 @@ Component({
    * 可用于模版渲染 
    */
   data: { // 弹窗显示控制 
-    isShow: false
+    payInfo: {
+      type: Object,
+      value: {}
+    },
+    payShow: true
   },
   /**
    * 组件的方法列表 
@@ -79,13 +86,34 @@ Component({
             title: '支付失败',
             icon: 'none'
           })
+          setTimeout(() => {
+            wx.navigateTo({
+              url: '/pages/myOrder/myOrder',
+            })
+          }, 1500)
         }
       })
     },
     payTab: function (e) {
       var that = this;
-
-      this.setData({ payShow: !this.data.payShow })
+      wx.showModal({
+        // title: '提示',
+        content: '确定取消支付吗？',
+        success (res) {
+          if (res.confirm) {
+            that.setData({ payShow: !this.data.payShow })
+            setTimeout(() => {
+              wx.navigateTo({
+                url: '/pages/myOrder/myOrder',
+              })
+            }, 200)
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
+        }
+      })
+      // wx.to
+      
     },
     /** 
      * 内部私有方法建议以下划线开头 

@@ -1,3 +1,4 @@
+@import '../../app.wxss';
 .payRn{
   width:370rpx;
   height:90rpx;
