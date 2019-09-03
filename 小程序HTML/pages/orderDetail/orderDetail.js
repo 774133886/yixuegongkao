@@ -8,7 +8,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    info: {}
+    info: {},
+    payShow: false,
+    payInfo: {},
+    wxPay: false
   },
 
   /**
@@ -16,8 +19,7 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      // id: options.id
-      id: '00221162'
+      id: options.id
     });
     this.getInfo();
   },
@@ -47,6 +49,16 @@ Page({
     var type = e.currentTarget.dataset.type;
     var text = e.currentTarget.dataset.text;
     switch (text) {
+      case '立即支付':
+        var info = that.data.info;
+        var payInfo = {};
+        payInfo.order_id = info.order_id;
+        payInfo.price = info.pay_price;
+        that.setData({
+          wxPay: true,
+          payInfo: payInfo
+        });
+        break;
       case '开始学习':
         var info = that.data.info;
         if (info.course && info.course.id){

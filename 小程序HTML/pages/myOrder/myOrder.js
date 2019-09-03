@@ -11,7 +11,10 @@ Page({
     active: 0,
     list: [],
     pages: [],
-    tabs: []
+    tabs: [],
+    payShow: false,
+    payInfo: {},
+    wxPay: false
   },
 
   /**
@@ -19,6 +22,11 @@ Page({
    */
   onLoad: function (options) {
     
+  },
+  // 支付
+  payShow(e) {
+    console.log(e.detail)
+    this.setData({ wxPay: e.detail })
   },
   // 获取tabs
   getTabs(){
@@ -96,6 +104,11 @@ Page({
       url: '../orderDetail/orderDetail?id='+id,
     })
   },
+  goDetail2(e){
+    wx.navigateTo({
+      url: '../orderDetail/orderDetail?id=' + e.currentTarget.dataset.id,
+    })
+  },
   swiperChange(e){
     this.setData({
       active: e.detail.current
@@ -142,7 +155,17 @@ Page({
     var item = e.currentTarget.dataset.item;
     var type = e.currentTarget.dataset.type;
     var text = e.currentTarget.dataset.text;
-    switch(text){
+    debugger
+    switch (text) {
+      case '立即支付':
+        var payInfo = {};
+        payInfo.order_id = item.order_id;
+        payInfo.price = item.pay_price;
+        that.setData({
+          wxPay: true,
+          payInfo: payInfo
+        });
+        break;
       case '查看订单':
         that.goDetail(id);
         break;

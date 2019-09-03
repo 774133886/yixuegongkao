@@ -14,7 +14,7 @@
         <scroll-view scroll-y="{{true}}" class="flex_1 orderCtt" bindscrolltolower="bindscrolltolower">
           <view class="orderList">
             <view wx:for="{{list[active]}}" wx:key="item" class="orderItem">
-              <view class="orderTop flex_dom" bindtap="goDetail" data-type="3">
+              <view class="orderTop flex_dom" bindtap="goDetail2" data-id="{{item.order_id}}">
                 <image src="../../files/img_kecheng.png"></image>
                 <view class="orderInfo flex_1">
                   <view class="orderName line2 font30 color-333">{{item.title}}</view>
@@ -69,3 +69,5 @@
     </swiper>
   </view>
 </view>
+
+<component-pay wx:if="{{wxPay}}" pay-info="{{payInfo}}" bindpayShow="payShow"></component-pay>
