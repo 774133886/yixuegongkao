@@ -10,10 +10,14 @@ Component({
    * 用于组件自定义设置 
   */
   properties: {
-    // 弹窗标题 
-    title: { // 属性名 
-      type: String, // 类型（必填），目前接受的类型包括：String, Number, Boolean, Object, Array, null（表示任意类型） 
-      value: '标题' // 属性初始值（可选），如果未指定则会根据类型选择一个 
+  
+    payInfo: {
+      type: Object,
+      value: {}
+    },
+    isPt: {
+      type: Boolean,
+      value: false
     },
     // 弹窗内容 
     content: { type: String, value: '弹窗内容' },
@@ -27,10 +31,7 @@ Component({
    * 可用于模版渲染 
    */
   data: { // 弹窗显示控制 
-    payInfo: {
-      type: Object,
-      value: {}
-    },
+    
     payShow: true
   },
   /**
@@ -55,9 +56,14 @@ Component({
         that.wxPay(data, function () {
           wx.hideLoading();
           // wx.setStorageSync('subject', that.data.subject);
-          wx.navigateTo({
-            url: '/pages/paySuccess/paySuccess'
-          })
+          if (that.data.isPt){
+            wx.navigateBack()
+          }else{
+            wx.navigateTo({
+              url: '/pages/paySuccess/paySuccess'
+            })
+          }
+          
         });
       })
     },
@@ -76,6 +82,7 @@ Component({
             title: '支付成功',
             icon: 'none'
           });
+          
           that.setData({ payShow: false });
           // that.getlist();
           typeof func == 'function' && func();
@@ -101,12 +108,13 @@ Component({
         content: '确定取消支付吗？',
         success (res) {
           if (res.confirm) {
-            that.setData({ payShow: !this.data.payShow })
+            that.triggerEvent('payShow',false);
+            // that.setData({ payShow: !this.data.payShow })
             setTimeout(() => {
               wx.navigateTo({
                 url: '/pages/myOrder/myOrder',
               })
-            }, 200)
+            }, 1000)
           } else if (res.cancel) {
             console.log('用户点击取消')
           }

@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
+			"current": 5,
 			"list": [
 				{
 					"id": 0,
@@ -68,6 +68,13 @@
 					"name": "pages/chooseJob/chooseJob",
 					"pathName": "pages/chooseJob/chooseJob",
 					"query": "c_id=50445622",
+					"scene": null
+				},
+				{
+					"id": 5,
+					"name": "pages/assembling/assembling",
+					"pathName": "pages/assembling/assembling",
+					"query": "p_id=550580447711305&time=4926507",
 					"scene": null
 				}
 			]
