@@ -57,7 +57,10 @@ Component({
           wx.hideLoading();
           // wx.setStorageSync('subject', that.data.subject);
           if (that.data.isPt){
-            wx.navigateBack()
+            // 隐藏支付弹窗
+            that.triggerEvent('payShow', false);
+            // 更改拼团state
+            that.triggerEvent('changeState', 1);
           }else{
             wx.navigateTo({
               url: '/pages/paySuccess/paySuccess'

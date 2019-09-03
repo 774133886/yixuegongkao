@@ -99,7 +99,7 @@
           </view>
         </view>
         <view class="hgt100rpx">
-          <navigator url="/pages/assembling/assembling?g_id={{item.group_id}}?&p_id={{p_id}}&time={{ptTime}}" hover-class="none" class="ptBtn text-center">参团</navigator>
+          <navigator url="/pages/assembling/assembling?g_id={{item.group_id}}&p_id={{p_id}}" hover-class="none" class="ptBtn text-center">参团</navigator>
         </view>
       </view>
 
@@ -221,7 +221,7 @@
       <view class="font20 lh1">¥{{ptInfo.original_price}}</view>
       <view class="font24 lh1">单独购买</view>
     </view>
-    <navigator url="/pages/assembling/assembling?p_id={{p_id}}&time={{ptTime}}" hover-class="none" class="wid50 bg-FF3636 color-fff column-center-b p-v-10 hgt70rpx">
+    <navigator url="/pages/assembling/assembling?p_id={{p_id}}" hover-class="none" class="wid50 bg-FF3636 color-fff column-center-b p-v-10 hgt70rpx">
       <view class="font20 lh1">¥{{ptInfo.promoter_price}}</view>
       <view class="font24 lh1">邀请好友参团</view>
     </navigator>
