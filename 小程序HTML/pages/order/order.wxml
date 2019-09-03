@@ -14,9 +14,9 @@
       <button bindtap="playLive" data-item="{{item}}" class="orderBtn3" wx:if="{{item.today_rooms[0].status_text=='暂停中'}}" hover-class="orderBtn3-hover">暂停中</button>
       <button bindtap="playLive" data-item="{{item}}" class="orderBtn1" wx:if="{{item.today_rooms[0].status_text=='观看回放'}}" hover-class="orderBtn1-hover">观看回放</button>
 
-    <!-- 暂无 -->
-    <view class="noData" wx:if="{{courseList.length==0}}">暂无今日课程，可以去复习一下~</view>
   </view>
+  <!-- 暂无 -->
+  <view class="noData" wx:if="{{courseList.length==0}}">暂无今日课程，可以去复习一下~</view>
   
   <view class="orderTitle">所有课程</view>
   <view class="orderList">

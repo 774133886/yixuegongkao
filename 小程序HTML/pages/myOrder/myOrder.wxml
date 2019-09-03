@@ -39,7 +39,7 @@
                       <view wx:if="{{item.action=='detali'}}">拼团失败，自动退款</view>
                     </view>
                     <view>
-                      <button bindtap="orderButtonClick" data-type="{{button.action}}" data-id="{{item.order_id}}" data-text="{{button.text}}"
+                      <button bindtap="orderButtonClick" data-item="{{item}}" data-type="{{button.action}}" data-id="{{item.order_id}}" data-text="{{button.text}}"
                       wx:for="{{item.actions}}" 
                       wx:key="button" 
                       wx:for-item="button"

@@ -436,15 +436,26 @@ Page({
       if (res.code == 0) {
         // 回放SDK初始化，在此写入需要的回放数据
         var param = res.data.parameters;
-        playback.init({
-          apiOrigin: param.apiOrigin, // 与百家云约定的自定义域名，如'http://custom.at.baijiauyn.com', 若未约定则可以不传
-          token: param.token.token,
-          'class': {
-            id: param["class"].id,
-            sessionId: param.token.video_id,
-          },
-          user: param.user
-        }).then(data => {
+        // console.log({
+        //   apiOrigin: param.apiOrigin, 
+        //   token: param.token.token,
+        //   'class': {
+        //     id: param["class"].id,
+        //     sessionId: param.token.video_id,
+        //   },
+        //   user: param.user
+        // });
+        playback.init(param
+        //   {
+        //   apiOrigin: param.apiOrigin, // 与百家云约定的自定义域名，如'http://custom.at.baijiauyn.com', 若未约定则可以不传
+        //   token: param.token.token,
+        //   'class': {
+        //     id: param["class"].id,
+        //     sessionId: param.token.video_id,
+        //   },
+        //   user: param.user
+        // }
+        ).then(data => {
           if (!data) {
             return;
           }

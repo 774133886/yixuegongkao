@@ -18,7 +18,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getTabs()
+    
   },
   // 获取tabs
   getTabs(){
@@ -65,6 +65,7 @@ Page({
   cancelOrder(id){
     // var id = e.currentTarget.dataset.id;
     var that = this;
+    
     http.postReq("/api/business/cancle_order.htm", { orderid: id },function(res){
       if(res.code==0){
         wx.showToast({
@@ -138,6 +139,7 @@ Page({
   orderButtonClick(e) {
     var that = this;
     var id = e.currentTarget.dataset.id;
+    var item = e.currentTarget.dataset.item;
     var type = e.currentTarget.dataset.type;
     var text = e.currentTarget.dataset.text;
     switch(text){
@@ -145,7 +147,28 @@ Page({
         that.goDetail(id);
         break;
       case '取消订单':
-        that.cancelOrder(id);
+        wx.showModal({
+          title: '提示',
+          content: '确认要取消该订单吗？',
+          success(res) {
+            if (res.confirm) {
+              that.cancelOrder(id);
+            }
+          }
+        })
+        break;
+      case '开始学习':
+        wx.navigateTo({
+          url: '../LiveStudio/LiveStudio?id='+item.course_id,
+        })
+        break;
+      case '联系客服':
+        var info = wx.getStorageSync("deployInfo");
+        if (info && info.info.service_phone){
+          wx.makePhoneCall({
+            phoneNumber: info.service_phone,
+          })
+        }
         break;
       default:
         break;
@@ -162,7 +185,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+    this.getTabs()
   },
 
   /**

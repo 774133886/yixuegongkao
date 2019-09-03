@@ -47,8 +47,21 @@ Page({
     var type = e.currentTarget.dataset.type;
     var text = e.currentTarget.dataset.text;
     switch (text) {
-      case '查看订单':
-        that.goDetail(id);
+      case '开始学习':
+        var info = that.data.info;
+        if (info.course && info.course.id){
+          wx.navigateTo({
+            url: '../LiveStudio/LiveStudio?id=' + info.course.id,
+          })
+        }
+        break;
+      case '联系客服':
+        var info = wx.getStorageSync("deployInfo");
+        if (info && info.info.service_phone) {
+          wx.makePhoneCall({
+            phoneNumber: info.service_phone,
+          })
+        }
         break;
       default:
         break;
