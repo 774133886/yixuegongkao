@@ -428,27 +428,20 @@ Page({
    */
   onLoad: function (options) {
     var id = options.id;
+    var that = this;
     // 设置屏幕不锁屏
     wx.setKeepScreenOn({
       keepScreenOn: true
     });
-    http.postReq("/api/business/get_live_data_wxapp.htm", { roomid: id }, function (res) {
+    http.postReq("/api/business/live/get_live_data_wxapp.htm", { roomid: id }, function (res) {
       if (res.code == 0) {
         // 回放SDK初始化，在此写入需要的回放数据
         var param = res.data.parameters;
-        playback.init({
-          apiOrigin: param.apiOrigin, // 与百家云约定的自定义域名，如'http://custom.at.baijiauyn.com', 若未约定则可以不传
-          token: param.token.token,
-          'class': {
-            id: param["class"].id,
-            sessionId: param.token.video_id,
-          },
-          user: param.user
-        }).then(data => {
+        playback.init(param).then(data => {
           if (!data) {
             return;
           }
-          this.initData(data);
+          that.initData(data);
         });
       } else {
         wx.showToast({
