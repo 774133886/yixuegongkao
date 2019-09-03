@@ -24,7 +24,7 @@
             <text class="color-FF3636">仅剩 {{filter.toTime2(item.last_time)}}</text> 结束         
           </view>
         </view>
-        <navigator url="/pages/assembling/assembling?g_id={{item.group_id}}" hover-class="none" class="ptBtn text-center">参团</navigator>
+        <navigator url="/pages/assembling/assembling?g_id={{item.group_id}}&time={{item.last_time}}" hover-class="none" class="ptBtn text-center">参团</navigator>
       </view>
       <!--暂无数据  -->
       <view wx:if='{{pjList.length==0}}' class='block text-center'>

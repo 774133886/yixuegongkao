@@ -14,7 +14,8 @@
         <view class='color-333 font36'>{{info.title}}</view>
         <view class='between-center'>
           <view class=''>
-            <text class='font36 color-FF1919'>¥{{info.price}}</text>
+            <text wx:if="{{openState==2}}" class='font36 color-FF1919'>¥{{info.price}}</text>
+            <text wx:else class='font36 color-FF1919'>¥{{info.promoter_price}}</text>
             <text class='color-999 font20 m-l-15 lineThrough'>¥{{info.original_price}}</text>
           </view>  
           <!-- <text class='color-999 font20 '>已购</text> -->
@@ -23,7 +24,7 @@
       </view>
     </view>
     <view class="l-pad40">
-      <view class="border-b-eee color-333 center p-v-20">
+      <view wx:if="{{openState==2}}" class="border-b-eee color-333 center p-v-20">
         <view class="hgt130rpx column-center-b">
           <image class="wid80rpx hgt80rpx radius_50" src="../../files/img_user2.png" mode="aspectFill" lazy-load="false" ></image>
           <text class="font24">团长</text>
@@ -41,12 +42,12 @@
         <view>2.正常参团的拼团课程，在倒计时快结束时，自动补齐。</view>
         <view>3.团发起人为团长，参团的人为团员。</view>              
       </view> 
-      <view class="text-center p-t-20 p-b-30">
+      <view wx:if="{{openState==1}}" class="text-center p-t-20 p-b-30">
         <view class="color-049BFE m-b-30">开团成功</view>
         <image class="wid110rpx hgt110rpx radius_50" src="../../files/img_user2.png" mode="aspectFill" lazy-load="false" ></image>
         <view class="font30 color-333">团长</view>
       </view>
-      <view class="m-b-30">
+      <view  wx:if="{{openState==1}}" class="m-b-30">
         <view class="m-t-100">
           <view class="font24 color-999 text-center">还差2人即可成团</view>
           <view class="hgt110rpx around-center">
@@ -65,15 +66,17 @@
   
   <view class='cdBot border-t-eee hgt100rpx between-center'>
     <view class='l-pad40'>
-      <text class='font36 color-FF1919'>¥{{info.price}}</text>
+      <text wx:if="{{openState==2}}" class='font36 color-FF1919'>¥{{info.price}}</text>
+      <text wx:else class='font36 color-FF1919'>¥{{info.promoter_price}}</text>
       <text class='color-999 font20 m-l-20 lineThrough'>¥{{info.original_price}}</text>
     </view>
-    <button bindtap="payTab" wx:if="{{info_con.can_join}}" hover-class="none" class='bmBtn font36'>立即拼团</button>
-    <!-- <button  bindtap="payTab" hover-class="none" class='bmBtn font36'>立即开团</button> -->
+    <button wx:if="{{openState==2&&info_con.can_join}}" bindtap="payTab" wx:if="{{}}" hover-class="none" class='bmBtn font36'>立即拼团</button>
+    <button  wx:if="{{openState==0}}" bindtap="openTab" hover-class="none" class='bmBtn font36'>立即开团</button>
   </view>
 </view>
+<component-pay wx:if="{{wxPay}}" is-pt="true" pay-info="{{payInfo}}" bindpayShow="payShow"></component-pay>
 <!-- 支付 -->
-<view bindtap='payTab' class='markBox font30 {{payShow ? "" : "hide"}}'>
+<!-- <view bindtap='payTab' class='markBox font30 {{payShow ? "" : "hide"}}'>
   <view catchtap='notThis' class='payBox l-pad40'>
     <view class='hgt100rpx center-end'>
       <text catchtap='payTab' class='color-999 font330'>取消</text>
@@ -99,7 +102,7 @@
       </view>
     </view>
   </view>
-</view>
+</view> -->
 <!-- 分享 -->
 <view bindtap='shareTab' class='markBox font30 {{shareShow ? "" : "hide"}}'>
   <view catchtap='notThis' class='shareBox l-pad40'>

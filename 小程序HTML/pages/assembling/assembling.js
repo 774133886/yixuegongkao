@@ -17,12 +17,17 @@ Page({
     sServiceTel: '15928773528',
     p_id:'',
     c_id:'',
-    ptTime: ''
+    ptTime: '',
+    g_id:'',
+    openState:0,//是否已经开团
+    payInfo:{},
+    wxPay:false
   },
 
   // 支付
-  payTab: function (e) {
-    this.setData({ payShow: !this.data.payShow })
+  payShow(e) {
+    console.log(e.detail)
+    this.setData({ wxPay: e.detail })
   },
   //分享遮罩
   shareTab: function (e) {
@@ -63,19 +68,105 @@ Page({
       }
     })
   },
+  // 获取开团详情
+  getktInfo() {
+    let that = this;
+    var data = {};
+
+    data.id = this.data.p_id;
+    http.postReq('api/pintuan/public/get_product_detail.htm', data, function (res) {
+      if (res.code == 0) {
+        that.setData({
+          info: res.data,
+          promotions: res.data.course_detail.promotions[0],
+          // pjList: res.data.course_detail.comments,
+          // pjscore: Math.floor(res.data.course_detail.score),
+          ptInfo: res.data.course_detail,
+          // c_id: res.data.course_detail.course_id,//重置c_id
+        })
+        var content = res.data.course_detail.intro;
+        WxParse.wxParse('article', 'html', content, that, 5);
+      } else {
+        wx.showToast({
+          title: res.message,
+          icon: 'none',
+          duration: 2000
+        })
+      }
+    })
+
+    
+  },
+  // 开团
+  openTab(){
+    let that = this;
+    if (this.data.ptInfo.enroll_fields.length){
+      wx.setStorageSync('enroll_fields', this.data.ptInfo.enroll_fields.length);
+      wx.navigateTo({
+        url: '/pages/writeInfo/writeInfo?c_id=' + this.data.ptInfo.course_id
+      })
+    } else {
+      console.log("支付");
+      var data = {};
+      data.productId = this.data.p_id;
+      data.client = 5;
+
+      http.postReq('/api/business/pintuan/create_group.htm', data, function (res) {
+        if (res.code == 0) {
+          
+          wx.showToast({
+            title: res.data.message,
+            icon: 'none',
+            duration: 3000,
+          })
+          // 支付
+          if (res.data.status = 2) {
+            that.setData({
+              // payShow: !that.data.payShow,
+              wxPay: !that.data.wxPay,
+              payInfo: res.data
+            })
+          } else if (res.data.status == 1 || res.data.status == 6) {
+            setTimeout(() => {
+              wx.navigateBack();
+            }, 1500)
+          }
+        } else {
+          wx.showToast({
+            title: res.message,
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     var that = this;
-    if (options.g_id) {
+
+    this.setData({
+      g_id: options.g_id,
+      ptTime: options.time,
+      p_id: options.p_id,
+    })
+    console.log(that.data.p_id)
+    if (that.data.g_id){
+      // 拼团
+      that.getInfo();
       this.setData({
-        g_id: options.g_id,
-        // ptTime: options.time,
-        ptTime: 5126413,
+        openState: 2,
+      })
+    }else{
+      //开团
+      that.getktInfo();
+      this.setData({
+        openState: 0,
       })
     }
-    that.getInfo();
+    
     var ptTime = that.data.ptTime;
     if (ptTime > 0) {
       var countTime = setInterval(function () {
