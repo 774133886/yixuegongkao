@@ -74,7 +74,7 @@
     <button  wx:if="{{openState==0}}" bindtap="openTab" hover-class="none" class='bmBtn font36'>立即开团</button>
   </view>
 </view>
-<component-pay wx:if="{{wxPay}}" is-pt="true" pay-info="{{payInfo}}" bindpayShow="payShow" bindchangeState="changeState"></component-pay>
+<component-pay wx:if="{{wxPay}}" is-pt="true" pay-info="{{payInfo}}" bindpayShow="payShow" bindchangeState="changeState"  bindafterSuc="afterSuc"></component-pay>
 <!-- 支付 -->
 <!-- <view bindtap='payTab' class='markBox font30 {{payShow ? "" : "hide"}}'>
   <view catchtap='notThis' class='payBox l-pad40'>

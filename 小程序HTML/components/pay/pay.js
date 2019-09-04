@@ -62,9 +62,10 @@ Component({
             // 更改拼团state
             that.triggerEvent('changeState', 1);
           }else{
-            wx.navigateTo({
-              url: '/pages/paySuccess/paySuccess'
-            })
+            that.triggerEvent('afterSuc', 1);
+            // wx.navigateTo({
+            //   url: '/pages/paySuccess/paySuccess'
+            // })
           }
           
         });

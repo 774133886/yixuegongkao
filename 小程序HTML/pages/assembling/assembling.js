@@ -33,6 +33,11 @@ Page({
     console.log(e.detail)
     this.setData({ openState: 1 })
   },
+  // 支付成功后
+  afterSuc(){
+    console.log(e.detail)
+ 
+  },
 
   // 拼团
   payTab(){
