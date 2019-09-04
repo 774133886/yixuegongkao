@@ -1,22 +1,40 @@
 // pages/paySuccess/paySuccess.js
+const util = require('../../utils/util.js')
+const http = require('../../http.js')
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    info: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getInfo(options.id)
   },
   goOrderDetail(){
-    wx.navigateTo({
-      url: '../orderDetail/orderDetail'
+    wx.redirectTo({
+      url: '../orderDetail/orderDetail?id='+info.order_id
+    })
+  },
+  getInfo(id){
+    var that = this;
+    http.postReq("/api/business/get_order_detail.htm", { orderid: id }, function (res) {
+      if (res.code == 0) {
+        that.setData({
+          info: res.data
+        })
+      } else {
+        wx.showToast({
+          title: res.message,
+          icon: 'none'
+        })
+      }
     })
   },
   /**

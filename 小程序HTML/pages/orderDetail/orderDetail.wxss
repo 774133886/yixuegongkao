@@ -55,6 +55,7 @@ page{
 .user_img{
   width: 80rpx;
   height: 80rpx;
+  border-radius: 50%;
 }
 .text1{
   margin: 35rpx;

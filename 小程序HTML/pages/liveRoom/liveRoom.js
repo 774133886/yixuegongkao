@@ -11,6 +11,11 @@ Page({
    */
   data: {
     excludeUsers: [],
+
+    hidePlayer1: false,
+    hidePlayer2: false,
+    fullScreen: true,
+
     styleInfo: {
       playerWidth: 200,
       playerHeight: 150,
@@ -42,9 +47,24 @@ Page({
 
   getInfo(id){
     var that  = this;
-    http.postReq("/api/business/get_live_data_wxapp.htm",{roomid:id},function(res){
+    http.postReq("/api/business/live/get_live_data_wxapp.htm",{roomid:id},function(res){
       if(res.code==0){
-        bjy.init(res.data.parameters)
+        if (res.data.parameters && res.data.parameters.user){
+          debugger;
+          if (res.data.parameters.user.type == 0 || res.data.parameters.user.type == 2){//学生、管理员
+            that.setData({
+              hidePlayer1: true,
+              hidePlayer2: false
+            });
+          } else if (res.data.parameters.user.type == 1){//老师
+            that.setData({
+              hidePlayer1: false,
+              hidePlayer2: true
+            });
+          }
+          bjy.init(res.data.parameters)
+        }
+        
       }else{
         wx.showToast({
           title: res.message,
@@ -52,11 +72,6 @@ Page({
         })
       }
     })
-  },
-  init(str) {
-    bjy.init({
-      
-    });
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

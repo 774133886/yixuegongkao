@@ -1,7 +1,10 @@
 <!--pages/orderDetail/orderDetail.wxml-->
+<import src="../../wxParse/wxParse.wxml"/>
 <view class="orderDetail font30 color-333">
   <view>
-    <!-- <view class="orderTs color-666" wx:if="{{info.tip_message}}">{{info.tip_message}}</view> -->
+    <view class="orderTs color-666" wx:if="{{info.tip_message}}">
+      <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+    </view>
     <view class="orderGroup flex_dom color-999">
       <view>订单编号</view>
       <view class="flex_1 orderNum">{{info.order_id}}</view>
@@ -58,18 +61,21 @@
     </view>
     <view class="orderGroup2" wx:if="{{info.is_pintuan}}">
       <view class="groupLabel">拼团信息</view>
-      <view class="m-t-30 flex_dom flex_item_mid">
-        <image class="user_img" src="../../files/img_user.png"></image>
-        <view class="text1">与</view>
-        <image class="user_img" src="../../files/img_user.png"></image>
-        <view class="text2">拼团成功</view>
+      <view class="m-t-30 flex_dom flex_item_mid" wx:if="{{info.pintuan&&info.pintuan.members}}">
+        <image wx:for="{{info.pintuan.members}}" :wx:key="item" class="user_img" src="{{item.member_portrait}}"></image>
+        <!-- <view class="text1">与</view> -->
+        <!-- <image class="user_img" src="../../files/img_user.png"></image> -->
+        <view class="text2" wx:if="{{info.pintuan.group.status == 1}}">待开团</view>
+        <view class="text2" wx:if="{{info.pintuan.group.status == 2}}">拼团中</view>
+        <view class="text2" wx:if="{{info.pintuan.group.status == 3}}">拼团成功</view>
+        <view class="text2" wx:if="{{info.pintuan.group.status == 4}}">拼团失败</view>
       </view>
     </view>
   </view>
 
-  <button wx:for="{{info.actions}}" wx:key="item" bindtap="orderButtonClick" data-type="{{button.action}}" data-text="{{button.text}}"
+  <button wx:for="{{info.actions}}" wx:key="item" wx:for-item="button" bindtap="orderButtonClick" data-type="{{button.action}}" data-text="{{button.text}}"
   class="blueButton" hover-class="blueButton-hover">
-  {{item.text}}
+  {{button.text}}
   </button>
   <!-- <button wx:if="{{state==0}}" class="blueButton" hover-class="blueButton-hover">评价课程</button>
   <button wx:if="{{state==1 || state==2}}" class="blueButton" hover-class="blueButton-hover" open-type="contact">联系客服</button>

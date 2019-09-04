@@ -1,6 +1,6 @@
 <!--pages/liveRoom/liveRoom.wxml-->
-<view class="player-wrapper" hidden="{{hidePlayer}}">
-    <!-- <userPlayer
+<view class="player-wrapper" hidden="{{hidePlayer1}}">
+    <userPlayer
             styleInfo="{{styleInfo}}"
             excludeUsers="{{excludeUsers}}"
             bind:setUserList="onSetUserList"
@@ -8,11 +8,11 @@
             bind:AVStatusChange="onAVStatusChange"
             bind:isSupportedChanged="onIsSupportedChanged"
     >
-    </userPlayer> -->
+    </userPlayer>
 </view>
-<view class="player" hidden="{{hidePlayer}}">
+<view class="player" hidden="{{hidePlayer2}}">
     <teacherPlayer
-                   fullScreen="{{fullScreen}}"
+            fullScreen="{{fullScreen}}"
             bind:teacherPlayerTap ="onPlayerTap"
             bind:isSupportedChanged="onTeacherPlayerSupportedChanged"
             bind:AVStatusChange='onTeacherPlayerAVStatusChange'

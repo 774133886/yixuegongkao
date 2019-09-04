@@ -2,6 +2,7 @@
 const util = require('../../utils/util.js')
 const http = require('../../http.js')
 const app = getApp();
+var WxParse = require('../../wxParse/wxParse.js')
 Page({
 
   /**
@@ -31,7 +32,9 @@ Page({
   getInfo(){
     var that = this;
     http.postReq("/api/business/get_order_detail.htm", { orderid: this.data.id},function(res){
-      if(res.code==0){
+      if (res.code == 0) {
+        var content = res.data.tip_message;
+        WxParse.wxParse('article', 'html', content, that, 5);
         that.setData({
           info: res.data
         })
@@ -44,7 +47,7 @@ Page({
     })
   },
   //点击按钮
-  orderButtonClick() {
+  orderButtonClick(e) {
     var that = this;
     var type = e.currentTarget.dataset.type;
     var text = e.currentTarget.dataset.text;
@@ -69,7 +72,7 @@ Page({
         break;
       case '联系客服':
         var info = wx.getStorageSync("deployInfo");
-        if (info && info.info.service_phone) {
+        if (info && info.service_phone) {
           wx.makePhoneCall({
             phoneNumber: info.service_phone,
           })
