@@ -20,7 +20,6 @@ Page({
     this.setData({
       kefuPhone: deployInfo.service_phone
     })
-    this.getInfo()
   },
   goFollow(){
     wx.navigateTo({url: '../follow/follow',})
@@ -78,7 +77,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getInfo()
   },
 
   /**

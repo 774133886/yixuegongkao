@@ -35,7 +35,9 @@
     <view class="flex_dom flex_item_mid infoItem bg-fff">
       <text class="color-333">出生年月：</text>
       <picker mode="date" class="flex_1" bindchange="dateChange">
-        <view class="picker">{{info.birth_year+'-'+info.birth_month+'-'+info.birth_day}}</view>
+        <view class="picker">
+          <text>{{(info.birth_year?info.birth_year:'')+'-'+(info.birth_month?info.birth_month:'')+'-'+(info.birth_day?info.birth_day:'')}}</text>
+        </view>
       </picker>
     </view>
     <view class="flex_dom flex_item_mid infoItem bg-fff" bindtap="goLogin">
