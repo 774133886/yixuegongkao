@@ -144,10 +144,10 @@ Page({
       }
     }else{
       
-      console.log("支付")
+      
       // 普通直接支付
-      if(this.state==0){
-        
+      if(this.data.state==0){
+        console.log('支付')
         let data = {}
         data.courseid = that.data.c_id; 
         data.client = 5;
@@ -191,7 +191,7 @@ Page({
       }else{
         // 拼团开团
         wx.navigateTo({
-          url: '/pages/assembling/assembling' 
+          url: '/pages/assembling/assembling?p_id=' + that.data.p_id
         })
       }
     }

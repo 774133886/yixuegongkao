@@ -56,17 +56,18 @@ Component({
         that.wxPay(data, function () {
           wx.hideLoading();
           // wx.setStorageSync('subject', that.data.subject);
-          if (that.data.isPt){
-            // 隐藏支付弹窗
-            that.triggerEvent('payShow', false);
-            // 更改拼团state
-            that.triggerEvent('changeState', 1);
-          }else{
+          // if (that.data.isPt){
+          //   // 隐藏支付弹窗
+          //   that.triggerEvent('payShow', false);
+          //   // 更改拼团state
+          //   that.triggerEvent('changeState', 1);
+          // }else{
+          // 成功返回函数
             that.triggerEvent('afterSuc', 1);
             // wx.navigateTo({
             //   url: '/pages/paySuccess/paySuccess'
             // })
-          }
+          // }
           
         });
       })

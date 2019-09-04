@@ -610,6 +610,15 @@ form,navigator{
     -webkit-justify-content: space-between;
     -webkit-align-items: center;
 }
+.between-wrap{
+	display: flex;
+    display: -webkit-flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    /* -webkit-justify-content: space-between; */
+    -webkit-align-items: center;
+    flex-wrap:wrap;
+}
 .center{
 	display: flex;
     display: -webkit-flex;

@@ -216,12 +216,15 @@
       <text class='font20 color-999'>回到主页</text>
     </view>
   </view>
-  <view class="between-center ptBuy m-r-20">
+  <navigator hover-class="none" url="/pages/assembling/assembling?g_id={{ptInfo.member_group_id}}&p_id={{p_id}}" wx:if="{{ptInfo.is_member_group}}">
+      <button hover-class="none" class='bmBtn font36 btn_green'>我的拼团</button>
+  </navigator>
+  <view wx:else class="between-center ptBuy m-r-20">
     <view bindtap="writeInfo" class="wid50 color-FF3636 column-center-b p-v-10 hgt70rpx">
       <view class="font20 lh1">¥{{ptInfo.original_price}}</view>
       <view class="font24 lh1">单独购买</view>
     </view>
-    <navigator  url="/pages/assembling/assembling?p_id={{p_id}}" hover-class="none" class="wid50 bg-FF3636 color-fff column-center-b p-v-10 hgt70rpx">
+    <navigator  bindtap="writeInfo" hover-class="none" class="wid50 bg-FF3636 color-fff column-center-b p-v-10 hgt70rpx">
       <view class="font20 lh1">¥{{ptInfo.promoter_price}}</view>
       <view class="font24 lh1">邀请好友参团</view>
     </navigator>

@@ -19,9 +19,11 @@ Page({
     c_id:'',
     ptTime: '',
     g_id:'',
-    openState:0,//是否已经开团
+    openState:1,//是否已经开团
     payInfo:{},
-    wxPay:false
+    wxPay:false,
+    pintuan:{},
+    memberList:[]
   },
 
   // 支付
@@ -29,14 +31,19 @@ Page({
     console.log(e.detail)
     this.setData({ wxPay: e.detail })
   },
-  changeState(){
+  changeState(e){
     console.log(e.detail)
     this.setData({ openState: 1 })
   },
   // 支付成功后
-  afterSuc(){
+  afterSuc(e){
     console.log(e.detail)
- 
+    this.setData({ 
+      openState: 1,
+      wxPay: false,
+      g_id: this.data.pintuan.group_id
+     })
+    this.getInfo();
   },
 
   // 拼团
@@ -110,9 +117,11 @@ Page({
         that.setData({
           info: res.data.product,
           info_con: res.data,
-          c_id: res.data.product.course.id
+          c_id: res.data.product.course.id,
+          memberList: res.data.members.slice(1, res.data.members.length)
         })
-        console.log(res.data.product.description.split(',')) 
+
+
         var content = res.data.product.course.intro;
         WxParse.wxParse('article', 'html', content, that, 5);
         // 倒计时
@@ -201,7 +210,8 @@ Page({
             that.setData({
               // payShow: !that.data.payShow,
               wxPay: !that.data.wxPay,
-              payInfo: res.data
+              payInfo: res.data,
+              pintuan: res.data.pintuan,
             })
           } else if (res.data.status == 1 || res.data.status == 6) {
             setTimeout(() => {
@@ -292,7 +302,7 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function (res) {
     var that = this;
     if (res.from === 'button') {
       // 来自页面内转发按钮
