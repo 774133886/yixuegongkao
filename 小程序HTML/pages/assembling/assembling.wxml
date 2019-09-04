@@ -2,7 +2,7 @@
 <import src="../../wxParse/wxParse.wxml"/>
 <wxs module="filter" src="../../filter/Filters.wxs"></wxs>
 <view class='Con font30'>
-  <view class="l-pad40 text-center font30 color-FF3636 bg-248 p-t-25 p-b-25">
+  <view wx:if="{{openState!=0}}" class="l-pad40 text-center font30 color-FF3636 bg-248 p-t-25 p-b-25">
     拼团活动剩余  {{filter.toTime2(ptTime)}}
   </view>
   <view class="bg-fff ">
@@ -70,11 +70,11 @@
       <text wx:else class='font36 color-FF1919'>¥{{info.promoter_price}}</text>
       <text class='color-999 font20 m-l-20 lineThrough'>¥{{info.original_price}}</text>
     </view>
-    <button wx:if="{{openState==2&&info_con.can_join}}" bindtap="payTab" wx:if="{{}}" hover-class="none" class='bmBtn font36'>立即拼团</button>
+    <button wx:if="{{openState==2&&info_con.can_join}}" bindtap="payTab" hover-class="none" class='bmBtn font36'>立即拼团</button>
     <button  wx:if="{{openState==0}}" bindtap="openTab" hover-class="none" class='bmBtn font36'>立即开团</button>
   </view>
 </view>
-<component-pay wx:if="{{wxPay}}" is-pt="true" pay-info="{{payInfo}}" bindpayShow="payShow"></component-pay>
+<component-pay wx:if="{{wxPay}}" is-pt="true" pay-info="{{payInfo}}" bindpayShow="payShow" bindchangeState="changeState"  bindafterSuc="afterSuc"></component-pay>
 <!-- 支付 -->
 <!-- <view bindtap='payTab' class='markBox font30 {{payShow ? "" : "hide"}}'>
   <view catchtap='notThis' class='payBox l-pad40'>

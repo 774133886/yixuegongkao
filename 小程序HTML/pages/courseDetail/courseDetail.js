@@ -128,13 +128,72 @@ Page({
     })
   },
   writeInfo: function (e) {
+    let that = this;
     if (this.data.info.enroll_fields.length){
       wx.setStorageSync('enroll_fields', this.data.info.enroll_fields);
-      wx.navigateTo({
-        url: '/pages/writeInfo/writeInfo?c_id=' + this.data.c_id
-      })
+      // 跳转普通
+      if(this.state==0){
+        wx.navigateTo({
+          url: '/pages/writeInfo/writeInfo?c_id=' + this.data.c_id
+        })
+      }else{
+        // 拼团开团
+        wx.navigateTo({
+          url: '/pages/assembling/assembling' 
+        })
+      }
     }else{
+      
       console.log("支付")
+      // 普通直接支付
+      if(this.state==0){
+        
+        let data = {}
+        data.courseid = that.data.c_id; 
+        data.client = 5;
+        // data.token = token;
+        http.postReq('/api/business/course_enroll.htm', data, function (res) {
+          if (res.code == 0) {
+            console.log(res.data);
+            wx.showToast({
+              title: res.data.message,
+              icon: 'none',
+              duration: 3000,
+            })
+            // 支付
+            if (res.data.status = 2){
+              that.setData({
+                wxPay: !that.data.wxPay,
+                payInfo:res.data
+              })
+            } else if (res.data.status == 1 || res.data.status == 6){
+              setTimeout(()=>{
+                wx.navigateBack();
+              },1500)
+            } 
+          } else {
+            wx.showToast({
+              title: res.message,
+              icon: 'none',
+              duration: 3000
+            })
+            if(res.code==8){
+              setTimeout(() => {
+                wx.navigateTo({
+                  url: '/pages/myOrder/myOrder',
+                })
+              }, 1500)
+            }
+          }
+        });
+        
+
+      }else{
+        // 拼团开团
+        wx.navigateTo({
+          url: '/pages/assembling/assembling' 
+        })
+      }
     }
     
   },

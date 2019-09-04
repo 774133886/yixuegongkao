@@ -29,6 +29,62 @@ Page({
     console.log(e.detail)
     this.setData({ wxPay: e.detail })
   },
+  changeState(){
+    console.log(e.detail)
+    this.setData({ openState: 1 })
+  },
+  // 支付成功后
+  afterSuc(){
+    console.log(e.detail)
+ 
+  },
+
+  // 拼团
+  payTab(){
+    let that = this;
+    if (0) {
+      wx.setStorageSync('enroll_fields', this.data.ptInfo.enroll_fields.length);
+      wx.navigateTo({
+        url: '/pages/writeInfo/writeInfo?c_id=' + this.data.ptInfo.course_id
+      })
+    } else {
+      console.log("支付");
+      var data = {};
+      data.productId = this.data.p_id;
+      data.groupId = this.data.g_id;
+      data.client = 5;
+      
+      http.postReq('/api/business/pintuan/join_group.htm', data, function (res) {
+        if (res.code == 0) {
+
+          wx.showToast({
+            title: res.data.message,
+            icon: 'none',
+            duration: 3000,
+          })
+          // 支付
+          if (res.data.status = 2) {
+            that.setData({
+              // payShow: !that.data.payShow,
+              wxPay: !that.data.wxPay,
+              payInfo: res.data
+            })
+          } else if (res.data.status == 1 || res.data.status == 6) {
+            setTimeout(() => {
+              wx.navigateBack();
+            }, 1500)
+          }
+        } else {
+          wx.showToast({
+            title: res.message,
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      })
+    }
+  },
+
   //分享遮罩
   shareTab: function (e) {
     this.setData({ shareShow: !this.data.shareShow })
@@ -59,6 +115,28 @@ Page({
         console.log(res.data.product.description.split(',')) 
         var content = res.data.product.course.intro;
         WxParse.wxParse('article', 'html', content, that, 5);
+        // 倒计时
+        var ptTime = (new Date(res.data.product.end_time).getTime() - Date.parse(new Date())) / 1000;
+        if (ptTime > 0) {
+          var countTime = setInterval(function () {
+            if (ptTime == 1) {
+              ptTime = 0;
+              clearInterval(countTime);
+              // 重新获取数据
+              that.setData({
+                page: 1,
+              })
+              that.getList();
+            } else {
+              ptTime--;
+            }
+            that.setData({
+              ptTime: ptTime,
+            })
+          }, 1000)
+        } else {
+          return false;
+        }
       } else {
         wx.showToast({
           title: res.message,
@@ -148,7 +226,7 @@ Page({
 
     this.setData({
       g_id: options.g_id,
-      ptTime: options.time,
+      // ptTime: options.time,
       p_id: options.p_id,
     })
     console.log(that.data.p_id)
@@ -166,27 +244,7 @@ Page({
       })
     }
     
-    var ptTime = that.data.ptTime;
-    if (ptTime > 0) {
-      var countTime = setInterval(function () {
-        if (ptTime == 1) {
-          ptTime = 0;
-          clearInterval(countTime);
-          // 重新获取数据
-          that.setData({
-            page: 1,
-          })
-          that.getList();
-        } else {
-          ptTime--;
-        }
-        that.setData({
-          ptTime: ptTime,
-        })
-      }, 1000)
-    } else {
-      return false;
-    }
+    
   },
 
   /**
