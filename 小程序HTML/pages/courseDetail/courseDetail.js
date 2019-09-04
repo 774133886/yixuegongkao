@@ -130,10 +130,19 @@ Page({
   writeInfo: function (e) {
     if (this.data.info.enroll_fields.length){
       wx.setStorageSync('enroll_fields', this.data.info.enroll_fields);
-      wx.navigateTo({
-        url: '/pages/writeInfo/writeInfo?c_id=' + this.data.c_id
-      })
+      // 跳转普通
+      if(this.state==0){
+        wx.navigateTo({
+          url: '/pages/writeInfo/writeInfo?c_id=' + this.data.c_id
+        })
+      }else{
+        // 拼团开团
+        wx.navigateTo({
+          url: '/pages/assembling/assembling' 
+        })
+      }
     }else{
+      
       console.log("支付")
     }
     
