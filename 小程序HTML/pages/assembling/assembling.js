@@ -38,19 +38,31 @@ Page({
   // 支付成功后
   afterSuc(e){
     console.log(e.detail)
-    this.setData({ 
-      openState: 1,
-      wxPay: false,
-      g_id: this.data.pintuan.group_id
-     })
-    this.getInfo();
+    // 拼团返回
+    if(e.detail==0){
+      this.setData({
+        openState: 2,
+        wxPay: false,
+      })
+      this.getInfo();
+    }else{
+      // 开团返回
+      this.setData({
+        openState: 1,
+        wxPay: false,
+        g_id: this.data.pintuan.group_id
+      })
+      this.getInfo();
+    }
+    
   },
 
   // 拼团
   payTab(){
     let that = this;
-    if (0) {
-      wx.setStorageSync('enroll_fields', this.data.ptInfo.enroll_fields.length);
+    let enroll_fields = wx.getStorageSync('enroll_fields')
+    console.log(enroll_fields)
+    if (enroll_fields.length) {
       wx.navigateTo({
         url: '/pages/writeInfo/writeInfo?c_id=' + this.data.ptInfo.course_id
       })
@@ -71,10 +83,12 @@ Page({
           })
           // 支付
           if (res.data.status = 2) {
+            var list = res.data;
+            list.isjoinpt = true;
             that.setData({
               // payShow: !that.data.payShow,
               wxPay: !that.data.wxPay,
-              payInfo: res.data
+              payInfo: list
             })
           } else if (res.data.status == 1 || res.data.status == 6) {
             setTimeout(() => {
@@ -312,7 +326,7 @@ Page({
     return {
       title: '跟我一起学习这门课程',
       path: '/pages/assembling/assembling?g_id=' + that.data.g_id,
-      imageUrl: info.image_large,
+      imageUrl: that.data.info.image_large,
       success: (res) => {    // 成功后要做的事情
         //console.log(res.shareTickets[0])
         // console.log

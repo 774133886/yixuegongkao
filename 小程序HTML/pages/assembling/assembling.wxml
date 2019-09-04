@@ -34,7 +34,8 @@
           <image class="wid80rpx hgt80rpx radius_50" src="{{item.member_portrait}}" mode="aspectFill" lazy-load="false" ></image>
           <text class="font24">团员</text>
         </view>
-        <view wx:if="{{openState==2}}" class="color-049BFE m-b-40 m-l-50">即将拼团</view>
+        <view wx:if="{{openState==2&&!info_con.is_join}}" class="color-049BFE m-b-40 m-l-50">即将拼团</view>
+        <view wx:if="{{openState==2&&info_con.is_join}}" class="color-049BFE m-b-40 m-l-50">参团成功</view>
       </view>
       <view wx:if="{{openState!=1}}" class="p-v-20 l-h-40rpx color-666 font24">
         <view>拼团说明：</view>
@@ -47,7 +48,7 @@
         <image class="wid110rpx hgt110rpx radius_50" src="{{info_con.members[0].member_portrait}}" mode="aspectFill" lazy-load="false" ></image>
         <view class="font30 color-333">团长</view>
       </view>
-      <view  wx:if="{{openState==1}}" class="m-b-30">
+      <view  wx:if="{{info_con.is_join}}" class="m-b-30">
         <view class="m-t-100">
           <view class="font24 color-999 text-center">还差{{info_con.group_size-info_con.current_users}}人即可成团</view>
           <view class="hgt110rpx around-center">
@@ -64,7 +65,7 @@
     </view>
   </view>
   
-  <view wx:if="{{openState!=1}}" class='cdBot border-t-eee hgt100rpx between-center'>
+  <view wx:if="{{!info_con.is_join}}" class='cdBot border-t-eee hgt100rpx between-center'>
     <view class='l-pad40'>
       <text wx:if="{{openState==2}}" class='font36 color-FF1919'>¥{{info.price}}</text>
       <text wx:else class='font36 color-FF1919'>¥{{info.promoter_price}}</text>

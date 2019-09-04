@@ -127,12 +127,23 @@ Page({
       phoneNumber: phoneNum.toString()
     })
   },
+  // 单个拼团
+  // joinPt(e){
+  //   var g_id = e.currentTarget.dataset.g_id;
+  //   if (this.data.info.enroll_fields.length) {
+  //     wx.setStorageSync('enroll_fields', this.data.info.enroll_fields);
+  //     // 跳转普通
+  //   }
+  //   wx.navigateTo({
+  //     url: '/pages/assembling/assembling?g_id=' + g_id + '&p_id=' + this.data.p_id
+  //   })
+  // },
   writeInfo: function (e) {
     let that = this;
     if (this.data.info.enroll_fields.length){
       wx.setStorageSync('enroll_fields', this.data.info.enroll_fields);
       // 跳转普通
-      if(this.state==0){
+      if(this.data.state==0){
         wx.navigateTo({
           url: '/pages/writeInfo/writeInfo?c_id=' + this.data.c_id
         })
@@ -224,6 +235,11 @@ Page({
           pjList: res.data.comments,
           pjscore: Math.floor(res.data.score),
         })
+        if (res.data.enroll_fields.length) {
+          wx.setStorageSync('enroll_fields', res.data.enroll_fields);
+        }else{
+          wx.setStorageSync('enroll_fields', []);
+        }
         // 秒杀倒计时
         if (res.data.promotions.length){
           if (res.data.promotions[0].promotion_type == 2) {
@@ -276,6 +292,11 @@ Page({
           group_list: res.data.current_group_list,
           c_id: res.data.course_detail.course_id,//重置c_id
         })
+        if (res.data.course_detail.enroll_fields.length) {
+          wx.setStorageSync('enroll_fields', res.data.course_detail.enroll_fields);
+        } else {
+          wx.setStorageSync('enroll_fields', []);
+        }
         // 拼团倒计时
         var ptTime = (new Date(res.data.end_time).getTime() - Date.parse(new Date())) / 1000;
         if (ptTime>0) {

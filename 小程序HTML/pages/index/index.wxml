@@ -124,7 +124,7 @@
         </view>
       </view>
     </view>
-    <navigator wx:for="{{tjList}}" url="/pages/courseDetail/courseDetail?c_id={{item.course_id}}&state={{item.promotions[0].promotion_type==4?1:0}}" wx:key="{{item.course_id}}" hover-class="none" class='index_courseList hgt250rpx between border-b-eee'>
+    <navigator wx:for="{{tjList}}" url="/pages/courseDetail/courseDetail?c_id={{item.promotions[0].promotion_type==4?item.promotions[0].promotion_id:item.course_id}}&state={{item.promotions[0].promotion_type==4?1:0}}" wx:key="{{item.course_id}}" hover-class="none" class='index_courseList hgt250rpx between border-b-eee'>
       <view class='hgt210rpx wid320rpx relative'>
         <image class="wid100 hgt210rpx" src="{{item.image_small}}" mode="aspectFill" lazy-load="false" ></image>
         <!-- 拼团 -->

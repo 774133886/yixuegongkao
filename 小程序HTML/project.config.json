@@ -33,13 +33,13 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 5,
+			"current": 0,
 			"list": [
 				{
 					"id": 0,
 					"name": "pages/assembling/assembling",
 					"pathName": "pages/assembling/assembling",
-					"query": "g_id=568447511562313",
+					"query": "g_id=553329226680431&p_id=569547023499337",
 					"scene": null
 				},
 				{
