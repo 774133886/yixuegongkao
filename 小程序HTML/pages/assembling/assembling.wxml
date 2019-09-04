@@ -37,7 +37,7 @@
         <view wx:if="{{openState==2&&!info_con.is_join}}" class="color-049BFE m-b-40 m-l-50">即将拼团</view>
         <view wx:if="{{openState==2&&info_con.is_join}}" class="color-049BFE m-b-40 m-l-50">参团成功</view>
       </view>
-      <view wx:if="{{openState!=1}}" class="p-v-20 l-h-40rpx color-666 font24">
+      <view wx:if="{{!info_con.is_join}}" class="p-v-20 l-h-40rpx color-666 font24">
         <view>拼团说明：</view>
         <view>1.支付开团并邀请X人参团，人数不足自动退款；</view>
         <view>2.正常参团的拼团课程，在倒计时快结束时，自动补齐。</view>
