@@ -62,6 +62,7 @@ Page({
     let that = this;
     let enroll_fields = wx.getStorageSync('enroll_fields')
     console.log(enroll_fields)
+    wx.setStorageSync('fromPt', true);
     if (enroll_fields.length) {
       wx.navigateTo({
         url: '/pages/writeInfo/writeInfo?c_id=' + this.data.ptInfo.course_id
@@ -202,6 +203,7 @@ Page({
     let that = this;
     if (this.data.ptInfo.enroll_fields.length){
       wx.setStorageSync('enroll_fields', this.data.ptInfo.enroll_fields.length);
+      wx.setStorageSync('fromPt', true);
       wx.navigateTo({
         url: '/pages/writeInfo/writeInfo?c_id=' + this.data.ptInfo.course_id
       })

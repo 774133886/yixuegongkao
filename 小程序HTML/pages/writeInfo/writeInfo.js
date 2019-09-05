@@ -252,7 +252,9 @@ Page({
     var that = this
     that.setData({
       enroll_fields: wx.getStorageSync('enroll_fields'),
-      c_id: options.c_id
+      c_id: options.c_id,
+      fromPt: wx.getStorageSync('fromPt')
+      
     }) 
     that.data.enroll_fields.forEach(function(v,i){
       console.log(v)
