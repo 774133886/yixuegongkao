@@ -13,7 +13,8 @@ Page({
     payShow: false,
     region: ['北京市', '北京市','朝阳区'],
     payInfo:{},
-    phone:''
+    phone:'',
+    fromPt:{}
   },
   bindRegionChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -69,20 +70,6 @@ Page({
             })
           }
         }, 1000)  //  1000是1秒
-
-        // if (time == 60) {
-        //   var countTime = setInterval(function () {
-        //     if (time == 1) {
-        //       time = 60;
-        //       clearInterval(countTime);
-        //     } else {
-        //       time--;
-        //     }
-        //     that.setData({
-        //       time: time
-        //     })
-        //   }, 1000)
-        // }
 
       } else {
 
@@ -154,44 +141,124 @@ Page({
       }
       data.address = that.data.region[0] + that.data.region[1] + that.data.region[2]+that.data.doorNum
     }
-    
-    data.courseid = that.data.c_id; 
-    data.client = 5;
-    // data.token = token;
-    http.postReq('/api/business/course_enroll.htm', data, function (res) {
-      if (res.code == 0) {
-        console.log(res.data);
-        wx.showToast({
-          title: res.data.message,
-          icon: 'none',
-          duration: 3000,
-        })
-        // 支付
-        if (res.data.status = 2){
-          that.setData({
-            payShow: !that.data.payShow ,
-            payInfo:res.data
-          })
-        } else if (res.data.status == 1 || res.data.status == 6){
-          setTimeout(()=>{
-            wx.navigateBack();
-          },1500)
-        } 
-      } else {
-        wx.showToast({
-          title: res.message,
-          icon: 'none',
-          duration: 3000
-        })
-        if(res.code==8){
-          setTimeout(() => {
-            wx.navigateTo({
-              url: '/pages/myOrder/myOrder',
+    // 获取支付信息
+    if(that.data.fromPt.ispt){
+      // 判断来自拼团
+      if(that.data.fromPt.g_id){
+        console.log("拼团支付");
+   
+        data.productId = this.data.p_id;
+        data.groupId = this.data.g_id;
+        data.client = 5;
+        
+        http.postReq('/api/business/pintuan/join_group.htm', data, function (res) {
+          if (res.code == 0) {
+
+            wx.showToast({
+              title: res.data.message,
+              icon: 'none',
+              duration: 3000,
             })
-          }, 1500)
-        }
+            // 支付
+            if (res.data.status = 2) {
+              var list = res.data;
+              // list.isjoinpt = true;
+              that.setData({
+                payShow: !that.data.payShow,
+                // wxPay: !that.data.wxPay,
+                payInfo: list
+              })
+            } else if (res.data.status == 1 || res.data.status == 6) {
+              setTimeout(() => {
+                wx.navigateBack(2);
+              }, 1500)
+            }
+          } else {
+            wx.showToast({
+              title: res.message,
+              icon: 'none',
+              duration: 2000
+            })
+          }
+        })
+      }else{
+        console.log("开团支付");
+
+        data.productId = this.data.p_id;
+        data.client = 5;
+
+        http.postReq('/api/business/pintuan/create_group.htm', data, function (res) {
+          if (res.code == 0) {
+            
+            wx.showToast({
+              title: res.data.message,
+              icon: 'none',
+              duration: 3000,
+            })
+            // 支付
+            if (res.data.status = 2) {
+              that.setData({
+                payShow: !that.data.payShow ,
+                // wxPay: !that.data.wxPay,
+                payInfo: res.data,
+                pintuan: res.data.pintuan,
+              })
+              wx.setStorageSync('pintuan', res.data.pintuan);
+            } else if (res.data.status == 1 || res.data.status == 6) {
+              setTimeout(() => {
+                wx.navigateBack(2);
+              }, 1500)
+            }
+          } else {
+            wx.showToast({
+              title: res.message,
+              icon: 'none',
+              duration: 2000
+            })
+          }
+        })
       }
-    });
+    }else{
+      // 判断来自普通商品
+      data.courseid = that.data.c_id; 
+      data.client = 5;
+      // data.token = token;
+      http.postReq('/api/business/course_enroll.htm', data, function (res) {
+        if (res.code == 0) {
+          console.log(res.data);
+          wx.showToast({
+            title: res.data.message,
+            icon: 'none',
+            duration: 3000,
+          })
+          // 支付
+          if (res.data.status = 2){
+            that.setData({
+              payShow: !that.data.payShow ,
+              payInfo:res.data
+            })
+          } else if (res.data.status == 1 || res.data.status == 6){
+            setTimeout(()=>{
+              wx.navigateBack();
+            },1500)
+          } 
+        } else {
+          wx.showToast({
+            title: res.message,
+            icon: 'none',
+            duration: 3000
+          })
+          if(res.code==8){
+            setTimeout(() => {
+              wx.navigateTo({
+                url: '/pages/myOrder/myOrder',
+              })
+            }, 1500)
+          }
+        }
+      });
+    }
+    
   },
   // 点击支付
   payTap(){
@@ -206,9 +273,26 @@ Page({
       that.wxPay(data, function () {
         wx.hideLoading();
         // wx.setStorageSync('subject', that.data.subject);
-        wx.navigateTo({
-          url: '/pages/paySuccess/paySuccess'
-        })
+        if(that.data.fromPt.ispt){
+          if(that.data.fromPt.g_id){
+            // 开团返回
+            wx.setStorageSync('back', 0);
+            setTimeout(()=>{
+              wx.navigateBack();
+            },500)
+          }else{
+            // 拼团返回
+            wx.setStorageSync('back', 1);
+            setTimeout(()=>{
+              wx.navigateBack();
+            },500)
+          }
+        }else{
+          wx.navigateTo({
+            url: '/pages/paySuccess/paySuccess？id='+that.data.payInfo.order_id
+          })
+        }
+        
       });
     })
   },

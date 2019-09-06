@@ -56,13 +56,38 @@ Page({
     }
     
   },
+  // 填写信息支付成功返回到本页面后
+  afterWhite(){
+    console.log(detail)
+    let detail = wx.getStorageSync('back')
+    // 拼团返回
+    if(detail==0){
+      this.setData({
+        openState: 2,
+        // wxPay: false,
+      })
+      this.getInfo();
+      wx.removeStorageSync('back')
+    }else{
+      // 开团返回
+      this.setData({
+        openState: 1,
+        // wxPay: false,
+        g_id: wx.getStorageSync('pintuan').group_id
+      })
+      this.getInfo();
+      wx.removeStorageSync('back');
+      wx.removeStorageSync('pintuan')
+    }
+    
+  },
 
   // 拼团
   payTab(){
     let that = this;
     let enroll_fields = wx.getStorageSync('enroll_fields')
     console.log(enroll_fields)
-    wx.setStorageSync('fromPt', true);
+    wx.setStorageSync('fromPt', {ispt:true,p_id:this.data.p_id,g_id:this.data.g_id});
     if (enroll_fields.length) {
       wx.navigateTo({
         url: '/pages/writeInfo/writeInfo?c_id=' + this.data.ptInfo.course_id
@@ -202,8 +227,9 @@ Page({
   openTab(){
     let that = this;
     if (this.data.ptInfo.enroll_fields.length){
-      wx.setStorageSync('enroll_fields', this.data.ptInfo.enroll_fields.length);
-      wx.setStorageSync('fromPt', true);
+      // wx.setStorageSync('enroll_fields', this.data.ptInfo.enroll_fields.length);
+      // wx.setStorageSync('fromPt', true);
+      wx.setStorageSync('fromPt', {ispt:true,p_id:this.data.p_id,g_id:''});
       wx.navigateTo({
         url: '/pages/writeInfo/writeInfo?c_id=' + this.data.ptInfo.course_id
       })
@@ -284,7 +310,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    if(wx.getStorageSync('back')==0||wx.getStorageSync('back')==1){
+      this.afterWhite();
+    }
   },
 
   /**
