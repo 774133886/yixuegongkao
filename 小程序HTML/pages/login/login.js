@@ -67,12 +67,12 @@ Page({
     var that = this;
     // return false;
     http.postReq('/api/member/login/send_weixin_app_bind_sms.htm', data, function (res) {
+      wx.showToast({
+        title: res.message,
+        icon: 'none',
+        duration: 2000
+      })
       if (res.code == 0) {
-        wx.showToast({
-          title: res.message,
-          icon: 'none',
-          duration: 2000
-        })
         if (time == 60) {
           var countTime = setInterval(function () {
             if (time == 1) {
@@ -88,7 +88,6 @@ Page({
         }
 
       } else {
-
         return false;
       }
     })
