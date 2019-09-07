@@ -9,7 +9,8 @@ Page({
    */
   data: {
     btntext: "获取验证码",
-    isEdit: false
+    isEdit: false,
+    time: 60
   },
 
   /**
@@ -137,19 +138,21 @@ Page({
     }
 
     var data = e.detail.value;
+    data.code = e.detail.value.checkcode;
     // data.token = token;
     // return false;
-    http.postReq('/api/member/login/find_password_reset.htm', data, function (res) {
-
+    http.postReq(this.data.isEdit ?'/api/member/member_change_password.htm':'/api/member/login/find_password_reset.htm', data, function (res) {
+      wx.showToast({
+        title: res.message,
+        icon: 'none',
+        duration: 2000
+      })
       if (res.code == 0) {
-        wx.navigateBack()
+        setTimeout(()=>{
+          wx.navigateBack()
+        })
       } else {
 
-        wx.showToast({
-          title: res.message,
-          icon: 'none',
-          duration: 2000
-        })
       }
 
 

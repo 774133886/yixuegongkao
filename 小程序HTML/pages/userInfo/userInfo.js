@@ -35,6 +35,11 @@ Page({
           title: "修改成功",
           icon: "none"
         })
+      }else{
+        wx.showToast({
+          title: res.message,
+          icon: "none"
+        })
       }
     })
   },
@@ -57,6 +62,13 @@ Page({
     var info = this.data.info;
     info.sex = e.detail.value;
     console.log(e.detail.value);
+    this.setData({
+      info: info
+    })
+  },
+  setEmail(e){
+    var info = this.data.info;
+    info.email = e.detail.value;
     this.setData({
       info: info
     })
