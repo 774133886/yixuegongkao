@@ -28,7 +28,7 @@
     <view class='p-v-15  font36'>{{info.name}}</view>
     <view class='between-center'>
      <view class='flex_1 center'>
-        <!-- <text class='font36 color-green m-r-30'>免费</text> -->
+        
         <view wx:if="{{state==1}}">
 
             <text class='font36 color-FF1919'>¥{{ptInfo.price}}</text>
@@ -36,9 +36,10 @@
         
         </view>
         <view wx:if="{{state!=1}}">
-          <text wx:if="{{info.promotions.length==0}}" class='font36 color-FF1919'>¥{{info.price}}</text>
+          <text wx:if="{{info.promotions.length==0&&info.price!=0}}" class='font36 color-FF1919'>¥{{info.price}}</text>
+          <text wx:else class='font36 color-green m-r-30'>免费</text>
           <!-- 活动价 -->
-          <view wx:else >
+          <view wx:if="{{info.promotions.length!=0}}">
             <text class='font36 color-FF1919'>¥{{promotions.promotion_price}}</text>
             <text class='color-999 font24 m-l-15 lineThrough'>¥{{info.price}}</text>
           </view>
@@ -177,13 +178,13 @@
   </view>
   <!-- 是否活动 -->
   <view wx:if="{{info.promotions.length==0}}">
-    <button wx:if="{{info.apply_status == 0}}" bindtap="writeInfo" hover-class="none" class='bmBtn font36 btn_green'>即将开始</button>
+    <button wx:if="{{info.apply_status == 0}}" data-id="c_id" bindtap="goLive" hover-class="none" class='bmBtn font36 btn_green'>即将开始</button>
     <button wx:if="{{info.apply_status == 1}}" bindtap="writeInfo" hover-class="none" class='bmBtn font36'>立即报名</button>
     <button wx:if="{{info.apply_status == 2}}" hover-class="none" class='bmBtn font36 btn_gray'>报名结束</button>
     <button wx:if="{{info.apply_status == 3}}" hover-class="none" class='bmBtn font36 btn_gray'>已满员</button>
     <button wx:if="{{info.apply_status == 4}}" bindtap="writeInfo" hover-class="none" class='bmBtn font36'>购买课程</button>
     <!-- 已购买 -->
-    <button wx:if="{{info.apply_status == 5||info.apply_status == 6}}" bindtap="writeInfo" hover-class="none" class='bmBtn font36 btn_blue'>开始学习</button>
+    <button wx:if="{{info.apply_status == 5||info.apply_status == 6}}" data-id="c_id" bindtap="goLive" hover-class="none" class='bmBtn font36 btn_blue'>开始学习</button>
     <!-- 面试职位 -->
     <button wx:if="{{info.apply_status == 9}}" bindtap="writeInfo2" hover-class="none" class='bmBtn font36 btn_blue'>面试职位</button>
   </view>
@@ -220,7 +221,7 @@
       <button hover-class="none" class='bmBtn font36 btn_green'>我的拼团</button>
   </navigator>
   <view wx:else class="between-center ptBuy m-r-20">
-    <view bindtap="writeInfo" class="wid50 color-FF3636 column-center-b p-v-10 hgt70rpx">
+    <view bindtap="payNow" class="wid50 color-FF3636 column-center-b p-v-10 hgt70rpx">
       <view class="font20 lh1">¥{{ptInfo.original_price}}</view>
       <view class="font24 lh1">单独购买</view>
     </view>
