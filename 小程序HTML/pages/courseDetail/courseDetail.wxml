@@ -37,7 +37,7 @@
         </view>
         <view wx:if="{{state!=1}}">
           <text wx:if="{{info.promotions.length==0&&info.price!=0}}" class='font36 color-FF1919'>¥{{info.price}}</text>
-          <text wx:else class='font36 color-green m-r-30'>免费</text>
+          <text wx:if="{{info.promotions.length==0&&info.price==0}}" class='font36 color-green m-r-30'>免费</text>
           <!-- 活动价 -->
           <view wx:if="{{info.promotions.length!=0}}">
             <text class='font36 color-FF1919'>¥{{promotions.promotion_price}}</text>
