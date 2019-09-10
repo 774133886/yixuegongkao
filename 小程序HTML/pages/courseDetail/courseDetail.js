@@ -175,6 +175,7 @@ Page({
     
   },
   payNow(){
+    var that = this;
     let data = {}
     data.courseid = that.data.c_id;
     data.client = 5;
