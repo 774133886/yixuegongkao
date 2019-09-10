@@ -24,7 +24,7 @@ Page({
   },
   formSubmit(e){
     var data = e.detail.value;
-    data.name = this.data.info.name;
+    // data.name = this.data.info.name;
     data.year = this.data.info.birth_year;
     data.month = this.data.info.birth_month;
     data.day = this.data.info.birth_day;

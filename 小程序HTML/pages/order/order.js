@@ -34,8 +34,19 @@ Page({
     })
   },
   goDetail(e){
+    var item = e.currentTarget.dataset.id;
+    var id = "";
+    var state = 0;
+    if (item.promotions && item.promotions.length){
+      if (item.promotions[0].promotion_type == 4){
+        id = item.promotions[0].promotion_id;
+        state = item.promotions[0].promotion_type == 4 ? 1 : 0
+      }
+    }else{
+      id = item.course_id
+    }
     wx.navigateTo({
-      url: '../courseDetail/courseDetail?c_id='+e.currentTarget.dataset.id,
+      url: '../courseDetail/courseDetail?c_id=' + id + '&state=' + state
     })
   },
   getTodayCourse(){

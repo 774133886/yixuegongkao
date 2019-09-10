@@ -3,7 +3,7 @@
   <view class="orderTitle">今日课程</view>
   <view>
     <view class="orderItem flex_dom flex_item_mid" wx:for="{{courseList}}" wx:key="item">
-      <view class="flex_1" bindtap="goDetail" data-id="{{item.course_id}}">
+      <view class="flex_1" bindtap="goDetail" data-id="{{item}}">
         <view class="font30 color-333">{{item.name}}</view>
         <view class="font24 color-333 m-t-15" wx:if="{{item.today_rooms&&item.today_rooms[0]}}">{{item.today_rooms[0].title}}</view>
         <view class="font24 color-bd m-t-15">{{item.class_time}}</view>
@@ -21,14 +21,14 @@
   <view class="orderTitle">所有课程</view>
   <view class="orderList">
     <view class="orderItem2 flex_dom" wx:for="{{myList}}" wx:key="item">
-      <image src="{{item.image_small}}" bindtap="goDetail" data-id="{{item.course_id}}"></image>
+      <image src="{{item.image_small}}" bindtap="goDetail" data-id="{{item}}"></image>
       <view class="flex_1">
-      <view bindtap="goDetail">
+      <view bindtap="goDetail" data-id="{{item}}">
         <view class="font30 color-333">{{item.name}}</view>
         <view class="font22 color-999">
-        <text>已讲{{"-"}}节</text>
+        <text>已讲{{item.finish_live_room_count||"-"}}节</text>
         <text class="textCen">/</text>
-        <text>共{{"-"}}节课</text>
+        <text>共{{item.live_room_count||"-"}}节课</text>
         </view>
         <view class="font22 color-999">
           <text class="m-r-20">总课时</text>

@@ -36,10 +36,13 @@
                     </view>
                   </view>
                   <view class='between-center'>
-                    <view class=''>
-                      <text class='font36 color-FF1919'>¥{{course.price}}</text>
-                      <text class='color-999 font24 m-l-15 lineThrough' wx:if="{{course.original_price}}">¥{{course.original_price}}</text>
+                    <view class='' wx:if="{{course.price==0}}">
+                      <text class='font36 color-FF1919'>免费</text>
                     </view>
+                    <view wx:else>
+                    <text class='font36 color-FF1919'>¥{{course.price}}</text>
+                      <text class='color-999 font24 m-l-15 lineThrough' wx:if="{{course.original_price}}">¥{{course.original_price}}</text>
+                      </view>
                     <text class='color-999 font20' wx:if="{{course.apply_status==6}}">已购</text>
                   </view>
                   

@@ -15,9 +15,9 @@
           <view class="orderList">
             <view wx:for="{{list[active]}}" wx:key="item" class="orderItem">
               <view class="orderTop flex_dom" bindtap="goDetail2" data-id="{{item.order_id}}">
-                <image src="../../files/img_kecheng.png"></image>
+                <image src="{{item.course_detail.image_small}}"></image>
                 <view class="orderInfo flex_1">
-                  <view class="orderName line2 font30 color-333">{{item.title}}</view>
+                  <view class="orderName line2 font30 color-333">{{item.product_name}}</view>
                   <view class="orderPrice">
                     <view class="font36 redPrice">¥{{item.pay_price}}</view>
                     <view class="font24 color-999 grayPrice">¥{{item.price}}</view>

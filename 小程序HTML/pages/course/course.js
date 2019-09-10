@@ -15,7 +15,8 @@ Page({
     ],
     pageList: [
       {},{},{},{},{},{},{},{}
-    ]
+    ],
+    isShow: true
   },
   choiceTab(e) {
     this.setData({
@@ -53,14 +54,15 @@ Page({
         var list = that.data.courseList;
         var pages = that.data.pageList;
         pages[that.data.active] = res.data.pagination;
-        if (list[that.data.active].length == 0){
+        if (list[that.data.active].length == 0 || that.data.isShow){
           list[that.data.active] = res.data.list;
         }else{
           list[that.data.active] = list[that.data.active].concat(res.data.list);
         }
         that.setData({
           courseList: list,
-          pageList: pages
+          pageList: pages,
+          isShow: false
         })
       }
     })
@@ -95,7 +97,17 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getInfo()
+    var type = wx.getStorageSync("c_type");
+    if (type){
+      this.setData({
+        active: type
+      })
+    }
+    this.setData({
+      isShow: true
+    })
+    this.getInfo();
+    wx.removeStorageSync("c_type");
   },
 
   /**
