@@ -35,7 +35,7 @@
                 <view>
                   <view class="flex_dom flex_item_mid m-t-20" wx:if="{{item.actions.length}}">
                     <view class="font20 color-999 flex_1">
-                      <view wx:if="{{item.status==2}}">10分钟以后自动取消订单</view>
+                      <view wx:if="{{item.status==2}}">15分钟以后自动取消订单</view>
                       <view wx:if="{{item.action=='detali'}}">拼团失败，自动退款</view>
                     </view>
                     <view>

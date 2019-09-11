@@ -17,7 +17,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    
   },
   playLive(e){
     var item = e.currentTarget.dataset.item;
@@ -81,7 +81,10 @@ Page({
    */
   onShow: function () {
     this.getTodayCourse();
-    this.getMyCourse()
+    this.getMyCourse();
+    this.setData({
+      token: wx.getStorageSync("token")
+    })
   },
 
   /**
@@ -102,7 +105,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    
   },
 
   /**
