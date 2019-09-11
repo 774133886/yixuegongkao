@@ -44,12 +44,12 @@
                   </view>
                 </view>
               </view>
-              <view  class="noData text-center" wx:if="{{(list[index].length==0&&pages[index].page_index==1)}}">
+              <view  class="noData text-center" wx:if="{{(list[active].length==0&&pages[active].page_index==1)}}">
                 <image src="../../files/img_quesheng.png"></image>
                 <view class="font30 color-999">暂无活动哦~</view>
               </view>
-              <view class="text-center" wx:if="{{list[index].length>5}}">
-                <text wx:if="{{pages[index].max_page_index != pages[index].page_index}}" class='color-be font30'>加载中。。。</text> 
+              <view class="text-center" wx:if="{{list[active].length>5}}">
+                <text wx:if="{{pages[active].max_page_index != pages[active].page_index}}" class='color-be font30'>加载中。。。</text> 
                 <view wx:else class="noMore">没有更多了</view>
               </view>
             </scroll-view>
@@ -88,12 +88,12 @@
                   </view>
                 </view>
               </view>
-              <view  class="noData text-center" wx:if="{{(list[index].length==0&&pages[index].page_index==1)}}">
+              <view  class="noData text-center" wx:if="{{(list[active].length==0&&pages[active].page_index==1)}}">
                 <image src="../../files/img_quesheng.png"></image>
                 <view class="font30 color-999">暂无活动哦~</view>
               </view>
-              <view class="text-center" wx:if="{{list[index].length>5}}">
-                <text wx:if="{{pages[index].max_page_index != pages[index].page_index}}" class='color-be font30'>加载中。。。</text> 
+              <view class="text-center" wx:if="{{list[active].length>5}}">
+                <text wx:if="{{pages[active].max_page_index != pages[active].page_index}}" class='color-be font30'>加载中。。。</text> 
                 <view wx:else class="noMore">没有更多了</view>
               </view>
             </scroll-view>

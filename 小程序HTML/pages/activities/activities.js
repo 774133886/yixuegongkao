@@ -15,6 +15,7 @@ Page({
     pt_list: [],
     ms_list: [],
     pages: [{}, {}],
+    isShow: true
   },
 
   /**
@@ -54,7 +55,7 @@ Page({
           v.last_time = (new Date(v.end_time).getTime() - Date.parse(new Date())) / 1000;
         });
         var list = that.data.list;
-        if (list[that.data.active].length == 0) {
+        if (list[that.data.active].length == 0 || that.data.isShow) {
           list[that.data.active] = res.data.list;
         } else {
           list[that.data.active] = list[that.data.active].concat(res.data.list);
@@ -63,8 +64,10 @@ Page({
         pages[that.data.active] = res.data.pagination; 
         that.setData({
           list: list,
-          pages: pages
+          pages: pages,
+          isShow: false
         });
+        console.log(that.data.pages);
         that.setData({
           pt_list: that.data.list[0],
           ms_list: that.data.list[1]
@@ -181,7 +184,10 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.setData({
+      isShow: true
+    })
+    this.getList()
   },
 
   /**
