@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "课程详情",
-  "usingComponents": {}
+  "usingComponents": {
+    "component-pay": "../../components/pay/pay"
+  }
 }
