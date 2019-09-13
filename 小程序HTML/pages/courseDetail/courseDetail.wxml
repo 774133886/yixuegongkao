@@ -231,6 +231,9 @@
     </navigator>
   </view>
 </view>
+<!-- 支付 -->
+<component-pay wx:if="{{wxPay}}" is-pt="true" pay-info="{{payInfo}}" bindpayShow="payShow" bindchangeState="changeState"  bindafterSuc="afterSuc"></component-pay>
+
 <!-- 分享 -->
 <view bindtap='shareTab' class='markBox font30 {{shareShow ? "" : "hide"}}'>
   <view catchtap='notThis' class='shareBox l-pad40'>

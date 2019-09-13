@@ -26,13 +26,27 @@ Page({
     group_list:[],
     ptTime:'',
     msTime:'',
-    deployInfo:{}
+    deployInfo:{},
+    payInfo:{},
+    wxPay:false
   },
   // 开始学习
   goLive(e) {
     wx.navigateTo({
       url: '../LiveStudio/LiveStudio?id=' + e.currentTarget.dataset.id
     })
+  },
+  // 支付成功后
+  afterSuc(e) {
+    console.log(e.detail)
+    // 返回
+
+      this.setData({
+        wxPay: false,
+      })
+    this.onLoad();
+   
+
   },
   /**
    * 生命周期函数--监听页面加载
