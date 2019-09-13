@@ -15,7 +15,9 @@ Page({
     pt_list: [],
     ms_list: [],
     pages: [{}, {}],
-    isShow: true
+    isShow: true,
+    nomore: false,
+    refreshing: true
   },
 
   /**
@@ -36,6 +38,13 @@ Page({
     if (this.data.list[this.data.active].length == 0) {
       this.getList()
     }
+  },
+  //下拉刷新监听函数
+  _onPullDownRefresh: function () {
+    this.setData({
+      isShow: true
+    });
+    this.getList();
   },
   getList(obj){
     let that = this;
@@ -65,9 +74,9 @@ Page({
         that.setData({
           list: list,
           pages: pages,
-          isShow: false
+          isShow: false,
+          refreshing: false
         });
-        console.log(that.data.pages);
         that.setData({
           pt_list: that.data.list[0],
           ms_list: that.data.list[1]
@@ -158,7 +167,6 @@ Page({
   onReady: function () {
 
   },
-
   /**
    * 生命周期函数--监听页面显示
    */

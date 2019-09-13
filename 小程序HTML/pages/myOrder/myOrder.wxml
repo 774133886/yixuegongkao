@@ -11,7 +11,7 @@
     <swiper class="swiperCon" indicator-dots="{{false}}" autoplay="{{false}}" bindchange="swiperChange" current="{{active}}">
       <block wx:for="{{list}}" wx:key="item" wx:for-index="index">
         <swiper-item>
-        <scroll-view scroll-y="{{true}}" class="flex_1 orderCtt" bindscrolltolower="bindscrolltolower">
+        <x-scroll-view scroll-y="{{true}}" class="flex_1 orderCtt" bindscrolltolower="bindscrolltolower" refreshing="{{refreshing}}" nomore="{{nomore}}" bindpulldownrefresh="_onPullDownRefresh" bindloadmore="bindscrolltolower">
           <view class="orderList">
             <view wx:for="{{list[active]}}" wx:key="item" class="orderItem">
               <view class="orderTop flex_dom" bindtap="goDetail2" data-id="{{item.order_id}}">
@@ -63,7 +63,7 @@
               <text class='color-be font30'>没有更多了</text>
             </view>
           </view>
-        </scroll-view>
+        </x-scroll-view>
         </swiper-item>
       </block>
     </swiper>

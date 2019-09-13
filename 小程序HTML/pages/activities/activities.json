@@ -1,4 +1,7 @@
 {
   "navigationBarTitleText": "活动专区",
-  "usingComponents": {}
+  "usingComponents": {
+    "x-scroll-view": "/xing-components/x-scroll-view"
+  },
+  "disableScroll": true
 }

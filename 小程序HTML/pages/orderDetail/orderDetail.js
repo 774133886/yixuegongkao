@@ -22,7 +22,6 @@ Page({
     this.setData({
       id: options.id
     });
-    this.getInfo();
   },
   goDetail(){
     wx.navigateTo({
@@ -77,6 +76,10 @@ Page({
             phoneNumber: info.service_phone,
           })
         }
+      case '评价课程':
+        wx.navigateTo({
+          url: '../evaluation/evaluation?id=' + info.course.id,
+        })
         break;
       default:
         break;
@@ -93,7 +96,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getInfo();
   },
 
   /**

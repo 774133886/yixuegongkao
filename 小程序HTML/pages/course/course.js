@@ -62,7 +62,8 @@ Page({
         that.setData({
           courseList: list,
           pageList: pages,
-          isShow: false
+          isShow: false,
+          refreshing: false
         })
       }
     })
@@ -74,6 +75,13 @@ Page({
       return;
     }
     this.getInfo({ page: page+1})
+  },
+  //下拉刷新监听函数
+  _onPullDownRefresh: function () {
+    this.setData({
+      isShow: true
+    });
+    this.getInfo();
   },
   /**
    * 生命周期函数--监听页面加载

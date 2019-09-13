@@ -14,7 +14,8 @@ Page({
     tabs: [],
     payShow: false,
     payInfo: {},
-    wxPay: false
+    wxPay: false,
+    isShow: true
   },
 
   /**
@@ -126,7 +127,7 @@ Page({
     http.postReq('/api/business/get_member_order_list.htm', data,function(res){
         if(res.code==0){
           var list = that.data.list;
-          if (list[that.data.active].length == 0 || data.page==1) {
+          if (list[that.data.active].length == 0 || that.data.isShow) {
             list[that.data.active] = res.data.list;
           } else {
             list[that.data.active] = list[that.data.active].concat(res.data.list);
@@ -135,7 +136,9 @@ Page({
           pages[that.data.active] = res.data.pagination;
           that.setData({
             list: list,
-            pages: pages
+            pages: pages,
+            isShow: false,
+            refreshing: false
           })
         }
     })
@@ -148,6 +151,13 @@ Page({
     }
     this.getList({ page: page + 1 })
   },
+  //下拉刷新监听函数
+  _onPullDownRefresh: function () {
+    this.setData({
+      isShow: true
+    });
+    this.getList();
+  },
   // 点击按钮
   orderButtonClick(e) {
     var that = this;
@@ -155,7 +165,6 @@ Page({
     var item = e.currentTarget.dataset.item;
     var type = e.currentTarget.dataset.type;
     var text = e.currentTarget.dataset.text;
-    debugger
     switch (text) {
       case '立即支付':
         var payInfo = {};
@@ -193,6 +202,11 @@ Page({
           })
         }
         break;
+      case '评价课程':
+        wx.navigateTo({
+          url: '../evaluation/evaluation?id=' + item.course_id,
+        })
+        break;
       default:
         break;
     }
@@ -208,6 +222,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.setData({
+      isShow: true
+    })
     this.getTabs()
   },
 

@@ -1,4 +1,7 @@
 {
   "navigationBarTitleText": "课程库",
-  "usingComponents": {}
+  "usingComponents": {
+    "x-scroll-view": "/xing-components/x-scroll-view"
+  },
+  "disableScroll": true
 }

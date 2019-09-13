@@ -1,6 +1,8 @@
 {
   "navigationBarTitleText": "我的订单",
   "usingComponents": {
-    "component-pay": "../../components/pay/pay"
-  }
+    "component-pay": "../../components/pay/pay",
+    "x-scroll-view": "/xing-components/x-scroll-view"
+  },
+  "disableScroll": true
 }
