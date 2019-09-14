@@ -41,10 +41,15 @@ Page({
     console.log(e.detail)
     // 返回
 
-      this.setData({
-        wxPay: false,
-      })
-    this.onLoad();
+    this.setData({
+      wxPay: false,
+    })
+    if (this.data.state == 1) {
+      this.getPtInfo();
+    } else {
+      // 获取详情
+      this.getInfo();
+    }
    
 
   },
@@ -159,24 +164,37 @@ Page({
   // },
   writeInfo: function (e) {
     let that = this;
+    let ispn = e.currentTarget.dataset.ispn;
     if (this.data.info.enroll_fields.length){
       wx.setStorageSync('enroll_fields', this.data.info.enroll_fields);
+      // 拼团普通购买      
+      if (ispn && this.data.state == 1) {
+        wx.navigateTo({
+          url: '/pages/writeInfo/writeInfo?c_id=' + this.data.c_id
+        })
+        return false;
+      }
       // 跳转普通
-      if(this.data.state==0){
+      if (this.data.state == 0){
         wx.navigateTo({
           url: '/pages/writeInfo/writeInfo?c_id=' + this.data.c_id
         })
       }else{
         // 拼团开团
         wx.navigateTo({
-          url: '/pages/assembling/assembling' 
+          url: '/pages/assembling/assembling?p_id=' + this.data.p_id 
         })
       }
     }else{
-      
+      // if () {
+      //   wx.navigateTo({
+      //     url: '/pages/writeInfo/writeInfo?c_id=' + this.data.c_id
+      //   })
+      //   return false;
+      // }
       
       // 普通直接支付
-      if(this.data.state==0){
+      if (this.data.state == 0 || (ispn && this.data.state == 1)){
         console.log('支付')
         this.payNow();
       }else{

@@ -17,6 +17,12 @@ Page({
     totalPage: 1,
     rows: 10,
     cid:0,
+    c_id:''
+  },
+  goEvaluation(){
+    wx.navigateTo({
+      url: '../evaluation/evaluation?id=' + this.data.c_id,
+    })
   },
   layershow(e) {
     this.setData({

@@ -281,7 +281,7 @@ Page({
       // ptTime: options.time,
       p_id: options.p_id,
     })
-    console.log(that.data.p_id)
+    console.log(that.data.g_id, that.data.p_id)
     if (that.data.g_id){
       // 拼团
       that.getInfo();
@@ -310,7 +310,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    if(wx.getStorageSync('back')==0||wx.getStorageSync('back')==1){
+    if (wx.getStorageSync('back')&&(wx.getStorageSync('back')==0||wx.getStorageSync('back')==1)){
+      console.log(wx.getStorageSync('back'))
       this.afterWhite();
     }
   },

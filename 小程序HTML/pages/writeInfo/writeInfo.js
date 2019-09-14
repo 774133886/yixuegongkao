@@ -147,8 +147,8 @@ Page({
       if(that.data.fromPt.g_id){
         console.log("拼团支付");
    
-        data.productId = this.data.p_id;
-        data.groupId = this.data.g_id;
+        data.productId = that.data.fromPt.p_id;
+        data.groupId = that.data.fromPt.g_id;
         data.client = 5;
         
         http.postReq('/api/business/pintuan/join_group.htm', data, function (res) {
@@ -184,7 +184,7 @@ Page({
       }else{
         console.log("开团支付");
 
-        data.productId = this.data.p_id;
+        data.productId = that.data.fromPt.p_id;
         data.client = 5;
 
         http.postReq('/api/business/pintuan/create_group.htm', data, function (res) {
@@ -367,7 +367,7 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    wx.removeStorageSync('fromPt');
   },
 
   /**

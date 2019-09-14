@@ -58,6 +58,6 @@
     <input type="text" bindfocus="layershow" data-comid="0" focus="{{layer}}" bindblur="layerhide" class="applyArea flex_1 font24" placeholder-class="color-999" placeholder="我也说一句"></input>  
     <view class="font30 m-l-30 color-5273FF">评论</view>
   </view> -->
-  <button class="hgt90rpx wid100 pjBtn">去评价</button>
+  <button hover-class="none" bindtap="goEvaluation" class="hgt90rpx wid100 pjBtn">去评价</button>
 </view>
 <!-- <view bindtap="layerhide" class='markBox {{layer ? "" : "hide"}}'></view> -->
