@@ -29,7 +29,7 @@
           <image class="wid80rpx hgt80rpx radius_50" src="{{info_con.members[0].member_portrait}}" mode="aspectFill" lazy-load="false" ></image>
           <text class="font24">团长</text>
         </view>
-        <text class="font24 color-333 m-b-40 m-r-30">与</text>
+        <text wx:if="{{memberList.length>1}}" class="font24 color-333 m-b-40 m-r-30">与</text>
         <view wx:for="{{memberList}}" wx:key="unique" class="hgt130rpx m-v-10 m-r-30 column-center-b">
           <image class="wid80rpx hgt80rpx radius_50" src="{{item.member_portrait}}" mode="aspectFill" lazy-load="false" ></image>
           <text class="font24">团员</text>

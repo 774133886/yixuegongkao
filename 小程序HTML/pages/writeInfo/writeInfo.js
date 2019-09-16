@@ -49,10 +49,12 @@ Page({
     
     var data = {};
     data.mobile = this.data.phone;
+    data.id = this.data.c_id;
+    data.type = "M";
     var _this = this
     var coden = 60    // 定义60秒的倒计时
     // return false;
-    http.postReq('/api/member/login/send_weixin_app_bind_sms.htm', data, function (res) {
+    http.postReq('/api/business/send_enroll_code.htm', data, function (res) {
       if (res.code == 0) {
         wx.showToast({
           title: res.message,

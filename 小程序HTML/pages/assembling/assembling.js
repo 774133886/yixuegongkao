@@ -23,6 +23,7 @@ Page({
     payInfo:{},
     wxPay:false,
     pintuan:{},
+    ptInfo:{},
     memberList:[]
   },
 
@@ -89,8 +90,9 @@ Page({
     console.log(enroll_fields)
     wx.setStorageSync('fromPt', {ispt:true,p_id:this.data.p_id,g_id:this.data.g_id});
     if (enroll_fields.length) {
+      console.log(that.data.c_id)
       wx.navigateTo({
-        url: '/pages/writeInfo/writeInfo?c_id=' + this.data.ptInfo.course_id
+        url: '/pages/writeInfo/writeInfo?c_id=' + that.data.c_id
       })
     } else {
       console.log("支付");
