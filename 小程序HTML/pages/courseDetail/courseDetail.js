@@ -221,16 +221,27 @@ Page({
           duration: 3000,
         })
         // 支付
-        if (res.data.status = 2) {
-          that.setData({
-            wxPay: !that.data.wxPay,
-            payInfo: res.data
-          })
-        } else if (res.data.status == 1 || res.data.status == 6) {
-          setTimeout(() => {
-            wx.navigateBack();
-          }, 1500)
+        if (res.data.price==0){
+          // 免费
+          if (that.data.state == 1) {
+            that.getPtInfo();
+          } else {
+            // 获取详情
+            that.getInfo();
+          }
+        }else{
+          if (res.data.status = 2) {
+            that.setData({
+              wxPay: !that.data.wxPay,
+              payInfo: res.data
+            })
+          } else if (res.data.status == 1 || res.data.status == 6) {
+            setTimeout(() => {
+              wx.navigateBack();
+            }, 1500)
+          }
         }
+        
       } else {
         wx.showToast({
           title: res.message,

@@ -48,6 +48,8 @@ Page({
       this.getInfo();
     }else{
       // 开团返回
+      console.log(this.data.pintuan)
+
       this.setData({
         openState: 1,
         wxPay: false,
@@ -251,12 +253,23 @@ Page({
           })
           // 支付
           if (res.data.status = 2) {
-            that.setData({
-              // payShow: !that.data.payShow,
-              wxPay: !that.data.wxPay,
-              payInfo: res.data,
-              pintuan: res.data.pintuan,
-            })
+            //如果免费
+            if (that.data.info.promoter_price==0){
+              this.setData({
+                openState: 2,
+                wxPay: false,
+              })
+              this.getInfo();
+            }else{
+              that.setData({
+                // payShow: !that.data.payShow,
+                wxPay: !that.data.wxPay,
+                payInfo: res.data,
+                pintuan: res.data.pintuan,
+              })
+
+            }
+            
           } else if (res.data.status == 1 || res.data.status == 6) {
             setTimeout(() => {
               wx.navigateBack();
