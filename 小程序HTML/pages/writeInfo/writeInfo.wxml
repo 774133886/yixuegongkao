@@ -10,6 +10,9 @@
     <view wx:if='{{mobile}}' class="l-pad40 border-b-eee center hgt100rpx">
       <input type="number" name="mobile" data-key-name="phone" bindinput="changeInput" class="font30 flex_1 color-333" maxlength="11" placeholder="请输入你的手机号码" placeholder-class="color-999"></input>
     </view>
+    <view wx:if='{{enrollcode}}' class="l-pad40 border-b-eee center hgt100rpx">
+      <input type="text" name="enrollcode" class="font30 flex_1 color-333" maxlength="11" placeholder="请输入报名激活码" placeholder-class="color-999"></input>
+    </view>
     <view wx:if='{{qq}}' class="l-pad40 border-b-eee center hgt100rpx">
       <input type="number" name="qq" class="font30 flex_1 color-333" maxlength="12" placeholder="请输入你的qq号码" placeholder-class="color-999"></input>
     </view>
