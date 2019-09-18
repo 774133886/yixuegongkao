@@ -267,7 +267,7 @@ Page({
                 payInfo: res.data,
                 pintuan: res.data.pintuan,
               })
-
+              console.log(that.data.pintuan)
             }
             
           } else if (res.data.status == 1 || res.data.status == 6) {
