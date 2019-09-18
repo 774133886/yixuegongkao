@@ -28,7 +28,7 @@
       <view class="groupLabel">地 址</view>
       <view class="groupDetail color-666">{{info.member_address}}</view>
     </view>
-    <view class="orderGroup flex_dom">
+    <view class="orderGroup flex_dom" wx:if="{{info.member_realname||info.member_mobile}}">
       <view class="groupLabel">收货人</view>
       <view class="groupDetail color-666 flex_dom flex_item_between flex_1"><view>{{info.member_realname}}</view><view>{{info.member_mobile}}</view></view>
     </view>

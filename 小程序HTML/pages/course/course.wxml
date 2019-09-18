@@ -17,7 +17,7 @@
         <swiper-item>
           <x-scroll-view scroll-y="{{true}}" class="indexAArea p-t-20 p-b-20" bindscrolltolower="bindscrolltolower" hover-class="none" hover-stop-propagation="false" refreshing="{{refreshing}}" nomore="{{nomore}}" bindpulldownrefresh="_onPullDownRefresh" bindloadmore="bindscrolltolower" >
             <view class="swiperItem">
-              <navigator wx:for="{{courseList[index]}}" wx:key="course" wx:for-item="course" hover-class='none' url='{{"../courseDetail/courseDetail?state="+(active==6?1:0)+"&c_id="+course.course_id}}' class='index_courseList hgt230rpx between border-b-eee'>
+              <navigator wx:for="{{courseList[index]}}" wx:key="course" wx:for-item="course" hover-class='none' url='{{"../courseDetail/courseDetail?state="+(active==6?1:0)+"&c_id="+(active==6?course.promotions[0].promotion_id:course.course_id)}}' class='index_courseList hgt230rpx between border-b-eee'>
                 <view class='hgt190rpx wid290rpx relative'>
                   <image class="wid100 hgt190rpx" src="{{course.image_small}}" mode="aspectFill" lazy-load="false" ></image>
                   <image class="index_tag2" wx:if="{{course.promotions&&course.promotions[0].promotion_type==4}}" src="../../files/img_pintuan.png" mode="aspectFill" lazy-load="false" ></image>

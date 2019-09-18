@@ -40,7 +40,7 @@ Page({
   afterSuc(e){
     console.log(e.detail)
     // 拼团返回
-    if(e.detail==0){
+    if(e.detail==1){
       this.setData({
         openState: 2,
         wxPay: false,
@@ -261,13 +261,15 @@ Page({
               })
               this.getInfo();
             }else{
+              var list = res.data;
+              list.isjoinpt = false;
               that.setData({
                 // payShow: !that.data.payShow,
                 wxPay: !that.data.wxPay,
-                payInfo: res.data,
+                payInfo: list,
                 pintuan: res.data.pintuan,
               })
-              console.log(that.data.pintuan)
+              console.log(that.data.payInfo)
             }
             
           } else if (res.data.status == 1 || res.data.status == 6) {

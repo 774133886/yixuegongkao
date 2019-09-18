@@ -55,13 +55,13 @@ Component({
         var data = res.data;
         that.wxPay(data, function () {
           wx.hideLoading();
-
+          console.log(that.data.payInfo.isjoinpt);
           // 成功返回函数
           if (that.data.payInfo.isjoinpt){
-            // 开团
+            // 拼团
             that.triggerEvent('afterSuc', 1);
           }else{
-            // 拼团
+            // 开团
             that.triggerEvent('afterSuc', 0);
           }
         });
