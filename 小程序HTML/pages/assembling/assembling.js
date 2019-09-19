@@ -169,7 +169,7 @@ Page({
         var content = res.data.product.course.intro;
         WxParse.wxParse('article', 'html', content, that, 5);
         // 倒计时
-        var ptTime = (new Date(res.data.product.end_time).getTime() - Date.parse(new Date())) / 1000;
+        var ptTime = (new Date(res.data.product.end_time.replace(/-/g, '/')).getTime() - Date.parse(new Date())) / 1000;
         if (ptTime > 0) {
           var countTime = setInterval(function () {
             if (ptTime == 1) {

@@ -121,7 +121,7 @@ Page({
         console.log(res.data);
         var aclist = res.data;
         aclist.forEach(function (v, i) {
-          v.last_time = (new Date(v.end_time).getTime() - Date.parse(new Date()))/1000;
+          v.last_time = (new Date(v.end_time.replace(/-/g, '/')).getTime() - Date.parse(new Date()))/1000;
           console.log(v.last_time)
         })
 

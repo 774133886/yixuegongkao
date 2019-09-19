@@ -294,7 +294,7 @@ Page({
         if (res.data.promotions.length){
           if (res.data.promotions[0].promotion_type == 2) {
 
-            var msTime = (new Date(res.data.promotions[0].promotion_end_time).getTime() - Date.parse(new Date())) / 1000;
+            var msTime = (new Date(res.data.promotions[0].promotion_end_time.replace(/-/g, '/')).getTime() - Date.parse(new Date())) / 1000;
             if (msTime > 0) {
               var countTime = setInterval(function () {
                 if (msTime == 1) {
@@ -348,7 +348,7 @@ Page({
           wx.setStorageSync('enroll_fields', []);
         }
         // 拼团倒计时
-        var ptTime = (new Date(res.data.end_time).getTime() - Date.parse(new Date())) / 1000;
+        var ptTime = (new Date(res.data.end_time.replace(/-/g, '/')).getTime() - Date.parse(new Date())) / 1000;
         if (ptTime>0) {
           var countTime = setInterval(function () {
             if (ptTime == 1) {
@@ -374,7 +374,7 @@ Page({
         // },200)
 
         list.forEach(function (a, b) {
-          a.last_time = (new Date(a.expire_time).getTime() - Date.parse(new Date())) / 1000;
+          a.last_time = (new Date(a.expire_time.replace(/-/g, '/')).getTime() - Date.parse(new Date())) / 1000;
           console.log(a.last_time)
 
           var time = a.last_time

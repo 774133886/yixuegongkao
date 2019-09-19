@@ -44,7 +44,7 @@ Page({
         var list = that.data.pjList;
         
         list.forEach(function (a, b) {
-          a.last_time = (new Date(a.expire_time).getTime() - Date.parse(new Date())) / 1000;
+          a.last_time = (new Date(a.expire_time.replace(/-/g, '/')).getTime() - Date.parse(new Date())) / 1000;
           console.log(a.last_time)
        
             var time = a.last_time
