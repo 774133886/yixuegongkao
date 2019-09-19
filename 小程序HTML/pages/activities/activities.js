@@ -61,7 +61,7 @@ Page({
     http.getReq(url, data, function (res) {
       if (res.code == 0) {
         res.data.list.forEach(function (v, i) {
-          v.last_time = (new Date(v.end_time).getTime() - Date.parse(new Date())) / 1000;
+          v.last_time = (new Date(v.end_time.replace('-', '/').replace('-', '/')).getTime() - Date.parse(new Date())) / 1000;
         });
         var list = that.data.list;
         if (list[that.data.active].length == 0 || that.data.isShow) {
