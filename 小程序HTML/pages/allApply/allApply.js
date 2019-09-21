@@ -56,6 +56,10 @@ Page({
             pjList: res.data.replys.list,
             totalPage: Math.ceil(res.data.replys.pagination.max_row_count / that.data.rows)
           });
+          wx.setNavigationBarTitle({
+            title: res.data.replys.pagination.max_row_count +'条回复'
+          })
+          
         } else {
           that.setData({
             pjList: that.data.pjList.concat(res.data.replys.list),

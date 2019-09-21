@@ -280,12 +280,14 @@ Page({
             // 开团返回
             wx.setStorageSync('back', 0);
             setTimeout(()=>{
+              wx.removeStorageSync('fromPt');
               wx.navigateBack();
             },500)
           }else{
             // 拼团返回
             wx.setStorageSync('back', 1);
             setTimeout(()=>{
+              wx.removeStorageSync('fromPt');
               wx.navigateBack();
             },500)
           }

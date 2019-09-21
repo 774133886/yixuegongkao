@@ -164,7 +164,23 @@ Page({
           c_id: res.data.product.course.id,
           memberList: res.data.members.slice(1, res.data.members.length)
         })
-
+        // 修改状态标题
+        if (res.data.group_size == res.data.current_users){
+          wx.setNavigationBarTitle({
+            title: '拼团已完成'
+          })
+        }else{
+          if (res.data.members || res.data.members[0].is_promoter){
+            wx.setNavigationBarTitle({
+              title: '开团成功'
+            })
+          } else if (res.data.is_join){
+            wx.setNavigationBarTitle({
+              title: '参团成功'
+            })
+          }
+        }
+        
 
         var content = res.data.product.course.intro;
         WxParse.wxParse('article', 'html', content, that, 5);
@@ -373,7 +389,7 @@ Page({
     var info = that.data.Info;
     return {
       title: '跟我一起学习这门课程',
-      path: '/pages/assembling/assembling?g_id=' + that.data.g_id,
+      path: '/pages/assembling/assembling?g_id=' + that.data.g_id + '&p_id=' + that.data.p_id,
       imageUrl: that.data.info.image_large,
       success: (res) => {    // 成功后要做的事情
         //console.log(res.shareTickets[0])
