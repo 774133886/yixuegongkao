@@ -1,5 +1,5 @@
 <!--pages/LiveStudio/LiveStudio.wxml-->
-<view class="flex_dom flex_item_mid liveOrder" bindtap="goDetail">
+<view class="flex_dom flex_item_mid liveOrder" wx:if="{{list.length>0}}" bindtap="goDetail">
   <image class="liveImg" src="{{info.image_small}}"></image>
   <view class="flex_1">
     <view class="font30 color-333">{{info.name}}</view>
@@ -7,7 +7,7 @@
     <view class="font22 color-bd m-t-10">{{info.class_time}}</view>
   </view>
 </view>
-<view class="liveStudio">
+<view class="liveStudio" wx:if="{{list.length>0}}">
   <view class="liveTitle flex_dom flex_item_between">
     <view class="font30 color-333">课时</view>
     <view bindtap="changeSort">
@@ -33,4 +33,8 @@
       <button class="liveBtn3"bindtap="playLive" data-item="{{item}}" wx:if="{{item.status_text=='观看回放'}}" hover-class="liveBtn3-hover">观看回放</button>
     </view>
   </view>
+</view>
+<view  class="noData text-center" wx:if="{{(list.length==0&&pages.page_index==1)}}">
+  <image src="../../files/img_quesheng.png"></image>
+  <view class="font30 color-999">暂无直播哦~</view>
 </view>

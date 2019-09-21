@@ -77,8 +77,15 @@ Page({
           })
         }
       case '评价课程':
+        var info = that.data.info;
         wx.navigateTo({
           url: '../evaluation/evaluation?id=' + info.course.id,
+        })
+        break;
+      case '拼团中':
+        var info = that.data.info;
+        wx.navigateTo({
+          url: '../assembling/assembling?g_id=' + info.pintuan.group.id + '&p_id=' + info.product_id,
         })
         break;
       default:

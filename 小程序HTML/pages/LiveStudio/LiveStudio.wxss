@@ -48,3 +48,8 @@
   background:rgba(223,242,255,1);
   color: #1E9EF3;
 }
+.noData image{
+  width: 360rpx;
+  height: 300rpx;
+  margin: 150rpx auto 10rpx;
+}

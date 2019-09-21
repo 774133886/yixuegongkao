@@ -12,6 +12,7 @@ Page({
     courseid: '',
     sort: 1,
     list: [],
+    pages:{},
     info: {},
     vid: ""
   },
@@ -66,7 +67,8 @@ Page({
     http.postReq("/api/public/get_course_room_list.htm", { courseid: id, sort: this.data.sort},function(res){
       if(res.code == 0){
         that.setData({
-          list: res.data.list
+          list: res.data.list,
+          pages: res.data.pagination
         })
       }
     })

@@ -11,7 +11,7 @@
         </view>
       </view>
       <view class="stars">
-        <image wx:for="{{starList}}" wx:key="item" src="{{item.score>=item?'../../files/icon_collect_3.png':'../../files/icon_collect_1.png'}}"></image>
+        <image wx:for="{{starList}}" wx:key="star" wx:for-item="star" src="{{item.score>=star?'../../files/icon_collect_1.png':'../../files/icon_collect_3.png'}}"></image>
         <text class="font24 color-999 m-l-20">{{item.score}}分</text>
       </view>
     </view>
