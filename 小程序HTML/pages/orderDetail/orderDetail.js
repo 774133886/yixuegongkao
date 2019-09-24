@@ -24,8 +24,9 @@ Page({
     });
   },
   goDetail(){
+    let item = this.data.info;
     wx.navigateTo({
-      url: '../courseDetail/courseDetail',
+      url: '../courseDetail/courseDetail?c_id=' + (item.is_pintuan ? item.product_id : item.course.id) + '&state=' + (item.is_pintuan ? 1 : 0)
     })
   },
   getInfo(){
