@@ -47,7 +47,7 @@
         
         <text wx:if="{{state!=1}}" class='color-5273FF m-l-60 font20'>{{info.apply_count}}</text>
         <text wx:if="{{state!=1}}" class='color-999 font20'>/{{info.enroll_count}}人报名</text>
-        <text wx:if="{{state==1}}" class='color-FF1919 m-l-60 font24'>{{ptInfo.group_size}} 人已拼团</text>
+        <text wx:if="{{state==1}}" class='color-FF1919 m-l-60 font24'>{{ptInfo.quantity}} 人已拼团</text>
      </view>
      <view class='center' catchtap='shareTab'>
       <image class='wid30rpx hgt30rpx' src='../../files/icon_share.png'></image>
