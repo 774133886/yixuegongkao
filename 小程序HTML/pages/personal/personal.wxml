@@ -1,7 +1,7 @@
 <!--pages/personal/personal.wxml-->
 <view class="personal font30">
   <view class="perHeader bg-fff flex_dom flex_item_mid">
-    <view class="flex_1 flex_dom flex_item_mid">
+    <view class="flex_1 flex_dom flex_item_mid" bindtap="goInfo">
       <image wx:if="{{!isLogin}}" bindtap="goLogin" class="userImg" src="../../files/img_user1.png"></image>
       <image wx:if="{{isLogin}}" class="userImg" src="{{info.portrait}}"></image>
       <view>

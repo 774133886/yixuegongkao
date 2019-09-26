@@ -69,6 +69,7 @@ Page({
     })
   },
   goInfo(){
+    if(!this.data.isLogin)return;
     wx.navigateTo({
       url: '../userInfo/userInfo',
     })
