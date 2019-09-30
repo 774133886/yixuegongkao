@@ -81,8 +81,6 @@ Page({
  
   //getlist
   getlist: function(){
-    var token = wx.getStorageSync('token');
-    if(!token) return;
     var that = this;
     let data = {};
     data.indexrmd = 1;
@@ -184,8 +182,6 @@ Page({
     })
   },
   getBanner: function () {
-    var token = wx.getStorageSync('token');
-    if (!token) return;
     var that = this;
     let data = {};
     data.tag = 'WX_APP_BANNER';

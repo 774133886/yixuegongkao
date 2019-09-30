@@ -2,10 +2,11 @@
 <view>
   <image class="logoImg" src="../../files/img_logo.png"></image>
   <view class='curForm hgt80rpx'>
-    <view class='between-center hgt80rpx'>
+    <!-- <view class='between-center hgt80rpx'>
       <text bindtap='changeidx' data-idx='0' class='{{acidx == 0 ?"acNav":""}} wid50 hgt80rpx border-b-eee around-center'>账号登录</text>
       <text bindtap='changeidx' data-idx='1' class='{{acidx == 1 ?"acNav":""}} wid50 around-center border-b-eee hgt80rpx'>验证码登录</text>
-    </view>
+    </view> -->
+    <view class="hgt80rpx around-center fw_600 font30rpx">首次登录需要您绑定手机号</view>
   </view>
   <form wx:if="{{acidx==0}}" bindsubmit="formSubmit">
     <view class="curForm m-t-100">
@@ -13,7 +14,7 @@
         <input name='mobile' class="placeholder-999 font30" type="phone" placeholder="请输入手机号码"></input>
       </view>
       <view class="curFormItem">
-        <input name='password' class="placeholder-999 font30" type="password" maxlength="6" placeholder="请输入密码"></input>
+        <input name='password' class="placeholder-999 font30" type="password" maxlength="18" placeholder="请输入密码"></input>
       </view>
       <view class="curFormButton">
         <button form-type='submit' class="font36" hover-class="btn-hover">登录</button>
@@ -34,7 +35,7 @@
         <view class="tellCode font30" bindtap="getCode">{{time == 60 ? '获取验证码' : time+'s'}}</view>
       </view>
       <view class="curFormButton">
-        <button form-type='submit' class="font36" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" hover-class="btn-hover">登录</button>
+        <button form-type='submit' class="font36" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" hover-class="btn-hover">绑定</button>
       </view>
     </view>
   </form>

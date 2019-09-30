@@ -9,19 +9,22 @@ var header = {
 
 function getReq(url, data, cb) {
   var token = wx.getStorageSync('token');
-  if (!token) {
-    wx.showToast({
-      icon: 'none',
-      title: '重新登录',
-    })
-    setTimeout(() => {
-      // 去登录
-      wx.reLaunch({
-        url: '/pages/login/login'
-      })
-    }, 2000)
-    return false;
-  }else{
+  // if (!token) {
+  //   wx.showToast({
+  //     icon: 'none',
+  //     title: '重新登录',
+  //   })
+  //   setTimeout(() => {
+  //     // 去登录
+  //     wx.reLaunch({
+  //       url: '/pages/login/login'
+  //     })
+  //   }, 2000)
+  //   return false;
+  // }else{
+  //   header["Authorization"] = token
+  // }
+  if (token) {
     header["Authorization"] = token
   }
   wx.showLoading({
@@ -40,8 +43,9 @@ function getReq(url, data, cb) {
       wx.hideLoading();
 
       if (res.data.code == 920 || res.data.rcode == 921) {
+        console.log(res.data.message)
         wx.showToast({
-          title: res.data.ret_msg,
+          title: res.data.message,
           icon: 'none',
           duration: 2000
         })
@@ -87,7 +91,7 @@ function postReq(url, data, cb) {
       wx.hideLoading();
       if (res.data.code == 920) {
         wx.showToast({
-          title: res.data.ret_msg,
+          title: res.data.message,
           icon: 'none',
           duration: 2000
         })
