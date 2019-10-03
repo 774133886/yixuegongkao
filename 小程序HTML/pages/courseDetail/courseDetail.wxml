@@ -278,3 +278,5 @@
     </view>
   </view>
 </view>
+<!-- 返回顶部 -->
+<image src='../../files/icon_huidaodingbu.png' class='goTop' hidden='{{!floorstatus}}' bindtap="goTop"></image>

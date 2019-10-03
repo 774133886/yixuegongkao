@@ -135,13 +135,7 @@ page{
   height: 30rpx;
   /* width: 150rpx; */
 }
-.goTop{
-  position: fixed;
-  width: 70rpx;
-  height: 70rpx;
-  right: 19rpx;
-  bottom: 200rpx;
-}
+
 .layerBG{
   position: absolute;
   left: 0;

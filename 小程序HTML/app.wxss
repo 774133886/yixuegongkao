@@ -819,6 +819,9 @@ border: none;
 .fw_content image{
   width: 100% !important;
 }
+.fwcon image{
+  width: 100% !important;
+}
 .keepBtn{
   width:608rpx;
   height:90rpx;
@@ -934,4 +937,12 @@ view{
 page{
   border-top: 1px solid #F8F8F8;
   box-sizing: border-box;
+}
+/* 返回顶部 */
+.goTop{
+  position: fixed;
+  width: 70rpx;
+  height: 70rpx;
+  right: 19rpx;
+  bottom: 200rpx;
 }
