@@ -41,6 +41,10 @@ Component({
       type: Boolean,
       value: false,
     },
+    st: {
+      type: Number,
+      value: 0
+    }
   },
 
   /**

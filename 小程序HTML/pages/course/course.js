@@ -9,13 +9,15 @@ Page({
    */
   data: {
     active: 0,
-    list: ["6","1","2","3","4","5","8","9"],
+    list: ["6","1","2","3","4","8","9"],
     courseList: [
-      [],[],[],[],[],[],[],[]
+      [],[],[],[],[],[],[]
     ],
     pageList: [
-      {},{},{},{},{},{},{},{}
+      {},{},{},{},{},{},{}
     ],
+    scrollList: [0,0,0,0,0,0,0],
+    floorstatus: false,
     isShow: true
   },
   choiceTab(e) {
@@ -27,6 +29,16 @@ Page({
     this.setData({
       active: e.detail.current
     });
+
+    var flag = false;
+    if (this.data.scrollList[this.data.active] > 100) {
+      flag = true
+    } else {
+      flag = false
+    }
+    this.setData({
+      floorstatus: flag
+    });
     if(this.data.courseList[this.data.active].length == 0){
       this.getInfo()
     }
@@ -35,15 +47,15 @@ Page({
     var that = this;
     var active = this.data.active;
     var data = {};
-    if(active==6){
+    if(active==5){
       data["type"] && delete data["type"];
       data.promotionType = 4
-    } else if (active == 7){
+    } else if (active == 6){
       data["type"] && delete data["type"];
       data.promotionType = 2
     } else if (active == 0) {
       data["promotionType"] && delete data["promotionType"];
-      data.type = 6
+      data.type = 5
     } else {
       data["promotionType"] && delete data["promotionType"];
       data.type = active
@@ -75,6 +87,35 @@ Page({
       return;
     }
     this.getInfo({ page: page+1})
+  },
+  // 获取滚动条当前位置
+  scrollChange: function (e) {
+    var list = this.data.scrollList;
+    var active = this.data.active;
+    list[active] = e.detail.scrollTop;
+    if (e.detail.scrollTop > 100) {
+      this.setData({
+        floorstatus: true,
+        scrollTop: list
+      });
+    } else {
+      this.setData({
+        floorstatus: false,
+        scrollTop: list
+      });
+    }
+  },
+
+  //回到顶部
+  goTop: function (e) {  // 一键回到顶部
+    var list = this.data.scrollList;
+    var active = this.data.active;
+    list[active] = 0;
+    setTimeout(()=>{
+      this.setData({
+        scrollList: list
+      })
+    })
   },
   //下拉刷新监听函数
   _onPullDownRefresh: function () {
