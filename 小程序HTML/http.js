@@ -2,7 +2,7 @@ var rootDocment = 'https://yxgk.kulend.com/';
 var header = {
   'Accept': 'application/x-www-form-urlencoded',
   'content-type': 'application/x-www-form-urlencoded',
-  'Authorization': wx.getStorageSync('token') || null,
+  'Authorization': null,
   
   
 }
@@ -24,9 +24,8 @@ function getReq(url, data, cb) {
   // }else{
   //   header["Authorization"] = token
   // }
-  if (token) {
-    header["Authorization"] = token
-  }
+  header["Authorization"] = token
+  
   wx.showLoading({
     title: '加载中',
   })
@@ -41,8 +40,7 @@ function getReq(url, data, cb) {
     success: function (res) {
 
       wx.hideLoading();
-
-      if (res.data.code == 920 || res.data.rcode == 921) {
+      if (res.data.code == 920 || res.data.code == 921 || res.data.code == 922) {
         console.log(res.data.message)
         wx.showToast({
           title: res.data.message,
