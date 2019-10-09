@@ -47,16 +47,28 @@ Page({
     var that = this;
     var active = this.data.active;
     var data = {};
-    if(active==5){
+    if(active==0){
       data["type"] && delete data["type"];
-      data.promotionType = 4
-    } else if (active == 6){
-      data["type"] && delete data["type"];
-      data.promotionType = 2
-    } else if (active == 0) {
+      data.promotionType = 'all'
+    } else if (active == 1) {
       data["promotionType"] && delete data["promotionType"];
-      data.type = 5
-    } else {
+      data.type = 6
+    } else if (active == 2) {
+      data["promotionType"] && delete data["promotionType"];
+      data.type = 1
+    } else if (active == 3) {
+      data["promotionType"] && delete data["promotionType"];
+      data.type = 2
+    } else if (active == 4) {
+      data["promotionType"] && delete data["promotionType"];
+      data.type = 3
+    } else if (active == 5) {
+      data["promotionType"] && delete data["promotionType"];
+      data.type = 4
+    }  else if (active == 6) {
+      data["promotionType"] && delete data["promotionType"];
+      data.type = 0
+    }else {
       data["promotionType"] && delete data["promotionType"];
       data.type = active
     }

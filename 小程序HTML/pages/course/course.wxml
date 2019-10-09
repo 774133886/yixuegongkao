@@ -2,14 +2,15 @@
 <wxs module="filter" src="../../filter/Filters.wxs"></wxs>
 <view class='Con flex_column font30 l-pad40'>
   <view class="courseTab">
-    <view class="{{active==0?'active':''}}" bindtap="choiceTab" data-id="0">系统课</view>
-    <view class="{{active==1?'active':''}}" bindtap="choiceTab" data-id="1">申论</view>
-    <view class="{{active==2?'active':''}}" bindtap="choiceTab" data-id="2">行测</view>
-    <view class="{{active==3?'active':''}}" bindtap="choiceTab" data-id="3">面试</view>
-    <view class="{{active==4?'active':''}}" bindtap="choiceTab" data-id="4">事业单位</view>
-    <!-- <view class="{{active==5?'active':''}}" bindtap="choiceTab" data-id="5">其他</view> -->
-    <view class="{{active==5?'active':''}}" bindtap="choiceTab" data-id="5">拼团</view>
-    <view class="{{active==6?'active':''}}" bindtap="choiceTab" data-id="6">秒杀</view>
+    <view class="{{active==0?'active':''}}" bindtap="choiceTab" data-id="0">活动课程</view>
+    <view class="{{active==1?'active':''}}" bindtap="choiceTab" data-id="1">系统课</view>
+    <view class="{{active==2?'active':''}}" bindtap="choiceTab" data-id="2">申论</view>
+    <view class="{{active==3?'active':''}}" bindtap="choiceTab" data-id="3">行测</view>
+    <view class="{{active==4?'active':''}}" bindtap="choiceTab" data-id="4">面试</view>
+    <view class="{{active==5?'active':''}}" bindtap="choiceTab" data-id="5">事业单位</view>
+    <view class="{{active==6?'active':''}}" bindtap="choiceTab" data-id="6">其他</view>
+    <!-- <view class="{{active==5?'active':''}}" bindtap="choiceTab" data-id="5">拼团</view>
+    <view class="{{active==6?'active':''}}" bindtap="choiceTab" data-id="6">秒杀</view> -->
   </view>
   <view class="flex_1 relative">
     <swiper class="swiperCon" indicator-dots="{{false}}" autoplay="{{false}}" bindchange="swiperChange" current="{{active}}">
@@ -17,7 +18,7 @@
         <swiper-item>
           <x-scroll-view scroll-y class="indexAArea p-t-20 p-b-20" bindscrolltolower="bindscrolltolower" hover-class="none" hover-stop-propagation="false" refreshing="{{refreshing}}" nomore="{{nomore}}" bindpulldownrefresh="_onPullDownRefresh" bindloadmore="bindscrolltolower" bindscroll="scrollChange" st="{{scrollList[index]}}">
             <view class="swiperItem">
-              <navigator wx:for="{{courseList[index]}}" wx:key="course" wx:for-item="course" hover-class='none' url='{{"../courseDetail/courseDetail?state="+(course.promotions&&course.promotions[0].promotion_id?1:0)+"&c_id="+(course.promotions&&course.promotions[0].promotion_id?course.promotions[0].promotion_id:course.course_id)}}' class='index_courseList hgt230rpx between border-b-eee'>
+              <navigator wx:for="{{courseList[index]}}" wx:key="course" wx:for-item="course" hover-class='none' url='{{"../courseDetail/courseDetail?state="+(course.promotions&&course.promotions[0].promotion_type==4?1:0)+"&c_id="+(course.promotions&&course.promotions[0].promotion_type==4?course.promotions[0].promotion_id:course.course_id)}}' class='index_courseList hgt230rpx between border-b-eee'>
                 <view class='hgt190rpx wid290rpx relative'>
                   <image class="wid100 hgt190rpx" src="{{course.image_small}}" mode="aspectFill" lazy-load="false" ></image>
                   <image class="index_tag2" wx:if="{{course.promotions&&course.promotions[0].promotion_type==4}}" src="../../files/img_pintuan.png" mode="aspectFill" lazy-load="false" ></image>
