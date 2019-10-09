@@ -506,13 +506,13 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function (res) {
     var that = this;
     if (res.from === 'button') {
       // 来自页面内转发按钮
       console.log(res.target)
     }
-    var info = that.data.Info;
+    var info = that.data.info;
     return {
       title: '跟我一起学习这门课程',
       path: '/pages/courseDetail/courseDetail?c_id=' + that.data.c_id,
