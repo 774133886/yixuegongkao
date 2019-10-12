@@ -349,27 +349,27 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function(res) {
-    var that = this;
-    if (res.from === 'button') {
-      // 来自页面内转发按钮
-      console.log(res.target)
-    }
-    var user = wx.getStorageSync('user');
-    return {
-      title: '跟我一起重新认识一本书',
-      path: '/pages/index/index?pid=' + user.id,
-      imageUrl: '/files/share.jpg',
-      success: (res) => {    // 成功后要做的事情
-        //console.log(res.shareTickets[0])
-        // console.log
-        that.setData({
-          signBoxShow: false
-        })
-      },
-      fail: function (res) {
-        // 分享失败
-        console.log(res)
-      }
-    }
+    // var that = this;
+    // if (res.from === 'button') {
+    //   // 来自页面内转发按钮
+    //   console.log(res.target)
+    // }
+    // var user = wx.getStorageSync('user');
+    // return {
+    //   title: '跟我一起重新认识一本书',
+    //   path: '/pages/index/index?pid=' + user.id,
+    //   imageUrl: '/files/share.jpg',
+    //   success: (res) => {    // 成功后要做的事情
+    //     //console.log(res.shareTickets[0])
+    //     // console.log
+    //     that.setData({
+    //       signBoxShow: false
+    //     })
+    //   },
+    //   fail: function (res) {
+    //     // 分享失败
+    //     console.log(res)
+    //   }
+    // }
   }
 })

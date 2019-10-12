@@ -514,7 +514,7 @@ Page({
     }
     var info = that.data.info;
     return {
-      title: '跟我一起学习这门课程',
+      title: info.share_text,
       path: '/pages/courseDetail/courseDetail?c_id=' + that.data.c_id,
       imageUrl: info.image_large,
       success: (res) => {    // 成功后要做的事情
