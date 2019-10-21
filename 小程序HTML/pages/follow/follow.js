@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    deployInfo: wx.getStorageSync("deployInfo")
   },
 
   /**
@@ -15,38 +15,51 @@ Page({
 
   },
   // 长按
-  previewImage: function (e) {
-    var current = e.target.dataset.src;
-    wx.previewImage({
-      current: current,
-      urls: [current]
-    })
+  // previewImage: function (e) {
+  //   var current = e.target.dataset.src;
+  //   wx.previewImage({
+  //     current: current,
+  //     urls: [current]
+  //   })
+  // },
+  copy: function (e) {
+    var that = this;
+    wx.setClipboardData({
+      data: "逸学公考",
+      success: function (res) {
+        wx.showToast({
+          icon: 'none',
+          title: '复制成功',
+        });
+      }
+    });
   },
   // 保存图片
   saveImage() {
-    wepy.showLoading({
+    wx.showLoading({
       title: '保存中...',
       mask: true,
     });
+    var deployInfo = this.deployInfo;
     wx.downloadFile({
-      url:
-        'http://upload.jianshu.io/admin_banners/web_images/4435/c1d3ca63353c8bd527f0d781605516cb5b266d02.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/1250/h/540',
+      url: deployInfo.wx_qrcode_url,
       success: function (res) {
+        console.log(res);
         if (res.statusCode === 200) {
           let img = res.tempFilePath;
           wx.saveImageToPhotosAlbum({
             filePath: img,
             success(res) {
-              wepy.showToast({
+              wx.showToast({
                 title: '保存成功',
-                icon: 'success',
+                icon: 'none',
                 duration: 2000
               });
             },
             fail(res) {
-              wepy.showToast({
+              wx.showToast({
                 title: '保存失败',
-                icon: 'success',
+                icon: 'none',
                 duration: 2000
               });
             }
