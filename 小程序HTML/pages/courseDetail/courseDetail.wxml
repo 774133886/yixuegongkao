@@ -142,7 +142,7 @@
           <view class='color-777 font24 m-t-10'>{{item.content}}</view>
           <navigator url="/pages/allApply/allApply?com_id={{item.comment_id}}" hover-class="none" class='center-end color-5273FF font24'>回复</navigator>
           <navigator url="/pages/allApply/allApply?com_id={{item.comment_id}}" hover-class="none" class='center-end color-5273FF font24'>
-            <text>查看全部{{item.reply_count}}条评论</text>
+            <text>查看全部{{item.reply_count}}条回复</text>
             <image style='margin-left:0;' class='starPic' src='../../files/icon_xiangyou_b.png'></image>
           </navigator>
         </view>
@@ -150,7 +150,7 @@
       <view wx:if="{{pjList.length==0}}" class="text-center font24 color-999 p-v-20">暂无评价~</view>
       <navigator wx:if="{{pjList.length!=0}}" url="/pages/commentDtl/commentDtl?c_id={{c_id}}&score={{info.score}}" hover-class="none" class='around-center hgt70rpx'>
         <view class='center'>
-          <text class='font24 color-999'>查看所有评论</text>
+          <text class='font24 color-999'>查看所有评价</text>
           <image style='margin-left:0;' class='icon666' src='../../files/icon_more.png'></image>
         </view>
       </navigator>

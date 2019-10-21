@@ -2,7 +2,7 @@
 <import src="../../wxParse/wxParse.wxml"/>
 <wxs module="filter" src="../../filter/Filters.wxs"></wxs>
 <view class='Con font30'>
-  <view wx:if="{{openState!=0}}" class="l-pad40 text-center font30 color-FF3636 bg-248 p-t-25 p-b-25">
+  <view wx:if="{{openState!=0&&info_con.current_users!=info_con.group_size}}" class="l-pad40 text-center font30 color-FF3636 bg-248 p-t-25 p-b-25">
     拼团活动剩余  {{filter.toTime2(ptTime)}}
   </view>
   <view class="bg-fff ">
@@ -40,9 +40,11 @@
       </view>
       <view wx:if="{{!info_con.is_join}}" class="p-v-20 l-h-40rpx color-666 font24">
         <view>拼团说明：</view>
-        <view>1.支付开团并邀请X人参团，人数不足自动退款；</view>
+        <!-- <view>1.支付开团并邀请X人参团，人数不足自动退款；</view>
         <view>2.正常参团的拼团课程，在倒计时快结束时，自动补齐。</view>
-        <view>3.团发起人为团长，参团的人为团员。</view>              
+        <view>3.团发起人为团长，参团的人为团员。</view>               -->
+        <view>1.支付开团并邀请好友参团，人数不足或超时自动退款；</view>
+        <view>1.团长发起拼团后，可在订单页面查看；</view>
       </view> 
       <view wx:if="{{openState==1}}" class="text-center p-t-20 p-b-30">
         <view class="color-049BFE m-b-30">开团成功</view>
@@ -52,7 +54,7 @@
       <view  wx:if="{{info_con.is_join}}" class="m-b-30">
         <view wx:if="{{info_con.current_users==info_con.group_size}}" class="m-t-100">
           <view class="hgt110rpx around-center">
-            <button hover-class="none" class="color-fff inviteBtn font36">拼团已完成</button>
+            <button hover-class="none" bindtap="goOrder" class="color-fff inviteBtn font36">查看订单</button>
           </view>
         </view>
         <view wx:else class="m-t-100">

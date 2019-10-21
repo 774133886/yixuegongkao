@@ -89,7 +89,7 @@ Page({
     data.content = that.data.content;
     if (!that.data.content){
       wx.showToast({
-        title: '评论不能为空',
+        title: '评价不能为空',
         icon: 'none',
         duration: 2000
       })

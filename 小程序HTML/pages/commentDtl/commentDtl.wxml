@@ -45,7 +45,7 @@
             <text class="color-666"> {{apply.content}}</text>       
           </view>
           <navigator url="/pages/allApply/allApply?com_id={{item.comment_id}}" hover-class="none" class='center-end color-5273FF font24'>
-            <text>查看全部{{item.reply_count}}条评论</text>
+            <text>查看全部{{item.reply_count}}条回复</text>
             <image style='margin-left:0;' class='starPic' src='../../files/icon_xiangyou_b.png'></image>
           </navigator>
           <image class='arrowPic' src='../../files/c_arrow.png'></image>

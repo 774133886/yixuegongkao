@@ -60,7 +60,7 @@
 
   <view class='cdBot l-pad40 hgt100rpx between-center'>
     <input type="text" bindinput="textCom" focus="{{layer}}" value="{{content}}" bindfocus="layershow" bindblur="layerhide" class="applyArea flex_1 font24" placeholder-class="color-999" placeholder="我也说一句"></input>  
-    <view bindtap="replyCom" class="font30 m-l-30 color-5273FF">评论</view>
+    <view bindtap="replyCom" class="font30 m-l-30 color-5273FF">评价</view>
   </view>
 </view>
 <view class='markBox {{layer ? "" : "hide"}}'></view>
