@@ -28,7 +28,10 @@ Page({
     msTime:'',
     deployInfo:{},
     payInfo:{},
-    wxPay:false
+    wxPay:false,
+
+    oc_id:'',
+    o_state:'',
   },
 
   // 获取滚动条当前位置
@@ -89,27 +92,12 @@ Page({
     this.setData({
       state: options.state,
       deployInfo: wx.getStorageSync('deployInfo')
-    })
-    if (options.c_id){
-      this.setData({
-        c_id: options.c_id
-      })
-    }
-    if (options.state) {
-      this.setData({
-        state: options.state
-      })
-    }
-    if (options.state==1){
-      this.getPtInfo();
-      this.setData({
-        p_id: options.c_id
-      })
-    }else{
-      // 获取详情
-      this.getInfo();
-      // this.getpjList();
-    }
+    });
+    this.setData({
+      oc_id: options.c_id,
+      o_state: options.state
+    });
+    
     
   },
   //分享遮罩
@@ -473,6 +461,27 @@ Page({
    */
   onShow: function () {
     // this.getInfo();
+
+    if (this.data.oc_id) {
+      this.setData({
+        c_id: this.data.oc_id
+      })
+    }
+    if (this.data.o_state) {
+      this.setData({
+        state: this.data.o_state
+      })
+    }
+    if (this.data.o_state == 1) {
+      this.getPtInfo();
+      this.setData({
+        p_id: this.data.oc_id
+      })
+    } else {
+      // 获取详情
+      this.getInfo();
+      // this.getpjList();
+    }
   },
 
   /**
@@ -513,21 +522,41 @@ Page({
       console.log(res.target)
     }
     var info = that.data.info;
-    return {
-      title: info.share_text,
-      path: '/pages/courseDetail/courseDetail?c_id=' + that.data.c_id,
-      imageUrl: info.image_large,
-      success: (res) => {    // 成功后要做的事情
-        //console.log(res.shareTickets[0])
-        // console.log
-        that.setData({
-          shareShow: false
-        })
-      },
-      fail: function (res) {
-        // 分享失败
-        console.log(res)
+    if (this.data.o_state==1){
+      return {
+        title: info.share_text,
+        path: '/pages/courseDetail/courseDetail?c_id=' + that.data.p_id +'&state=1',
+        imageUrl: info.image_large,
+        success: (res) => {    // 成功后要做的事情
+          //console.log(res.shareTickets[0])
+          // console.log
+          that.setData({
+            shareShow: false
+          })
+        },
+        fail: function (res) {
+          // 分享失败
+          console.log(res)
+        }
+      }
+    }else{
+      return {
+        title: info.share_text,
+        path: '/pages/courseDetail/courseDetail?c_id=' + that.data.c_id,
+        imageUrl: info.image_large,
+        success: (res) => {    // 成功后要做的事情
+          //console.log(res.shareTickets[0])
+          // console.log
+          that.setData({
+            shareShow: false
+          })
+        },
+        fail: function (res) {
+          // 分享失败
+          console.log(res)
+        }
       }
     }
+    
   }
 })

@@ -26,7 +26,12 @@ Page({
     ptInfo:{},
     memberList:[]
   },
-
+  // 跳转订单页面
+  goOrder(){
+    wx.navigateTo({
+      url: '../../pages/myOrder/myOrder'
+    })
+  },
   // 支付
   payShow(e) {
     console.log(e.detail)
@@ -45,6 +50,11 @@ Page({
         openState: 2,
         wxPay: false,
       })
+      wx.showToast({
+        title: "拼团成功",
+        icon: 'none',
+        duration: 2000
+      })
       this.getInfo();
     }else{
       // 开团返回
@@ -54,6 +64,11 @@ Page({
         openState: 1,
         wxPay: false,
         g_id: this.data.pintuan.group_id
+      })
+      wx.showToast({
+        title: "开团成功",
+        icon: 'none',
+        duration: 2000
       })
       this.getInfo();
     }
