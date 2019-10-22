@@ -24,7 +24,8 @@ Page({
     wxPay:false,
     pintuan:{},
     ptInfo:{},
-    memberList:[]
+    memberList:[],
+    description: ['1.支付开团并邀请好友参团，人数不足或超时自动退款','2.团长发起拼团后，可在订单页面查看；']
   },
   // 跳转订单页面
   goOrder(){
@@ -177,7 +178,8 @@ Page({
           info: res.data.product,
           info_con: res.data,
           c_id: res.data.product.course.id,
-          memberList: res.data.members.slice(1, res.data.members.length)
+          memberList: res.data.members.slice(1, res.data.members.length),
+          description: res.data.product.description
         })
         // 修改状态标题
         if (res.data.group_size == res.data.current_users){
@@ -246,6 +248,7 @@ Page({
           // pjscore: Math.floor(res.data.course_detail.score),
           ptInfo: res.data.course_detail,
           // c_id: res.data.course_detail.course_id,//重置c_id
+          description: res.data.description
         })
         var content = res.data.course_detail.intro;
         WxParse.wxParse('article', 'html', content, that, 5);

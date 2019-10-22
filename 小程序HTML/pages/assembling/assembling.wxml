@@ -36,15 +36,15 @@
         </view>
         <view wx:if="{{openState==2&&!info_con.is_join}}" class="color-049BFE m-b-40 m-l-50">即将拼团</view>
         <view wx:if="{{openState==2&&info_con.is_join&&!info_con.members[0].is_promoter}}" class="color-049BFE m-b-40 m-l-50">参团成功</view>
-        <view wx:if="{{openState==2&&info_con.is_join&&info_con.members[0].is_promoter}}" class="color-049BFE m-b-40 m-l-50">开团成功</view>
+        <!-- <view wx:if="{{openState==2&&info_con.is_join&&info_con.members[0].is_promoter}}" class="color-049BFE m-b-40 m-l-50">开团成功</view> -->
       </view>
       <view wx:if="{{!info_con.is_join}}" class="p-v-20 l-h-40rpx color-666 font24">
-        <view>拼团说明：</view>
+        <view wx:if="{{description}}">拼团说明：</view>
         <!-- <view>1.支付开团并邀请X人参团，人数不足自动退款；</view>
         <view>2.正常参团的拼团课程，在倒计时快结束时，自动补齐。</view>
         <view>3.团发起人为团长，参团的人为团员。</view>               -->
-        <view>1.支付开团并邀请好友参团，人数不足或超时自动退款；</view>
-        <view>1.团长发起拼团后，可在订单页面查看；</view>
+        <view wx:for="{{description}}" wx:key="unique">{{item}}</view>
+        <!-- <view>2.团长发起拼团后，可在订单页面查看；</view> -->
       </view> 
       <view wx:if="{{openState==1}}" class="text-center p-t-20 p-b-30">
         <view class="color-049BFE m-b-30">开团成功</view>

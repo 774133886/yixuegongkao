@@ -330,8 +330,23 @@ Page({
   },
   payTab: function (e) {
     var that = this;
-
-    this.setData({ payShow: !this.data.payShow })
+    wx.showModal({
+      // title: '提示',
+      content: '确定取消支付吗？',
+      success(res) {
+        if (res.confirm) {
+          that.setData({ payShow: !that.data.payShow })
+          setTimeout(() => {
+            wx.navigateTo({
+              url: '/pages/myOrder/myOrder',
+            })
+          }, 1000)
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+    
   },
   /**
    * 生命周期函数--监听页面加载
