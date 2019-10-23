@@ -211,7 +211,19 @@ Page({
       // 普通直接支付
       if (this.data.state == 0 || (ispn && this.data.state == 1)){
         console.log('支付')
-        this.payNow();
+        wx.showModal({
+          title: '',
+          content: '确认要报名此课程？',
+          success (res) {
+            if (res.confirm) {
+              console.log('用户点击确定')
+              this.payNow();
+            } else if (res.cancel) {
+              console.log('用户点击取消')
+            }
+          }
+        })
+        
       }else{
         // 拼团开团
         wx.navigateTo({
