@@ -274,52 +274,66 @@ Page({
       })
     } else {
       console.log("支付");
-      var data = {};
-      data.productId = this.data.p_id;
-      data.client = 5;
-
-      http.postReq('/api/business/pintuan/create_group.htm', data, function (res) {
-        if (res.code == 0) {
-          
-          wx.showToast({
-            title: res.data.message,
-            icon: 'none',
-            duration: 3000,
-          })
-          // 支付
-          if (res.data.status = 2) {
-            //如果免费
-            if (that.data.info.promoter_price==0){
-              this.setData({
-                openState: 2,
-                wxPay: false,
-              })
-              this.getInfo();
-            }else{
-              var list = res.data;
-              list.isjoinpt = false;
-              that.setData({
-                // payShow: !that.data.payShow,
-                wxPay: !that.data.wxPay,
-                payInfo: list,
-                pintuan: res.data.pintuan,
-              })
-              console.log(that.data.payInfo)
-            }
+      wx.showModal({
+        title: '',
+        content: '确认要报名此课程？',
+        success (res) {
+          if (res.confirm) {
+            console.log('用户点击确定')
             
-          } else if (res.data.status == 1 || res.data.status == 6) {
-            setTimeout(() => {
-              wx.navigateBack();
-            }, 1500)
+            var data = {};
+            data.productId = this.data.p_id;
+            data.client = 5;
+
+            http.postReq('/api/business/pintuan/create_group.htm', data, function (res) {
+              if (res.code == 0) {
+                
+                wx.showToast({
+                  title: res.data.message,
+                  icon: 'none',
+                  duration: 3000,
+                })
+                // 支付
+                if (res.data.status = 2) {
+                  //如果免费
+                  if (that.data.info.promoter_price==0){
+                    this.setData({
+                      openState: 1,
+                      wxPay: false,
+                    })
+                    this.getInfo();
+                  }else{
+                    var list = res.data;
+                    list.isjoinpt = false;
+                    that.setData({
+                      // payShow: !that.data.payShow,
+                      wxPay: !that.data.wxPay,
+                      payInfo: list,
+                      pintuan: res.data.pintuan,
+                    })
+                    console.log(that.data.payInfo)
+                  }
+                  
+                } else if (res.data.status == 1 || res.data.status == 6) {
+                  setTimeout(() => {
+                    wx.navigateBack();
+                  }, 1500)
+                }
+              } else {
+                wx.showToast({
+                  title: res.message,
+                  icon: 'none',
+                  duration: 2000
+                })
+              }
+            })
+            
+          } else if (res.cancel) {
+           
           }
-        } else {
-          wx.showToast({
-            title: res.message,
-            icon: 'none',
-            duration: 2000
-          })
         }
       })
+      
     }
   },
   /**

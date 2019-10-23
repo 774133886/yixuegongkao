@@ -182,6 +182,11 @@ Page({
     let ispn = e.currentTarget.dataset.ispn;
     if (this.data.info.enroll_fields.length){
       wx.setStorageSync('enroll_fields', this.data.info.enroll_fields);
+      if(this.data.info.enroll_code_tips!=''){
+        wx.setStorageSync('enroll_code_tips', this.data.info.enroll_code_tips);
+      }
+      
+      
       // 拼团普通购买      
       if (ispn && this.data.state == 1) {
         wx.navigateTo({

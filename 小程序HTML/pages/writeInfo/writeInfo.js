@@ -355,6 +355,7 @@ Page({
     var that = this
     that.setData({
       enroll_fields: wx.getStorageSync('enroll_fields'),
+      enroll_code_tips: wx.getStorageSync('enroll_code_tips'),
       c_id: options.c_id,
       fromPt: wx.getStorageSync('fromPt')
       
