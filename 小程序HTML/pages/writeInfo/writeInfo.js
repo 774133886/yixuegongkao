@@ -14,7 +14,8 @@ Page({
     region: ['北京市', '北京市','朝阳区'],
     payInfo:{},
     phone:'',
-    fromPt:{}
+    fromPt:{},
+    info:{}
   },
   bindRegionChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -38,7 +39,7 @@ Page({
     }
    
     var myreg = /^[1][0-9][0-9]{9}$/;
-    if (!myreg.test(this.data.phone)) {
+    if (!myreg.test(this.data.mobile)) {
       wx.showToast({
         title: '手机号格式错误',
         icon: 'none',
@@ -48,7 +49,7 @@ Page({
     }
     
     var data = {};
-    data.mobile = this.data.phone;
+    data.mobile = this.data.mobile;
     data.id = this.data.c_id;
     data.type = "M";
     var _this = this
@@ -348,6 +349,33 @@ Page({
     })
     
   },
+  // 获取个人信息
+  getInfo(){ 
+    var that = this;
+    http.getReq('api/member/member_detail.htm',{}, function (res) {
+      if (res.code == 0) {
+        that.setData({
+          info: res.data,
+        })
+      }
+      // 预存数据
+      if(that.data.enroll_fields.includes('qq')){
+        that.setData({
+          qq: res.data.qq,
+        })
+      }
+      if(that.data.enroll_fields.includes('realname')){
+        that.setData({
+          realname: res.data.real_name,
+        })
+      }
+      if(that.data.enroll_fields.includes('mobile')){
+        that.setData({
+          mobile: res.data.mobile,
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -366,7 +394,9 @@ Page({
         [v]: 1
       });
     })
-    console.log(that.data.address)
+    console.log(that.data.address);
+    // 获取基本信息
+    this.getInfo();
   },
 
   /**
