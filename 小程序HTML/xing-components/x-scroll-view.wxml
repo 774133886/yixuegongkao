@@ -1,5 +1,5 @@
 <!--components/xing/x-scroll-view/x-scroll-view.wxml-->
-<scroll-view style="transform:translateY({{translate}}px)" class="scroll-view {{pullDownStatus === 3 ? 'refresh' : ''}} {{pullDownStatus === 4 ? 'finish' : ''}} {{pullDownStatus === 5 ? 'finish' : ''}}" scroll-y scroll-with-animation enable-back-to-top bindscroll="_onScroll" bindtouchstart="_onTouchStart" bindtouchmove="_onTouchmove" bindtouchend="_onTouchEnd" bindscrolltolower="_onLoadmore" scroll-top="{{st}}">
+<scroll-view style="transform:translateY({{translate}}px)" class="scroll-view {{pullDownStatus === 3 ? 'refresh' : ''}} {{pullDownStatus === 4 ? 'finish' : ''}} {{pullDownStatus === 5 ? 'finish' : ''}}" scroll-y scroll-with-animation enable-back-to-top bindscroll="_onScroll" bindtouchstart="_onTouchStart" bindtouchmove="_onTouchmove" bindtouchend="_onTouchEnd" bindscrolltolower="_onLoadmore">
   <view class="pulldown">
     <block wx:if="{{pullDownStatus === 0 || pullDownStatus === 1}}">
       <text class="iconfont icon-pull-down" space="nbsp"></text><text> {{pullText}}</text>
