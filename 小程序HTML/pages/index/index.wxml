@@ -19,37 +19,37 @@
   </view>
   <view class="indexNav border-b-eee l-pad40 font0 m-t-50">
     <view class='inline_div nav-item'>
-      <view class="column-center-c hgt150rpx" bindtap="saveStor" data-type="6" url="/pages/course/course?type=6" hover-class="none" open-type="switchTab">
+      <view class="column-center-c hgt150rpx" bindtap="saveStor" data-type="1" url="/pages/course/course?type=1" hover-class="none" open-type="switchTab">
         <image class="nav-icon" src="../../files/icon_1_xitongke.png" mode="aspectFill" lazy-load="false" ></image>
         <view class="font28 color-333" >系统课</view>
       </view>
     </view>
     <view class='inline_div nav-item'>
-      <view bindtap="saveStor" data-type="1" url="/pages/course/course?type=1" class="column-center-c hgt150rpx"  hover-class="none" open-type="switchTab">
+      <view bindtap="saveStor" data-type="2" url="/pages/course/course?type=2" class="column-center-c hgt150rpx"  hover-class="none" open-type="switchTab">
         <image class="nav-icon" src="../../files/icon_2_shenlun.png" mode="aspectFill" lazy-load="false" ></image>
         <view class="font28 color-333" >申论</view>
       </view>
     </view>
     <view class='inline_div nav-item'>
-      <view bindtap="saveStor" data-type="2" url="/pages/course/course?type=2" class="column-center-c hgt150rpx"  hover-class="none" open-type="switchTab">
+      <view bindtap="saveStor" data-type="3" url="/pages/course/course?type=3" class="column-center-c hgt150rpx"  hover-class="none" open-type="switchTab">
         <image class="nav-icon" src="../../files/icon_3_hangce.png" mode="aspectFill" lazy-load="false" ></image>
         <view class="font28 color-333" >行测</view>
       </view>
     </view>
     <view class='inline_div nav-item'>
-      <view bindtap="saveStor" data-type="3" url="/pages/course/course?type=3" class="column-center-c hgt150rpx"  hover-class="none" open-type="switchTab">
+      <view bindtap="saveStor" data-type="4" url="/pages/course/course?type=4" class="column-center-c hgt150rpx"  hover-class="none" open-type="switchTab">
         <image class="nav-icon" src="../../files/icon_4_mianshi.png" mode="aspectFill" lazy-load="false" ></image>
         <view class="font28 color-333" >面试</view>
       </view>
     </view>
     <view class='inline_div nav-item'>
-      <view bindtap="saveStor" data-type="4" url="/pages/course/course?type=4" class="column-center-c hgt150rpx"  hover-class="none" open-type="switchTab">
+      <view bindtap="saveStor" data-type="5" url="/pages/course/course?type=5" class="column-center-c hgt150rpx"  hover-class="none" open-type="switchTab">
         <image class="nav-icon" src="../../files/icon_5_shiye.png" mode="aspectFill" lazy-load="false" ></image>
         <view class="font28 color-333" >事业单位</view>
       </view>
     </view>
     <view class='inline_div nav-item'>
-      <view bindtap="saveStor" data-type="5" url="/pages/course/course?type=5" class="column-center-c hgt150rpx"  hover-class="none" open-type="switchTab">
+      <view bindtap="saveStor" data-type="6" url="/pages/course/course?type=6" class="column-center-c hgt150rpx"  hover-class="none" open-type="switchTab">
         <image class="nav-icon" src="../../files/icon_6_others.png" mode="aspectFill" lazy-load="false" ></image>
         <view class="font28 color-333" >其他</view>
       </view>

@@ -9,7 +9,7 @@ swiper{
   height: 100%;
 }
 .orderCtt{
-  overflow-y: auto;
+  /* overflow-y: auto; */
   position: absolute;
   top: 0;
   left: 0;
