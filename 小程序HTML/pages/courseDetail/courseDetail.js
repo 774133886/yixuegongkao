@@ -222,7 +222,7 @@ Page({
           success (res) {
             if (res.confirm) {
               console.log('用户点击确定')
-              this.payNow();
+              that.payNow();
             } else if (res.cancel) {
               console.log('用户点击取消')
             }
