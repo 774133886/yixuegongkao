@@ -17,6 +17,7 @@ Page({
       {},{},{},{},{},{},{}
     ],
     scrollList: [0,0,0,0,0,0,0],
+    scrollTop: [0, 0, 0, 0, 0, 0, 0],
     floorstatus: false,
     isShow: true
   },
@@ -83,11 +84,13 @@ Page({
         }else{
           list[that.data.active] = list[that.data.active].concat(res.data.list);
         }
+        var scrollList = that.data.scrollList;
         that.setData({
           courseList: list,
           pageList: pages,
           isShow: false,
-          refreshing: false
+          refreshing: false,
+          scrollTop: scrollList
         })
       }
     })
@@ -108,12 +111,12 @@ Page({
     if (e.detail.scrollTop > 100) {
       this.setData({
         floorstatus: true,
-        scrollTop: list
+        scrollList: list
       });
     } else {
       this.setData({
         floorstatus: false,
-        scrollTop: list
+        scrollList: list
       });
     }
   },
@@ -125,7 +128,8 @@ Page({
     list[active] = 0;
     setTimeout(()=>{
       this.setData({
-        scrollList: list
+        scrollList: list,
+        scrollTop: list
       })
     })
   },

@@ -16,7 +16,7 @@
     <swiper class="swiperCon" indicator-dots="{{false}}" autoplay="{{false}}" bindchange="swiperChange" current="{{active}}">
       <block wx:for="{{courseList}}" wx:key="item" wx:for-index="index">
         <swiper-item>
-          <x-scroll-view scroll-y class="indexAArea p-t-20 p-b-20" bindscrolltolower="bindscrolltolower" hover-class="none" hover-stop-propagation="false" refreshing="{{refreshing}}" nomore="{{nomore}}" bindpulldownrefresh="_onPullDownRefresh" bindloadmore="bindscrolltolower" bindscroll="scrollChange" st="{{scrollList[index]}}">
+          <x-scroll-view scroll-y class="indexAArea p-t-20 p-b-20" bindscrolltolower="bindscrolltolower" hover-class="none" hover-stop-propagation="false" refreshing="{{refreshing}}" nomore="{{nomore}}" bindpulldownrefresh="_onPullDownRefresh" bindloadmore="bindscrolltolower" bindscroll="scrollChange" st="{{scrollTop[index]}}">
             <view class="swiperItem">
               <navigator wx:for="{{courseList[index]}}" wx:key="course" wx:for-item="course" hover-class='none' url='{{"../courseDetail/courseDetail?state="+(course.promotions&&course.promotions[0].promotion_type==4?1:0)+"&c_id="+(course.promotions&&course.promotions[0].promotion_type==4?course.promotions[0].promotion_id:course.course_id)}}' class='index_courseList hgt230rpx between border-b-eee'>
                 <view class='hgt190rpx wid290rpx relative'>
