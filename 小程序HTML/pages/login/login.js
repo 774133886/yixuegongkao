@@ -205,7 +205,7 @@ Page({
                     duration: 2000
                   });
                   wx.setStorageSync('token', res2.data.session);
-                  if (res.data.member==4){
+                  if (res.data.member.status==4){
                     wx.reLaunch({
                       url: '../setUserInfo/setUserInfo'
                     })
@@ -271,9 +271,15 @@ Page({
             success: function (res2) {
               if (res2.data.code == 0) {
                 wx.setStorageSync('token', res2.data.data.session);
-                wx.switchTab({
-                  url: '../index/index',
-                })
+                if (res2.data.data.member.status == 4) {
+                  wx.reLaunch({
+                    url: '../setUserInfo/setUserInfo'
+                  })
+                }else{
+                  wx.switchTab({
+                    url: '../index/index',
+                  })
+                }
               }else if(res2.data.code == 1){
                 typeof callBack == "function" && callBack()
               } else {

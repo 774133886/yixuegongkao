@@ -2,6 +2,7 @@
 <view>
   <view class="h1">账户设置</view>
   <view class="h2">您的账户需要完成以下设置才能正常使用！</view>
+  <view class="h3">请正确选择您的地区信息，注册完成后无法修改！</view>
   <form>
     <view class="flex_dom flex_item_mid m-b-30">
       <view class="font24 color-333 m-r-20">昵称</view>
