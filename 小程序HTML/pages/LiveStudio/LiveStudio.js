@@ -14,7 +14,8 @@ Page({
     list: [],
     pages:{},
     info: {},
-    vid: ""
+    vid: "",
+    deployInfo: wx.getStorageSync("deployInfo") || {}
   },
 
   /**

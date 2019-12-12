@@ -31,7 +31,8 @@ Page({
     wxPay:false,
 
     oc_id:'',
-    o_state:'',
+    o_state: '',
+    deployInfo: wx.getStorageSync("deployInfo") || {}
   },
 
   // 获取滚动条当前位置

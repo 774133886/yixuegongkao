@@ -16,7 +16,8 @@ Page({
     page: 1,
     totalPage: 1,
     rows: 10,
-    noData:false,
+    noData: false,
+    deployInfo: wx.getStorageSync("deployInfo") || {}
   },
 
   /**

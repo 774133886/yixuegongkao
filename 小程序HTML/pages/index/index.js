@@ -17,7 +17,8 @@ Page({
     noData1: false,
     noData2: false,
     tjList:[],
-    acList:[]
+    acList: [],
+    deployInfo: wx.getStorageSync("deployInfo") || {}
   },
   //swiper
   swiperChange: function(e){

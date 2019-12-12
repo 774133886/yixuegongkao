@@ -19,7 +19,8 @@ Page({
     scrollList: [0,0,0,0,0,0,0],
     scrollTop: [0, 0, 0, 0, 0, 0, 0],
     floorstatus: false,
-    isShow: true
+    isShow: true,
+    deployInfo: wx.getStorageSync("deployInfo")||{}
   },
   choiceTab(e) {
     this.setData({

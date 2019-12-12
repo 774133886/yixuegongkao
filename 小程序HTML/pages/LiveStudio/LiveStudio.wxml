@@ -21,7 +21,7 @@
     <view class="flex_dom flex_item_mid flex_1">
       <view class="flex_1">
         <view class="font30 color-333 line2">{{item.title}}</view>
-        <view class="font22 color-666 m-t-15">
+        <view class="font22 color-666 m-t-15" wx:if="{{!deployInfo.audit_mode}}">
           <text class="m-r-20">开课时间</text>
           <text>{{item.start_time}}</text>
         </view>

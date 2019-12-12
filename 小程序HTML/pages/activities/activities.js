@@ -17,7 +17,8 @@ Page({
     pages: [{}, {}],
     isShow: true,
     nomore: false,
-    refreshing: true
+    refreshing: true,
+    deployInfo: wx.getStorageSync("deployInfo") || {}
   },
 
   /**

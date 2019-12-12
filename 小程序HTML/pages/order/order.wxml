@@ -25,12 +25,12 @@
       <view class="flex_1">
       <view bindtap="goDetail" data-id="{{item}}">
         <view class="font30 color-333">{{item.name}}</view>
-        <view class="font22 color-999">
-        <text>已讲{{item.finish_live_room_count||"-"}}节</text>
-        <text class="textCen">/</text>
-        <text>共{{item.live_room_count||"-"}}节课</text>
+        <view class="font22 color-999" wx:if="{{!deployInfo.audit_mode}}">
+          <text>已讲{{item.finish_live_room_count||"-"}}节</text>
+          <text class="textCen">/</text>
+          <text>共{{item.live_room_count||"-"}}节课</text>
         </view>
-        <view class="font22 color-999">
+        <view class="font22 color-999" wx:if="{{!deployInfo.audit_mode}}">
           <text class="m-r-20">总课时</text>
           <text>{{item.class_hour||"-"}}小时</text>
         </view>

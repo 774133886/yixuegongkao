@@ -10,7 +10,8 @@ Page({
   data: {
     courseList: [],
     myList: [],
-    token: wx.getStorageSync("token")||""
+    token: wx.getStorageSync("token") || "",
+    deployInfo: wx.getStorageSync("deployInfo") || {}
   },
 
   /**
