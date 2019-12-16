@@ -8,11 +8,11 @@
         <view class="font24 color-333 m-t-15" wx:if="{{item.today_rooms&&item.today_rooms[0]}}">{{item.today_rooms[0].title}}</view>
         <view class="font24 color-bd m-t-15">{{item.class_time}}</view>
       </view>
-      <button class="orderBtn2" wx:if="{{item.today_rooms[0].status_text=='正在进行'||item.today_rooms[0].status_text=='进行中'}}" hover-class="orderBtn2-hover" bindtap="playLive" data-item="{{item}}">正在进行</button>
-      <button bindtap="playLive" data-item="{{item}}" class="orderBtn3" wx:if="{{item.today_rooms[0].status_text=='尚未开始'}}" hover-class="orderBtn3-hover">尚未开始</button>
-      <button bindtap="playLive" data-item="{{item}}" class="orderBtn3" wx:if="{{item.today_rooms[0].status_text=='即将开始'}}" hover-class="orderBtn3-hover">即将开始</button>
-      <button bindtap="playLive" data-item="{{item}}" class="orderBtn3" wx:if="{{item.today_rooms[0].status_text=='暂停中'}}" hover-class="orderBtn3-hover">暂停中</button>
-      <button bindtap="playLive" data-item="{{item}}" class="orderBtn1" wx:if="{{item.today_rooms[0].status_text=='观看回放'}}" hover-class="orderBtn1-hover">观看回放</button>
+      <button class="orderBtn2" wx:if="{{(item.today_rooms[0].status_text=='正在进行'||item.today_rooms[0].status_text=='进行中')&&!deployInfo.audit_mode}}" hover-class="orderBtn2-hover" bindtap="playLive" data-item="{{item}}">正在进行</button>
+      <button bindtap="playLive" data-item="{{item}}" class="orderBtn3" wx:if="{{item.today_rooms[0].status_text=='尚未开始'&&!deployInfo.audit_mode}}" hover-class="orderBtn3-hover">尚未开始</button>
+      <button bindtap="playLive" data-item="{{item}}" class="orderBtn3" wx:if="{{item.today_rooms[0].status_text=='即将开始'&&!deployInfo.audit_mode}}" hover-class="orderBtn3-hover">即将开始</button>
+      <button bindtap="playLive" data-item="{{item}}" class="orderBtn3" wx:if="{{item.today_rooms[0].status_text=='暂停中'&&!deployInfo.audit_mode}}" hover-class="orderBtn3-hover">暂停中</button>
+      <button bindtap="playLive" data-item="{{item}}" class="orderBtn1" wx:if="{{item.today_rooms[0].status_text=='观看回放'&&!deployInfo.audit_mode}}" hover-class="orderBtn1-hover">观看回放</button>
 
   </view>
   <!-- 暂无 -->
