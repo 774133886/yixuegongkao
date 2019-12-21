@@ -22,11 +22,11 @@
       <view class='flex_1 m-l-20 p-b-30 column-between hgt230rpx'>
         <view class='l-h-40rpx'>
           <view class='color-333 font30'>{{item.name}}</view>
-          <view class='center m-t-5' wx:if="{{!deployInfo.audit_mode}}">
+          <view class='center m-t-5' wx:if="{{deployInfo.audit_mode!=='1'}}">
             <view class='wid160rpx color-999 font24'>开课时间</view>
             <view class='font24 color-666'>{{filter.substrXX(item.class_time,0,10)}}</view>
           </view>
-          <view class='center' wx:if="{{!deployInfo.audit_mode}}">
+          <view class='center' wx:if="{{deployInfo.audit_mode!=='1'}}">
             <view class='wid160rpx color-999 font24'>已报/限报</view>
             <view class='font24 color-666'>{{item.apply_count}}/{{item.enroll_count}} 人</view>
           </view>

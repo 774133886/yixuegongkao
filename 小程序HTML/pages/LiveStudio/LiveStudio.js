@@ -48,6 +48,8 @@ Page({
       if (item.promotions[0].promotion_type == 4) {
         id = item.promotions[0].promotion_id;
         state = item.promotions[0].promotion_type == 4 ? 1 : 0
+      }else{
+        id = item.course_id
       }
     } else {
       id = item.course_id

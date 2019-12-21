@@ -24,11 +24,11 @@
                   </view>
                 </view>
                 <view class="flex_1">
-                  <view class="textLine font20" wx:if="{{!deployInfo.audit_mode}}">
+                  <view class="textLine font20" wx:if="{{deployInfo.audit_mode!=='1'}}">
                     <view class="wid110 color-999">开课时间</view>
                     <view class="color-333">{{filter.formatDate(pt.course_detail.class_time)}}</view>
                   </view>
-                  <view class="textLine font20" wx:if="{{!deployInfo.audit_mode}}">
+                  <view class="textLine font20" wx:if="{{deployInfo.audit_mode!=='1'}}">
                     <view class="wid110 color-999">总课时</view>
                     <view class="color-333">{{pt.course_detail.class_hour||0}}课时</view>
                   </view>
@@ -66,11 +66,11 @@
                   </view>
                 </view>
                 <view class="flex_1">
-                  <view class="textLine font20" wx:if="{{!deployInfo.audit_mode}}">
+                  <view class="textLine font20" wx:if="{{deployInfo.audit_mode!=='1'}}">
                     <view class="wid110 color-999">开课时间</view>
                     <view class="color-333">{{filter.formatDate(pt.course_detail.class_time)}}</view>
                   </view>
-                  <view class="textLine font20" wx:if="{{!deployInfo.audit_mode}}">
+                  <view class="textLine font20" wx:if="{{deployInfo.audit_mode!=='1'}}">
                     <view class="wid110 color-999">总课时</view>
                     <view class="color-333">{{pt.course_detail.class_hour||0}}课时</view>
                   </view>
@@ -109,11 +109,11 @@
         </view>
       </view>
       <view class="flex_1">
-        <view class="textLine font20" wx:if="{{!deployInfo.audit_mode}}">
+        <view class="textLine font20" wx:if="{{deployInfo.audit_mode!=='1'}}">
           <view class="wid110 color-999">开课时间</view>
           <view class="color-333">2019.05.23</view>
         </view>
-        <view class="textLine font20" wx:if="{{!deployInfo.audit_mode}}">
+        <view class="textLine font20" wx:if="{{deployInfo.audit_mode!=='1'}}">
           <view class="wid110 color-999">总课时</view>
           <view class="color-333">24课时</view>
         </view>
@@ -137,11 +137,11 @@
         </view> -->
       </view>
       <view class="flex_1">
-        <view class="textLine font20" wx:if="{{!deployInfo.audit_mode}}">
+        <view class="textLine font20" wx:if="{{deployInfo.audit_mode!=='1'}}">
           <view class="wid110 color-999">开课时间</view>
           <view class="color-333">2019.05.23</view>
         </view>
-        <view class="textLine font20" wx:if="{{!deployInfo.audit_mode}}">
+        <view class="textLine font20" wx:if="{{deployInfo.audit_mode!=='1'}}">
           <view class="wid110 color-999">总课时</view>
           <view class="color-333">24课时</view>
         </view>

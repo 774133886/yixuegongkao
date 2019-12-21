@@ -99,7 +99,7 @@
             </view>
             <!-- 02天 20:12:13 -->
             <view class='color-FF1919 l-h-40rpx m-t-5 font20'>剩余 {{filter.toTime2(it.last_time)}}</view>
-            <view class='color-999 l-h-40rpx font20' wx:if="{{!deployInfo.audit_mode}}">
+            <view class='color-999 l-h-40rpx font20' wx:if="{{deployInfo.audit_mode!=='1'}}">
               <text>限报</text>
               <text class='m-l-10'>{{it.limit_count}}人</text>
             </view>
@@ -138,18 +138,18 @@
       </view>
       <view class='flex_1 m-l-20 p-b-40 column-between hgt250rpx'>
         <view class='l-h-40rpx font22'>
-          <view class='center' wx:if="{{!deployInfo.audit_mode}}">
+          <view class='center' wx:if="{{deployInfo.audit_mode!=='1'}}">
             <view class='wid160rpx color-999'>开课时间</view>
             <view class='color-333'>{{filter.substrXX(item.class_time,0,10)}}</view>
           </view>
           <view class='center' wx:else>
             <view class='line2 color-333 font28'>{{item.name}}</view>
           </view>
-          <view class='center' wx:if="{{!deployInfo.audit_mode}}">
+          <view class='center' wx:if="{{deployInfo.audit_mode!=='1'}}">
             <view class='wid160rpx color-999'>总课时</view>
             <view class=' color-333'>{{item.class_hour}} 课时</view>
           </view>
-          <view class='center' wx:if="{{!deployInfo.audit_mode}}">
+          <view class='center' wx:if="{{deployInfo.audit_mode!=='1'}}">
             <view class='wid160rpx color-999'>已报/限报</view>
             <view class='color-333'>{{item.apply_count}}/{{item.enroll_count}} 人</view>
           </view>
