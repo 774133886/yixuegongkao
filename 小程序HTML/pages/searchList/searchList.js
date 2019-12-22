@@ -17,7 +17,7 @@ Page({
     totalPage: 1,
     rows: 10,
     noData: false,
-    deployInfo: wx.getStorageSync("deployInfo") || {}
+    deployInfo: wx.getStorageSync("deployInfo") || { audit_mode: "1" }
   },
 
   /**

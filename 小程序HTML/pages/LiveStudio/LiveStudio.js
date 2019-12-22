@@ -15,7 +15,7 @@ Page({
     pages:{},
     info: {},
     vid: "",
-    deployInfo: wx.getStorageSync("deployInfo") || {}
+    deployInfo: wx.getStorageSync("deployInfo") || { audit_mode: "1" }
   },
 
   /**

@@ -32,7 +32,7 @@ Page({
 
     oc_id:'',
     o_state: '',
-    deployInfo: wx.getStorageSync("deployInfo") || {}
+    deployInfo: wx.getStorageSync("deployInfo") || { audit_mode: "1" }
   },
 
   // 获取滚动条当前位置

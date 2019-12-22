@@ -20,7 +20,7 @@ Page({
     scrollTop: [0, 0, 0, 0, 0, 0, 0],
     floorstatus: false,
     isShow: true,
-    deployInfo: wx.getStorageSync("deployInfo")||{}
+    deployInfo: wx.getStorageSync("deployInfo") || { audit_mode: "1" }
   },
   choiceTab(e) {
     this.setData({

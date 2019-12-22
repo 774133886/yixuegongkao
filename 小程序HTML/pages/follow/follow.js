@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    deployInfo: wx.getStorageSync("deployInfo")
+    deployInfo: wx.getStorageSync("deployInfo") || { audit_mode: "1" }
   },
 
   /**

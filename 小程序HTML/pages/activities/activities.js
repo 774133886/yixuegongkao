@@ -18,7 +18,7 @@ Page({
     isShow: true,
     nomore: false,
     refreshing: true,
-    deployInfo: wx.getStorageSync("deployInfo") || {}
+    deployInfo: wx.getStorageSync("deployInfo") || { audit_mode: "1" }
   },
 
   /**
