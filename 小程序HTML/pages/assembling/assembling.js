@@ -282,7 +282,7 @@ Page({
             console.log('用户点击确定')
             
             var data = {};
-            data.productId = this.data.p_id;
+            data.productId = that.data.p_id;
             data.client = 5;
 
             http.postReq('/api/business/pintuan/create_group.htm', data, function (res) {
