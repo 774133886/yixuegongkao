@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "emotion": "/sdk/component/emotion/emotion"
+  }
+}

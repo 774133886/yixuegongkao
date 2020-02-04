@@ -2,8 +2,6 @@
   "pages": [
     "pages/index/index",
     "pages/order/order",
-    "pages/liveRoom/liveRoom",
-    "pages/backRoom/backRoom",
     "pages/orderDetail/orderDetail",
     "pages/myOrder/myOrder",
     "pages/personal/personal",
@@ -12,6 +10,8 @@
     "pages/setUserInfo/setUserInfo",
     "pages/course/course",
     "pages/LiveStudio/LiveStudio",
+    "pages/liveRoom/liveRoom",
+    "pages/backRoom/backRoom",
     "pages/paySuccess/paySuccess",
     "pages/activities/activities",
     "pages/follow/follow",

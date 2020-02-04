@@ -1,0 +1,8 @@
+/* pages/liveRoom/liveRoom.wxss */
+.player {
+    width: 400px;
+    height: 300px;
+}
+.player-wrapper {
+    width: 350px;
+}
