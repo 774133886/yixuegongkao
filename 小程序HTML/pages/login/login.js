@@ -206,7 +206,7 @@ Page({
                   });
                   wx.setStorageSync('token', res2.data.session);
                   if (res.data.member.status==4){
-                    wx.reLaunch({
+                    wx.navigateTo({
                       url: '../setUserInfo/setUserInfo'
                     })
                   }else{
@@ -272,7 +272,7 @@ Page({
               if (res2.data.code == 0) {
                 wx.setStorageSync('token', res2.data.data.session);
                 if (res2.data.data.member.status == 4) {
-                  wx.reLaunch({
+                  wx.navigateTo({
                     url: '../setUserInfo/setUserInfo'
                   })
                 }else{

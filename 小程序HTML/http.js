@@ -79,6 +79,9 @@ function postReq(url, data, cb) {
     data = {};
   }
   var token = wx.getStorageSync('token');
+  if(token){
+    header["Authorization"] = token
+  }
   console.log(data);
   wx.request({
     url: rootDocment + url,

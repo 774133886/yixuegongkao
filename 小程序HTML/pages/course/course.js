@@ -2,6 +2,7 @@
 const util = require('../../utils/util.js')
 const http = require('../../http.js')
 const app = getApp();
+let pt_set = null;
 Page({
 
   /**
@@ -10,6 +11,7 @@ Page({
   data: {
     active: 0,
     list: ["6","1","2","3","4","8","9"],
+    hd_list: [],
     courseList: [
       [],[],[],[],[],[],[]
     ],
@@ -76,14 +78,30 @@ Page({
     }
     var params = Object.assign(data, obj ? obj : {})
     http.postReq('/api/public/get_course_list.htm', params,function(res){
-      if(res.code == 0){
+      if (res.code == 0) {
+        if (data.promotionType = 'all') {
+          res.data.list.forEach(function (v, i) {
+            v.last_time = (new Date(v.apply_end_time.replace('-', '/').replace('-', '/')).getTime() - Date.parse(new Date())) / 1000;
+          });
+          that.startTime()
+        }
         var list = that.data.courseList;
         var pages = that.data.pageList;
         pages[that.data.active] = res.data.pagination;
         if (list[that.data.active].length == 0 || that.data.isShow){
           list[that.data.active] = res.data.list;
+          if (data.promotionType = 'all') {
+            that.setData({
+              hd_list: list[0]
+            })
+          }
         }else{
           list[that.data.active] = list[that.data.active].concat(res.data.list);
+          if (data.promotionType = 'all') {
+            that.setData({
+              hd_list: list[0]
+            })
+          }
         }
         var scrollList = that.data.scrollList;
         that.setData({
@@ -121,7 +139,35 @@ Page({
       });
     }
   },
+  startTime() {
+    var that = this;
+    var aclist = [];
+    clearInterval(pt_set);
+    pt_set = setInterval(time1, 1000);
+    function time1() {
+      aclist = that.data.hd_list;
 
+      aclist.forEach(function (a, i) {
+        var time = a.last_time
+        if (a.last_time) {
+          if (a.last_time == 1) {
+            a.last_time = 0;
+            clearInterval(countTime);
+            // 重新获取数据
+            that.getList();
+          } else {
+            a.last_time--;
+          }
+          that.setData({
+            hd_list: aclist
+          })
+
+        } else {
+          return false;
+        }
+      })
+    }
+  },
   //回到顶部
   goTop: function (e) {  // 一键回到顶部
     var list = this.data.scrollList;
