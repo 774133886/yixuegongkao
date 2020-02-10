@@ -1,1 +1,0 @@
-var $=require("../jquery");module.exports=function(e){if(e)return"number"===$.type(e)&&(e=new Date(e)),{year:e.getFullYear(),month:e.getMonth()+1,date:e.getDate(),day:e.getDay()}};

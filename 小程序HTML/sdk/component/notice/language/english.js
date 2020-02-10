@@ -1,1 +1,0 @@
-exports.DEFAULT_CONTENT="暂无公告";

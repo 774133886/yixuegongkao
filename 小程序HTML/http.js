@@ -1,4 +1,5 @@
 var rootDocment = 'https://yxgk.kulend.com/';
+// var rootDocment = "https://www.yixuegongkao.com/";
 var header = {
   'Accept': 'application/x-www-form-urlencoded',
   'content-type': 'application/x-www-form-urlencoded',

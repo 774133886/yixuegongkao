@@ -1,1 +1,0 @@
-var findServer=require("./findServer"),getNextServer=require("./getNextServer");module.exports=function(e,r,t){return t?findServer(e,t.ip,t.port):getNextServer(e,r)};

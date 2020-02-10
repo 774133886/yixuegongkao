@@ -1,1 +1,0 @@
-var $=require("../jquery");module.exports=function(e){return"string"!==$.type(e)&&(e=""+e),e=e.replace(/([A-Z])/g,"_$1").toLowerCase()};

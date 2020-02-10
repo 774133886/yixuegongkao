@@ -1,1 +1,0 @@
-function getUrl(e){return"wss://"+e.ip}module.exports=getUrl;

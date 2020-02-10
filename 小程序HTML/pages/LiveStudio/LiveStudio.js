@@ -32,7 +32,7 @@ Page({
     var item = e.currentTarget.dataset.item;
     if (item.status_text == "观看回放"){
       wx.navigateTo({
-        url: '../backRoom/backRoom?id=' + item.room_id
+        url: '../liveRoom/liveRoom?id=' + item.room_id
       })
     } else if (item.can_open_live){
       wx.navigateTo({

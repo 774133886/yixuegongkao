@@ -1,1 +1,0 @@
-var lpad=require("./lpad"),simplifyDate=require("./simplifyDate");module.exports=function(e,a){var i=simplifyDate(e);return i?[i.year,lpad(i.month),lpad(i.date)].join(a||"-"):""};

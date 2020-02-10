@@ -1,9 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "imageLayer": "/playbackSDK/component/whiteboard/imageLayer/imageLayer",
-    "canvasLayer": "/playbackSDK/component/whiteboard/canvasLayer/canvasLayer",
-    "pptSelection": "/playbackSDK/component/whiteboard/pptSelection/pptSelection",
-    "maskCover": "/playbackSDK/component/maskCover/maskCover"
-  }
-}

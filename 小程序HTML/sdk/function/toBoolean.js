@@ -1,1 +1,0 @@
-var $=require("../jquery");module.exports=function(e,r){return"boolean"!==$.type(e)&&(1===arguments.length&&(r=!!e),e=r),e};

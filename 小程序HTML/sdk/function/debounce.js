@@ -1,1 +1,0 @@
-module.exports=function(e,r,u){var a;return r="number"===$.type(r)?r:50,function(){if(!a){var n=this,t=$.makeArray(arguments);u&&e.apply(n,t),a=setTimeout(function(){a=null,u||e.apply(n,t)},r)}}};
