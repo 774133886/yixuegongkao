@@ -80,6 +80,12 @@ Page({
    */
   onShow: function () {
 
+    var deployInfo = wx.getStorageSync("deployInfo");
+    if (deployInfo) {
+      this.setData({
+        deployInfo: deployInfo
+      })
+    }
   },
 
   /**

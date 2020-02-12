@@ -500,6 +500,13 @@ Page({
       this.getInfo();
       // this.getpjList();
     }
+
+    var deployInfo = wx.getStorageSync("deployInfo");
+    if (deployInfo) {
+      this.setData({
+        deployInfo: deployInfo
+      })
+    }
   },
 
   /**

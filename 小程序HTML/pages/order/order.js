@@ -86,6 +86,12 @@ Page({
     this.setData({
       token: wx.getStorageSync("token")
     })
+    var deployInfo = wx.getStorageSync("deployInfo");
+    if (deployInfo){
+      this.setData({
+        deployInfo: deployInfo
+      })
+    }
   },
 
   /**

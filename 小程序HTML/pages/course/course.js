@@ -220,6 +220,13 @@ Page({
     })
     this.getInfo();
     wx.removeStorageSync("c_type");
+
+    var deployInfo = wx.getStorageSync("deployInfo");
+    if (deployInfo) {
+      this.setData({
+        deployInfo: deployInfo
+      })
+    }
   },
 
   /**
