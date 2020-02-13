@@ -567,7 +567,7 @@ Page({
     }else{
       return {
         title: info.share_text,
-        path: '/pages/courseDetail/courseDetail?c_id=' + that.data.c_id,
+        path: '/pages/courseDetail/courseDetail?c_id=' + that.data.c_id + '&state=0',
         imageUrl: info.image_large,
         success: (res) => {    // 成功后要做的事情
           //console.log(res.shareTickets[0])
