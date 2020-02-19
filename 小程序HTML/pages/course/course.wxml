@@ -23,9 +23,10 @@
                   <image class="wid100 hgt190rpx" src="{{course.image_small}}" mode="aspectFill" lazy-load="false" ></image>
                   <image class="index_tag2" wx:if="{{course.promotions&&course.promotions[0].promotion_type==4}}" src="../../files/img_pintuan.png" mode="aspectFill" lazy-load="false" ></image>
                   <image class="index_tag2" wx:if="{{course.promotions&&course.promotions[0].promotion_type==2}}" src="../../files/img_miaosha.png" mode="aspectFill" lazy-load="false" ></image>
-                  <view class="actText flex_dom font20" wx:if="{{course.last_time>0}}">
-                    <view class="flex_1">{{hd_list[idx].group_size}}人团</view>
-                    <view>剩余 {{filter.toTime2(hd_list[idx].last_time)}}</view>
+                  <view class="actText flex_dom font20" wx:if="{{course.last_time>0&&hd_list[index][idx].last_time}}">
+                    <!-- <view class="flex_1">{{hd_list[idx].group_size}}人团</view> -->
+                    <view class="flex_1"></view>
+                    <view>剩余 {{filter.toTime2(hd_list[index][idx].last_time)}}</view>
                   </view>
                 </view>
                 <view class='flex_1 m-l-20 p-b-30 column-between hgt230rpx'>
