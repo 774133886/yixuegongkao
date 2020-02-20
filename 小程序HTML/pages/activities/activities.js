@@ -25,7 +25,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getList();
+    
   },
   choiceTab(e){
     this.setData({
@@ -104,7 +104,7 @@ Page({
     }
     function time1() {
       aclist = that.data.pt_list;
-      
+      console.log("time1")
       aclist.forEach(function (a, i) {
         var time = a.last_time
         if (a.last_time) {
@@ -127,6 +127,7 @@ Page({
     }
     function time2() {
       aclist = that.data.ms_list;
+      console.log("time2")
 
       aclist.forEach(function (a, i) {
         var time = a.last_time
@@ -172,6 +173,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.setData({
+      isShow: true
+    });
+    this.getList();
     var deployInfo = wx.getStorageSync("deployInfo");
     if (deployInfo) {
       this.setData({
@@ -184,14 +189,24 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    if (pt_set) {
+      clearInterval(pt_set)
+    }
+    if (ms_set) {
+      clearInterval(ms_set)
+    }
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    if (pt_set) {
+      clearInterval(pt_set)
+    }
+    if (ms_set) {
+      clearInterval(ms_set)
+    }
   },
 
   /**
