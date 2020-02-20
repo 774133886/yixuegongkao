@@ -3,7 +3,7 @@ const util = require('../../utils/util.js')
 const http = require('../../http.js')
 const app = getApp();
 var WxParse = require('../../wxParse/wxParse.js')
-
+var countTimeList = [];
 Page({
 
   /**
@@ -162,7 +162,8 @@ Page({
                 that.setData({
                   acList: List,
                 })
-              }, 1000)
+              }, 1000);
+              countTimeList.push(countTime);
             } else {
               return false;
             }
@@ -291,7 +292,6 @@ Page({
   // 获取首页数据
     this.getlist();
     this.getBanner();
-    this.getAclist();
     
   },
 
@@ -318,13 +318,18 @@ Page({
         deployInfo: deployInfo
       })
     }
+    this.getAclist();
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function() {
-
+    if (countTimeList.length){
+      countTimeList.forEach(function(item){
+        clearInterval(item)
+      })
+    }
   },
 
   /**
