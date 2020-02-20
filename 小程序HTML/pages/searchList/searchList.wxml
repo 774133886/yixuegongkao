@@ -6,7 +6,7 @@
     <text bindtap="goSearch" class='ccolor-333 m-l-20'>搜索</text>
   </view>
   <view class="indexAArea p-t-20 p-b-20" hover-class="none" hover-stop-propagation="false">
-    <navigator wx:for="{{tjList}}" url="/pages/courseDetail/courseDetail?c_id={{item.promotions[0].promotion_type==4?item.promotions[0].promotion_id:item.course_id}}&state={{item.promotions[0].promotion_type==4?1:0}}" wx:key="{{item.course_id}}" hover-class="none" class='index_courseList hgt230rpx between border-b-eee'>
+    <navigator wx:for="{{tjList}}" url="/pages/courseDetail/courseDetail?c_id={{item.promotions[0].promotion_type==4?item.promotions[0].promotion_id:item.course_id}}&state={{item.promotions[0].promotion_type==4?1:0}}" wx:key="{{unique}}" hover-class="none" class='index_courseList hgt230rpx between border-b-eee'>
       <view class='hgt190rpx wid290rpx relative'>
         <image class="wid100 hgt190rpx" src="{{item.image_small}}" mode="aspectFill" lazy-load="false" ></image>
         <!-- 拼团 -->

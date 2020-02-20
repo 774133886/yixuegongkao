@@ -25,7 +25,7 @@ Page({
   onLoad: function (options) {
     setTimeout(() => {
       that.createNewImg();
-    }, 3000)
+    }, 500)
     var that = this;
     var data = {};
     data.courseid = options.c_id;
