@@ -2,6 +2,7 @@
 const util = require('../../utils/util.js')
 const http = require('../../http.js')
 const app = getApp();
+var countTimeList = [];
 Page({
 
   /**
@@ -66,6 +67,7 @@ Page({
                   pjList: list,
                 })
               }, 1000)
+              countTimeList.push(countTime);
             } else {
               return false;
             }
@@ -112,6 +114,7 @@ Page({
           ptTime: ptTime,
         })
       }, 1000)
+      countTimeList.push(countTime);
     } else {
       return false;
     }
@@ -140,7 +143,11 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    if (countTimeList.length) {
+      countTimeList.forEach(function (item) {
+        clearInterval(item)
+      })
+    }
   },
 
   /**

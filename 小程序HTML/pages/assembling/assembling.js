@@ -3,6 +3,7 @@ const util = require('../../utils/util.js')
 const http = require('../../http.js')
 const app = getApp();
 var WxParse = require('../../wxParse/wxParse.js')
+var countTimeList = [];
 Page({
 
   /**
@@ -221,6 +222,7 @@ Page({
               ptTime: ptTime,
             })
           }, 1000)
+          countTimeList.push(countTime);
         } else {
           return false;
         }
@@ -386,7 +388,11 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    if (countTimeList.length) {
+      countTimeList.forEach(function (item) {
+        clearInterval(item)
+      })
+    }
   },
 
   /**
