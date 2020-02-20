@@ -23,9 +23,6 @@ Page({
     
   },
   onLoad: function (options) {
-    setTimeout(() => {
-      that.createNewImg();
-    }, 2000)
     var that = this;
     var data = {};
     data.courseid = options.c_id;
@@ -42,6 +39,9 @@ Page({
             that.setData({
               wxapp_qrcode: res.tempFilePath,
             })
+            setTimeout(() => {
+              that.createNewImg();
+            }, 500)
           }, fail: function (fres) {
 
           }
@@ -58,6 +58,7 @@ Page({
 
           }
         })
+
       } else {
         wx.showToast({
           title: res.message,
