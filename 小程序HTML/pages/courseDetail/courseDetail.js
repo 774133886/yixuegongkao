@@ -563,7 +563,7 @@ Page({
       return {
         title: info.share_text,
         path: '/pages/courseDetail/courseDetail?c_id=' + that.data.p_id +'&state=1',
-        imageUrl: info.image_large,
+        // imageUrl: info.image_large,
         success: (res) => {    // 成功后要做的事情
           //console.log(res.shareTickets[0])
           // console.log
@@ -580,7 +580,7 @@ Page({
       return {
         title: info.share_text,
         path: '/pages/courseDetail/courseDetail?c_id=' + that.data.c_id + '&state=0',
-        imageUrl: info.image_large,
+        // imageUrl: info.image_large,
         success: (res) => {    // 成功后要做的事情
           //console.log(res.shareTickets[0])
           // console.log
