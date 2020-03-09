@@ -20,6 +20,20 @@ Page({
     acList: [],
     deployInfo: wx.getStorageSync("deployInfo") || { audit_mode: "1" }
   },
+  //打卡跳转
+  goDaka(){
+    wx.navigateToMiniProgram({
+      appId: 'wx75a7d3d70f30c55b',
+      // path: 'page/index/index?id=123',
+      // extraData: {
+      //   foo: 'bar'
+      // },
+      envVersion: 'develop',
+      // success(res) {
+      //   // 打开成功
+      // }
+    })
+  },
   //swiper
   swiperChange: function(e){
     this.setData({

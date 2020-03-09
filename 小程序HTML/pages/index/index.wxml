@@ -54,11 +54,11 @@
         <view class="font28 color-333" >其他</view>
       </view>
     </view>
-    <view class='inline_div nav-item'>
-      <navigator  class="column-center-c hgt150rpx"  url="" hover-class="none" open-type="navigate">
+    <view class='inline_div nav-item' bindtap="goDaka">
+      <view  class="column-center-c hgt150rpx">
         <image class="nav-icon" src="../../files/icon_7_daka.png" mode="aspectFill" lazy-load="false" ></image>
         <view class="font28 color-333" >打卡</view>
-      </navigator>
+      </view>
     </view>
     <view bindtap='closeMark' class='inline_div nav-item'>
       <view bindtap="saveStor" data-type="6" url="/pages/course/course?type=6" class="column-center-c hgt150rpx"  hover-class="none" open-type="switchTab">
@@ -165,7 +165,7 @@
     </navigator>
   </view>
   <view class='indexBot'>
-    <image class="wid100 hgt150rpx" src="../../files/img_qiandao.png" mode="aspectFill" lazy-load="false" ></image>
+    <image bindtap="goDaka" class="wid100 hgt150rpx" src="../../files/img_qiandao.png" mode="aspectFill" lazy-load="false" ></image>
     <view class='around-center m-t-40 hgt120rpx'>
       <image class="wid100 indexBPic" src="../../files/img_yindaoyu.png" mode="aspectFill" lazy-load="false" ></image>
     </view>
