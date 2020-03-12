@@ -265,7 +265,7 @@ Page({
             }
           })
           wx.request({
-            url: 'https://yxgk.kulend.com/api/member/login/weixin_app_login.htm?code=' + res1.code,
+            url: 'https://www.yixuegongkao.com/api/member/login/weixin_app_login.htm?code=' + res1.code,
             method: 'POST',
             header: http.header,
             success: function (res2) {
