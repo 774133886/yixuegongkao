@@ -20,7 +20,7 @@
                   <!-- wx:if="{{pt.status_text=='秒杀中'||pt.status_text=='拼团'||pt.status_text=='活动中'}}" -->
                   <view class="actText flex_dom font20" wx:if="{{pt.last_time>0}}">
                     <view class="flex_1">{{pt.group_size}}人团</view>
-                    <view>剩余 {{filter.toTime2(pt.last_time)}}</view>
+                    <view>结束剩余 {{filter.toTime2(pt.last_time)}}</view>
                   </view>
                 </view>
                 <view class="flex_1">
@@ -62,7 +62,7 @@
                   <image class="actPic" src="{{pt.image_large}}"></image>
                   <!-- wx:if="{{pt.status_text=='秒杀中'||pt.status_text=='团购中'||pt.status_text=='活动中'}}" -->
                   <view class="actText font20" wx:if="{{pt.last_time>0}}">
-                    <view class="text-center">剩余 {{filter.toTime2(pt.last_time)}}</view>
+                    <view class="text-center">结束剩余 {{filter.toTime2(pt.last_time)}}</view>
                   </view>
                 </view>
                 <view class="flex_1">
