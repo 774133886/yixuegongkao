@@ -10,7 +10,7 @@
       <!-- 拼团 -->
       <view wx:if="{{state==1}}" class="hgt80rpx l-pad40 ptArea font34 between-center">
         <view class="color-FF1919">{{ptInfo.group_size}}人团</view>
-        <view class="color-FF1919">剩余  {{filter.toTime2(ptTime)}}</view>
+        <view class="color-FF1919">距结束:{{filter.toTime2(ptTime)}}</view>
       </view>
       <!-- 秒杀 -->
       <view wx:if="{{promotions.promotion_type==2}}" data-36="{{promotions.promotion_type}}" class="hgt80rpx ptArea font34 between-center">
