@@ -21,4 +21,9 @@
       <view class="font30 color-333">{{item.course.name}}</view>
     </view>
   </view>
+  <!--暂无数据  -->
+  <view wx:if='{{list.length==0}}' class='block text-center'>
+    <image style='margin-top:100rpx;' src='../../files/icon_nodata.png' class='no_dataImg' ></image>
+    <view class='color-999 m-t-20'>暂无数据~</view>
+  </view>
 </view>
