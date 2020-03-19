@@ -83,7 +83,10 @@ Page({
       if (res.code == 0) {
         // if (data.promotionType = 'all') {
           res.data.list.forEach(function (v, i) {
-            v.last_time = (new Date(v.apply_end_time.replace('-', '/').replace('-', '/')).getTime() - Date.parse(new Date())) / 1000;
+            if (v.promotions && v.promotions[0] && v.promotions[0].promotion_end_time){
+              var end_time = v.promotions[0].promotion_end_time;
+              v.last_time = (new Date(end_time.replace('-', '/').replace('-', '/')).getTime() - Date.parse(new Date())) / 1000;
+            }
           });
         // }
         var list = that.data.courseList;

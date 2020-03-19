@@ -138,6 +138,8 @@ Page({
         })
        
         
+      }else if(res.code == 1){
+        that.userLogin()
       } else {
         wx.showToast({
           title: res.message,
@@ -198,7 +200,7 @@ Page({
               data.code = res1.code;
               // return false;
               http.postReq('/api/member/login/weixin_app_bind.htm', data, function (res2) {
-                if (res.code == 0) {
+                if (res2.code == 0) {
                   wx.showToast({
                     title: "登陆成功",
                     icon: 'none',
@@ -214,9 +216,11 @@ Page({
                       url: '../index/index',
                     })
                   }
+                } else if (res2.code==2){
+                  that.userLogin();
                 } else {
                   wx.showToast({
-                    title: res.message,
+                    title: res2.message,
                     icon: 'none',
                     duration: 2000
                   })

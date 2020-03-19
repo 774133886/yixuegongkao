@@ -93,7 +93,7 @@ Page({
       console.log(html)
       if (jsonObj[key]==''){
           wx.showToast({
-            title: '输入不能为空',
+            title: '基础信息输入不能为空',
             icon: 'none',
             duration: 2000
           })
@@ -117,7 +117,7 @@ Page({
     if (that.data.extra){
       if (!that.data.grade || !that.data.rank || !that.data.number || !that.data.grade_aat || !that.data.grade_essay || !that.data.grade_other) {
         wx.showToast({
-          title: '输入不能为空',
+          title: '成绩信息输入不能为空',
           icon: 'none',
           duration: 2000
         })
@@ -136,7 +136,7 @@ Page({
     if (that.data.address) {
       if (!that.data.doorNum) {
         wx.showToast({
-          title: '输入不能为空',
+          title: '小区及门牌号输入不能为空',
           icon: 'none',
           duration: 2000
         })

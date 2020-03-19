@@ -38,6 +38,11 @@ Page({
       wx.navigateTo({
         url: '../liveRoom/liveRoom?id=' + item.room_id
       })
+    }else{
+      wx.showToast({
+        title: '视频制作中，请稍后再试',
+        icon: 'none'
+      })
     }
   },
   goDetail(){
