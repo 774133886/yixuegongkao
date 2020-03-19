@@ -7,7 +7,7 @@
         <image class="user_img" src="{{item.member_portrait}}"></image>
         <view>
           <view class="font26 color-333">{{item.member_name}}</view>
-          <view class="font20 color-999 m-t-10">{{filter.formatTime(item.comment_time)}}</view>
+          <view class="font20 color-999 m-t-10">{{item.comment_time}}</view>
         </view>
       </view>
       <view class="stars">

@@ -72,11 +72,12 @@
       </view>
     </view>
   </view>
-
-  <button wx:for="{{info.actions}}" wx:key="item" wx:for-item="button" bindtap="orderButtonClick" data-type="{{button.action}}" data-text="{{button.text}}"
-  class="blueButton" hover-class="blueButton-hover">
-  {{button.text}}
-  </button>
+  <view class="fixedBtns flex_dom">
+    <button wx:for="{{info.actions}}" wx:key="item" wx:for-item="button" bindtap="orderButtonClick" data-type="{{button.action}}" data-text="{{button.text}}"
+    class="blueButton flex_1" hover-class="blueButton-hover">
+    {{button.text}}
+    </button>
+  </view>
   <!-- <button wx:if="{{state==0}}" class="blueButton" hover-class="blueButton-hover">评价课程</button>
   <button wx:if="{{state==1 || state==2}}" class="blueButton" hover-class="blueButton-hover" open-type="contact">联系客服</button>
   <button wx:if="{{state==3}}" class="blueButton" hover-class="blueButton-hover">立即支付</button> -->

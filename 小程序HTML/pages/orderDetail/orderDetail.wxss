@@ -63,11 +63,14 @@ page{
 .text2{
   margin-left: 47rpx;
 }
-.blueButton{
+.fixedBtns{
   position: fixed;
   bottom: 20rpx;
-  left: 40rpx;
-  right: 40rpx;
+  left: 30rpx;
+  right: 30rpx;
+}
+.blueButton{
+  margin: 0 10rpx;
 }
 .blueButton,.otherBtn-hover{
   display: block;
@@ -77,7 +80,7 @@ page{
   border-radius:10rpx;
   color: #fff;
   font-size: 30rpx;
-  margin: 90rpx auto 0;
+  /* margin: 90rpx auto 0; */
 }
 .orderTs{
   height:92rpx;
