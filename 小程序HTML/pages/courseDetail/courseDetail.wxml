@@ -46,7 +46,7 @@
         </view>
         
         <text wx:if="{{state!=1}}" class='color-5273FF m-l-60 font20'>{{promotions.promotion_partake_count?promotions.promotion_partake_count:info.apply_count}}</text>
-        <text wx:if="{{state!=1&&deployInfo.audit_mode!=='1'}}" class='color-999 font20'>/{{promotion_limit_count?promotion_limit_count:info.enroll_count}}人报名</text>
+        <text wx:if="{{state!=1&&deployInfo.audit_mode!=='1'}}" class='color-999 font20'>/{{promotions.promotion_limit_count?promotions.promotion_limit_count:info.enroll_count}}人报名</text>
         <text wx:if="{{state==1}}" class='color-FF1919 m-l-60 font24'>{{ptInfo.quantity}} 人已拼团</text>
      </view>
      <view class='center' catchtap='shareTab'>
