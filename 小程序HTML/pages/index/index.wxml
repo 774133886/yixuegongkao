@@ -155,11 +155,11 @@
           </view>
         </view>
         <view wx:if="{{item.promotions}}" class=''>
-          <text class='font36 color-FF1919'>¥{{item.promotions[0].promotion_price}}</text>
+          <text class='font36 color-FF1919'>{{item.promotions[0].promotion_price!=0?'¥'+item.promotions[0].promotion_price:'免费'}}</text>
           <text class='color-999 font24 m-l-15 lineThrough'>¥{{item.price}}</text>
         </view>
         <view wx:else class=''>
-          <text class='font36 color-FF1919'>¥{{item.price}}</text>
+          <text class='font36 color-FF1919'>{{item.price!=0?'¥'+item.price:'免费'}}</text>
         </view>
       </view>
     </navigator>
