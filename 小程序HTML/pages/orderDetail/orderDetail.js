@@ -77,6 +77,7 @@ Page({
             phoneNumber: info.service_phone,
           })
         }
+        break;
       case '评价课程':
         var info = that.data.info;
         wx.navigateTo({

@@ -19,8 +19,9 @@
                 <view class="orderInfo flex_1">
                   <view class="orderName line2 font30 color-333">{{item.product_name}}</view>
                   <view class="orderPrice">
-                    <view class="font36 redPrice">¥{{item.pay_price}}</view>
-                    <view class="font24 color-999 grayPrice">¥{{item.price}}</view>
+                    <view class="font36 redPrice" wx:if="{{item.price!=0}}">¥{{item.pay_price}}</view>
+                    <view class="font36 redPrice" wx:if="{{item.price==0}}">免费</view>
+                    <view class="font24 color-999 grayPrice" wx:if="{{item.price!=0}}">¥{{item.price}}</view>
                   </view>
                 </view>
                 <view wx:if="{{item.status == 2}}" class="orderIcon1 font24 orderState">待支付</view>
@@ -30,7 +31,8 @@
               <view class="orderBtm">
                 <view class="flex_dom flex_item_mid">
                   <view class="flex_1 font24 color-333">合计金额</view>
-                  <view class="font36 redPrice">¥{{item.pay_price}}</view>
+                  <view class="font36 redPrice" wx:if="{{item.pay_price!=0}}">¥{{item.pay_price}}</view>
+                  <view class="font36 redPrice" wx:if="{{item.pay_price==0}}">免费</view>
                 </view>
                 <view>
                   <view class="flex_dom flex_item_mid m-t-20" wx:if="{{item.actions.length}}">
