@@ -18,7 +18,7 @@
           <view class="lh1 font34 color-FF1919">{{promotions.promotion_partake_count}}  人已秒杀</view>
           <!-- <view class="font30 lh1">¥2999.9 <text class="lineThrough font20">¥2999.9</text></view> -->
         </view>
-        <view class="wid280rpx color-FF3636 center p-v-10 hgt80rpx">
+        <view class="flex_1 p-r-20 color-FF3636 center-end p-v-10 hgt80rpx">
           <view wx:if="{{msTime!=0}}" class="font20 color-FF1919 lh1">距结束:</view>
           <view wx:if="{{s_show}}"  class="font30 lh1 m-l-10">{{msTime!=0?filter.toTime2(msTime):'活动已结束'}}</view>
         </view>
