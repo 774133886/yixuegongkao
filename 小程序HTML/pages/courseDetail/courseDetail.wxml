@@ -142,7 +142,7 @@
           <view class='font20 color-999'>{{item.comment_time}}</view>
           <view class='color-777 font24 m-t-10'>{{item.content}}</view>
           <navigator url="/pages/allApply/allApply?com_id={{item.comment_id}}" hover-class="none" class='center-end color-5273FF font24'>回复</navigator>
-          <navigator url="/pages/allApply/allApply?com_id={{item.comment_id}}" hover-class="none" class='center-end color-5273FF font24'>
+          <navigator wx:if="{{item.reply_count!=0}}" url="/pages/allApply/allApply?com_id={{item.comment_id}}" hover-class="none" class='center-end color-5273FF font24'>
             <text>查看全部{{item.reply_count}}条回复</text>
             <image style='margin-left:0;' class='starPic' src='../../files/icon_xiangyou_b.png'></image>
           </navigator>
