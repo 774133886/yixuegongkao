@@ -33,7 +33,8 @@ Page({
 
     oc_id:'',
     o_state: '',
-    deployInfo: wx.getStorageSync("deployInfo") || { audit_mode: "1" }
+    deployInfo: wx.getStorageSync("deployInfo") || { audit_mode: "1" },
+    s_show:false
   },
 
   // 获取滚动条当前位置
@@ -511,6 +512,11 @@ Page({
         deployInfo: deployInfo
       })
     }
+    setTimeout(()=>{
+      this.setData({
+        s_show: true
+      })
+    },1500)
   },
 
   /**
