@@ -46,3 +46,12 @@
   border-bottom: 1px solid rgba(30,158,243,1) !important;
   color: rgba(30,158,243,1);
 }
+.curFormText{
+  text-align: center;
+  color: #999;
+  font-size: 30rpx;
+}
+.curFormText text{
+  display: inline-block;
+  padding: 20rpx 0;
+}

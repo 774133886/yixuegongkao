@@ -36,6 +36,7 @@
       </view>
       <view class="curFormButton">
         <button form-type='submit' class="font36" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" hover-class="btn-hover">绑定</button>
+        <view class="curFormText"><text bindtap="goIndex">暂不登录，返回首页</text></view>
       </view>
     </view>
   </form>
