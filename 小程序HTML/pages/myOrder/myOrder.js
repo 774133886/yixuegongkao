@@ -42,6 +42,12 @@ Page({
       http.getReq('api/app/wxapp_config.htm', {}, function (res) {
         if (res.code == 0) {
           wx.setStorageSync("deployInfo", res.data);
+          var deployInfo = wx.getStorageSync("deployInfo");
+          if (deployInfo) {
+            this.setData({
+              deployInfo: deployInfo
+            })
+          }
           that.setData({
             tabs: deployInfo.order_tabs
           });

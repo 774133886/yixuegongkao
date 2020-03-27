@@ -2,7 +2,13 @@
 const util = require('../../utils/util.js')
 const http = require('../../http.js')
 const app = getApp();
-let pt_set = null;
+let pt_set1 = null;
+let pt_set2 = null;
+let pt_set3 = null;
+let pt_set4 = null;
+let pt_set5 = null;
+let pt_set6 = null;
+let pt_set7 = null;
 Page({
 
   /**
@@ -12,8 +18,15 @@ Page({
     active: 0,
     list: ["6","1","2","3","4","8","9"],
     hd_list: [
-      [], [], [], [], [], [], []
+      "hd_list1", "hd_list2", "hd_list3", "hd_list4", "hd_list5", "hd_list6", "hd_list7"
     ],
+    hd_list1: [],
+    hd_list2: [],
+    hd_list3: [],
+    hd_list4: [],
+    hd_list5: [],
+    hd_list6: [],
+    hd_list7: [],
     courseList: [
       [],[],[],[],[],[],[]
     ],
@@ -108,13 +121,13 @@ Page({
           // }
         }
         var scrollList = that.data.scrollList;
-        var hd_list = that.data.hd_list;
-        hd_list[that.data.active] = [];
+        var hd_list = that.data["hd_list"+Number(active+1)];
+        hd_list = [];
         list[that.data.active].forEach(function (item, index) {
           if (item.last_time>0){
-            hd_list[that.data.active].push({ last_time: item.last_time})
+            hd_list.push({ last_time: item.last_time})
           }else{
-            hd_list[that.data.active].push({})
+            hd_list.push({})
           }
         })
         that.setData({
@@ -123,9 +136,9 @@ Page({
           isShow: false,
           refreshing: false,
           scrollTop: scrollList,
-          hd_list: hd_list
+          ["hd_list" + Number(active + 1)]: hd_list
         })
-        that.startTime()
+        that.startTime(active+1)
       }
     })
   },
@@ -154,34 +167,54 @@ Page({
       });
     }
   },
-  startTime() {
+  startTime(idx) {
     var that = this;
     // var aclist = [];
-    clearInterval(pt_set);
-    pt_set = setInterval(time1, 1000);
+    if(idx == 1){
+      clearInterval([pt_set1]);
+      pt_set1 = setInterval(time1, 1000);
+    } else if (idx == 2){
+      clearInterval([pt_set2]);
+      pt_set2 = setInterval(time1, 1000);
+    } else if (idx == 3) {
+      clearInterval([pt_set3]);
+      pt_set3 = setInterval(time1, 1000);
+    } else if (idx == 4) {
+      clearInterval([pt_set4]);
+      pt_set4 = setInterval(time1, 1000);
+    } else if (idx == 5) {
+      clearInterval([pt_set5]);
+      pt_set5 = setInterval(time1, 1000);
+    } else if (idx == 6) {
+      clearInterval([pt_set6]);
+      pt_set6 = setInterval(time1, 1000);
+    } else if (idx == 7) {
+      clearInterval([pt_set7]);
+      pt_set7 = setInterval(time1, 1000);
+    }
+    
     function time1() {
-      var hd_list = that.data.hd_list;
-      hd_list.forEach(function (aclist,index){
-        aclist.forEach(function (a, i) {
+      var hd_list = that.data["hd_list" + idx];
+      // hd_list.forEach(function (aclist,index){
+        hd_list.forEach(function (a, i) {
           var time = a.last_time
           if (a.last_time) {
             if (a.last_time == 1) {
               a.last_time = 0;
-              clearInterval(countTime);
+              clearInterval(time1);
               // 重新获取数据
               that.getList();
             } else {
               a.last_time--;
             }
             that.setData({
-              hd_list: hd_list
+              ["hd_list" + idx]: hd_list
             })
-
           } else {
             return false;
           }
         })
-      })
+      // })
       // aclist = that.data.hd_list;
 
       
