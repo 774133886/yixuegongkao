@@ -10,7 +10,7 @@
       <!-- 拼团 -->
       <view wx:if="{{state==1}}" class="hgt80rpx l-pad40 ptArea font34 between-center">
         <view wx:if="{{ptTime!=0}}" class="color-FF1919">{{ptInfo.group_size}}人团</view>
-        <view wx:if="{{s_show}}" class="color-FF1919">距结束:{{ptTime!=0?filter.toTime2(ptTime):'活动已结束'}}</view>
+        <view wx:if="{{s_show}}" class="color-FF1919"><text wx:if="{{ptTime!=0}}">剩余:</text> {{ptTime!=0?filter.toTime2(ptTime):'活动已结束'}}</view>
       </view>
       <!-- 秒杀 -->
       <view wx:if="{{promotions.promotion_type==2}}" data-36="{{promotions.promotion_type}}" class="hgt80rpx ptArea font34 between-center">
@@ -19,7 +19,7 @@
           <!-- <view class="font30 lh1">¥2999.9 <text class="lineThrough font20">¥2999.9</text></view> -->
         </view>
         <view class="flex_1 p-r-20 color-FF3636 center-end p-v-10 hgt80rpx">
-          <view wx:if="{{msTime!=0}}" class="font20 color-FF1919 lh1">距结束:</view>
+          <view wx:if="{{msTime!=0}}" class="font20 color-FF1919 lh1">限时秒杀:</view>
           <view wx:if="{{s_show}}"  class="font30 lh1 m-l-10">{{msTime!=0?filter.toTime2(msTime):'活动已结束'}}</view>
         </view>
       </view>

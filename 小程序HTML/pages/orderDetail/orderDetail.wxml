@@ -8,9 +8,10 @@
     <view class="orderGroup flex_dom color-999">
       <view>订单编号</view>
       <view class="flex_1 orderNum">{{info.order_id}}</view>
-      <view wx:if="{{item.status == 2}}" class="color-blue">待支付</view>
-      <view wx:if="{{item.status!=2&&item.status!=3}}">已完成</view>
-      <view wx:if="{{item.status == 3}}">已取消</view>
+      <view wx:if="{{info.status == 2}}" class="color-blue">待支付</view>
+      <view wx:if="{{info.status==1||info.status==5}}">已完成</view>
+      <view wx:if="{{info.status == 3}}">已取消</view>
+      <view wx:if="{{info.status == 9}}">已作废</view>
     </view>
     <view class="orderGroup allGroup flex_dom">
       <view class="orderInfo flex_dom" bindtap="goDetail">
