@@ -34,7 +34,8 @@ Page({
     oc_id:'',
     o_state: '',
     deployInfo: wx.getStorageSync("deployInfo") || { audit_mode: "1" },
-    s_show:false
+    s_show:false,
+    isStart:true,
   },
 
   // 获取滚动条当前位置
@@ -328,8 +329,20 @@ Page({
         // 秒杀倒计时
         if (res.data.promotions.length){
           if (res.data.promotions[0].promotion_type == 2) {
-
-            var msTime = (new Date(res.data.promotions[0].promotion_end_time.replace(/-/g, '/')).getTime() - Date.parse(new Date())) / 1000;
+            if (Date.parse(new Date()) - new Date(res.data.promotions[0].promotion_start_time.replace(/-/g, '/')).getTime()<0){
+              // 活动未开始
+              var msTime = (Date.parse(new Date()) - new Date(res.data.promotions[0].promotion_start_time.replace(/-/g, '/')).getTime()) / 1000;
+              that.setData({
+                isStart: false,
+              })
+            }else{
+              // 活动已开始
+              var msTime = (new Date(res.data.promotions[0].promotion_end_time.replace(/-/g, '/')).getTime() - Date.parse(new Date())) / 1000;
+              that.setData({
+                isStart: true,
+              })
+            }
+            
             if (msTime > 0) {
               var countTime = setInterval(function () {
                 if (msTime == 1) {
@@ -384,7 +397,20 @@ Page({
           wx.setStorageSync('enroll_fields', []);
         }
         // 拼团倒计时
-        var ptTime = (new Date(res.data.end_time.replace(/-/g, '/')).getTime() - Date.parse(new Date())) / 1000;
+        // var ptTime = (new Date(res.data.end_time.replace(/-/g, '/')).getTime() - Date.parse(new Date())) / 1000;
+        if (Date.parse(new Date()) - new Date(res.data.course_detail.promotions[0].promotion_start_time.replace(/-/g, '/')).getTime() < 0) {
+          // 活动未开始
+          var ptTime = (Date.parse(new Date()) - new Date(res.data.course_detail.promotions[0].promotion_start_time.replace(/-/g, '/')).getTime()) / 1000;
+          that.setData({
+            isStart: false,
+          })
+        } else {
+          // 活动已开始
+          var ptTime = (new Date(res.data.course_detail.promotions[0].promotion_end_time.replace(/-/g, '/')).getTime() - Date.parse(new Date())) / 1000;
+          that.setData({
+            isStart: true,
+          })
+        }
         if (ptTime>0) {
           var countTime = setInterval(function () {
             if (ptTime == 1) {

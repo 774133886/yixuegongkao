@@ -98,7 +98,11 @@
               <image wx:if="{{it.type==2}}" class="index_tag" src="../../files/img_miaosha.png" mode="aspectFill" lazy-load="false" ></image>
             </view>
             <!-- 02天 20:12:13 -->
-            <view class='color-FF1919 l-h-40rpx m-t-5 font20 line1'>距结束{{filter.toTime2(it.last_time)}}</view>
+            <view class='color-FF1919 l-h-40rpx m-t-5 font20 line1'>
+              <text wx:if="{{it.is_start}}">剩余</text>
+              {{filter.toTime2(it.last_time>0?it.last_time:0)}}
+              <text wx:if="{{!it.is_start}}">后开始</text>
+            </view>
             <view class='color-999 l-h-40rpx font20' wx:if="{{deployInfo.audit_mode!=='1'}}">
               <text>限报</text>
               <text class='m-l-10'>{{it.limit_count}}人</text>
