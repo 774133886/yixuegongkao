@@ -80,8 +80,9 @@ var Filters = {
       var hour = Math.floor(s / 3600) % 24;
       var min = Math.floor(s / 60) % 60;
       var sec = s % 60;
+      // console.log(s, day, hour, min)
       if (day>0){
-        if (hour > 0) {
+        if (hour >= 0) {
           if (hour < 10) {
             t = day +'天 '+ ' 0' + hour + ":";
           } else {

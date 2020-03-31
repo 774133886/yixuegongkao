@@ -151,7 +151,8 @@
           </view>
           <view class='center' wx:if="{{deployInfo.audit_mode!=='1'}}">
             <view class='wid160rpx color-999'>已报/限报</view>
-            <view class='color-333'>{{item.apply_count}}/{{item.enroll_count}} 人</view>
+            <view wx:if="{{item.promotions}}" class='color-333'>{{item.promotions[0].promotion_partake_count}}/{{item.promotions[0].promotion_limit_count}} 人</view>
+            <view wx:else class='color-333'>{{item.apply_count}}/{{item.enroll_count}} 人</view>
           </view>
         </view>
         <view wx:if="{{item.promotions}}" class=''>

@@ -208,7 +208,7 @@ Page({
                   });
                   console.log(res2);
                   wx.setStorageSync('token', res2.data.session);
-                  if (res.data.member.status==4){
+                  if (res2.data.member.status==4){
                     wx.navigateTo({
                       url: '../setUserInfo/setUserInfo'
                     })
