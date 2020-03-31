@@ -206,6 +206,7 @@ Page({
                     icon: 'none',
                     duration: 2000
                   });
+                  console.log(res2);
                   wx.setStorageSync('token', res2.data.session);
                   if (res.data.member.status==4){
                     wx.navigateTo({
