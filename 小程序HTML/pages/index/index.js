@@ -255,7 +255,7 @@ Page({
         wx.setStorageSync("deployInfo", res.data);
         var deployInfo = wx.getStorageSync("deployInfo");
         if (deployInfo) {
-          this.setData({
+          that.setData({
             deployInfo: deployInfo
           })
         }
