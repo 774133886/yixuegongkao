@@ -96,9 +96,19 @@ Page({
       if (res.code == 0) {
         // if (data.promotionType = 'all') {
           res.data.list.forEach(function (v, i) {
-            if (v.promotions && v.promotions[0] && v.promotions[0].promotion_end_time){
+            if (v.promotions && v.promotions[0]&&v.promotions[0].promotion_start_time&&v.promotions[0].promotion_end_time){
+              var start_time = v.promotions[0].promotion_start_time;
               var end_time = v.promotions[0].promotion_end_time;
-              v.last_time = (new Date(end_time.replace('-', '/').replace('-', '/')).getTime() - Date.parse(new Date())) / 1000;
+              // v.last_time = (new Date(end_time.replace('-', '/').replace('-', '/')).getTime() - Date.parse(new Date())) / 1000;
+              if (new Date(start_time.replace(/-/g, '/')).getTime() - Date.parse(new Date())>0){
+                // 活动未开始
+                v.last_time = (Date.parse(new Date()) - new Date(start_time.replace(/-/g, '/')).getTime()) / 1000;
+                v.is_start = false;
+              }else{
+                // 活动已开始
+                v.last_time = (new Date(end_time.replace(/-/g, '/')).getTime() - Date.parse(new Date())) / 1000;
+                v.is_start = true;
+              }
             }
           });
         // }
@@ -125,7 +135,7 @@ Page({
         hd_list = [];
         list[that.data.active].forEach(function (item, index) {
           if (item.last_time>0){
-            hd_list.push({ last_time: item.last_time})
+            hd_list.push({ last_time: item.last_time,is_start: item.is_start})
           }else{
             hd_list.push({})
           }

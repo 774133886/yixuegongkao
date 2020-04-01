@@ -23,16 +23,16 @@
                   <image class="wid100 hgt190rpx" src="{{course.image_small}}" mode="aspectFill" lazy-load="false" ></image>
                   <image class="index_tag2" wx:if="{{course.promotions&&course.promotions[0].promotion_type==4}}" src="../../files/img_pintuan.png" mode="aspectFill" lazy-load="false" ></image>
                   <image class="index_tag2" wx:if="{{course.promotions&&course.promotions[0].promotion_type==2}}" src="../../files/img_miaosha.png" mode="aspectFill" lazy-load="false" ></image>
-                  <view class="actText flex_dom font20" wx:if="{{course.last_time>0}}">
+                  <view class="actText flex_dom font20" wx:if="{{hd_list1[idx].last_time>0}}">
                     <!-- <view class="flex_1">{{hd_list[idx].group_size}}人团</view> -->
                     <view class="flex_1"></view>
-                    <view wx:if="{{index==0&&hd_list1[idx].last_time}}">距结束:{{filter.toTime2(hd_list1[idx].last_time)}}</view>
-                    <view wx:if="{{index==1&&hd_list2[idx].last_time}}">距结束:{{filter.toTime2(hd_list2[idx].last_time)}}</view>
-                    <view wx:if="{{index==2&&hd_list3[idx].last_time}}">距结束:{{filter.toTime2(hd_list3[idx].last_time)}}</view>
-                    <view wx:if="{{index==3&&hd_list4[idx].last_time}}">距结束:{{filter.toTime2(hd_list4[idx].last_time)}}</view>
-                    <view wx:if="{{index==4&&hd_list5[idx].last_time}}">距结束:{{filter.toTime2(hd_list5[idx].last_time)}}</view>
-                    <view wx:if="{{index==5&&hd_list6[idx].last_time}}">距结束:{{filter.toTime2(hd_list6[idx].last_time)}}</view>
-                    <view wx:if="{{index==6&&hd_list7[idx].last_time}}">距结束:{{filter.toTime2(hd_list7[idx].last_time)}}</view>
+                    <view wx:if="{{index==0&&hd_list1[idx].last_time}}"><text wx:if="{{hd_list1[idx].is_start}}">剩余</text> {{filter.toTime2(hd_list1[idx].last_time)}} <text wx:if="{{!hd_list1[idx].is_start}}">后开始</text></view>
+                    <view wx:if="{{index==1&&hd_list2[idx].last_time}}"><text wx:if="{{hd_list2[idx].is_start}}">剩余</text> {{filter.toTime2(hd_list2[idx].last_time)}} <text wx:if="{{!hd_list2[idx].is_start}}">后开始</text></view>
+                    <view wx:if="{{index==2&&hd_list3[idx].last_time}}"><text wx:if="{{hd_list3[idx].is_start}}">剩余</text> {{filter.toTime2(hd_list3[idx].last_time)}} <text wx:if="{{!hd_list3[idx].is_start}}">后开始</text></view>
+                    <view wx:if="{{index==3&&hd_list4[idx].last_time}}"><text wx:if="{{hd_list4[idx].is_start}}">剩余</text> {{filter.toTime2(hd_list4[idx].last_time)}} <text wx:if="{{!hd_list4[idx].is_start}}">后开始</text></view>
+                    <view wx:if="{{index==4&&hd_list5[idx].last_time}}"><text wx:if="{{hd_list5[idx].is_start}}">剩余</text> {{filter.toTime2(hd_list5[idx].last_time)}} <text wx:if="{{!hd_list5[idx].is_start}}">后开始</text></view>
+                    <view wx:if="{{index==5&&hd_list6[idx].last_time}}"><text wx:if="{{hd_list6[idx].is_start}}">剩余</text> {{filter.toTime2(hd_list6[idx].last_time)}} <text wx:if="{{!hd_list6[idx].is_start}}">后开始</text></view>
+                    <view wx:if="{{index==6&&hd_list7[idx].last_time}}"><text wx:if="{{hd_list7[idx].is_start}}">剩余</text> {{filter.toTime2(hd_list7[idx].last_time)}} <text wx:if="{{!hd_list7[idx].is_start}}">后开始</text></view>
                   </view>
                 </view>
                 <view class='flex_1 m-l-20 p-b-30 column-between hgt230rpx'>

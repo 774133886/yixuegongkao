@@ -136,7 +136,7 @@ Page({
         aclist.forEach(function (v, i) {
           if (new Date(v.start_time.replace(/-/g, '/')).getTime() - Date.parse(new Date())>0){
             // 活动未开始
-            v.last_time = (Date.parse(new Date()) - new Date(v.end_time.replace(/-/g, '/')).getTime()) / 1000;
+            v.last_time = (Date.parse(new Date()) - new Date(v.start_time.replace(/-/g, '/')).getTime()) / 1000;
             v.is_start = false;
           }else{
             // 活动已开始
