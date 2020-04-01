@@ -34,17 +34,6 @@ Page({
       // }
     })
   },
-  //swiper
-  swiperChange: function(e){
-    this.setData({
-      activeIdx: e.detail.current
-    });
-    //每本书页面的访问量
-    var book = this.data.list[e.detail.current];
-    app.mtj.trackEvent('books', {
-      book: book.name
-    });
-  },
   saveStor(e){
     var type = e.currentTarget.dataset.type
     wx.setStorageSync("c_type", type);
