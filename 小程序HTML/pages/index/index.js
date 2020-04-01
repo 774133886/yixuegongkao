@@ -262,12 +262,14 @@ Page({
       // res.data.rows[0].articles[1].time = '2019.06.09'
       if (res.code == 0) {
         wx.setStorageSync("deployInfo", res.data);
-        var deployInfo = wx.getStorageSync("deployInfo");
-        if (deployInfo) {
-          that.setData({
-            deployInfo: deployInfo
-          })
-        }
+        setTimeout(()=>{
+          var deployInfo = wx.getStorageSync("deployInfo");
+          if (deployInfo) {
+            that.setData({
+              deployInfo: deployInfo
+            })
+          }
+        })
       } else {
         wx.showToast({
           title: res.message,
