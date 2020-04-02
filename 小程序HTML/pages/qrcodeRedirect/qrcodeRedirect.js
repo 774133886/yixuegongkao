@@ -24,8 +24,17 @@ Page({
         url: '/pages/courseDetail/courseDetail?c_id=' + id +'&&state=1',
       })
     }else{
+      wx.switchTab({
+        url: '/pages/index/index',
+      })
+    }
+    if (scene.includes('course')) {
       wx.redirectTo({
-        url: '/pages/courseDetail/courseDetail?c_id=' + id + '&&state=2',
+        url: '/pages/courseDetail/courseDetail?c_id=' + id + '&&state=0',
+      })
+    } else {
+      wx.switchTab({
+        url: '/pages/index/index',
       })
     }
     
