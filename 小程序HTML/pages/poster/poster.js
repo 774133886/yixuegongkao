@@ -41,7 +41,7 @@ Page({
             })
             setTimeout(() => {
               that.createNewImg();
-            }, 500)
+            }, 2500)
           }, fail: function (fres) {
 
           }
