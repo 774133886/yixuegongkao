@@ -41,6 +41,10 @@
 			"currentL": -1,
 			"list": []
 		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
 		"miniprogram": {
 			"current": 0,
 			"list": [
@@ -84,6 +88,13 @@
 					"name": "pages/assembling/assembling",
 					"pathName": "pages/assembling/assembling",
 					"query": "p_id=550580447711305",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/qrcodeRedirect/qrcodeRedirect",
+					"pathName": "pages/qrcodeRedirect/qrcodeRedirect",
+					"query": "",
 					"scene": null
 				}
 			]

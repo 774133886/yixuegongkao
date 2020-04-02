@@ -32,8 +32,9 @@
     "pages/addAdress/addAdress",
     "pages/chooseJob/chooseJob",
     "pages/writeInfo/writeInfo", 
-    "pages/assembleList/assembleList",
-    "pages/assembling/assembling"
+    "pages/assembleList/assembleList",  
+    "pages/assembling/assembling",
+    "pages/qrcodeRedirect/qrcodeRedirect"
 
   ],
   "window": {
