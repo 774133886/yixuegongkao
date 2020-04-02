@@ -282,8 +282,10 @@ Page({
             header: http.header,
             success: function (res2) {
               if (res2.data.code == 0) {
-                wx.setStorageSync('token', res2.data.data.session);
-                if (res2.data.data.member.status == 4) {
+                if(res2.data&&res2.data.data&&res2.data.data.session){
+                  wx.setStorageSync('token', res2.data.data.session);
+                }
+                if (res2.data&&res2.data.data&&res2.data.data.member&&res2.data.data.member.status == 4) {
                   wx.navigateTo({
                     url: '../setUserInfo/setUserInfo'
                   })

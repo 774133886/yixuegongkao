@@ -115,10 +115,7 @@ Page({
     var that = this;
     let data = {};
     
-    // data.indexrmd = 1;
-    // // data.sort = 2;
     http.getReq('api/public/get_index_promotion_list.htm', data, function (res) {
-      // res.data.rows[0].articles[1].time = '2019.06.09'
       if (res.code == 0) {
         console.log(res.data);
         var aclist = res.data;
@@ -132,11 +129,7 @@ Page({
             v.last_time = (new Date(v.end_time.replace(/-/g, '/')).getTime() - Date.parse(new Date())) / 1000;
             v.is_start = true;
           }
-          
-          // console.log(v.last_time)
         })
-
-
 
         let  List = (function () {
           var theAry = [];
@@ -151,7 +144,6 @@ Page({
             theAry[Math.floor(index / 3)].push(item);
 
           });
-
           return theAry
 
         })()
@@ -200,7 +192,6 @@ Page({
     let data = {};
     data.tag = 'WX_APP_BANNER';
     http.getReq('/api/app/get_page_elements.htm', data, function (res) {
-      // res.data.rows[0].articles[1].time = '2019.06.09'
       if (res.code == 0) {
         console.log(res.data);
         that.setData({
