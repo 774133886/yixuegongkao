@@ -295,8 +295,26 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    if (pt_set){
-      clearInterval(pt_set);
+    if (pt_set1){
+      clearInterval(pt_set1);
+    }
+    if (pt_set2) {
+      clearInterval(pt_set2);
+    }
+    if (pt_set3) {
+      clearInterval(pt_set3);
+    }
+    if (pt_set4) {
+      clearInterval(pt_set4);
+    }
+    if (pt_set5) {
+      clearInterval(pt_set5);
+    }
+    if (pt_set6) {
+      clearInterval(pt_set6);
+    }
+    if (pt_set7) {
+      clearInterval(pt_set7);
     }
   },
 
