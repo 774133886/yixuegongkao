@@ -433,7 +433,8 @@ Page({
     return {
       title: '跟我一起学习这门课程',
       path: '/pages/assembling/assembling?g_id=' + that.data.g_id + '&p_id=' + that.data.p_id,
-      imageUrl: that.data.info.image_large,
+      // imageUrl: that.data.info.image_large,
+      imageUrl: '',
       success: (res) => {    // 成功后要做的事情
         //console.log(res.shareTickets[0])
         // console.log
