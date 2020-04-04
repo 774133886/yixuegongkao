@@ -196,7 +196,7 @@
   </view>
   <view wx:else>
     <view wx:if="{{promotions.promotion_status==0}}">
-      <button  hover-class="none" class='bmBtn font36 btn_gray'>活动未开始</button>
+      <button  hover-class="none" class='bmBtn font36 btn_gray'>即将开始</button>
     </view>
     <view wx:if="{{promotions.promotion_status==1}}">
       <button wx:if="{{promotions.promotion_type == 1}}" bindtap="writeInfo" hover-class="none" class='bmBtn font36'>立即报名</button>
@@ -223,13 +223,16 @@
       <text class='font20 color-999'>回到主页</text>
     </view>
   </view>
+  <view wx:if="{{promotions.promotion_status==0}}">
+    <button  hover-class="none" class='bmBtn font36 btn_gray'>即将开始</button>
+  </view>
   <navigator hover-class="none" url="/pages/assembling/assembling?g_id={{ptInfo.member_group_id}}&p_id={{p_id}}" wx:if="{{ptInfo.is_member_group}}">
       <button hover-class="none" class='bmBtn font36 btn_green'>我的拼团</button>
   </navigator>
-  <navigator hover-class="none" wx:if="{{ptInfo.is_member_bought&&!ptInfo.is_member_group}}">
-      <button hover-class="none" class='bmBtn font36 btn_green'>已购买</button>
-  </navigator>
-  <view wx:if="{{!ptInfo.is_member_bought&&!ptInfo.is_member_group}}" class="between-center ptBuy m-r-20">
+  <view hover-class="none" wx:if="{{ptInfo.is_member_bought&&!ptInfo.is_member_group}}">
+      <button hover-class="none" class='bmBtn font36 btn_green' data-id="{{c_id}}" bindtap="goLive">开始学习</button>
+  </view>
+  <view wx:if="{{!ptInfo.is_member_bought&&!ptInfo.is_member_group&&promotions.promotion_status!=0}}" class="between-center ptBuy m-r-20">
     <view bindtap="writeInfo" data-ispn="true" class="wid50 color-FF3636 column-center-b p-v-10 hgt70rpx">
       <view class="font20 lh1">¥{{ptInfo.original_price}}</view>
       <view class="font24 lh1">单独购买</view>

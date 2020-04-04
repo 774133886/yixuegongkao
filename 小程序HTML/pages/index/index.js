@@ -18,6 +18,7 @@ Page({
     noData2: false,
     tjList:[],
     acList: [],
+    headList:[],
     deployInfo: wx.getStorageSync("deployInfo") || { audit_mode: "1" }
   },
   //打卡跳转
@@ -82,7 +83,29 @@ Page({
       url: '../personal/personal'
     })
   },
- 
+  // 获取活动头像
+  getHead: function () {
+    var that = this;
+    let data = {};
+    // data.indexrmd = 1;
+    // data.sort = 2;
+    http.getReq('/api/public/get_index_promotion_users.htm', data, function (res) {
+      // res.data.rows[0].articles[1].time = '2019.06.09'
+      if (res.code == 0) {
+        
+        that.setData({
+          headList: res.data.slice(0,3),
+        });
+        console.log(that.data.headList);
+      } else {
+        wx.showToast({
+          title: res.message,
+          icon: 'none',
+          duration: 2000
+        })
+      }
+    })
+  },
   //getlist
   getlist: function(){
     var that = this;
@@ -303,7 +326,7 @@ Page({
   // 获取首页数据
     this.getlist();
     this.getBanner();
-    
+    this.getHead();
   },
 
   /**
@@ -320,9 +343,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function (options) {
-    if (!wx.getStorageSync("deployInfo")){
+    // if (!wx.getStorageSync("deployInfo")){
       this.savePz();
-    }
+    // }
     var deployInfo = wx.getStorageSync("deployInfo");
     if (deployInfo) {
       this.setData({

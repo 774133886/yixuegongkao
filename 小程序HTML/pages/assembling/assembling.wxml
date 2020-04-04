@@ -121,7 +121,7 @@
       <text catchtap='shareTab' class='color-999 font330'>取消</text>
     </view>
     <view class='hgt300rpx around-center'>
-      <button style="line-height:inherit;" open-type='share' class='hgt150rpx column-center-b'>
+      <button bindtap="shareTab" style="line-height:inherit;" open-type='share' class='hgt150rpx column-center-b'>
         <image src='../../files/icon_weixin.png' class='wid90rpx hgt90rpx'></image>
         <text class='color-333 font30'>微信好友</text> 
       </button>
