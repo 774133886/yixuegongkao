@@ -137,7 +137,7 @@
         <!-- 秒杀 -->
         <image wx:if="{{item.promotions.promotion_type==2&&item.is_end!=1}}" class="index_tag2" src="../../files/img_miaosha.png" mode="aspectFill" lazy-load="false" ></image>
         <!-- 已满员 -->
-        <image wx:if="{{item.apply_count==item.enroll_count}}" class="index_tag2" src="../../files/img_manyuan.png" mode="aspectFill" lazy-load="false" ></image>
+        <image wx:if="{{item.apply_count==item.enroll_count&&item.is_end!=1}}" class="index_tag2" src="../../files/img_manyuan.png" mode="aspectFill" lazy-load="false" ></image>
         <!-- 报名结束 -->
         <image wx:if="{{item.is_end==1}}" class="index_tag2" src="../../files/img_baoming.png" mode="aspectFill" lazy-load="false" ></image>
       </view>
