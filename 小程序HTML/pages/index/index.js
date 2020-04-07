@@ -29,10 +29,7 @@ Page({
       // extraData: {
       //   foo: 'bar'
       // },
-      envVersion: 'develop',
-      // success(res) {
-      //   // 打开成功
-      // }
+      envVersion: 'develop'
     })
   },
   saveStor(e){

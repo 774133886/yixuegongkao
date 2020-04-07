@@ -39,9 +39,6 @@ Page({
             that.setData({
               wxapp_qrcode: res.tempFilePath,
             })
-            setTimeout(() => {
-              that.createNewImg();
-            }, 2500)
           }, fail: function (fres) {
 
           }
@@ -54,6 +51,12 @@ Page({
             that.setData({
               image_large: res.tempFilePath,
             })
+            var setimg = setInterval(() => {
+              if (that.data.image_large && that.data.wxapp_qrcode){
+                that.createNewImg();
+                clearInterval(setimg);
+              }
+            }, 200)
           }, fail: function (fres) {
 
           }
