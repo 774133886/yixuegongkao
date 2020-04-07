@@ -31,6 +31,9 @@ Page({
         that.setData({
           info: res.data,
         })
+        wx.showLoading({
+          title: '海报生成中...',
+        })
       // 下载二维码图片
         wx.downloadFile({
           url: res.data.wxapp_qrcode,
@@ -202,11 +205,11 @@ Page({
   
 
     context.draw();
-    wx.showToast({
-      title: '海报生成中...',
-      icon: 'loading',
-      duration: 2000
-    })
+    // wx.showToast({
+    //   title: '海报生成中...',
+    //   icon: 'loading',
+    //   duration: 2000
+    // })
     //将生成好的图片保存到本地，需要延迟一会，绘制期间耗时
     setTimeout(function () {
       wx.canvasToTempFilePath({
@@ -214,6 +217,7 @@ Page({
         success: function (res) {
           var tempFilePath = res.tempFilePath;
           console.log(res)
+          wx.hideLoading();
           that.setData({
             imagePath: tempFilePath,
           });
