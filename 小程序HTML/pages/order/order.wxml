@@ -48,11 +48,11 @@
 <view class="noLogin" wx:if="{{!token}}">
   <image src="../../files/img_quesheng1.png"></image>
   <view class="font24 color-999">还没有登录哦，登录后可查看课程</view>
-  <button class="noLoginBtn" hover-class="noLoginBtn-hover">去登录</button>
+  <button bindtap="goLogin" class="noLoginBtn" hover-class="noLoginBtn-hover">去登录</button>
 </view>
 <!-- 课程为空 -->
 <view class="noLogin" wx:if="{{token&&myList.length==0}}">
   <image src="../../files/img_quesheng2.png"></image>
   <view class="font24 color-999 m-t-15">记录是空的诶，您尚未购买课程</view>
-  <button class="noLoginBtn" hover-class="noLoginBtn-hover">去逛逛</button>
+  <button bindtap="gocourse" class="noLoginBtn" hover-class="noLoginBtn-hover">去逛逛</button>
 </view>

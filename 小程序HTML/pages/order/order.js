@@ -20,6 +20,16 @@ Page({
   onLoad: function (options) {
     
   },
+  goLogin(){
+    wx.reLaunch({
+      url: '/pages/login/login'
+    })
+  }, 
+  gocourse: function (e) {
+    wx.switchTab({
+      url: '/pages/course/course'
+    })
+  },
   playLive(e){
     var item = e.currentTarget.dataset.item;
     // if (!item.today_rooms[0].can_open_live){
