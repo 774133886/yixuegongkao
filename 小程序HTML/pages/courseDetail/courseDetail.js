@@ -329,9 +329,10 @@ Page({
         // 秒杀倒计时
         if (res.data.promotions.length){
           if (res.data.promotions[0].promotion_type == 2) {
+            console.log(Date.parse(new Date()) - new Date(res.data.promotions[0].promotion_start_time.replace(/-/g, '/')).getTime())
             if (Date.parse(new Date()) - new Date(res.data.promotions[0].promotion_start_time.replace(/-/g, '/')).getTime()<0){
               // 活动未开始
-              var msTime = (Date.parse(new Date()) - new Date(res.data.promotions[0].promotion_start_time.replace(/-/g, '/')).getTime()) / 1000;
+              var msTime = (new Date(res.data.promotions[0].promotion_start_time.replace(/-/g, '/')).getTime() - Date.parse(new Date())) / 1000;
               that.setData({
                 isStart: false,
               })
