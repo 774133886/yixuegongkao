@@ -100,9 +100,9 @@ Page({
               var start_time = v.promotions[0].promotion_start_time;
               var end_time = v.promotions[0].promotion_end_time;
               // v.last_time = (new Date(end_time.replace('-', '/').replace('-', '/')).getTime() - Date.parse(new Date())) / 1000;
-              if (new Date(start_time.replace(/-/g, '/')).getTime() - Date.parse(new Date())>0){
+              if (Date.parse(new Date()) - new Date(start_time.replace(/-/g, '/')).getTime()<0){
                 // 活动未开始
-                v.last_time = (Date.parse(new Date()) - new Date(start_time.replace(/-/g, '/')).getTime()) / 1000;
+                v.last_time = (new Date(start_time.replace(/-/g, '/')).getTime() - Date.parse(new Date())) / 1000;
                 v.is_start = false;
               }else{
                 // 活动已开始
