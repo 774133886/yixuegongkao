@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "拼团进行中",
   "usingComponents": {
-    "component-pay": "../../components/pay/pay"
+    "component-pay": "../../components/pay/pay",
+    "account": "../../components/account/account"
   }
 }

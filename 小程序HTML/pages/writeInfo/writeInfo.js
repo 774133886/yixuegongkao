@@ -11,11 +11,16 @@ Page({
     btntext: "获取验证码",
     enroll_fields:[],
     payShow: false,
+    accountShow: false,
     region: ['北京市', '北京市','朝阳区'],
     payInfo:{},
     phone:'',
     fromPt:{},
     info:{}
+  },
+  payShow(e) {
+    console.log(e.detail)
+    this.setData({ wxPay: e.detail, accountShow: e.detail })
   },
   bindRegionChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -166,10 +171,13 @@ Page({
             if (res.data.status = 2) {
               var list = res.data;
               // list.isjoinpt = true;
+              // that.setData({
+              //   payShow: !that.data.payShow,
+              //   // wxPay: !that.data.wxPay,
+              //   payInfo: list
+              // })
               that.setData({
-                payShow: !that.data.payShow,
-                // wxPay: !that.data.wxPay,
-                payInfo: list
+                accountShow: !that.data.accountShow,
               })
             } else if (res.data.status == 1 || res.data.status == 6) {
               setTimeout(() => {
@@ -200,11 +208,14 @@ Page({
             })
             // 支付
             if (res.data.status = 2) {
+              // that.setData({
+              //   payShow: !that.data.payShow ,
+              //   // wxPay: !that.data.wxPay,
+              //   payInfo: res.data,
+              //   pintuan: res.data.pintuan,
+              // })
               that.setData({
-                payShow: !that.data.payShow ,
-                // wxPay: !that.data.wxPay,
-                payInfo: res.data,
-                pintuan: res.data.pintuan,
+                accountShow: !that.data.accountShow,
               })
               wx.setStorageSync('pintuan', res.data.pintuan);
             } else if (res.data.status == 1 || res.data.status == 6) {
@@ -236,9 +247,12 @@ Page({
           })
           // 支付
           if (res.data.status = 2){
+            // that.setData({
+            //   payShow: !that.data.payShow ,
+            //   payInfo:res.data
+            // })
             that.setData({
-              payShow: !that.data.payShow ,
-              payInfo:res.data
+              accountShow: !that.data.accountShow,
             })
           } else if (res.data.status == 1 || res.data.status == 6){
             setTimeout(()=>{

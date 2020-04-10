@@ -38,7 +38,7 @@ Page({
   // 支付
   payShow(e) {
     console.log(e.detail)
-    this.setData({ wxPay: e.detail })
+    this.setData({ wxPay: e.detail, accountShow: e.detail })
   },
   changeState(e){
     console.log(e.detail)
@@ -152,6 +152,13 @@ Page({
             icon: 'none',
             duration: 2000
           })
+          if (res.code == 8) {
+            setTimeout(() => {
+              wx.navigateTo({
+                url: '/pages/myOrder/myOrder',
+              })
+            }, 1500)
+          }
         }
       })
     }
@@ -334,6 +341,13 @@ Page({
                   icon: 'none',
                   duration: 2000
                 })
+                if (res.code == 8) {
+                  setTimeout(() => {
+                    wx.navigateTo({
+                      url: '/pages/myOrder/myOrder',
+                    })
+                  }, 1500)
+                }
               }
             })
             
