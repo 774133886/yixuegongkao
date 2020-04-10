@@ -10,7 +10,7 @@ Page({
    */
   data: {
     info: {},
-    payShow: false,
+    accountShow: false,
     payInfo: {},
     wxPay: false
   },
@@ -22,6 +22,10 @@ Page({
     this.setData({
       id: options.id
     });
+  },
+  payShow(e) {
+    console.log(e.detail)
+    this.setData({ wxPay: e.detail, accountShow: e.detail })
   },
   goDetail(){
     let item = this.data.info;
@@ -58,7 +62,17 @@ Page({
         payInfo.order_id = info.order_id;
         payInfo.price = info.pay_price;
         that.setData({
-          wxPay: true,
+          accountShow: true,
+          payInfo: payInfo
+        });
+        break;
+      case '继续报名':
+        var info = that.data.info;
+        var payInfo = {};
+        payInfo.order_id = info.order_id;
+        payInfo.price = info.pay_price;
+        that.setData({
+          accountShow: true,
           payInfo: payInfo
         });
         break;

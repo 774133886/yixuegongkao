@@ -73,4 +73,5 @@
   </view>
 </view>
 
-<component-pay wx:if="{{wxPay}}" pay-info="{{payInfo}}" bindpayShow="payShow"></component-pay>
+<!-- <component-pay wx:if="{{wxPay}}" pay-info="{{payInfo}}" bindpayShow="payShow"></component-pay> -->
+<account wx:if="{{accountShow}}" bindpayShow="payShow"></account>

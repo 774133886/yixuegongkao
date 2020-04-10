@@ -84,4 +84,5 @@
   <button wx:if="{{state==3}}" class="blueButton" hover-class="blueButton-hover">立即支付</button> -->
 
 </view>
-<component-pay wx:if="{{wxPay}}" pay-info="{{payInfo}}" bindpayShow="payShow"></component-pay>
+<!-- <component-pay wx:if="{{wxPay}}" pay-info="{{payInfo}}" bindpayShow="payShow"></component-pay> -->
+<account wx:if="{{accountShow}}" bindpayShow="payShow"></account>

@@ -12,9 +12,9 @@ Page({
     list: [],
     pages: [],
     tabs: [],
-    payShow: false,
+    // payShow: false,
     payInfo: {},
-    wxPay: false,
+    accountShow: false,
     isShow: true
   },
 
@@ -27,7 +27,7 @@ Page({
   // 支付
   payShow(e) {
     console.log(e.detail)
-    this.setData({ wxPay: e.detail })
+    this.setData({ accountShow: e.detail })
   },
   // 获取tabs
   getTabs(){
@@ -89,6 +89,9 @@ Page({
           title: "取消订单成功",
           icon: "none"
         });
+        that.setData({
+          isShow: true
+        })
         that.getList()
       }else{
         wx.showToast({
@@ -179,7 +182,16 @@ Page({
         payInfo.order_id = item.order_id;
         payInfo.price = item.pay_price;
         that.setData({
-          wxPay: true,
+          accountShow: true,
+          payInfo: payInfo
+        });
+        break;
+      case '继续报名':
+        var payInfo = {};
+        payInfo.order_id = item.order_id;
+        payInfo.price = item.pay_price;
+        that.setData({
+          accountShow: true,
           payInfo: payInfo
         });
         break;
