@@ -1,0 +1,17 @@
+<!-- 支付 -->
+<view bindtap='payTab' class='markBox font30 {{payShow ? "" : "hide"}}'>
+  <view catchtap='notThis' class='payBox l-pad40'>
+    <view class='hgt100rpx center-end'>
+      <text catchtap='payTab' class='color-999 font330'>取消</text>
+    </view>
+    <view class="around-center">
+      <!-- <image data-list='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1586456177135&di=510db0e79bf3d6567a2b3eb0c848f4c0&imgtype=0&src=http%3A%2F%2Fwww.gdptl.com%2Fd%2Ffile%2Fmoban5%2F201903251220%2F2018032308044056213.jpg'  bindtap='previewImage' src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1586456177135&di=510db0e79bf3d6567a2b3eb0c848f4c0&imgtype=0&src=http%3A%2F%2Fwww.gdptl.com%2Fd%2Ffile%2Fmoban5%2F201903251220%2F2018032308044056213.jpg' class=""></image> -->
+      <text style="color: rgba(4,155,254,1);" class="color-">继续报名，请点击客服按钮并回复“1”</text>
+    </view>
+    <view class="m-t-50">
+      <view class="hgt130rpx around-center">
+        <button open-type="contact" hover-class="none" class="color-fff payBtn font36">联系客服</button>
+      </view>
+    </view>
+  </view>
+</view>

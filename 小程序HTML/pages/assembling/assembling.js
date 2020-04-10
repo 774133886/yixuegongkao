@@ -14,6 +14,7 @@ Page({
     info_con:{},
     shareShow: false,
     payShow:false,
+    accountShow: false,
     nomore: false,
     sServiceTel: '15928773528',
     p_id:'',
@@ -132,10 +133,13 @@ Page({
           if (res.data.status = 2) {
             var list = res.data;
             list.isjoinpt = true;
+            // that.setData({
+            //   // payShow: !that.data.payShow,
+            //   wxPay: !that.data.wxPay,
+            //   payInfo: list
+            // })
             that.setData({
-              // payShow: !that.data.payShow,
-              wxPay: !that.data.wxPay,
-              payInfo: list
+              accountShow: !that.data.accountShow,
             })
           } else if (res.data.status == 1 || res.data.status == 6) {
             setTimeout(() => {
@@ -307,11 +311,14 @@ Page({
                   }else{
                     var list = res.data;
                     list.isjoinpt = false;
+                    // that.setData({
+                    //   // payShow: !that.data.payShow,
+                    //   wxPay: !that.data.wxPay,
+                    //   payInfo: list,
+                    //   pintuan: res.data.pintuan,
+                    // })
                     that.setData({
-                      // payShow: !that.data.payShow,
-                      wxPay: !that.data.wxPay,
-                      payInfo: list,
-                      pintuan: res.data.pintuan,
+                      accountShow: !that.data.accountShow,
                     })
                     console.log(that.data.payInfo)
                   }

@@ -188,7 +188,7 @@
     <button wx:if="{{info.apply_status == 1}}" bindtap="writeInfo" hover-class="none" class='bmBtn font36'>立即报名</button>
     <button wx:if="{{info.apply_status == 2}}" hover-class="none" class='bmBtn font36 btn_gray'>报名结束</button>
     <button wx:if="{{info.apply_status == 3}}" hover-class="none" class='bmBtn font36 btn_gray'>已满员</button>
-    <button wx:if="{{info.apply_status == 4}}" bindtap="writeInfo" hover-class="none" class='bmBtn font36'>购买课程</button>
+    <button wx:if="{{info.apply_status == 4}}" bindtap="writeInfo" hover-class="none" class='bmBtn font36'>报名课程</button>
     <!-- 已购买 -->
     <button wx:if="{{info.apply_status == 5||info.apply_status == 6}}" data-id="{{c_id}}" bindtap="goLive" hover-class="none" class='bmBtn font36 btn_blue'>开始学习</button>
     <!-- 面试职位 -->
@@ -235,7 +235,7 @@
   <view wx:if="{{!ptInfo.is_member_bought&&!ptInfo.is_member_group&&promotions.promotion_status!=0}}" class="between-center ptBuy m-r-20">
     <view bindtap="writeInfo" data-ispn="true" class="wid50 color-FF3636 column-center-b p-v-10 hgt70rpx">
       <view class="font20 lh1">¥{{ptInfo.original_price}}</view>
-      <view class="font24 lh1">单独购买</view>
+      <view class="font24 lh1">单独报名</view>
     </view>
     <navigator  bindtap="writeInfo" hover-class="none" class="wid50 bg-FF3636 color-fff column-center-b p-v-10 hgt70rpx">
       <view class="font20 lh1">¥{{ptInfo.promoter_price}}</view>
@@ -244,7 +244,8 @@
   </view>
 </view>
 <!-- 支付 -->
-<component-pay wx:if="{{wxPay}}" is-pt="true" pay-info="{{payInfo}}" bindpayShow="payShow" bindchangeState="changeState"  bindafterSuc="afterSuc"></component-pay>
+<!-- <component-pay wx:if="{{wxPay}}" is-pt="true" pay-info="{{payInfo}}" bindpayShow="payShow" bindchangeState="changeState"  bindafterSuc="afterSuc"></component-pay> -->
+<account wx:if="{{accountShow}}" bindpayShow="payShow"></account>
 
 <!-- 分享 -->
 <view bindtap='shareTab' class='markBox font30 {{shareShow ? "" : "hide"}}'>

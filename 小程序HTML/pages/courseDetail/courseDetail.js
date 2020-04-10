@@ -30,14 +30,17 @@ Page({
     deployInfo:{},
     payInfo:{},
     wxPay:false,
-
+    accountShow: false,
     oc_id:'',
     o_state: '',
     deployInfo: wx.getStorageSync("deployInfo") || { audit_mode: "1" },
     s_show:false,
     isStart:true,
   },
-
+  payShow(e) {
+    console.log(e.detail)
+    this.setData({ wxPay: e.detail, accountShow: e.detail})
+  },
   // 获取滚动条当前位置
   onPageScroll: function (e) {
     if (e.scrollTop > 100) {
@@ -267,9 +270,12 @@ Page({
           }
         }else{
           if (res.data.status = 2) {
+            // that.setData({
+            //   wxPay: !that.data.wxPay,
+            //   payInfo: res.data
+            // })
             that.setData({
-              wxPay: !that.data.wxPay,
-              payInfo: res.data
+              accountShow: !that.data.accountShow,
             })
           } else if (res.data.status == 1 || res.data.status == 6) {
             setTimeout(() => {
