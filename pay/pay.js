@@ -53,12 +53,53 @@ Component({
 
       http.postReq('api/business/wx_pre_pay_order.htm', data, function (res) {
         var data = res.data;
-        
+        that.wxPay(data, function () {
+          wx.hideLoading();
+          console.log(that.data.payInfo.isjoinpt);
+          // 成功返回函数
+          if (that.data.payInfo.isjoinpt){
+            // 拼团
+            that.triggerEvent('afterSuc', 1);
+          }else{
+            // 开团
+            that.triggerEvent('afterSuc', 0);
+          }
+        });
       })
     },
     //付款
-    wxPay: function () {
-      
+    wxPay: function (data, func) {
+      var that = this;
+      wx.requestPayment({
+        appId: data.appid,
+        timeStamp: String(data.timestamp),
+        nonceStr: data.nonce_str,
+        package: data.package,
+        signType: data.sign_type,
+        paySign: data.sign,
+        success(res) {
+          wx.showToast({
+            title: '支付成功',
+            icon: 'none'
+          });
+          
+          that.setData({ payShow: false });
+          // that.getlist();
+          typeof func == 'function' && func();
+        },
+        fail(res) {
+          console.log(res)
+          wx.showToast({
+            title: '支付失败',
+            icon: 'none'
+          })
+          setTimeout(() => {
+            wx.navigateTo({
+              url: '/pages/myOrder/myOrder',
+            })
+          }, 1500)
+        }
+      })
     },
     payTab: function (e) {
       var that = this;

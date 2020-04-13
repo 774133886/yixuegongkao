@@ -1,0 +1,28 @@
+<!-- 支付 -->
+<view bindtap='payTab' class='markBox font30 {{payShow ? "" : "hide"}}'>
+  <view catchtap='notThis' class='payBox l-pad40'>
+    <view class='hgt100rpx center-end'>
+      <text catchtap='payTab' class='color-999 font330'>取消</text>
+    </view>
+    <view class='hgt90rpx border-b-eee between-center'>
+      <text class='color-333 font30'>支付方式</text> 
+      <view class='center'>
+        <image src='../../files/icon_wechat_pay.png' class='wid60rpx hgt50rpx'></image>
+        <text class='color-999 font24 m-l-10'>微信支付</text> 
+      </view>
+    </view>
+    <view class='hgt90rpx border-b-eee between-center'>
+      <text class='color-333 font30'>合计金额</text> 
+      <view class='font30 color-FF3636'> ¥{{payInfo.price}}</view>
+    </view>
+    <view class='hgt90rpx between-center'>
+      <text class='color-333 font30'>订单编号</text> 
+      <view class='font30 color-999'>{{payInfo.order_id}}</view>
+    </view>
+    <view class="m-t-50">
+      <view class="hgt130rpx around-center">
+        <button bindtap='payTap' hover-class="none" class="color-fff payBtn font36">立即支付</button>
+      </view>
+    </view>
+  </view>
+</view>
