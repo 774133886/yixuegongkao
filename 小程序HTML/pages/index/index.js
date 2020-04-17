@@ -378,8 +378,14 @@ Page({
       pages: 1,
       totalPage: 1
     });
-    this.load();
-    wx.stopPullDownRefresh();
+    // 获取首页数据
+    this.getlist();
+    this.getBanner();
+    this.getHead();
+    setTimeout(()=>{
+      wx.stopPullDownRefresh();
+    },1000)
+    
   },
 
   /**
