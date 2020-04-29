@@ -244,8 +244,8 @@
   </view>
 </view>
 <!-- 支付 -->
-<!-- <component-pay wx:if="{{wxPay}}" is-pt="true" pay-info="{{payInfo}}" bindpayShow="payShow" bindchangeState="changeState"  bindafterSuc="afterSuc"></component-pay> -->
-<account wx:if="{{accountShow}}" bindpayShow="payShow"></account>
+<component-pay wx:if="{{wxPay}}" is-pt="true" pay-info="{{payInfo}}" bindpayShow="payShow" bindchangeState="changeState"  bindafterSuc="afterSuc"></component-pay>
+<!-- <account wx:if="{{accountShow}}" bindpayShow="payShow"></account> -->
 
 <!-- 分享 -->
 <view bindtap='shareTab' class='markBox font30 {{shareShow ? "" : "hide"}}'>

@@ -270,13 +270,14 @@ Page({
           }
         }else{
           if (res.data.status = 2) {
-            // that.setData({
-            //   wxPay: !that.data.wxPay,
-            //   payInfo: res.data
-            // })
             that.setData({
-              accountShow: !that.data.accountShow,
+              wxPay: !that.data.wxPay,
+              payInfo: res.data
             })
+            console.log(that.data.wxPay)
+            // that.setData({
+            //   accountShow: !that.data.accountShow,
+            // })
           } else if (res.data.status == 1 || res.data.status == 6) {
             setTimeout(() => {
               wx.navigateBack();
