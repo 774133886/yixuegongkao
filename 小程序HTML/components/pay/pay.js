@@ -19,6 +19,10 @@ Component({
       type: Boolean,
       value: false
     },
+    isOrder: {
+      type: Boolean,
+      value: false
+    },
     // 弹窗内容 
     content: { type: String, value: '弹窗内容' },
     // 弹窗取消按钮文字 
@@ -110,11 +114,13 @@ Component({
           if (res.confirm) {
             that.triggerEvent('payShow',false);
             // that.setData({ payShow: !this.data.payShow })
-            setTimeout(() => {
-              wx.navigateTo({
-                url: '/pages/myOrder/myOrder',
-              })
-            }, 1000)
+            if (!that.data.isOrder){
+              setTimeout(() => {
+                wx.navigateTo({
+                  url: '/pages/myOrder/myOrder',
+                })
+              }, 1000)
+            }
           } else if (res.cancel) {
             console.log('用户点击取消')
           }
