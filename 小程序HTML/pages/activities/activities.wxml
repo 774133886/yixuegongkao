@@ -32,6 +32,10 @@
                     <view class="wid110 color-999">总课时</view>
                     <view class="color-333">{{pt.course_detail.class_hour||0}}课时</view>
                   </view>
+                  <view class="lb_tags">
+                    <view class="lb_tag1">线下课程</view>
+                    <view class="lb_tag2">讲义</view>
+                  </view>
                   <view class="textLine font20">
                     <view class="wid110 color-999">拼团价</view>
                     <view class="redPrice font36">¥{{pt.price}}</view>
@@ -73,6 +77,10 @@
                   <view class="textLine font20" wx:if="{{deployInfo.audit_mode!=='1'}}">
                     <view class="wid110 color-999">总课时</view>
                     <view class="color-333">{{pt.course_detail.class_hour||0}}课时</view>
+                  </view>
+                  <view class="lb_tags">
+                    <view class="lb_tag1">线下课程</view>
+                    <view class="lb_tag2">讲义</view>
                   </view>
                   <view class="textLine font20">
                     <view class="wid110 color-999">秒杀价</view>

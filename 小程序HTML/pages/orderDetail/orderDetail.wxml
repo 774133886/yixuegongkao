@@ -18,6 +18,10 @@
         <image src="../../files/img_kecheng.png"></image>
         <view class="orderInfo flex_1">
           <view class="orderName line2 font30 color-333">{{info.title}}</view>
+          <view class="lb_tags">
+            <view class="lb_tag1">线下课程</view>
+            <view class="lb_tag2">讲义</view>
+          </view>
           <view class="orderPrice">
             <view class="font36 redPrice">¥{{info.pay_price}}</view>
             <view class="font24 color-999 grayPrice">¥{{info.price}}</view>

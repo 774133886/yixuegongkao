@@ -15,7 +15,8 @@ Page({
     // payShow: false,
     payInfo: {},
     accountShow: false,
-    isShow: true
+    isShow: true,
+    wxPay: false
   },
 
   /**
@@ -27,7 +28,7 @@ Page({
   // 支付
   payShow(e) {
     console.log(e.detail)
-    this.setData({ accountShow: e.detail })
+    this.setData({ wxPay: e.detail, accountShow: e.detail })
   },
   // 获取tabs
   getTabs(){
@@ -182,7 +183,7 @@ Page({
         payInfo.order_id = item.order_id;
         payInfo.price = item.pay_price;
         that.setData({
-          accountShow: true,
+          wxPay: true,
           payInfo: payInfo
         });
         break;
@@ -191,7 +192,7 @@ Page({
         payInfo.order_id = item.order_id;
         payInfo.price = item.pay_price;
         that.setData({
-          accountShow: true,
+          wxPay: true,
           payInfo: payInfo
         });
         break;
@@ -230,6 +231,19 @@ Page({
       default:
         break;
     }
+  },
+  // 支付取消
+  changeState(){
+    this.setData({
+      wxPay: false,
+    })
+  },
+  // 支付成功后
+  afterSuc(e) {
+    this.setData({
+      wxPay: false,
+    })
+    this.getList();
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

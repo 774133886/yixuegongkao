@@ -4,7 +4,11 @@
   <view>
     <view class="orderItem flex_dom flex_item_mid" wx:for="{{courseList}}" wx:key="item">
       <view class="flex_1" bindtap="goDetail" data-id="{{item}}">
-        <view class="font30 color-333">{{item.name}}</view>
+        <view class="font30 color-333 line1">{{item.name}}</view>
+        <view class="lb_tags">
+          <view class="lb_tag1">线下课程</view>
+          <view class="lb_tag2">讲义</view>
+        </view>
         <view class="font24 color-333 m-t-15" wx:if="{{item.today_rooms&&item.today_rooms[0]}}">{{item.today_rooms[0].title}}</view>
         <view class="font24 color-bd m-t-15">{{item.class_time}}</view>
       </view>
@@ -24,7 +28,11 @@
       <image src="{{item.image_small}}" bindtap="goDetail" data-id="{{item}}"></image>
       <view class="flex_1">
       <view bindtap="goDetail" data-id="{{item}}">
-        <view class="font30 color-333">{{item.name}}</view>
+        <view class="font30 color-333 line1">{{item.name}}</view>
+        <view class="lb_tags">
+            <view class="lb_tag1">线下课程</view>
+            <view class="lb_tag2">讲义</view>
+          </view>
         <view class="font22 color-999" wx:if="{{deployInfo.audit_mode!=='1'}}">
           <text>已讲{{item.finish_live_room_count||"-"}}节</text>
           <text class="textCen">/</text>
