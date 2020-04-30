@@ -159,6 +159,10 @@
             <view wx:if="{{item.promotions}}" class='color-333'>{{item.promotions[0].promotion_partake_count}}/{{item.promotions[0].promotion_limit_count}} 人</view>
             <view wx:else class='color-333'>{{item.apply_count}}/{{item.enroll_count}} 人</view>
           </view>
+          <view class="lb_tags" style="margin-top:5rpx;">
+            <view class="lb_tag1">线下课程</view>
+            <view class="lb_tag2">讲义</view>
+          </view>
         </view>
         <view wx:if="{{item.promotions}}" class=''>
           <text class='font36 color-FF1919'>{{item.promotions[0].promotion_price!=0?'¥'+item.promotions[0].promotion_price:'免费'}}</text>

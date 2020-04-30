@@ -170,15 +170,15 @@ Page({
             // 支付
             if (res.data.status = 2) {
               var list = res.data;
-              // list.isjoinpt = true;
-              // that.setData({
-              //   payShow: !that.data.payShow,
-              //   // wxPay: !that.data.wxPay,
-              //   payInfo: list
-              // })
+              list.isjoinpt = true;
               that.setData({
-                accountShow: !that.data.accountShow,
+                payShow: !that.data.payShow,
+                // wxPay: !that.data.wxPay,
+                payInfo: list
               })
+              // that.setData({
+              //   accountShow: !that.data.accountShow,
+              // })
             } else if (res.data.status == 1 || res.data.status == 6) {
               setTimeout(() => {
                 wx.navigateBack(2);
@@ -208,15 +208,15 @@ Page({
             })
             // 支付
             if (res.data.status = 2) {
-              // that.setData({
-              //   payShow: !that.data.payShow ,
-              //   // wxPay: !that.data.wxPay,
-              //   payInfo: res.data,
-              //   pintuan: res.data.pintuan,
-              // })
               that.setData({
-                accountShow: !that.data.accountShow,
+                payShow: !that.data.payShow ,
+                // wxPay: !that.data.wxPay,
+                payInfo: res.data,
+                pintuan: res.data.pintuan,
               })
+              // that.setData({
+              //   accountShow: !that.data.accountShow,
+              // })
               wx.setStorageSync('pintuan', res.data.pintuan);
             } else if (res.data.status == 1 || res.data.status == 6) {
               setTimeout(() => {
@@ -247,13 +247,13 @@ Page({
           })
           // 支付
           if (res.data.status = 2){
-            // that.setData({
-            //   payShow: !that.data.payShow ,
-            //   payInfo:res.data
-            // })
             that.setData({
-              accountShow: !that.data.accountShow,
+              payShow: !that.data.payShow ,
+              payInfo:res.data
             })
+            // that.setData({
+            //   accountShow: !that.data.accountShow,
+            // })
           } else if (res.data.status == 1 || res.data.status == 6){
             setTimeout(()=>{
               wx.navigateBack();
