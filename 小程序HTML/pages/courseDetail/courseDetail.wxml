@@ -30,7 +30,7 @@
       </view>
   </view>
   <view class='courseTitleArea l-pad40 p-b-20'>
-    <view class='p-v-15  font36'>{{info.name}}<text class="lb_tag1 font20 m-l-10">线下课程</text></view>
+    <view class='p-v-15  font36'>{{info.name}}<text class="lb_tag1 font20 m-l-10">线下课程</text><text class="lb_tag2 font20 m-l-10">VIP</text></view>
     <view class='between-center'>
      <view class='flex_1 center'>
         
