@@ -81,7 +81,7 @@
   </view>
 </form>
 <!-- 支付 -->
-<!-- <view bindtap='payTab' class='markBox font30 {{payShow ? "" : "hide"}}'>
+<view bindtap='payTab' class='markBox font30 {{payShow ? "" : "hide"}}'>
   <view catchtap='notThis' class='payBox l-pad40'>
     <view class='hgt100rpx center-end'>
       <text catchtap='payTab' class='color-999 font330'>取消</text>
@@ -107,5 +107,5 @@
       </view>
     </view>
   </view>
-</view> -->
-<account wx:if="{{accountShow}}" bindpayShow="payShow"></account>
+</view>
+<!-- <account wx:if="{{accountShow}}" bindpayShow="payShow"></account> -->

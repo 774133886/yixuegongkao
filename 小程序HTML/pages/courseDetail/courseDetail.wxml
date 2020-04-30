@@ -30,7 +30,7 @@
       </view>
   </view>
   <view class='courseTitleArea l-pad40 p-b-20'>
-    <view class='p-v-15  font36'>{{info.name}}</view>
+    <view class='p-v-15  font36'>{{info.name}}<text class="lb_tag1 font20 m-l-10">线下课程</text></view>
     <view class='between-center'>
      <view class='flex_1 center'>
         
@@ -200,7 +200,7 @@
     </view>
     <view wx:if="{{promotions.promotion_status==1}}">
       <button wx:if="{{promotions.promotion_type == 1}}" bindtap="writeInfo" hover-class="none" class='bmBtn font36'>立即报名</button>
-      <button wx:if="{{promotions.promotion_type == 2&&!(info.apply_status==6||info.apply_status==5)}}" bindtap="writeInfo" hover-class="none" class='bmBtn font36'>马上抢</button>
+      <button wx:if="{{promotions.promotion_type == 2&&!(info.apply_status==6||info.apply_status==5)}}" bindtap="writeInfo" hover-class="none" class='bmBtn font32'>购买即送vip权益</button>
       <button wx:if="{{promotions.promotion_type == 2&&(info.apply_status==6||info.apply_status==5)}}" data-id="{{c_id}}" bindtap="goLive" hover-class="none" class='bmBtn font36'>开始学习</button>
     </view>
     <view wx:if="{{promotions.promotion_status==2}}">
