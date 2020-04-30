@@ -37,7 +37,11 @@
                 </view>
                 <view class='flex_1 m-l-20 p-b-30 column-between hgt230rpx'>
                   <view class='l-h-40rpx font24'>
-                    <view class='color-333 font30'>{{course.name}}</view>
+                    <view class='color-333 font30 line1'>{{course.name}}</view>
+                    <view class="lb_tags">
+                      <view class="lb_tag1">线下课程</view>
+                      <view class="lb_tag2">讲义</view>
+                    </view>
                     <view class='center m-t-5' wx:if="{{deployInfo.audit_mode!=='1'}}">
                       <view class='wid160rpx color-999'>开课时间</view>
                       <view class='color-666'>{{filter.formatDate(course.class_time)}}</view>

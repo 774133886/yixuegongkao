@@ -946,3 +946,19 @@ page{
   right: 19rpx;
   bottom: 200rpx;
 }
+.lb_tags{
+  display: -webkit-flex;
+  display: flex;
+  margin-top: 10rpx;
+}
+.lb_tags .lb_tag1{
+  color: #fff;
+  background-color: #049BFE;
+  margin-right: 15rpx;
+  padding: 0 10rpx
+}
+.lb_tags .lb_tag2{
+  color: #fff;
+  background-color: #F5C5B4;
+  padding: 0 10rpx
+}
