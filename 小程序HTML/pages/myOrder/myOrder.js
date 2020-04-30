@@ -232,12 +232,6 @@ Page({
         break;
     }
   },
-  // 支付取消
-  changeState(){
-    this.setData({
-      wxPay: false,
-    })
-  },
   // 支付成功后
   afterSuc(e) {
     this.setData({

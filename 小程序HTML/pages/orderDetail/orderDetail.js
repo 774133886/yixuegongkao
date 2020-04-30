@@ -62,7 +62,7 @@ Page({
         payInfo.order_id = info.order_id;
         payInfo.price = info.pay_price;
         that.setData({
-          accountShow: true,
+          wxPay: true,
           payInfo: payInfo
         });
         break;
@@ -72,7 +72,7 @@ Page({
         payInfo.order_id = info.order_id;
         payInfo.price = info.pay_price;
         that.setData({
-          accountShow: true,
+          wxPay: true,
           payInfo: payInfo
         });
         break;
@@ -107,6 +107,13 @@ Page({
       default:
         break;
     }
+  },
+  // 支付成功后
+  afterSuc(e) {
+    this.setData({
+      wxPay: false,
+    })
+    this.getInfo();
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
