@@ -99,7 +99,6 @@ Page({
             if (v.promotions && v.promotions[0]&&v.promotions[0].promotion_start_time&&v.promotions[0].promotion_end_time){
               var start_time = v.promotions[0].promotion_start_time;
               var end_time = v.promotions[0].promotion_end_time;
-              // v.last_time = (new Date(end_time.replace('-', '/').replace('-', '/')).getTime() - Date.parse(new Date())) / 1000;
               if (Date.parse(new Date()) - new Date(start_time.replace(/-/g, '/')).getTime()<0){
                 // 活动未开始
                 v.last_time = (new Date(start_time.replace(/-/g, '/')).getTime() - Date.parse(new Date())) / 1000;
