@@ -952,7 +952,8 @@ page{
   margin-top: 10rpx;
 }
 .lb_tags .lb_tag1,.lb_tag1{
-  display: inline-block;
+  /* display: inline-block; */
+  display: none;
   color: #fff;
   background-color: #049BFE;
   margin-right: 15rpx;
