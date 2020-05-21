@@ -10,7 +10,6 @@ let pt_set5 = null;
 let pt_set6 = null;
 let pt_set7 = null;
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -204,7 +203,6 @@ Page({
     
     function time1() {
       var hd_list = that.data["hd_list" + idx];
-      // hd_list.forEach(function (aclist,index){
         hd_list.forEach(function (a, i) {
           var time = a.last_time
           if (a.last_time) {
@@ -223,8 +221,6 @@ Page({
             return false;
           }
         })
-      // })
-      // aclist = that.data.hd_list;
 
       
     }
