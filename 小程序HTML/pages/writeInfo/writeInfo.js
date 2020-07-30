@@ -16,7 +16,8 @@ Page({
     payInfo:{},
     phone:'',
     fromPt:{},
-    info:{}
+    info:{},
+    isIos: false
   },
   payShow(e) {
     console.log(e.detail)
@@ -90,6 +91,17 @@ Page({
   },
   formSubmit(e){
     var that = this; 
+
+    if (that.data.isIos) {
+      wx.showModal({
+        title: '温馨提示',
+        content: '小程序暂不支持购买此权益',
+        confirmText: '好的',
+        showCancel: false
+      })
+      return false
+    }
+
     let jsonObj = e.detail.value
     console.log(jsonObj)
     for (var key in jsonObj) {
@@ -424,7 +436,24 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    //2020.7.30
+    // 判断IOS
+    let that = this;
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          systemInfo: res,
+        })
+        console.log(res)
+        // 判断ios
+        if (res.platform == "ios") {
+          that.setData({
+            isIos: true
+          })
+          console.log(that.data.isIos)
+        }
+      }
+    })
   },
 
   /**

@@ -27,7 +27,8 @@ Page({
     pintuan:{},
     ptInfo:{},
     memberList:[],
-    description: ['1.支付开团并邀请好友参团，人数不足或超时自动退款','2.团长发起拼团后，可在订单页面查看；']
+    description: ['1.支付开团并邀请好友参团，人数不足或超时自动退款','2.团长发起拼团后，可在订单页面查看；'],
+    isIos: false
   },
   // 跳转订单页面
   goOrder(){
@@ -106,6 +107,17 @@ Page({
   // 拼团
   payTab(){
     let that = this;
+
+    if (that.data.isIos) {
+      wx.showModal({
+        title: '温馨提示',
+        content: '小程序暂不支持购买此权益',
+        confirmText: '好的',
+        showCancel: false
+      })
+      return false
+    }
+
     let enroll_fields = wx.getStorageSync('enroll_fields')
     console.log(enroll_fields)
     wx.setStorageSync('fromPt', {ispt:true,p_id:this.data.p_id,g_id:this.data.g_id});
@@ -278,6 +290,17 @@ Page({
   // 开团
   openTab(){
     let that = this;
+
+    if (that.data.isIos) {
+      wx.showModal({
+        title: '温馨提示',
+        content: '小程序暂不支持购买此权益',
+        confirmText: '好的',
+        showCancel: false
+      })
+      return false
+    }
+
     if (this.data.ptInfo.enroll_fields.length){
       // wx.setStorageSync('enroll_fields', this.data.ptInfo.enroll_fields.length);
       // wx.setStorageSync('fromPt', true);
@@ -399,6 +422,24 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    //2020.7.30
+    // 判断IOS
+    let that = this;
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          systemInfo: res,
+        })
+        console.log(res)
+        // 判断ios
+        if (res.platform == "ios") {
+          that.setData({
+            isIos: true
+          })
+          console.log(that.data.isIos)
+        }
+      }
+    })
     if (wx.getStorageSync('back')&&(wx.getStorageSync('back')==0||wx.getStorageSync('back')==1)){
       console.log(wx.getStorageSync('back'))
       this.afterWhite();

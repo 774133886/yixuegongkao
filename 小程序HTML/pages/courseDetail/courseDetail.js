@@ -36,6 +36,7 @@ Page({
     deployInfo: wx.getStorageSync("deployInfo") || { audit_mode: "1" },
     s_show:false,
     isStart:true,
+    isIos:false
   },
   payShow(e) {
     console.log(e.detail)
@@ -245,6 +246,17 @@ Page({
   },
   payNow(){
     var that = this;
+
+    if (that.data.isIos){
+      wx.showModal({
+        title: '温馨提示',
+        content: '小程序暂不支持购买此权益',
+        confirmText: '好的',
+        showCancel: false
+      })
+      return false
+    }
+
     let data = {}
     data.courseid = that.data.c_id;
     data.client = 5;
@@ -515,6 +527,26 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    //2020.7.30
+    // 判断IOS
+    let that = this;
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          systemInfo: res,
+        })
+        console.log(res)
+        // 判断ios
+        if (res.platform == "ios") {
+          that.setData({
+            isIos: true
+          })
+          console.log(that.data.isIos)
+        }
+      }
+    })
+
+
     // this.getInfo();
 
     if (this.data.oc_id) {
