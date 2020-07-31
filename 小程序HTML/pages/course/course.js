@@ -115,18 +115,8 @@ Page({
         pages[that.data.active] = res.data.pagination;
         if (list[that.data.active].length == 0 || that.data.isShow){
           list[that.data.active] = res.data.list;
-          // if (data.promotionType = 'all') {
-            // that.setData({
-            //   hd_list: list[0]
-            // })
-          // }
         }else{
           list[that.data.active] = list[that.data.active].concat(res.data.list);
-          // if (data.promotionType = 'all') {
-            // that.setData({
-            //   hd_list: list[0]
-            // })
-          // }
         }
         var scrollList = that.data.scrollList;
         var hd_list = that.data["hd_list"+Number(active+1)];
