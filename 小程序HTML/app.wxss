@@ -961,9 +961,10 @@ page{
   font-size: 24rpx
 }
 .lb_tags .lb_tag2,.lb_tag2{
-  display: inline-block;
+  /* display: inline-block; */
   color: #fff;
   background-color: #F5C5B4;
   padding: 0 10rpx;
-  font-size: 24rpx
+  font-size: 24rpx;
+  display:none;
 }

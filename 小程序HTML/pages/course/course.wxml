@@ -40,7 +40,6 @@
                     <view class='color-333 font30 line1'>{{course.name}}</view>
                     <view class="lb_tags">
                       <view class="lb_tag1">线下课程</view>
-                      <view class="lb_tag2">讲义</view>
                     </view>
                     <view class='center m-t-5' wx:if="{{deployInfo.audit_mode!=='1'}}">
                       <view class='wid160rpx color-999'>开课时间</view>
