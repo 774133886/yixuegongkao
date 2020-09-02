@@ -140,14 +140,14 @@ Page({
         })
         return false
       }
-      data.extra = {
+      data.extra =  JSON.stringify({
         'grade': that.data.grade,
         'rank': that.data.rank,
         'number': that.data.number,
         'grade_aat': that.data.grade_aat,
         'grade_essay': that.data.grade_essay,
         'grade_other': that.data.grade_other,
-      }
+      })
     }
     // 判断是否有地址
     if (that.data.address) {
