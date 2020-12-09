@@ -31,8 +31,8 @@
     "pages/allApply/allApply",
     "pages/addAdress/addAdress",
     "pages/chooseJob/chooseJob",
-    "pages/writeInfo/writeInfo", 
-    "pages/assembleList/assembleList",  
+    "pages/writeInfo/writeInfo",
+    "pages/assembleList/assembleList",
     "pages/assembling/assembling",
     "pages/qrcodeRedirect/qrcodeRedirect"
 
@@ -46,14 +46,13 @@
   "tabBar": {
     "color": "#999",
     "selectedColor": "#1E9EF3",
- 
+
     "backgroundColor": "#fff",
-    "list": [
-      {
+    "list": [{
         "pagePath": "pages/index/index",
         "text": "首页",
         "iconPath": "files/icon_shouye_pre.png",
-        "selectedIconPath":"files/icon_shouye.png"
+        "selectedIconPath": "files/icon_shouye.png"
       },
       {
         "pagePath": "pages/course/course",

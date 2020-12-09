@@ -10,7 +10,7 @@ Page({
   data: {
     list: [],
     page: {},
-    starList: [1,2,3,4,5]
+    starList: [1, 2, 3, 4, 5]
   },
 
   /**
@@ -26,19 +26,32 @@ Page({
   onReady: function () {
 
   },
-  goDetail(e){
+  goDetail(e) {
     wx.navigateTo({
-      url: '../courseDetail/courseDetail?c_type=3&c_id='+e.currentTarget.dataset.id,
+      url: '../courseDetail/courseDetail?c_type=3&c_id=' + e.currentTarget.dataset.id,
     })
   },
-  getList(page){
+  getList(page) {
     var that = this;
-    http.postReq("/api/business/get_member_comment_list.htm", { page: page?page:1},function(res){
-      if(res.code == 0){
-        that.setData({
-          list: res.data.list,
-          page: res.data.pagination
-        })
+    http.postReq("/api/business/get_member_comment_list.htm", {
+      page: page ? page : 1
+    }, function (res) {
+      if (res.code == 0) {
+        if (page > 1) {
+          that.setData({
+            list: that.data.list.concat(res.data.list),
+            page: res.data.pagination
+          })
+        } else {
+          that.setData({
+            list: res.data.list,
+            page: res.data.pagination
+          })
+        }
+        // that.setData({
+        //   list: res.data.list,
+        //   page: res.data.pagination
+        // })
       }
     })
   },
@@ -76,8 +89,8 @@ Page({
   onReachBottom: function () {
     var idx = this.data.page.page_index;
     var max_idx = this.data.page.max_page_index;
-    if(idx == max_idx)return;
-    this.getList(idx+1)
+    if (idx == max_idx) return;
+    this.getList(idx + 1)
   },
 
   /**
