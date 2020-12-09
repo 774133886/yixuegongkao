@@ -75,7 +75,6 @@ Page({
     var that = this;
     var id = this.data.courseid;
     http.postReq("/api/public/get_course_room_list.htm", {
-      rows: 30,
       page: page ? page : 1,
       courseid: id,
       sort: this.data.sort

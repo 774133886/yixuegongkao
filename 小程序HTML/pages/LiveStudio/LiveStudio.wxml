@@ -1,4 +1,4 @@
-<!--pages/LiveStudio/LiveStudio.wxml-->
+<!-- pages/LiveStudio/LiveStudio.wxml -->
 <view class="flex_dom flex_item_mid liveOrder" wx:if="{{list.length>0}}" bindtap="goDetail">
   <image class="liveImg" src="{{info.image_small}}"></image>
   <view class="flex_1">
@@ -21,7 +21,7 @@
   </view>
   <view class="orderItem flex_dom" wx:for="{{list}}" wx:key="item" wx:for-index="index">
     <view class="font30 color-333" wx:if="{{sort==1}}">{{index+1}}、</view>
-    <view class="font30 color-333" wx:if="{{sort==2}}">{{list.length-index}}、</view>
+    <view class="font30 color-333" wx:if="{{sort==2}}">{{pages.max_row_count-index}}、</view>
     <view class="flex_dom flex_item_mid flex_1">
       <view class="flex_1">
         <view class="font30 color-333 line2">{{item.title}}</view>
@@ -34,15 +34,25 @@
           <text>{{item.start_time}}</text>
         </view>
       </view>
-      <button class="liveBtn1" wx:if="{{(item.status_text=='正在进行'||item.status_text=='进行中')&&deployInfo.audit_mode!=='1'}}" hover-class="liveBtn1-hover" bindtap="playLive" data-item="{{item}}">正在进行</button>
-      <button class="liveBtn2"bindtap="playLive" data-item="{{item}}" wx:if="{{item.status_text=='尚未开始'&&deployInfo.audit_mode!=='1'}}" hover-class="liveBtn2-hover">尚未开始</button>
-      <button class="liveBtn2"bindtap="playLive" data-item="{{item}}" wx:if="{{item.status_text=='即将开始'&&deployInfo.audit_mode!=='1'}}" hover-class="liveBtn2-hover">即将开始</button>
-      <button class="liveBtn2"bindtap="playLive" data-item="{{item}}" wx:if="{{item.status_text=='暂停中'&&deployInfo.audit_mode!=='1'}}" hover-class="liveBtn2-hover">暂停中</button>
-      <button class="liveBtn3"bindtap="playLive" data-item="{{item}}" wx:if="{{item.status_text=='观看回放'&&deployInfo.audit_mode!=='1'}}" hover-class="liveBtn3-hover">观看回放</button>
+      <button class="liveBtn1" wx:if="{{(item.status_text=='正在进行'||item.status_text=='进行中')&&deployInfo.audit_mode!=='1'}}" hover-class="liveBtn1-hover" bindtap="playLive" data-item="{{item}}">
+        正在进行
+      </button>
+      <button class="liveBtn2" bindtap="playLive" data-item="{{item}}" wx:if="{{item.status_text=='尚未开始'&&deployInfo.audit_mode!=='1'}}" hover-class="liveBtn2-hover">
+        尚未开始
+      </button>
+      <button class="liveBtn2" bindtap="playLive" data-item="{{item}}" wx:if="{{item.status_text=='即将开始'&&deployInfo.audit_mode!=='1'}}" hover-class="liveBtn2-hover">
+        即将开始
+      </button>
+      <button class="liveBtn2" bindtap="playLive" data-item="{{item}}" wx:if="{{item.status_text=='暂停中'&&deployInfo.audit_mode!=='1'}}" hover-class="liveBtn2-hover">
+        暂停中
+      </button>
+      <button class="liveBtn3" bindtap="playLive" data-item="{{item}}" wx:if="{{item.status_text=='观看回放'&&deployInfo.audit_mode!=='1'}}" hover-class="liveBtn3-hover">
+        观看回放
+      </button>
     </view>
   </view>
 </view>
-<view  class="noData text-center" wx:if="{{(list.length==0&&pages.page_index==1)}}">
+<view class="noData text-center" wx:if="{{(list.length==0&&pages.page_index==1)}}">
   <image src="../../files/img_quesheng.png"></image>
   <view class="font30 color-999">暂无直播哦~</view>
 </view>
