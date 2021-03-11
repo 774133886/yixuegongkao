@@ -1,109 +1,109 @@
 {
-	"description": "项目配置文件。",
-	"setting": {
-		"urlCheck": false,
-		"es6": true,
-		"postcss": true,
-		"minified": true,
-		"newFeature": true,
-		"coverView": true,
-		"autoAudits": false,
-		"showShadowRootInWxmlPanel": true,
-		"scopeDataCheck": false,
-		"checkInvalidKey": true,
-		"checkSiteMap": true,
-		"uploadWithSourceMap": true,
-		"babelSetting": {
-			"ignore": [],
-			"disablePlugins": [],
-			"outputPath": ""
-		},
-		"useIsolateContext": true,
-		"useCompilerModule": false,
-		"userConfirmedUseCompilerModuleSwitch": false,
-		"compileHotReLoad": false
-	},
-	"compileType": "miniprogram",
-	"libVersion": "2.8.0",
-	"appid": "wxff70d0ad5ad47f8b",
-	"projectname": "%E5%B0%8F%E7%A8%8B%E5%BA%8FHTML",
-	"isGameTourist": false,
-	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
-	"condition": {
-		"search": {
-			"current": -1,
-			"list": []
-		},
-		"conversation": {
-			"current": -1,
-			"list": []
-		},
-		"plugin": {
-			"current": -1,
-			"list": []
-		},
-		"game": {
-			"currentL": -1,
-			"list": []
-		},
-		"gamePlugin": {
-			"current": -1,
-			"list": []
-		},
-		"miniprogram": {
-			"current": 0,
-			"list": [
-				{
-					"id": 0,
-					"name": "pages/assembling/assembling",
-					"pathName": "pages/assembling/assembling",
-					"query": "g_id=553329226680431&p_id=569547023499337",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/assembleList/assembleList",
-					"pathName": "pages/assembleList/assembleList",
-					"query": "p_id=550580447711305",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/courseDetail/courseDetail",
-					"pathName": "pages/courseDetail/courseDetail",
-					"query": "c_id=50436084&state=0",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/writeInfo/writeInfo",
-					"pathName": "pages/writeInfo/writeInfo",
-					"query": "c_id=50397500",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/chooseJob/chooseJob",
-					"pathName": "pages/chooseJob/chooseJob",
-					"query": "c_id=50445622",
-					"scene": null
-				},
-				{
-					"id": 5,
-					"name": "pages/assembling/assembling",
-					"pathName": "pages/assembling/assembling",
-					"query": "p_id=550580447711305",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/qrcodeRedirect/qrcodeRedirect",
-					"pathName": "pages/qrcodeRedirect/qrcodeRedirect",
-					"query": "",
-					"scene": null
-				}
-			]
-		}
-	}
+  "description": "项目配置文件。",
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "postcss": true,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": false,
+    "useApiHook": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "useIsolateContext": true,
+    "useCompilerModule": false,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.8.0",
+  "appid": "wxff70d0ad5ad47f8b",
+  "projectname": "%E5%B0%8F%E7%A8%8B%E5%BA%8FHTML",
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "search": {
+      "list": []
+    },
+    "conversation": {
+      "list": []
+    },
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "currentL": -1,
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": 0,
+          "name": "pages/assembling/assembling",
+          "pathName": "pages/assembling/assembling",
+          "query": "g_id=553329226680431&p_id=569547023499337",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/assembleList/assembleList",
+          "pathName": "pages/assembleList/assembleList",
+          "query": "p_id=550580447711305",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/courseDetail/courseDetail",
+          "pathName": "pages/courseDetail/courseDetail",
+          "query": "c_id=50436084&state=0",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/writeInfo/writeInfo",
+          "pathName": "pages/writeInfo/writeInfo",
+          "query": "c_id=50397500",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/chooseJob/chooseJob",
+          "pathName": "pages/chooseJob/chooseJob",
+          "query": "c_id=50445622",
+          "scene": null
+        },
+        {
+          "id": 5,
+          "name": "pages/assembling/assembling",
+          "pathName": "pages/assembling/assembling",
+          "query": "p_id=550580447711305",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/qrcodeRedirect/qrcodeRedirect",
+          "pathName": "pages/qrcodeRedirect/qrcodeRedirect",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
 }
